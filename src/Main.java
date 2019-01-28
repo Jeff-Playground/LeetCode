@@ -203,26 +203,32 @@ public class Main {
 //        int[] nums={-10,-3,0,5,9};
 //        ConvertSortedArrayToBinarySearchTree.sortedArrayToBST(nums);
 
-        PathSumII.TreeNode root=new PathSumII.TreeNode(5);
-        PathSumII.TreeNode n1=new PathSumII.TreeNode(4);
-        PathSumII.TreeNode n2=new PathSumII.TreeNode(8);
-        PathSumII.TreeNode n3=new PathSumII.TreeNode(11);
-        PathSumII.TreeNode n4=new PathSumII.TreeNode(13);
-        PathSumII.TreeNode n5=new PathSumII.TreeNode(14);
-        PathSumII.TreeNode n6=new PathSumII.TreeNode(7);
-        PathSumII.TreeNode n7=new PathSumII.TreeNode(2);
-        PathSumII.TreeNode n8=new PathSumII.TreeNode(5);
-        PathSumII.TreeNode n9=new PathSumII.TreeNode(1);
-        root.left=n1;
-        root.right=n2;
-        n1.left=n3;
-        n2.left=n4;
-        n2.right=n5;
-        n3.left=n6;
-        n3.right=n7;
-        n5.left=n8;
-        n5.right=n9;
-        PathSumII test=new PathSumII();
-        test.pathSum(root, 22);
+//        PathSumII.TreeNode root=new PathSumII.TreeNode(5);
+//        PathSumII.TreeNode n1=new PathSumII.TreeNode(4);
+//        PathSumII.TreeNode n2=new PathSumII.TreeNode(8);
+//        PathSumII.TreeNode n3=new PathSumII.TreeNode(11);
+//        PathSumII.TreeNode n4=new PathSumII.TreeNode(13);
+//        PathSumII.TreeNode n5=new PathSumII.TreeNode(14);
+//        PathSumII.TreeNode n6=new PathSumII.TreeNode(7);
+//        PathSumII.TreeNode n7=new PathSumII.TreeNode(2);
+//        PathSumII.TreeNode n8=new PathSumII.TreeNode(5);
+//        PathSumII.TreeNode n9=new PathSumII.TreeNode(1);
+//        root.left=n1;
+//        root.right=n2;
+//        n1.left=n3;
+//        n2.left=n4;
+//        n2.right=n5;
+//        n3.left=n6;
+//        n3.right=n7;
+//        n5.left=n8;
+//        n5.right=n9;
+//        PathSumII test=new PathSumII();
+//        test.pathSum(root, 22);
+
+//        NQueens.solveNQueens(4);
+
+//        ValidNumber.isNumber(".0");
+
+//        Combinations.combine(6, 3);
     }
 }
