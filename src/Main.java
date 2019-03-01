@@ -1,5 +1,8 @@
+import com.wen.FourthFifty.*;
 import com.wen.SecondFifty.*;
 import com.wen.ThirdFifty.*;
+
+import java.util.Arrays;
 
 public class Main {
 
@@ -230,5 +233,104 @@ public class Main {
 //        ValidNumber.isNumber(".0");
 
 //        Combinations.combine(6, 3);
+
+//        int[] prices={3,3,5,0,0,3,1,4};
+//        BestTimeToBuyAndSellStockIII.maxProfit(prices);
+
+//        ValidPalindrome.isPalindrome("0P");
+
+//        WordLadderII.findLadders("hit", "cog", Arrays.asList("hot","dot","dog","lot","log","cog"));
+
+//        WordLadder.ladderLength("hit", "cog", Arrays.asList("hot","dot","dog","lot","log","cog"));
+
+//        char[][] matrix=new char[][]{{'X','X','X','X'},{'X','O','O','X'},{'X','X','O','X'},{'X','O','X','X'}};
+//        char[][] matrix=new char[][]{{'O','O'},{'O','O'}};
+//        SurroundedRegions.solve(matrix);
+
+//        PalindromePartitioning.partition("aab");
+
+//        ReverseBits.reverseBits(43261596);
+
+//        PalindromePartitioningII.minCut("aab");
+
+//        CloneGraph.UndirectedGraphNode node=new CloneGraph.UndirectedGraphNode(0);
+//        node.neighbors.add(node);
+//        node.neighbors.add(node);
+//        CloneGraph.cloneGraph(node);
+
+//        int[] ratings={1,3,2,2,1};
+//        Candy.candy(ratings);
+
+//        WordBreakII.wordBreak("catsanddog", Arrays.asList("cat","cats","and","sand","dog"));
+
+//        LRUCache cache=new LRUCache(2);
+//        cache.put(1,1);
+//        cache.put(2,2);
+//        cache.get(1);
+//        cache.put(3,3);
+//        cache.get(2);
+//        cache.put(4,4);
+//        cache.get(1);
+//        cache.get(3);
+//        cache.get(4);
+
+////        MaxPointsOnALine.Point[] points={new MaxPointsOnALine.Point(1,1), new MaxPointsOnALine.Point(3,2),
+////                new MaxPointsOnALine.Point(5,3), new MaxPointsOnALine.Point(4,1), new MaxPointsOnALine.Point(2,3),
+////                new MaxPointsOnALine.Point(1,4)};
+//        MaxPointsOnALine.Point[] points={new MaxPointsOnALine.Point(2,3), new MaxPointsOnALine.Point(3,3),
+//                new MaxPointsOnALine.Point(-5, 3)};
+//        MaxPointsOnALine.maxPoints(points);
+
+//        String[] tokens={"4","13","5","/","+"};
+//        EvaluateReversePolishNotation.evalRPN(tokens);
+
+//        ReverseWordsInAString.reverseWords("   the    sky is blue   ");
+
+//        int[] nums={2,2,2,0,1};
+//        FindMinimumInRotatedSortedArrayII.findMin(nums);
+
+//        MinStack minStack=new MinStack();
+//        minStack.push(-2);
+//        minStack.push(0);
+//        minStack.push(-3);
+//        int min1=minStack.getMin();
+//        minStack.pop();
+//        int top=minStack.top();
+//        int min2=minStack.getMin();
+
+//        LQBinaryTreeUpsideDown.TreeNode root=new LQBinaryTreeUpsideDown.TreeNode(1);
+//        LQBinaryTreeUpsideDown.TreeNode n1=new LQBinaryTreeUpsideDown.TreeNode(2);
+//        LQBinaryTreeUpsideDown.TreeNode n2=new LQBinaryTreeUpsideDown.TreeNode(3);
+//        LQBinaryTreeUpsideDown.TreeNode n3=new LQBinaryTreeUpsideDown.TreeNode(4);
+//        LQBinaryTreeUpsideDown.TreeNode n4=new LQBinaryTreeUpsideDown.TreeNode(5);
+//        LQBinaryTreeUpsideDown.TreeNode n5=new LQBinaryTreeUpsideDown.TreeNode(6);
+//        LQBinaryTreeUpsideDown.TreeNode n6=new LQBinaryTreeUpsideDown.TreeNode(7);
+//        root.left=n1;
+//        root.right=n2;
+//        n1.left=n3;
+//        n1.right=n4;
+//        n2.left=n5;
+//        n2.right=n6;
+//        LQBinaryTreeUpsideDown.upsideDownBinaryTree(root);
+
+//        LQLongestSubstringWithAtMostTwoDistinctCharacters.lengthOfLongestSubstringTwoDistinct("eceba",3);
+
+        IntersectionOfTwoLinkedLists.ListNode n1=new IntersectionOfTwoLinkedLists.ListNode(4);
+        IntersectionOfTwoLinkedLists.ListNode n2=new IntersectionOfTwoLinkedLists.ListNode(1);
+        IntersectionOfTwoLinkedLists.ListNode n3=new IntersectionOfTwoLinkedLists.ListNode(8);
+        IntersectionOfTwoLinkedLists.ListNode n4=new IntersectionOfTwoLinkedLists.ListNode(4);
+        IntersectionOfTwoLinkedLists.ListNode n5=new IntersectionOfTwoLinkedLists.ListNode(5);
+        n1.next=n2;
+        n2.next=n3;
+        n3.next=n4;
+        n4.next=n5;
+
+        IntersectionOfTwoLinkedLists.ListNode n6=new IntersectionOfTwoLinkedLists.ListNode(5);
+        IntersectionOfTwoLinkedLists.ListNode n7=new IntersectionOfTwoLinkedLists.ListNode(0);
+        IntersectionOfTwoLinkedLists.ListNode n8=new IntersectionOfTwoLinkedLists.ListNode(1);
+        n6.next=n7;
+        n7.next=n8;
+//        n8.next=n3;
+        IntersectionOfTwoLinkedLists.getIntersectionNode(n1,n6);
     }
 }
