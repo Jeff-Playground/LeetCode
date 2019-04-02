@@ -11,27 +11,27 @@ public class CloneGraph {
         }
     }
 
-    // DFS recursive
-    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-        Map<Integer, UndirectedGraphNode> visited=new HashMap<>();
-        return cloneGraphDFS(visited, node);
-    }
-
-    private UndirectedGraphNode cloneGraphDFS(Map<Integer, UndirectedGraphNode> visited, UndirectedGraphNode node) {
-        if(node==null){
-            return null;
-        }
-        if(visited.get(node.label)==null){
-            UndirectedGraphNode copy=new UndirectedGraphNode(node.label);
-            visited.put(node.label, copy);
-            for(UndirectedGraphNode n: node.neighbors){
-                copy.neighbors.add(cloneGraphDFS(visited, n));
-            }
-            return copy;
-        } else{
-            return visited.get(node.label);
-        }
-    }
+//    // DFS recursive
+//    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+//        Map<Integer, UndirectedGraphNode> visited=new HashMap<>();
+//        return cloneGraphDFS(visited, node);
+//    }
+//
+//    private UndirectedGraphNode cloneGraphDFS(Map<Integer, UndirectedGraphNode> visited, UndirectedGraphNode node) {
+//        if(node==null){
+//            return null;
+//        }
+//        if(visited.get(node.label)==null){
+//            UndirectedGraphNode copy=new UndirectedGraphNode(node.label);
+//            visited.put(node.label, copy);
+//            for(UndirectedGraphNode n: node.neighbors){
+//                copy.neighbors.add(cloneGraphDFS(visited, n));
+//            }
+//            return copy;
+//        } else{
+//            return visited.get(node.label);
+//        }
+//    }
 
 //    // DFS with Stack, this can be further optimized to get rid of visited. The underlying logic is to ensure no duplicates enters the stack.
 //    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
@@ -108,4 +108,34 @@ public class CloneGraph {
 //        }
 //        return created.get(node.label);
 //    }
+
+    // BFS, optimized to get rid of visited (Basically just use created as visited)
+    public static UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        if(node==null){
+            return null;
+        }
+        Map<Integer, UndirectedGraphNode> created=new HashMap<>();
+        Queue<UndirectedGraphNode> queue=new LinkedList<>();
+        UndirectedGraphNode nodeCopy=new UndirectedGraphNode(node.label);
+        created.put(node.label, nodeCopy);
+        queue.offer(node);
+        while(!queue.isEmpty()){
+            for(int i=queue.size(); i>0; i--){
+                UndirectedGraphNode cur=queue.poll();
+                for(UndirectedGraphNode n: cur.neighbors){
+                    if(created.get(n.label)==null){
+                        queue.offer(n);
+                        UndirectedGraphNode nCopy=new UndirectedGraphNode(n.label);
+                    }
+                    UndirectedGraphNode nCopy=null;
+                    if(created.get(n.label)==null){
+                        nCopy=new UndirectedGraphNode(n.label);
+                        created.put(n.label, nCopy);
+                    }
+                    cur.neighbors.add(created.get(n.label));
+                }
+            }
+        }
+        return created.get(node.label);
+    }
 }

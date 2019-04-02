@@ -13,6 +13,9 @@ public class Candy {
             if(ratings[i]>=ratings[i-1]){
                 if(count>0){
                     result+=(count+1)*count/2;
+                    // Doing this because count is actually the decreasing array length-1, the first element is not necessarily (count+1), it can be larger if
+                    // the element before it has a value >=(count+1). pre was the initial value given to it, if it's smaller then count+1, then it needs to be
+                    // pushed up
                     if(count>=pre){
                         result+=count-pre+1;
                     }
@@ -40,7 +43,7 @@ public class Candy {
 //        if(ratings==null || ratings.length==0){
 //            return 0;
 //        }
-//        int result=0, n=ratings.length, pre=-1, next=0;
+//        int result=0, n=ratings.length, pre=-1, decreasingHeadValue=0;
 //        int[] nums=new int[n];
 //        nums[0]=1;
 //        for(int i=0; i<n-1; i++){
@@ -53,13 +56,13 @@ public class Candy {
 //            } else{
 //                if(pre==-1){
 //                    pre=i;
-//                    next=1;
+//                    decreasingHeadValue=1;
 //                }
 //                if(nums[i]==1 && pre<i){
 //                    result+=i-pre;
-//                    next++;
+//                    decreasingHeadValue++;
 //                }
-//                if(nums[pre]==next){
+//                if(nums[pre]==decreasingHeadValue){
 //                    nums[pre]++;
 //                }
 //                nums[i+1]=1;

@@ -78,7 +78,7 @@ public class WordBreak {
 //                    return true;
 //                }
 //                boolean result=wordBreak(parts[0], wordDict);
-//                for(int i=0; i<parts.length; i++) {
+//                for(int i=1; i<parts.length; i++) {
 //                    result=result && wordBreak(parts[i], wordDict);
 //                }
 //                if(result) {
