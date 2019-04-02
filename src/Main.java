@@ -251,7 +251,7 @@ public class Main {
 
 //        ReverseBits.reverseBits(43261596);
 
-        PalindromePartitioningII.minCut("aab");
+//        PalindromePartitioningII.minCut("aab");
 
 //        CloneGraph.UndirectedGraphNode node=new CloneGraph.UndirectedGraphNode(0);
 //        node.neighbors.add(node);
@@ -285,6 +285,9 @@ public class Main {
 //        EvaluateReversePolishNotation.evalRPN(tokens);
 
 //        ReverseWordsInAString.reverseWords("   the    sky is blue   ");
+
+        int[] nums={1,2,3,4,5};
+        FindMinimumInRotatedSortedArray.findMin(nums);
 
 //        int[] nums={2,2,2,0,1};
 //        FindMinimumInRotatedSortedArrayII.findMin(nums);
