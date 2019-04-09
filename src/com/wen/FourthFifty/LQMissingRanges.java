@@ -3,7 +3,7 @@ package com.wen.FourthFifty;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MissingRanges {
+public class LQMissingRanges {
     public static List<String> findMissingRanges(int[] nums, int lower, int upper) {
         List<String> result=new ArrayList<>();
         if(nums.length==0){
