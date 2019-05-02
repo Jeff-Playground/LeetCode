@@ -5,20 +5,19 @@ import java.util.List;
 
 public class Permutations {
     public static List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> result=new ArrayList<List<Integer>>();
-        result.add(new ArrayList<Integer>());
-
+        List<List<Integer>> result=new ArrayList<>();
+        List<Integer> init=new ArrayList<>();
+        result.add(init);
         for(int i=0; i<nums.length; i++){
-            List<List<Integer>> current=new ArrayList<List<Integer>>();
-            for(List<Integer> list: result){
-                for(int j=0; j< list.size()+1; j++){
-                    list.add(j, nums[i]);
-                    ArrayList<Integer> temp = new ArrayList<Integer>(list);
-                    current.add(temp);
-                    list.remove(j);
+            List<List<Integer>> current=new ArrayList<>();
+            for(List<Integer> element: result){
+                for(int j=0; j<element.size()+1; j++){
+                    element.add(j, nums[i]);
+                    current.add(new ArrayList<Integer>(element));
+                    element.remove(j);
                 }
             }
-            result = new ArrayList<List<Integer>>(current);
+            result=current;
         }
         return result;
     }
@@ -45,10 +44,10 @@ public class Permutations {
 //        }
 //    }
 //
-//    private static void swap(int[] nums, int start, int i) {
-//        int temp=nums[start];
-//        nums[start]=nums[i];
-//        nums[i]=temp;
+//    private static void swap(int[] nums, int first, int second) {
+//        int temp=nums[first];
+//        nums[first]=nums[second];
+//        nums[second]=temp;
 //    }
 //
 //    private static List<Integer> convertArrayToList(int[] nums) {

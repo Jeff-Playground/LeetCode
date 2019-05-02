@@ -3,73 +3,86 @@ package com.wen.FirstFifty;
 public class ReverseNodesInKGroup {
     public static class ListNode {
         int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
+        public ListNode next;
+        public ListNode(int x) { val = x; }
     }
 
-    // Recursive
-    public ListNode reverseKGroup(ListNode head, int k) {
-        ListNode p = head;
-        int i = 0;
-        while(p != null && i < k) {
-            p = p.next;
-            i++;
-        }
-        if(i == k) {
-            p = reverseKGroup(p, k);
-            while(i-- > 0) {
-                ListNode tmp = head.next;
-                head.next = p;
-                p = head;
-                head = tmp;
-            }
-            head = p;
-        }
-        return head;
-    }
-
-    // Loop
+//    // Recursive
 //    public ListNode reverseKGroup(ListNode head, int k) {
-//        if(k==1 || head==null || head.next==null){
-//            return head;
+//        ListNode p = head;
+//        int i = 0;
+//        while(p != null && i < k) {
+//            p = p.next;
+//            i++;
 //        }
-//        ListNode dummy=new ListNode(-1);
-//        dummy.next=head;
-//        ListNode pre=dummy;
-//        ListNode left=dummy;
-//        ListNode right=dummy;
-//        int i=k+1;
-//        while(i==k+1){
-//            ListNode temp=pre;
-//            int j=1;
-//            while(j<k+1){
-//                if(temp.next==null){
-//                    break;
-//                } else{
-//                    temp= temp.next;
-//                    j++;
-//                }
+//        if(i == k) {
+//            p = reverseKGroup(p, k);
+//            while(i-- > 0) {
+//                ListNode tmp = head.next;
+//                head.next = p;
+//                p = head;
+//                head = tmp;
 //            }
-//            if(j<k+1){
+//            head = p;
+//        }
+//        return head;
+//    }
+
+//    // Loop
+//    public ListNode reverseKGroup(ListNode head, int k) {
+//        ListNode dummy=new ListNode(-1);
+//        ListNode next=head, cur=head, curNew=dummy;
+//        while(next!=null){
+//            int i=1;
+//            while(next!=null && i<k){
+//                next=next.next;
+//                i++;
+//            }
+//            if(i==k && next!=null){
+//                next=next.next;
+//                ListNode tail=cur;
+//                while(cur!=next){
+//                    ListNode temp1=curNew.next;
+//                    curNew.next=cur;
+//                    ListNode temp2=cur.next;
+//                    cur.next=temp1;
+//                    cur=temp2;
+//                }
+//                curNew=tail;
+//            } else{
+//                curNew.next=cur;
 //                break;
 //            }
-//            left=pre.next;
-//            right=left.next;
-//            i=2;
-//            while(i<k+1){
-//                if(right==null){
-//                    break;
-//                } else{
-//                    left.next=right.next;
-//                    right.next=pre.next;
-//                    pre.next=right;
-//                    right=left.next;
-//                    i++;
-//                }
-//            }
-//            pre=left;
-//            i=k+1;
 //        }
 //        return dummy.next;
 //    }
+
+    // Recursive
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if(head==null || k==1){
+            return head;
+        }
+        int i=1;
+        ListNode dummy=new ListNode(-1);
+        dummy.next=head;
+        ListNode next=head;
+        while(next!=null && i<k){
+            next=next.next;
+        }
+        if(i==k && next!=null){
+            next=next.next;
+            ListNode cur=head;
+            while(cur!=next){
+                ListNode temp=dummy.next;
+                ListNode curNext=cur.next;
+                dummy.next=cur;
+                cur.next=temp;
+                cur=curNext;
+            }
+            head.next=reverseKGroup(next, k);
+        } else{
+            return head;
+        }
+        return dummy.next;
+    }
 }

@@ -1,7 +1,7 @@
 package com.wen.FirstFifty;
 
 public class WildcardMatching {
-    public boolean isMatch(String s, String p) {
+    public static boolean isMatch(String s, String p) {
         int m=s.length(), n=p.length();
         int sStar=-1, sCur=0;
         int pStar=-1, pCur=0;
@@ -15,8 +15,7 @@ public class WildcardMatching {
                 pCur++;
             } else if(pStar!=-1) {
                 pCur=pStar+1;
-                sCur=sStar+1;
-                sStar++;
+                sCur=++sStar;
             } else {
                 return false;
             }

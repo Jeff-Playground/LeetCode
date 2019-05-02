@@ -1,58 +1,55 @@
 package com.wen.FirstFifty;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SubstringWithConcatenationOfAllWords {
     // Jumping based on words length are same
-    public static List<Integer> findSubstring(String s, String[] words) {
-        List<Integer> result=new ArrayList<Integer>();
-        if(s==null||s.length()==0||words==null||words.length==0){
-            return result;
+    // Use a Set<Integer> to do pruning for checked indices
+    public List<Integer> findSubstring(String s, String[] words) {
+        List<Integer> result=new ArrayList<>();
+        if(s==null || s.length()==0 || words==null || words.length==0){
+            return new ArrayList<Integer>(result);
         }
-        Map<String, Integer> wordsMap=new HashMap<String, Integer>();
-        for(String word:words){
-            if(wordsMap.containsKey(word)){
-                wordsMap.put(word, wordsMap.get(word)+1);
-            }else{
-                wordsMap.put(word,1);
+        Map<String, Integer> wordsMap=new HashMap<>();
+        for(String word: words){
+            wordsMap.put(word, wordsMap.getOrDefault(word, 0)+1);
+        }
+        int k=words[0].length(), l=words.length;
+        Set<Integer> checked=new HashSet<>();
+        for(int i=0; i<s.length()-k*l+1; i++){
+            if(checked.contains(i)){
+                continue;
             }
-        }
-
-        int len=words[0].length();
-        Map<String, Integer> current=new HashMap<String, Integer>();
-        for(int i=0; i<len; i++){
-            int start=i;
-            int count=words.length;
-            current.clear();
-            for(int j=i; j<s.length()-len+1; j+=len){
-                String sub=s.substring(j, j+len);
-                if(wordsMap.containsKey(sub)){
-                    if(current.containsKey(sub)){
-                        current.put(sub, current.get(sub)+1);
-                    }else{
-                        current.put(sub, 1);
+            if(wordsMap.containsKey(s.substring(i, i+k))){
+                Map<String, Integer> current=new HashMap<>();
+                int start=i, count=0;
+                checked.add(start);
+                for(int j=i; j<s.length(); j+=k){
+                    if(j+k>s.length()){
+                        break;
                     }
-                    count--;
-                    while(current.get(sub)>wordsMap.get(sub)){
-                        String temp=s.substring(start, start+len);
-                        current.put(temp, current.get(temp)-1);
-                        start=start+len;
+                    if(wordsMap.containsKey(s.substring(j, j+k))){
+                        String word=s.substring(j, j+k);
+                        while(current.getOrDefault(word, 0)==wordsMap.get(word)){
+                            String startWord=s.substring(start, start+k);
+                            current.put(startWord, current.get(startWord)-1);
+                            count--;
+                            start+=k;
+                            checked.add(start);
+                        }
+                        current.put(word, current.getOrDefault(word, 0)+1);
                         count++;
+                    } else{
+                        break;
                     }
-                    if(count==0){
+                    if(count==l){
                         result.add(start);
-                        String temp=s.substring(start, start+len);
-                        current.put(temp, current.get(temp)-1);
-                        start=start+len;
-                        count++;
+                        String startWord=s.substring(start, start+k);
+                        current.put(startWord, current.get(startWord)-1);
+                        count--;
+                        start+=k;
+                        checked.add(start);
                     }
-                }else{
-                    start=j+len;
-                    current.clear();
-                    count=words.length;
                 }
             }
         }

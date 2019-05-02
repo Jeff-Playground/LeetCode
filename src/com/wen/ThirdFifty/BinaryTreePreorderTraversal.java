@@ -12,19 +12,28 @@ public class BinaryTreePreorderTraversal {
         public TreeNode(int x) { val = x; }
     }
 
-    // Iterative 2 with Stack(template)
+
+    // Morris Traversal
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result=new ArrayList<>();
-        Stack<TreeNode> stack=new Stack<>();
-        TreeNode cur=root;
-        while(!stack.isEmpty() || cur!=null){
-            if(cur!=null){
-                stack.push(cur);
-                result.add(cur.val);
-                cur=cur.left;
+        TreeNode cur=root, pre=null;
+        while(cur!=null){
+            if(cur.left!=null){
+                pre=cur.left;
+                while(pre.right!=null && pre.right!=cur){
+                    pre=pre.right;
+                }
+                if(pre.right==null){
+                    result.add(cur.val);
+                    pre.right=cur;
+                    cur=cur.left;
+                } else{
+                    pre.right=null;
+                    cur=cur.right;
+                }
             } else{
-                TreeNode temp=stack.pop();
-                cur=temp.right;
+                result.add(cur.val);
+                cur=cur.right;
             }
         }
         return result;
@@ -33,19 +42,16 @@ public class BinaryTreePreorderTraversal {
 //    // Iterative using a stack
 //    public List<Integer> preorderTraversal(TreeNode root) {
 //        List<Integer> result=new ArrayList<>();
-//        if(root==null){
-//            return result;
-//        }
+//        TreeNode cur=root;
 //        Stack<TreeNode> stack=new Stack<>();
-//        stack.push(root);
-//        while(!stack.isEmpty()){
-//            TreeNode cur=stack.pop();
-//            result.add(cur.val);
-//            if(cur.right!=null){
-//                stack.push(cur.right);
-//            }
-//            if(cur.left!=null){
-//                stack.push(cur.left);
+//        while(cur!=null || !stack.isEmpty()){
+//            if(cur!=null){
+//                result.add(cur.val);
+//                stack.push(cur);
+//                cur=cur.left;
+//            } else{
+//                cur=stack.pop();
+//                cur=cur.right;
 //            }
 //        }
 //        return result;

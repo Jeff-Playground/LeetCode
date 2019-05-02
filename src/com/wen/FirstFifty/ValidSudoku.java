@@ -53,20 +53,20 @@ public class ValidSudoku {
 //        if(board==null || board.length!=9 || board[0].length!=9){
 //            return false;
 //        }
-//        int rowSize=9, columnSize=9;
-//        boolean[][] rowFlag=new boolean[rowSize][columnSize];
-//        boolean[][] columnFlag=new boolean[rowSize][columnSize];
-//        boolean[][] cellFlag=new boolean[rowSize][columnSize];
+//        int rowSize=9, columnSize=9, cellSize=9, numberCount=9;
+//        boolean[][] validRow=new boolean[rowSize][numberCount];
+//        boolean[][] validColumn=new boolean[columnSize][numberCount];
+//        boolean[][] validCell=new boolean[cellSize][numberCount];
 //        for(int i=0; i<rowSize; i++){
 //            for(int j=0; j<columnSize; j++){
 //                if(board[i][j]>='1' && board[i][j]<='9'){
-//                    int c=board[i][j]-'1';
-//                    if(rowFlag[i][c] || columnFlag[c][j] || cellFlag[3*(i/3)+j/3][c]){
+//                    int num=board[i][j]-'1';
+//                    if(validRow[i][num] || validColumn[j][num] || validCell[i/3*3+j/3][num]){
 //                        return false;
 //                    }
-//                    rowFlag[i][c]=true;
-//                    columnFlag[c][j]=true;
-//                    cellFlag[3*(i/3)+j/3][c]=true;
+//                    validRow[i][num]=true;
+//                    validColumn[j][num]=true;
+//                    validCell[i/3*3+j/3][num]=true;
 //                }
 //            }
 //        }

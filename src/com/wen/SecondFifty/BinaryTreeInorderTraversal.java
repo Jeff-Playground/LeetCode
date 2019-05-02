@@ -12,90 +12,39 @@ public class BinaryTreeInorderTraversal {
         public TreeNode(int x) { val = x; }
     }
 
-    // Morris Traversal(my way without changing the tree structure)
+    // Morris Traversal
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result=new ArrayList<>();
+        Stack<TreeNode> stack=new Stack<>();
         TreeNode cur=root;
-        TreeNode pre;
-        while(cur!=null){
-            if(cur.left==null){
+        while(cur!=null || !stack.isEmpty()){
+            if(cur!=null){
+                stack.push(cur);
+                cur=cur.left;
+            } else{
+                cur=stack.pop();
                 result.add(cur.val);
                 cur=cur.right;
-            } else{
-                pre=cur.left;
-                while(pre.right!=null && pre.right!=cur){
-                    pre=pre.right;
-                }
-                if(pre.right==null){
-                    pre.right=cur;
-                    cur=cur.left;
-                } else{
-                    pre.right=null;
-                    result.add(cur.val);
-                    cur=cur.right;
-                }
             }
         }
-        return result;
+        return  result;
     }
-
-//    // Morris Traversal(non-recursive and no stack)
-//    public List<Integer> inorderTraversal(TreeNode root) {
-//        List<Integer> result=new ArrayList<>();
-//        TreeNode cur=root;
-//        TreeNode pre;
-//        while(cur!=null){
-//            if(cur.left==null){
-//                result.add(cur.val);
-//                cur=cur.right;
-//            } else{
-//                pre=cur.left;
-//                while(pre.right!=null){
-//                    pre=pre.right;
-//                }
-//                pre.right=cur;
-//                // This part changes the structure of the tree
-//                TreeNode temp=cur;
-//                cur=cur.left;
-//                temp.left=null;
-//            }
-//        }
-//        return result;
-//    }
-
-//    // Iterative with Stack 2
-//    public List<Integer> inorderTraversal(TreeNode root) {
-//        List<Integer> result=new ArrayList<>();
-//        Stack<TreeNode> stack=new Stack<>();
-//        TreeNode p=root;
-//        while(p!=null || !stack.isEmpty()){
-//            if(p!=null){
-//                stack.push(p);
-//                p=p.left;
-//            } else{
-//                TreeNode t=stack.pop();
-//                result.add(t.val);
-//                p=t.right;
-//            }
-//        }
-//        return result;
-//    }
 
 //    // Iterative with Stack
 //    public List<Integer> inorderTraversal(TreeNode root) {
 //        List<Integer> result=new ArrayList<>();
 //        Stack<TreeNode> stack=new Stack<>();
-//        TreeNode p=root;
-//        while(p!=null || !stack.isEmpty()){
-//            while(p!=null){
-//                stack.push(p);
-//                p=p.left;
+//        TreeNode cur=root;
+//        while(cur!=null || !stack.isEmpty()){
+//            while(cur!=null){
+//                stack.push(cur);
+//                cur=cur.left;
 //            }
-//            p=stack.pop();
-//            result.add(p.val);
-//            p=p.right;
+//            cur=stack.pop();
+//            result.add(cur.val);
+//            cur=cur.right;
 //        }
-//        return result;
+//        return  result;
 //    }
 
 //    // Recursive
