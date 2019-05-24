@@ -30,7 +30,7 @@ public class BalancedBinaryTree {
             return -1;
         }
         int diff=Math.abs(left-right);
-        if(diff==-1){
+        if(diff>1){
             return -1;
         } else{
             return 1+Math.max(left, right);
