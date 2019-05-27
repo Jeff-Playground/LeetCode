@@ -2,36 +2,28 @@ package com.wen.FirstFifty;
 
 public class LongestPalindromicSubstring {
     public static String longestPalindrome(String s) {
-        if(s.length()<2){
-            return s;
-        }
         String t="#$";
         for(int i=0; i<s.length(); i++){
-            t+=s.charAt(i);
-            t+="$";
+            t+=s.charAt(i)+"$";
         }
-
-        int mid=0, rmax=0, midr=0, rr=0;
-        int[] flags=new int[t.length()];
-        for(int i=0; i<t.length(); i++){
-            flags[i]=rmax>=i?Math.min(flags[2*mid-i], rmax-i):1;
-            while(i+flags[i]<t.length()&&i-flags[i]>=0){
-                if(t.charAt(i+flags[i])==t.charAt(i-flags[i])){
-                    flags[i]++;
-                }else{
-                    break;
-                }
+        int l=t.length();
+        String result="";
+        int[] reach=new int[l];
+        int mid=0, rMax=0;
+        for(int i=1; i<l; i++){
+            reach[i]=i<=mid+rMax-1?Math.min(reach[mid*2-i],mid+rMax-i):1;
+            while(i-reach[i]>=0 && i+reach[i]<l && t.charAt(i-reach[i])==t.charAt(i+reach[i])){
+                reach[i]++;
             }
-            if(i+flags[i]-1>rmax){
+            if(reach[i]>rMax){
                 mid=i;
-                rmax=i+flags[i]-1;
-            }
-            if((rmax-mid+1)>rr){
-                rr=rmax-mid+1;
-                midr=mid;
+                rMax=reach[i];
             }
         }
-        return s.substring((midr-rr)/2, (midr+rr)/2-1);
+        if(mid!=0){
+            result=s.substring((mid-rMax+1)/2, (mid+rMax-1)/2);
+        }
+        return result;
     }
 
 
@@ -40,18 +32,18 @@ public class LongestPalindromicSubstring {
 //        if(s.length()<=1){
 //            return s;
 //        }
-//        int[][] flags=new int[s.length()][s.length()];
+//        int[][] isPalindrome=new int[s.length()][s.length()];
 //        int left=0, right=0, len=0;
 //        for(int j=0; j<s.length(); j++){
 //            for(int i=0; i<=j; i++){
 //                if(i==j){
-//                    flags[i][j]=1;
+//                    isPalindrome[i][j]=1;
 //                } else if(i==j-1){
-//                    flags[i][j]=s.charAt(i)==s.charAt(j)?1:0;
+//                    isPalindrome[i][j]=s.charAt(i)==s.charAt(j)?1:0;
 //                } else{
-//                    flags[i][j]=(flags[i+1][j-1]==1)&&s.charAt(i)==s.charAt(j)?1:0;
+//                    isPalindrome[i][j]=(isPalindrome[i+1][j-1]==1)&&s.charAt(i)==s.charAt(j)?1:0;
 //                }
-//                if(flags[i][j]==1 && j-i+1>len){
+//                if(isPalindrome[i][j]==1 && j-i+1>len){
 //                    len=j-i+1;
 //                    left=i;
 //                    right=j;

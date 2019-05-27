@@ -90,7 +90,7 @@ public class ValidateBinarySearchTree {
 //        inorder(root.right, list);
 //    }
 
-//    // BST
+//    // DFS
 //    public boolean isValidBST(TreeNode root) {
 //        if(root==null){
 //            return true;
