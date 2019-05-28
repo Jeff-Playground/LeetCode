@@ -18,7 +18,7 @@ public class SerializeAndDeserializeBinaryTree {
         if(root==null){
             return null;
         }
-        String result="";
+        StringBuilder result=new StringBuilder();
         Queue<TreeNode> queue=new LinkedList<>();
         int notNullCountCur=1, notNullCountNext=0;
         queue.offer(root);
@@ -30,10 +30,10 @@ public class SerializeAndDeserializeBinaryTree {
                     if(notNullCountCur==0 && notNullCountNext==0){
                         break;
                     } else{
-                        result+="null,";
+                        result.append("null,");
                     }
                 } else{
-                    result+=cur.val+",";
+                    result.append(cur.val+",");
                     notNullCountCur--;
                     queue.offer(cur.left);
                     queue.offer(cur.right);
@@ -48,8 +48,8 @@ public class SerializeAndDeserializeBinaryTree {
             notNullCountCur=notNullCountNext;
             notNullCountNext=0;
         }
-        result="["+result.substring(0, result.length()-1)+"]";
-        return result;
+        result.delete(result.length()-1, result.length()).insert(0,"[").append("]");
+        return result.toString();
     }
 
     // Decodes your encoded data to tree.

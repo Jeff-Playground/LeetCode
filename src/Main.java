@@ -1,3 +1,4 @@
+import com.wen.EighthFifty.RotateFunction;
 import com.wen.FirstFifty.*;
 import com.wen.FourthFifty.*;
 import com.wen.SecondFifty.*;
@@ -46,8 +47,8 @@ public class Main {
 //        int[] nums={2,3,1,1,4};
 //        JumpGameII.jump(nums);
 
-        int[] nums={1,2,3};
-        Permutations.permute(nums);
+//        int[] nums={1,2,3};
+//        Permutations.permute(nums);
 
 //        int[] nums={1,1,2};
 //        PermutationsII.permuteUnique(nums);
@@ -351,5 +352,8 @@ public class Main {
 //        HouseRobber.rob(nums);
 
 //        WildcardMatching.isMatch("adceb", "*a*b");
+
+        int[] nums={4,3,2,6};
+        RotateFunction.maxRotateFunction(nums);
     }
 }
