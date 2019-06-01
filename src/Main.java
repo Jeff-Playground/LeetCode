@@ -1,8 +1,13 @@
+import com.wen.EighthFifty.DesignTwitter;
 import com.wen.EighthFifty.RotateFunction;
+import com.wen.FifteenthFifty.MinCostClimbingStairs;
+import com.wen.FifteenthFifty.SplitLinkedListInParts;
 import com.wen.FirstFifty.*;
 import com.wen.FourthFifty.*;
 import com.wen.SecondFifty.*;
+import com.wen.TenthFifty.RepeatedSubstringPattern;
 import com.wen.ThirdFifty.*;
+import com.wen.ThirteenthFifty.SetMismatch;
 
 import java.util.Arrays;
 
@@ -353,7 +358,45 @@ public class Main {
 
 //        WildcardMatching.isMatch("adceb", "*a*b");
 
-        int[] nums={4,3,2,6};
-        RotateFunction.maxRotateFunction(nums);
+//        int[] nums={4,3,2,6};
+//        RotateFunction.maxRotateFunction(nums);
+
+//        RepeatedSubstringPattern.repeatedSubstringPattern("abab");
+
+//        DesignTwitter.Twitter twitter=new DesignTwitter.Twitter();
+//        twitter.postTweet(1,5);
+//        twitter.postTweet(1,3);
+//        twitter.postTweet(1,101);
+//        twitter.postTweet(1,13);
+//        twitter.postTweet(1,10);
+//        twitter.postTweet(1,2);
+//        twitter.postTweet(1,94);
+//        twitter.postTweet(1,505);
+//        twitter.postTweet(1,333);
+//        twitter.postTweet(1,22);
+//        twitter.postTweet(1,11);
+//        twitter.getNewsFeed(1);
+
+//        int[] nums={2,3,2};
+//        SetMismatch.findErrorNums(nums);
+
+//        int[] nums={0,0,1,1};
+//        MinCostClimbingStairs.minCostClimbingStairs(nums);
+
+        SplitLinkedListInParts.ListNode l1=new SplitLinkedListInParts.ListNode(1);
+        SplitLinkedListInParts.ListNode l2=new SplitLinkedListInParts.ListNode(2);
+        SplitLinkedListInParts.ListNode l3=new SplitLinkedListInParts.ListNode(3);
+        SplitLinkedListInParts.ListNode l4=new SplitLinkedListInParts.ListNode(4);
+        SplitLinkedListInParts.ListNode l5=new SplitLinkedListInParts.ListNode(5);
+        SplitLinkedListInParts.ListNode l6=new SplitLinkedListInParts.ListNode(6);
+        SplitLinkedListInParts.ListNode l7=new SplitLinkedListInParts.ListNode(7);
+        l1.next=l2;
+        l2.next=l3;
+        l3.next=l4;
+        l4.next=l5;
+        l5.next=l6;
+        l6.next=l7;
+        SplitLinkedListInParts test=new SplitLinkedListInParts();
+        test.splitListToParts(l1,3);
     }
 }
