@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Test {
+public class UnionFind {
     public static void main(String[] args) {
         List<List<Integer>> availableRoads=new ArrayList<>();
         availableRoads.add(Arrays.asList(1,4));

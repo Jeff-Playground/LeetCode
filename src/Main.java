@@ -5,6 +5,7 @@ import com.wen.FifteenthFifty.MinCostClimbingStairs;
 import com.wen.FifteenthFifty.SplitLinkedListInParts;
 import com.wen.FirstFifty.*;
 import com.wen.FourthFifty.*;
+import com.wen.NinthFifty.SequenceReconstruction;
 import com.wen.SecondFifty.*;
 import com.wen.TenthFifty.RepeatedSubstringPattern;
 import com.wen.ThirdFifty.*;
@@ -400,15 +401,17 @@ public class Main {
 //        SplitLinkedListInParts test=new SplitLinkedListInParts();
 //        test.splitListToParts(l1,3);
 
-        LQClosestLeafInABinaryTree.TreeNode root=new LQClosestLeafInABinaryTree.TreeNode(1);
-        LQClosestLeafInABinaryTree.TreeNode n1=new LQClosestLeafInABinaryTree.TreeNode(3);
-        LQClosestLeafInABinaryTree.TreeNode n2=new LQClosestLeafInABinaryTree.TreeNode(4);
-        LQClosestLeafInABinaryTree.TreeNode n3=new LQClosestLeafInABinaryTree.TreeNode(9);
-        LQClosestLeafInABinaryTree.TreeNode n4=new LQClosestLeafInABinaryTree.TreeNode(10);
-        root.left=n1;
-        root.right=n2;
-        n2.right=n3;
-        n3.right=n4;
-        LQClosestLeafInABinaryTree.findClosestLeaf(root,4);
+//        LQClosestLeafInABinaryTree.TreeNode root=new LQClosestLeafInABinaryTree.TreeNode(1);
+//        LQClosestLeafInABinaryTree.TreeNode n1=new LQClosestLeafInABinaryTree.TreeNode(3);
+//        LQClosestLeafInABinaryTree.TreeNode n2=new LQClosestLeafInABinaryTree.TreeNode(4);
+//        LQClosestLeafInABinaryTree.TreeNode n3=new LQClosestLeafInABinaryTree.TreeNode(9);
+//        LQClosestLeafInABinaryTree.TreeNode n4=new LQClosestLeafInABinaryTree.TreeNode(10);
+//        root.left=n1;
+//        root.right=n2;
+//        n2.right=n3;
+//        n3.right=n4;
+//        LQClosestLeafInABinaryTree.findClosestLeaf(root,4);
+
+        SequenceReconstruction.sequenceReconstruction(new int[]{5,3,2,4,1}, new int[][]{{5,3,2,4},{4,1},{1},{3},{2,4},{1,1000000000}});
     }
 }
