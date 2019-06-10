@@ -2,7 +2,7 @@ package com.wen.SecondFifty;
 
 public class SortColors {
     // Two pointers
-    public void sortColors(int[] nums) {
+    public static void sortColors(int[] nums) {
         int i0=0, i2=nums.length-1;
         for(int i=0; i<=i2; i++){
             if(nums[i]==0){

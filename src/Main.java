@@ -7,6 +7,7 @@ import com.wen.FirstFifty.*;
 import com.wen.FourthFifty.*;
 import com.wen.NinthFifty.SequenceReconstruction;
 import com.wen.SecondFifty.*;
+import com.wen.SixthFifty.MissingNumber;
 import com.wen.TenthFifty.RepeatedSubstringPattern;
 import com.wen.ThirdFifty.*;
 import com.wen.ThirteenthFifty.SetMismatch;
@@ -412,6 +413,10 @@ public class Main {
 //        n3.right=n4;
 //        LQClosestLeafInABinaryTree.findClosestLeaf(root,4);
 
-        SequenceReconstruction.sequenceReconstruction(new int[]{5,3,2,4,1}, new int[][]{{5,3,2,4},{4,1},{1},{3},{2,4},{1,1000000000}});
+//        SequenceReconstruction.sequenceReconstruction(new int[]{5,3,2,4,1}, new int[][]{{5,3,2,4},{4,1},{1},{3},{2,4},{1,1000000000}});
+
+//        MissingNumber.missingNumber(new int[]{3,0,1});
+
+        SortColors.sortColors(new int[]{2,1,0,2,1,0});
     }
 }
