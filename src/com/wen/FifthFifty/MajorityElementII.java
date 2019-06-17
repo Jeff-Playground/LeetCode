@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MajorityElementII {
-    public List<Integer> majorityElement(int[] nums) {
+    public static List<Integer> majorityElement(int[] nums) {
         List<Integer> result=new ArrayList<>();
         if(nums==null || nums.length==0){
             return result;
         }
+        // Initialize num1 and num2 to be 0 is OK because at the beginning the counts are 0
         int num1=0, num2=0, count1=0, count2=0;
         for(int num: nums){
             if(num==num1){
@@ -31,7 +32,7 @@ public class MajorityElementII {
         for(int num: nums){
             if(num==num1){
                 count1++;
-            // Note here it has to be else if instead of if because this can prevent false result when num is equal to num2 init value, e.g. [0,0,0]
+                // Note here it has to be else if instead of if because this can prevent false result when num is equal to num2 init value, e.g. [0,0,0]
             } else if(num==num2){
                 count2++;
             }

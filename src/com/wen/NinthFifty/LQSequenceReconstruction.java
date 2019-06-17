@@ -2,7 +2,7 @@ package com.wen.NinthFifty;
 
 import java.util.*;
 
-public class SequenceReconstruction {
+public class LQSequenceReconstruction {
     public static boolean sequenceReconstruction(int[] org, int[][] seqs) {
         if(org.length==0 && seqs[0].length==0) {
             return true;

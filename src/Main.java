@@ -3,14 +3,16 @@ import com.wen.EighthFifty.RotateFunction;
 import com.wen.FifteenthFifty.LQClosestLeafInABinaryTree;
 import com.wen.FifteenthFifty.MinCostClimbingStairs;
 import com.wen.FifteenthFifty.SplitLinkedListInParts;
+import com.wen.FifthFifty.MajorityElementII;
 import com.wen.FirstFifty.*;
 import com.wen.FourthFifty.*;
-import com.wen.NinthFifty.SequenceReconstruction;
+import com.wen.NinthFifty.LQSequenceReconstruction;
 import com.wen.SecondFifty.*;
 import com.wen.SixthFifty.MissingNumber;
 import com.wen.TenthFifty.RepeatedSubstringPattern;
 import com.wen.ThirdFifty.*;
 import com.wen.ThirteenthFifty.SetMismatch;
+import com.wen.TwentyFirstFifty.FindCommonCharacters;
 
 import java.util.Arrays;
 
@@ -417,6 +419,10 @@ public class Main {
 
 //        MissingNumber.missingNumber(new int[]{3,0,1});
 
-        SortColors.sortColors(new int[]{2,1,0,2,1,0});
+//        SortColors.sortColors(new int[]{2,1,0,2,1,0});
+
+//        FindCommonCharacters.commonChars(new String[]{"bella","label","roller"});
+
+        MajorityElementII.majorityElement(new int[]{1,2,2,3,2,1,1,3});
     }
 }
