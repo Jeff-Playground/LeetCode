@@ -4,6 +4,7 @@ import com.wen.FifteenthFifty.LQClosestLeafInABinaryTree;
 import com.wen.FifteenthFifty.MinCostClimbingStairs;
 import com.wen.FifteenthFifty.SplitLinkedListInParts;
 import com.wen.FifthFifty.MajorityElementII;
+import com.wen.FifthFifty.WordSearchII;
 import com.wen.FirstFifty.*;
 import com.wen.FourthFifty.*;
 import com.wen.NinthFifty.LQSequenceReconstruction;
@@ -423,6 +424,8 @@ public class Main {
 
 //        FindCommonCharacters.commonChars(new String[]{"bella","label","roller"});
 
-        MajorityElementII.majorityElement(new int[]{1,2,2,3,2,1,1,3});
+//        MajorityElementII.majorityElement(new int[]{1,2,2,3,2,1,1,3});
+
+        WordSearchII.findWords(new char[][]{{'a','a'}}, new String[]{"aaa"});
     }
 }
