@@ -3,6 +3,7 @@ import com.wen.EighthFifty.RotateFunction;
 import com.wen.FifteenthFifty.LQClosestLeafInABinaryTree;
 import com.wen.FifteenthFifty.MinCostClimbingStairs;
 import com.wen.FifteenthFifty.SplitLinkedListInParts;
+import com.wen.FifthFifty.LQGroupShiftedStrings;
 import com.wen.FifthFifty.MajorityElementII;
 import com.wen.FifthFifty.TheSkylineProblem;
 import com.wen.FifthFifty.WordSearchII;
@@ -429,6 +430,8 @@ public class Main {
 
 //        WordSearchII.findWords(new char[][]{{'a','a'}}, new String[]{"aaa"});
 
-        TheSkylineProblem.getSkyline(new int[][]{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}});
+//        TheSkylineProblem.getSkyline(new int[][]{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}});
+
+        LQGroupShiftedStrings.groupStrings(new String[]{"abc","bcd","acef","xyz","cb","az","x","z"});
     }
 }
