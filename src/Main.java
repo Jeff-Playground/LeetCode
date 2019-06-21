@@ -4,6 +4,7 @@ import com.wen.FifteenthFifty.LQClosestLeafInABinaryTree;
 import com.wen.FifteenthFifty.MinCostClimbingStairs;
 import com.wen.FifteenthFifty.SplitLinkedListInParts;
 import com.wen.FifthFifty.MajorityElementII;
+import com.wen.FifthFifty.TheSkylineProblem;
 import com.wen.FifthFifty.WordSearchII;
 import com.wen.FirstFifty.*;
 import com.wen.FourthFifty.*;
@@ -426,6 +427,8 @@ public class Main {
 
 //        MajorityElementII.majorityElement(new int[]{1,2,2,3,2,1,1,3});
 
-        WordSearchII.findWords(new char[][]{{'a','a'}}, new String[]{"aaa"});
+//        WordSearchII.findWords(new char[][]{{'a','a'}}, new String[]{"aaa"});
+
+        TheSkylineProblem.getSkyline(new int[][]{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}});
     }
 }

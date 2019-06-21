@@ -14,25 +14,24 @@ public class KMP {
         int pl=p.length();
         int[] next=new int[pl];
         next[0]=-1;
-        int k=-1, j=0;
-        while(j<pl-1){
-            if(k==-1 || p.charAt(k)==p.charAt(j)){
-                k++;
+        int i=-1, j=0;
+        while(j<p.length()-1){
+            if(i==-1 || p.charAt(i)==p.charAt(j)){
+                i++;
                 j++;
-                // This is optimized
-                if(p.charAt(k)!=p.charAt(j)){
-                    next[j]=k;
+                if(p.charAt(i)!=p.charAt(j)){
+                    next[j]=i;
                 } else{
-                    next[j]=next[k];
+                    next[j]=next[i];
                 }
             } else{
-                k=next[k];
+                i=next[i];
             }
         }
 
         List<Integer> result=new ArrayList<>();
         int sl=s.length();
-        int i=0;
+        i=0;
         j=0;
         while(i<sl && j<pl){
             if(j==-1 || s.charAt(i)==p.charAt(j)){
