@@ -11,6 +11,8 @@ import com.wen.FirstFifty.*;
 import com.wen.FourthFifty.*;
 import com.wen.NinthFifty.LQSequenceReconstruction;
 import com.wen.SecondFifty.*;
+import com.wen.SixthFifty.LQAlienDictionary;
+import com.wen.SixthFifty.LQWallsAndGates;
 import com.wen.SixthFifty.MissingNumber;
 import com.wen.TenthFifty.RepeatedSubstringPattern;
 import com.wen.ThirdFifty.*;
@@ -432,6 +434,11 @@ public class Main {
 
 //        TheSkylineProblem.getSkyline(new int[][]{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}});
 
-        LQGroupShiftedStrings.groupStrings(new String[]{"abc","bcd","acef","xyz","cb","az","x","z"});
+//        LQGroupShiftedStrings.groupStrings(new String[]{"abc","bcd","acef","xyz","cb","az","x","z"});
+
+//        LQAlienDictionary.alienOrder(new String[]{"wrt","wrf","er","ett","rftt"});
+
+        int[][] rooms=new int[][]{{Integer.MAX_VALUE,Integer.MAX_VALUE,0,Integer.MAX_VALUE},{Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE},{Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE},{Integer.MAX_VALUE,0,Integer.MAX_VALUE,Integer.MAX_VALUE}};
+        LQWallsAndGates.wallsAndGates(rooms);
     }
 }
