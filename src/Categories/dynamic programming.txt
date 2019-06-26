@@ -3,3 +3,6 @@
 *Longest Valid Parentheses
 *Wildcard Matching
 *Maximum Subarray
+Unique Paths
+Unique Paths II
+Minimum Path Sum
