@@ -1,6 +1,7 @@
 package com.wen.SecondFifty;
 
 public class MaximumSubarray {
+    // DP
     public int maxSubArray(int[] nums) {
         int result=Integer.MIN_VALUE;
         int curSum=0;

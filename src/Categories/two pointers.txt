@@ -6,3 +6,4 @@ Remove Duplicates from Sorted Array
 *Remove Element
 Implement strStr()
 *Trapping Rain Water
+Rotate List

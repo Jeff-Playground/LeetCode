@@ -22,3 +22,7 @@ Multiply Strings
 Rotate Image
 Group Anagrams
 Pow(x, n)
+Spiral Matrix
+Length of Last Word
+Spiral Matrix II
+*Permutation Sequence
