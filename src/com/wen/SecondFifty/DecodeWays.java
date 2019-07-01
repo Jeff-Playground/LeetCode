@@ -5,19 +5,19 @@ public class DecodeWays {
         if(s==null || s.length()==0 || s.startsWith("0")){
             return 0;
         }
-        int c1=1, c2=1;
+        int curCount=1, beforeCount=1;
         for(int i=1; i<s.length(); i++){
             if(s.charAt(i)=='0'){
-                c1=0;
+                curCount=0;
             }
-            if(s.charAt(i-1)=='1' || (s.charAt(i-1)=='2'&& (s.charAt(i)>='0' && s.charAt(i)<='6'))){
-                c1=c1+c2;
-                c2=c1-c2;
+            if(s.charAt(i-1)=='1' || (s.charAt(i-1)=='2' && (s.charAt(i)>='0' && s.charAt(i)<='6'))){
+                curCount=curCount+beforeCount;
+                beforeCount=curCount-beforeCount;
             } else {
-                c2 = c1;
+                beforeCount=curCount;
             }
         }
-        return c1;
+        return curCount;
     }
 
 //    // Dynamic Programming

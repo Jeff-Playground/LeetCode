@@ -12,9 +12,8 @@ public class UniqueBinarySearchTreesII {
     }
 
     public List<TreeNode> generateTrees(int n) {
-        List<TreeNode> result=new ArrayList<>();
         if(n==0){
-            return result;
+            return new ArrayList<>();
         }
         return generateTreesDFS(1, n);
     }

@@ -8,3 +8,7 @@ Unique Paths II
 Minimum Path Sum
 Climbing Stairs
 Edit Distance
+*Scramble String
+Decode Ways
+Unique Binary Search Trees
+Interleaving String

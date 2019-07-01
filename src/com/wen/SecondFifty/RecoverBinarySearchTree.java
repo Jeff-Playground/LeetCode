@@ -15,19 +15,20 @@ public class RecoverBinarySearchTree {
         Stack<TreeNode> stack=new Stack<>();
         TreeNode cur=root, pre=null, first=null, second=null;
         while(cur!=null || !stack.isEmpty()){
-            while(cur!=null){
+            if(cur!=null){
                 stack.push(cur);
                 cur=cur.left;
-            }
-            TreeNode t=stack.pop();
-            if(pre!=null && t.val<=pre.val){
-                if(first==null){
-                    first=pre;
+            } else{
+                cur=stack.pop();
+                if(pre!=null && pre.val>=cur.val){
+                    if(first==null){
+                        first=pre;
+                    }
+                    second=cur;
                 }
-                second=t;
+                pre=cur;
+                cur=cur.right;
             }
-            pre=t;
-            cur=t.right;
         }
         if(first!=null && second!=null){
             int temp=first.val;
@@ -72,18 +73,7 @@ public class RecoverBinarySearchTree {
 //    public void recoverTree(TreeNode root) {
 //        TreeNode pre=null, last=null, cur=root, first=null, second=null;
 //        while(cur!=null){
-//            if(cur.left==null){
-//                if(last!=null){
-//                    if(last.val>=cur.val){
-//                        if(first==null){
-//                            first=last;
-//                        }
-//                        second=cur;
-//                    }
-//                }
-//                last=cur;
-//                cur=cur.right;
-//            } else{
+//            if(cur.left!=null){
 //                pre=cur.left;
 //                while(pre.right!=null && pre.right!=cur){
 //                    pre=pre.right;
@@ -102,6 +92,17 @@ public class RecoverBinarySearchTree {
 //                    last=cur;
 //                    cur=cur.right;
 //                }
+//            } else{
+//                if(last!=null){
+//                    if(last.val>=cur.val){
+//                        if(first==null){
+//                            first=last;
+//                        }
+//                        second=cur;
+//                    }
+//                }
+//                last=cur;
+//                cur=cur.right;
 //            }
 //        }
 //        if(first!=null && second!=null){

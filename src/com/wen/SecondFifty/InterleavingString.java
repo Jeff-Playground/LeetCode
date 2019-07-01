@@ -13,26 +13,25 @@ public class InterleavingString {
 //            return false;
 //        }
 //        Set<Integer> set=new HashSet<>();
-//        // PriorityQueue is sorted, while ConcurrentLinkedQueue is not, but LeetCode doesn't support ConcurrentLinkedQueue, so use LinkedList instead
 //        Queue<Integer> queue=new LinkedList<>();
 //        queue.add(0);
 //        while(!queue.isEmpty() && k<n3){
 //            int len= queue.size();
 //            for(int t=0; t<len; t++){
-//                int i= queue.peek()/n3, j=queue.peek()%n3;
-//                queue.poll();
+//                int key=queue.poll();
+//                int i= key/n3, j=key%n3;
 //                if(i<n1 && s1.charAt(i)==s3.charAt(k)){
-//                    int key=(i+1)*n3+j;
-//                    if(!set.contains(key)){
-//                        set.add(key);
-//                        queue.add(key);
+//                    int newKey=(i+1)*n3+j;
+//                    if(!set.contains(newKey)){
+//                        set.add(newKey);
+//                        queue.add(newKey);
 //                    }
 //                }
 //                if(j<n2 && s2.charAt(j)==s3.charAt(k)){
-//                    int key=i*n3+j+1;
-//                    if(!set.contains(key)){
-//                        set.add(key);
-//                        queue.add(key);
+//                    int newKey=i*n3+j+1;
+//                    if(!set.contains(newKey)){
+//                        set.add(newKey);
+//                        queue.add(newKey);
 //                    }
 //                }
 //            }

@@ -10,3 +10,9 @@ N-Queens II
 Combinations
 Subsets
 Word Search
+Gray Code
+Subsets II
+Restore IP Addresses
+*Interleaving String
+*Validate Binary Search Tree
+Same Tree

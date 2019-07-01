@@ -4,3 +4,7 @@ Merge k Sorted Lists
 Swap Nodes in Pairs
 Reverse Nodes in k-Group
 Rotate List
+Remove Duplicates from Sorted List II
+Remove Duplicates from Sorted List
+Partition List
+Reverse Linked List II

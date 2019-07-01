@@ -25,10 +25,10 @@ public class SameTree {
 //                if(tP.val!=tQ.val || queueP.size()!=queueQ.size()){
 //                    return false;
 //                } else{
-//                    ((LinkedList<TreeNode>) queueP).push(tP.left);
-//                    ((LinkedList<TreeNode>) queueP).push(tP.right);
-//                    ((LinkedList<TreeNode>) queueQ).push(tQ.left);
-//                    ((LinkedList<TreeNode>) queueQ).push(tQ.right);
+//                    queueP.offer(tP.left);
+//                    queueP.offer(tP.right);
+//                    queueQ.offer(tQ.left);
+//                    queueQ.offer(tQ.right);
 //                }
 //            } else if(tP==null && tQ==null){
 //                continue;
@@ -49,11 +49,11 @@ public class SameTree {
 //        while((p!=null || !stackP.isEmpty()) && (q!=null || !stackQ.isEmpty())){
 //            while(p!=null){
 //                stackP.push(p);
-//                p= p.left;
+//                p=p.left;
 //            }
 //            while(q!=null){
 //                stackQ.push(q);
-//                q= q.left;
+//                q=q.left;
 //            }
 //            TreeNode tP=stackP.pop();
 //            TreeNode tQ=stackQ.pop();

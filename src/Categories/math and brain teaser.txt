@@ -36,3 +36,7 @@ Simplify Path
 Set Matrix Zeroes
 *Sort Colors
 Subsets
+Largest Rectangle in Histogram
+Maximal Rectangle
+Gray Code
+*Recover Binary Search Tree
