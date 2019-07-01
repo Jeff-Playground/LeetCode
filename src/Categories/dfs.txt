@@ -9,3 +9,4 @@ N-Queens
 N-Queens II
 Combinations
 Subsets
+Word Search
