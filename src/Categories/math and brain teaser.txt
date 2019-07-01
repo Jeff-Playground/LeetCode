@@ -27,3 +27,12 @@ Length of Last Word
 Spiral Matrix II
 *Permutation Sequence
 Unique Paths
+Valid Number
+Plus One
+Add Binary
+Text Justification
+Sqrt(x)
+Simplify Path
+Set Matrix Zeroes
+*Sort Colors
+Subsets

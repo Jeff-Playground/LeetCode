@@ -6,3 +6,5 @@
 Unique Paths
 Unique Paths II
 Minimum Path Sum
+Climbing Stairs
+Edit Distance
