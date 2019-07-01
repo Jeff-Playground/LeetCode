@@ -2,7 +2,7 @@ package com.wen.SecondFifty;
 
 public class SortColors {
     // Two pointers
-    public static void sortColors(int[] nums) {
+    public void sortColors(int[] nums) {
         int i0=0, i2=nums.length-1;
         for(int i=0; i<=i2; i++){
             if(nums[i]==0){
@@ -12,8 +12,9 @@ public class SortColors {
             } else if(nums[i]==2){
                 nums[i]=nums[i2];
                 nums[i2]=2;
-                i--;
                 i2--;
+                // Note need to do i-- because there's no garantee nums[i2] was 1, so the swapped number need to be checked again
+                i--;
             }
         }
     }
