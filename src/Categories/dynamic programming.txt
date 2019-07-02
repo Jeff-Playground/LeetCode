@@ -12,3 +12,5 @@ Edit Distance
 Decode Ways
 Unique Binary Search Trees
 Interleaving String
+Distinct Subsequences
+Triangle

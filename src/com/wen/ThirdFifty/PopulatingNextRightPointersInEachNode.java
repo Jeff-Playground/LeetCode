@@ -93,9 +93,6 @@ public class PopulatingNextRightPointersInEachNode {
 //        if(root.left!=null) {
 //            root.left.next=root.right!=null?root.right:cur;
 //        }
-//        if(root.left!=null && root.right!=null) {
-//            root.left.next=root.right;
-//        }
 //        connect(root.right);
 //        connect(root.left);
 //    }

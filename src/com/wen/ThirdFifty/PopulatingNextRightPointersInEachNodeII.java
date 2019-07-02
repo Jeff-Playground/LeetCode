@@ -10,7 +10,7 @@ public class PopulatingNextRightPointersInEachNodeII {
         TreeLinkNode(int x) { val = x; }
     }
 
-    // Iterative, use pre to point at the last node of the same level
+    // Iterative, use pre to point at the previous node of the same level
     public void connect(TreeLinkNode root) {
         if(root==null) {
             return;
