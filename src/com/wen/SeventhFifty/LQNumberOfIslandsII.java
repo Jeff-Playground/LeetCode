@@ -11,7 +11,9 @@ public class LQNumberOfIslandsII {
     }
 
     public class UnionFind{
+        // Stores the ancestor info for each node
         int[] pre=null;
+        // Stores the number of nodes for each node(ancestor)
         int[] count=null;
         int total=0;
 
@@ -41,11 +43,10 @@ public class LQNumberOfIslandsII {
             if(px!=py){
                 if(count[px]<count[py]){
                     pre[px]=py;
+                    count[py]+=count[px];
                 } else{
-                    pre[py]=pre[px];
-                    if(count[px]==count[py]){
-                        count[py]++;
-                    }
+                    pre[py]=px;
+                    count[px]+=count[py];
                 }
                 total--;
             }

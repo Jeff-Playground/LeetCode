@@ -28,3 +28,7 @@ Path Sum II
 Flatten Binary Tree to Linked List
 Populating Next Right Pointers in Each Node
 Populating Next Right Pointers in Each Node II
+Binary Tree Maximum Path Sum
+Sum Root to Leaf Numbers
+Surrounded Regions
+*Palindrome Partitioning

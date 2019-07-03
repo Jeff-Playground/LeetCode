@@ -1,7 +1,7 @@
 package com.wen.ThirdFifty;
 
 public class PalindromePartitioningII {
-//    // Dynamic Programming
+//    // Dynamic Programming(from end to beginning)
 //    public static int minCut(String s) {
 //        int len=s.length();
 //        int[] dp=new int[len+1];
@@ -20,6 +20,7 @@ public class PalindromePartitioningII {
 //        return dp[0];
 //    }
 
+    // Dynamic Programming(from beginning to end)
     public static int minCut(String s) {
         int len=s.length();
         int[] dp=new int[len];
