@@ -61,12 +61,12 @@ public class MaximumProductSubarray {
 //    // Space optimized DP
 //    public int maxProduct(int[] nums) {
 //        int result=nums[0], n=nums.length;
-//        int great=nums[0], small=nums[0];
+//        int greatest=nums[0], smallest=nums[0];
 //        for(int i=1; i<n; i++){
-//            int preG=great, preS=small;
-//            great=Math.max(Math.max(preG*nums[i], preS*nums[i]), nums[i]);
-//            small=Math.min(Math.min(preG*nums[i], preS*nums[i]), nums[i]);
-//            result=Math.max(result, great);
+//            int preG=greatest, preS=smallest;
+//            greatest=Math.max(Math.max(preG*nums[i], preS*nums[i]), nums[i]);
+//            smallest=Math.min(Math.min(preG*nums[i], preS*nums[i]), nums[i]);
+//            result=Math.max(result, greatest);
 //        }
 //        return result;
 //    }
@@ -74,13 +74,13 @@ public class MaximumProductSubarray {
 //    // DP
 //    public int maxProduct(int[] nums) {
 //        int result=nums[0], n=nums.length;
-//        int[] dpG=new int[n], dpS=new int[n];
-//        dpG[0]=nums[0];
-//        dpS[0]=nums[0];
+//        int[] dpGreatest=new int[n], dpSmallest=new int[n];
+//        dpGreatest[0]=nums[0];
+//        dpSmallest[0]=nums[0];
 //        for(int i=1; i<n; i++){
-//            dpG[i]=Math.max(Math.max(dpG[i-1]*nums[i], dpS[i-1]*nums[i]), nums[i]);
-//            dpS[i]=Math.min(Math.min(dpG[i-1]*nums[i], dpS[i-1]*nums[i]), nums[i]);
-//            result=Math.max(result, dpG[i]);
+//            dpGreatest[i]=Math.max(Math.max(dpGreatest[i-1]*nums[i], dpSmallest[i-1]*nums[i]), nums[i]);
+//            dpSmallest[i]=Math.min(Math.min(dpGreatest[i-1]*nums[i], dpSmallest[i-1]*nums[i]), nums[i]);
+//            result=Math.max(result, dpGreatest[i]);
 //        }
 //        return result;
 //    }

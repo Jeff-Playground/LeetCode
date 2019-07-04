@@ -1,35 +1,28 @@
 package com.wen.ThirdFifty;
 
-import com.wen.SecondFifty.MinimumPathSum;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class MaxPointsOnALine {
-    public static class Point {
-        int x;
-        int y;
-        Point() { x = 0; y = 0; }
-        public Point(int a, int b) { x = a; y = b; }
-    }
-
-    public static int maxPoints(Point[] points) {
+    public int maxPoints(int[][] points) {
         int result=0;
         for(int i=0; i<points.length; i++){
             Map<Map<Integer, Integer>, Integer> map = new HashMap<>();
             int duplicates=1;
+            // Don't need to consider points before because the slope for before nodes has covered the missed situation
             for(int j=i+1; j<points.length; j++){
-                if(points[i].x==points[j].x && points[i].y==points[j].y){
+                if(points[i][0]==points[j][0] && points[i][1]==points[j][1]){
                     duplicates++;
                     continue;
                 }
-                int dx=points[i].x-points[j].x;
-                int dy=points[i].y-points[j].y;
+                int dx=points[i][0]-points[j][0];
+                int dy=points[i][1]-points[j][1];
                 int d=greatestCommonDivisor(dx, dy);
                 Map<Integer, Integer> cur=new HashMap<>();
                 cur.put(dx/d, dy/d);
                 map.put(cur, map.getOrDefault(cur, 0)+1);
             }
+            // Need it so when only given 1 point, the result is 1
             result=Math.max(result, duplicates);
             for(Map.Entry<Map<Integer, Integer>, Integer> entry: map.entrySet()){
                 result= Math.max(result, entry.getValue()+duplicates);
