@@ -7,12 +7,13 @@ public class FindMinimumInRotatedSortedArrayII {
     public int findMin(int[] nums) {
         int left=0, right=nums.length-1;
         int result=nums[0];
-        while(left<right-1){
+        while(left<right){
             int mid=left+(right-left)/2;
             if(nums[left]<nums[mid]){
                 result=Math.min(result, nums[left]);
                 left=mid+1;
             } else if(nums[left]==nums[mid]){
+                result=Math.min(result, nums[left]); // Add this to make sure answer doesn't get excluded for left==mid
                 left++;
             } else{
                 result=Math.min(result, nums[mid]);

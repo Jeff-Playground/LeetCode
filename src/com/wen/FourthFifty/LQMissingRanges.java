@@ -24,7 +24,7 @@ public class LQMissingRanges {
                 }
             }
             cur=nums[i]+1;
-            // This is to make sure overflow(when upper is Integer.MAX_VALUE) doesn't affect result
+            // This is to make sure overflow(when nums[i]+1==Integer.MAX_VALUE) doesn't affect result
             if(cur==Integer.MIN_VALUE){
                 break;
             }
