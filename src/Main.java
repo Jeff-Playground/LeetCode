@@ -461,5 +461,14 @@ public class Main {
 //        nm.update(1,1,-3);
 //        nm.update(0,1,1);
 //        nm.sumRegion(0,0,1,1);
+
+        InsertionSortList.ListNode l1=new InsertionSortList.ListNode(4);
+        InsertionSortList.ListNode l2=new InsertionSortList.ListNode(2);
+        InsertionSortList.ListNode l3=new InsertionSortList.ListNode(1);
+        InsertionSortList.ListNode l4=new InsertionSortList.ListNode(3);
+        l1.next=l2;
+        l2.next=l3;
+        l3.next=l4;
+        InsertionSortList.insertionSortList(l1);
     }
 }

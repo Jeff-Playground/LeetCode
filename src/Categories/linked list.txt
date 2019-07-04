@@ -8,3 +8,9 @@ Remove Duplicates from Sorted List II
 Remove Duplicates from Sorted List
 Partition List
 Reverse Linked List II
+Copy List with Random Pointer
+Linked List Cycle
+Linked List Cycle II
+*Reorder List
+Sort List
+Insertion Sort List

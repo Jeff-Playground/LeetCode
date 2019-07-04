@@ -18,11 +18,9 @@ public class SortList {
             fast=fast.next.next;
         }
         pre.next=null;
-        // Note for optimized merge method this can't be return merge(head, slow) because the merge method assumes it's merging two sorted list
         return merge(sortList(head), sortList(slow));
     }
 
-    // Optimized merge method
     private ListNode merge(ListNode l1, ListNode l2) {
         if(l1==null){
             return l2;
@@ -38,27 +36,4 @@ public class SortList {
             return l2;
         }
     }
-
-//    // Normal merge method
-//    private ListNode merge(ListNode l1, ListNode l2) {
-//        ListNode dummy=new ListNode(-1);
-//        ListNode cur=dummy;
-//        while(l1!=null && l2!=null){
-//            if(l1.val<l2.val){
-//                cur.next=l1;
-//                l1=l1.next;
-//            } else{
-//                cur.next=l2;
-//                l2=l2.next;
-//            }
-//            cur=cur.next;
-//        }
-//        if(l1!=null){
-//            cur.next=l1;
-//        }
-//        if(l2!=null){
-//            cur.next=l2;
-//        }
-//        return dummy.next;
-//    }
 }

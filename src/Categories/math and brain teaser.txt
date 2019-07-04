@@ -43,3 +43,4 @@ Gray Code
 Pascal's Triangle
 Pascal's Triangle II
 *Longest Consecutive Sequence
+Candy
