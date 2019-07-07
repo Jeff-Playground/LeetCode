@@ -1,3 +1,7 @@
 *Divide Two Integers
 Single Number
 Single Number II
+*Majority Element
+Reverse Bits
+Number of 1 Bits
+*Bitwise AND of Numbers Range

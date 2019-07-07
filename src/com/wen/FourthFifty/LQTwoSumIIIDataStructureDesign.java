@@ -2,7 +2,7 @@ package com.wen.FourthFifty;
 
 import java.util.*;
 
-public class LQTwoSumIIIDataStructureSesign {
+public class LQTwoSumIIIDataStructureDesign {
     // HashMap
     Map<Integer, Integer> nums=new HashMap<>();
 

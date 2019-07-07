@@ -17,6 +17,7 @@ public class IsomorphicStrings {
             if(mapS[sChar]!=mapT[tChar]) {
                 return false;
             }
+            // Use i+1 because the array init values are 0, need to differenciate it with index 0
             mapS[sChar]=i+1;
             mapT[tChar]=i+1;
         }

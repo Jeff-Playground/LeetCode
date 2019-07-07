@@ -56,3 +56,15 @@ Intersection of Two Linked Lists
 LQOneEditDistance
 LQMissingRanges
 Compare Version Numbers
+Fraction to Recurring Decimal
+Excel Sheet Column Title
+LQTwoSumIIIDataStructureDesign
+Excel Sheet Column Number
+Factorial Trailing Zeroes
+Largest Number
+LQReverseWordsInAStringII
+Rotate Array
+Bitwise AND of Numbers Range
+Happy Number
+*Count Primes
+Isomorphic Strings

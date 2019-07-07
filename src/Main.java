@@ -1,12 +1,10 @@
 import com.wen.EighthFifty.DesignTwitter;
 import com.wen.EighthFifty.RotateFunction;
+import com.wen.EleventhFifty.ShortestUnsortedContinuousSubarray;
 import com.wen.FifteenthFifty.LQClosestLeafInABinaryTree;
 import com.wen.FifteenthFifty.MinCostClimbingStairs;
 import com.wen.FifteenthFifty.SplitLinkedListInParts;
-import com.wen.FifthFifty.LQGroupShiftedStrings;
-import com.wen.FifthFifty.MajorityElementII;
-import com.wen.FifthFifty.TheSkylineProblem;
-import com.wen.FifthFifty.WordSearchII;
+import com.wen.FifthFifty.*;
 import com.wen.FirstFifty.*;
 import com.wen.FourthFifty.*;
 import com.wen.NinthFifty.LQSequenceReconstruction;
@@ -462,13 +460,19 @@ public class Main {
 //        nm.update(0,1,1);
 //        nm.sumRegion(0,0,1,1);
 
-        InsertionSortList.ListNode l1=new InsertionSortList.ListNode(4);
-        InsertionSortList.ListNode l2=new InsertionSortList.ListNode(2);
-        InsertionSortList.ListNode l3=new InsertionSortList.ListNode(1);
-        InsertionSortList.ListNode l4=new InsertionSortList.ListNode(3);
-        l1.next=l2;
-        l2.next=l3;
-        l3.next=l4;
-        InsertionSortList.insertionSortList(l1);
+//        InsertionSortList.ListNode l1=new InsertionSortList.ListNode(4);
+//        InsertionSortList.ListNode l2=new InsertionSortList.ListNode(2);
+//        InsertionSortList.ListNode l3=new InsertionSortList.ListNode(1);
+//        InsertionSortList.ListNode l4=new InsertionSortList.ListNode(3);
+//        l1.next=l2;
+//        l2.next=l3;
+//        l3.next=l4;
+//        InsertionSortList.insertionSortList(l1);
+
+//        RepeatedDNASequences.findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT");
+
+//        ShortestUnsortedContinuousSubarray.findUnsortedSubarray(new int[]{5,4,3,2,1});
+
+        ShortestPalindrome.shortestPalindrome("aacecaaa");
     }
 }

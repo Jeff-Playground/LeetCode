@@ -4,7 +4,7 @@ import java.util.*;
 
 public class RepeatedDNASequences {
 //    // For saving space, can use int and bit manipulation to represent each char(can use ASCII
-//    // because given chars have differnt last 3 bits, or can use 00 01 10 11 because only 4 given chars)
+//    // because given chars have different last 3 bits, or can use 00 01 10 11 because only 4 given chars)
 //    public List<String> findRepeatedDnaSequences(String s) {
 //        List<String> result=new ArrayList<>();
 //        if(s==null || s.length()<11) {
@@ -24,37 +24,36 @@ public class RepeatedDNASequences {
 //    }
 
     // Rolling hash
-    public List<String> findRepeatedDnaSequences(String s) {
-        Set<String> result=new HashSet<>();
-        if(s==null || s.length()<11) {
+    public static List<String> findRepeatedDnaSequences(String s) {
+        if(s==null || s.length()<=10){
             return new ArrayList<>();
         }
-        Set<Long> hashValues=new HashSet<>();
-        Set<String> patterns=new HashSet<>();
-        long hash=0, Q=100007, D=256;
-        // Moron way would lead to overflow
-        long highestPower=mod2(D,9,Q);
-        for(int i=0; i<10; i++) {
-            hash=(hash*D+s.charAt(i))%Q;
+        Set<String> result=new HashSet<>();
+        long base=256, mod=100007, highestPower=mod1(base, 9, mod);
+        long hash=0;
+        for(int i=0; i<10; i++){
+            hash=(hash*base+s.charAt(i))%mod;
         }
-        hashValues.add(hash);
+        Map<Long, Set<String>> foundPatterns=new HashMap<>();
+        Set<String> patterns=new HashSet<>();
         patterns.add(s.substring(0, 10));
-        for(int i=1; i<=s.length()-10; i++) {
-            // Plus Q to ensure hash is always positive
-            hash=(((hash-s.charAt(i-1)*highestPower)*D+s.charAt(i+9))%Q+Q)%Q;
-            String temp=s.substring(i, i+10);
-            if(hashValues.contains(hash)) {
-                if(patterns.contains(temp)) {
-                    result.add(temp);
-                } else {
-                    patterns.add(temp);
+        foundPatterns.put(hash, patterns);
+        for(int i=1; i<=s.length()-10; i++){
+            hash=(((hash-highestPower*s.charAt(i-1))*base+s.charAt(i+9))%mod+mod)%mod;
+            String pattern=s.substring(i, i+10);
+            if(foundPatterns.containsKey(hash)){
+                if(foundPatterns.get(hash).contains(pattern)){
+                    result.add(pattern);
+                } else{
+                    foundPatterns.get(hash).add(pattern);
                 }
-            } else {
-                hashValues.add(hash);
-                patterns.add(temp);
+            } else{
+                Set<String> newPatterns=new HashSet<>();
+                newPatterns.add(pattern);
+                foundPatterns.put(hash, newPatterns);
             }
         }
-        return new ArrayList<>(result);
+        return new ArrayList<String>(result);
     }
 
     public static long mod1(long D, long n, long Q) {
