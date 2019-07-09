@@ -3,6 +3,7 @@ package com.wen.FifthFifty;
 import java.util.Stack;
 
 public class KthLargestElementInAnArray {
+    // Quick sort with Stack iteratively
     public int findKthLargest(int[] nums, int k) {
         Stack<Integer> stack=new Stack<>();
         stack.push(nums.length-1);

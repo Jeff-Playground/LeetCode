@@ -23,3 +23,4 @@ Dungeon Game
 *Best Time to Buy and Sell Stock IV
 House Robber
 House Robber II
+*Maximal Square

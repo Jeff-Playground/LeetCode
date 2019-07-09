@@ -68,3 +68,7 @@ Bitwise AND of Numbers Range
 Happy Number
 *Count Primes
 Isomorphic Strings
+Contains Duplicate
+Contains Duplicate II
+Contains Duplicate III
+Rectangle Area

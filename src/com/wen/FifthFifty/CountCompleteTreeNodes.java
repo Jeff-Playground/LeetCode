@@ -1,18 +1,39 @@
 package com.wen.FifthFifty;
 
 public class CountCompleteTreeNodes {
-    public class TreeNode {
+    public static class TreeNode {
         int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
+        public TreeNode left;
+        public TreeNode right;
+        public TreeNode(int x) { val = x; }
     }
 
-    public int countNodes(TreeNode root) {
+    public static int countNodes(TreeNode root) {
         if(root==null){
             return 0;
         } else{
-            return 1+countNodes(root.left)+countNodes(root.right);
+            int hLeft=heightLeft(root);
+            if(hLeft==heightRight(root)){
+                return (int)Math.pow(2,hLeft)-1;
+            } else{
+                return 1+countNodes(root.left)+countNodes(root.right);
+            }
+        }
+    }
+
+    private static int heightLeft(TreeNode node) {
+        if(node==null){
+            return 0;
+        } else{
+            return 1+heightLeft(node.left);
+        }
+    }
+
+    private static int heightRight(TreeNode node) {
+        if(node==null){
+            return 0;
+        } else{
+            return 1+heightRight(node.right);
         }
     }
 }
