@@ -477,17 +477,21 @@ public class Main {
 
 //        MaximalSquare.maximalSquare(new char[][]{{'1','1'},{'1','1'}});
 
-        CountCompleteTreeNodes.TreeNode root=new CountCompleteTreeNodes.TreeNode(1);
-        CountCompleteTreeNodes.TreeNode n1=new CountCompleteTreeNodes.TreeNode(2);
-        CountCompleteTreeNodes.TreeNode n2=new CountCompleteTreeNodes.TreeNode(3);
-        CountCompleteTreeNodes.TreeNode n3=new CountCompleteTreeNodes.TreeNode(4);
-        CountCompleteTreeNodes.TreeNode n4=new CountCompleteTreeNodes.TreeNode(5);
-        CountCompleteTreeNodes.TreeNode n5=new CountCompleteTreeNodes.TreeNode(6);
-        root.left=n1;
-        root.right=n2;
-        n1.left=n3;
-        n1.right=n4;
-        n2.left=n5;
-        CountCompleteTreeNodes.countNodes(root);
+//        CountCompleteTreeNodes.TreeNode root=new CountCompleteTreeNodes.TreeNode(1);
+//        CountCompleteTreeNodes.TreeNode n1=new CountCompleteTreeNodes.TreeNode(2);
+//        CountCompleteTreeNodes.TreeNode n2=new CountCompleteTreeNodes.TreeNode(3);
+//        CountCompleteTreeNodes.TreeNode n3=new CountCompleteTreeNodes.TreeNode(4);
+//        CountCompleteTreeNodes.TreeNode n4=new CountCompleteTreeNodes.TreeNode(5);
+//        CountCompleteTreeNodes.TreeNode n5=new CountCompleteTreeNodes.TreeNode(6);
+//        root.left=n1;
+//        root.right=n2;
+//        n1.left=n3;
+//        n1.right=n4;
+//        n2.left=n5;
+//        CountCompleteTreeNodes.countNodes(root);
+
+//        BasicCalculator.calculate("1+1");
+
+        DifferentWaysToAddParentheses.diffWaysToCompute("2*3-4*5");
     }
 }
