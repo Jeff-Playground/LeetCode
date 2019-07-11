@@ -72,3 +72,13 @@ Contains Duplicate
 Contains Duplicate II
 Contains Duplicate III
 Rectangle Area
+Basic Calculator
+Basic Calculator II
+Summary Ranges
+Power of Two
+*Number of Digit One
+Lowest Common Ancestor of a Binary Search Tree
+Product of Array Except Self
+Valid Anagram
+LQStrobogrammaticNumber
+LQGroupShiftedStrings

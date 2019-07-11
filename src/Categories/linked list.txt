@@ -17,3 +17,5 @@ Insertion Sort List
 Intersection of Two Linked Lists
 Remove Linked List Elements
 Reverse Linked List
+Palindrome Linked List
+*Delete Node in a Linked List

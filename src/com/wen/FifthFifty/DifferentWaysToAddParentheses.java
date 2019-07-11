@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class DifferentWaysToAddParentheses {
-    // Use Map to prevent duplicated calculations
+    // Optimised to use Map to prevent duplicated calculations
     public List<Integer> diffWaysToCompute(String input) {
         List<Integer> result=new ArrayList<>();
         if(input==null || input.length()==0){
