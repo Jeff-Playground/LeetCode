@@ -492,6 +492,6 @@ public class Main {
 
 //        BasicCalculator.calculate("1+1");
 
-        DifferentWaysToAddParentheses.diffWaysToCompute("2*3-4*5");
+//        DifferentWaysToAddParentheses.diffWaysToCompute("2*3-4*5");
     }
 }
