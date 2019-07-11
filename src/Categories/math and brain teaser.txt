@@ -80,5 +80,8 @@ Power of Two
 Lowest Common Ancestor of a Binary Search Tree
 Product of Array Except Self
 Valid Anagram
+LQShortestWordDistance
+*LQShortestWordDistanceII
+*LQShortestWordDistanceIII
 LQStrobogrammaticNumber
 LQGroupShiftedStrings
