@@ -13,6 +13,7 @@ import com.wen.SeventhFifty.IsSubsequence;
 import com.wen.SeventhFifty.RangeSumQuery2DMutable;
 import com.wen.SeventhFifty.RangeSumQueryImmutable;
 import com.wen.SixthFifty.LQAlienDictionary;
+import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
 import com.wen.SixthFifty.LQWallsAndGates;
 import com.wen.SixthFifty.MissingNumber;
 import com.wen.TenthFifty.RepeatedSubstringPattern;
@@ -493,5 +494,7 @@ public class Main {
 //        BasicCalculator.calculate("1+1");
 
 //        DifferentWaysToAddParentheses.diffWaysToCompute("2*3-4*5");
+
+        LQVerifyPreorderSequenceInBinarySearchTree.verifyPreorder(new int[]{4,2,1,3,6,5,7});
     }
 }
