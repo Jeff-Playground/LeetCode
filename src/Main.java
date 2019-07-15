@@ -12,10 +12,7 @@ import com.wen.SecondFifty.*;
 import com.wen.SeventhFifty.IsSubsequence;
 import com.wen.SeventhFifty.RangeSumQuery2DMutable;
 import com.wen.SeventhFifty.RangeSumQueryImmutable;
-import com.wen.SixthFifty.LQAlienDictionary;
-import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
-import com.wen.SixthFifty.LQWallsAndGates;
-import com.wen.SixthFifty.MissingNumber;
+import com.wen.SixthFifty.*;
 import com.wen.TenthFifty.RepeatedSubstringPattern;
 import com.wen.ThirdFifty.*;
 import com.wen.ThirteenthFifty.SetMismatch;
@@ -495,6 +492,11 @@ public class Main {
 
 //        DifferentWaysToAddParentheses.diffWaysToCompute("2*3-4*5");
 
-        LQVerifyPreorderSequenceInBinarySearchTree.verifyPreorder(new int[]{4,2,1,3,6,5,7});
+//        LQVerifyPreorderSequenceInBinarySearchTree.verifyPreorder(new int[]{4,2,1,3,6,5,7});
+
+//        LQ3SumSmaller.threeSumSmaller(new int[]{0,-2,-2,-4,4,3,1,-2,-5,1,0,-5,-4,4,0,-4}, -4);
+
+        LQGraphValidTree.validTree(5, new int[][]{{0,1},{1,2},{2,3},{1,3},{1,4}});
+//        LQGraphValidTree.validTree(1, new int[][]{});
     }
 }

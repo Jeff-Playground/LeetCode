@@ -53,7 +53,7 @@ public class LQNumberOfIslandsII {
         }
 
         public void add(int x){
-            if(pre[x]>0){
+            if(exists(x)){
                 return;
             }
             pre[x]=x;
