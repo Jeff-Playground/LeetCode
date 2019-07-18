@@ -32,11 +32,11 @@ public class MaximalSquare {
 //        for(int i=0; i<m; i++){
 //            for(int j=0; j<n; j++){
 //                if(matrix[i][j]=='1'){
-//                    int size=1;
-//                    if(i+size>=m || j+size>=n){
-//                        result=Math.max(result, size*size);
+//                    if(i+1>=m || j+1>=n){
+//                        result=Math.max(result, 1*1);
 //                        continue;
 //                    }
+//                    int size=1;
 //                    while(i+size<m && j+size<n){
 //                        boolean isSquare=true;
 //                        for(int x=i; x<=i+size && x<m; x++){
