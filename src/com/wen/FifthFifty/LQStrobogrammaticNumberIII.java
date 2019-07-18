@@ -21,12 +21,15 @@ public class LQStrobogrammaticNumberIII {
 
     private void strobogrammaticInRangeDFS(String low, String high, int length, String seed, int[] result) {
         if(seed.length()>=low.length() && seed.length()<=high.length()){
-            if(seed.length()==high.length() && seed.compareTo(high)>0){
+            // Out of range
+            if((seed.length()==high.length() && seed.compareTo(high)>0) || (seed.length()==low.length() && seed.compareTo(low)<0)){
                 return;
             }
-            if(!(seed.length()==low.length() && seed.compareTo(low)<0) && !(seed.length()!=1 && seed.charAt(0)=='0')){
-                result[0]++;
+            // Invalid number starts with 0
+            if(seed.length()!=1 && seed.charAt(0)=='0'){
+                return;
             }
+            result[0]++;
         }
         if(seed.length()+2>high.length()){
             return;
