@@ -3,7 +3,8 @@ package com.wen.ThirdFifty;
 import java.util.Arrays;
 
 public class Candy {
-    // Use count to store the length of the decreasing array, when array stopped, add the sum of the arithmetic progression to result, and reset pre and count
+    // Use count to store the length of the decreasing array, when array stopped, add the sum of the arithmetic 
+    // progression to result, and reset pre and count
     public static int candy(int[] ratings) {
         if(ratings==null || ratings.length==0){
             return 0;
@@ -13,9 +14,9 @@ public class Candy {
             if(ratings[i]>=ratings[i-1]){
                 if(count>0){
                     result+=(count+1)*count/2;
-                    // Doing this because count is actually the decreasing array length-1, the first element is not necessarily (count+1), it can be larger if
-                    // the element before it has a value >=(count+1). pre was the initial value given to it, if it's smaller then count+1, then it needs to be
-                    // pushed up
+                    // Doing this because count is actually the decreasing array length-1, the first element is not 
+                    // necessarily (count+1), it can be larger if the element before it has a value >=(count+1). pre 
+                    // was the initial value given to it, if it's smaller then count+1, then it needs to be pushed up
                     if(count>=pre){
                         result+=count-pre+1;
                     }
