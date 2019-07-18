@@ -8,6 +8,10 @@ public class CountCompleteTreeNodes {
         public TreeNode(int x) { val = x; }
     }
 
+    // A Complete Binary Tree is a binary tree in which every level, except possibly 
+    // the last, is completely filled, and all nodes are as far left as possible.
+    // A Full Binary Tree is a tree in which every node other than the leaves has two children.
+    // A Perfect Binary Tree is a tree with all leaf nodes at the same depth. All internal nodes have degree 2.
     public static int countNodes(TreeNode root) {
         if(root==null){
             return 0;
