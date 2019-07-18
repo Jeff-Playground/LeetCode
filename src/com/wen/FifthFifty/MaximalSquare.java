@@ -18,10 +18,10 @@ public class MaximalSquare {
                         dp[i][j]=Math.min(dp[i-1][j-1], Math.min(dp[i-1][j], dp[i][j-1]))+1;
                     }
                 }
-                result=Math.max(result, dp[i][j]*dp[i][j]);
+                result=Math.max(result, dp[i][j]);
             }
         }
-        return result;
+        return result*result;
     }
 
 //    // BFS
