@@ -24,8 +24,8 @@ public class Sortings {
 //        // Un-stable
 //        selectionSort(nums);
 
-//        // Best time O(n+n*3*logn)=O(nlogn) - Build heap the first time takes O(n), then heapify takes O(n*3*logn)
-//        // Worst time O(n+n*3*logn)=O(nlogn) - Build heap the first time takes O(n), then heapify takes O(n*3*logn)
+//        // Best time O(n+n*3*logn)=O(nlogn) - Doing swap for putting the max to end n times takes O(n), then heapify takes O(n*3*logn) 
+//        // Worst time O(n+n*3*logn)=O(nlogn) - because doing around n/2 rounds as there are n/2 parents and for each round doing 2 compares and 1 swap
 //        // Space O(1) - In-place
 //        // Un-stable
 //        heapSort(nums);
