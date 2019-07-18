@@ -3,6 +3,7 @@ package com.wen.FourthFifty;
 import java.util.Arrays;
 
 public class FindMinimumInRotatedSortedArrayII {
+//    // Handle array unrotated in the loop
 //    public int findMin(int[] nums) {
 //        int left=0, right=nums.length-1;
 //        while(left<right){
