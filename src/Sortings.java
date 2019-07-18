@@ -61,7 +61,7 @@ public class Sortings {
     }
 
     private static void radixSort(Integer[] nums) {
-        int max=Integer.MIN_VALUE, base=10, digits=1;
+        int max=Integer.MIN_VALUE, base=10, exp=1, digits=1;
         for(int i=0; i<nums.length; i++){
             max=Math.max(max, nums[i]);
         }
@@ -75,7 +75,7 @@ public class Sortings {
             int[][] buckets=new int[base][nums.length];
             int[] bucketCount=new int[base];
             for(int j=0; j<nums.length; j++){
-                int index=nums[j]%base;
+                int index=nums[j]/exp%base;
                 buckets[index][bucketCount[index]++]=nums[j];
             }
             int k=0;
@@ -84,7 +84,7 @@ public class Sortings {
                     nums[k++]=buckets[l][m];
                 }
             }
-            base*=10;
+            exp*=10;
         }
     }
 
