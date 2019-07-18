@@ -38,7 +38,8 @@ public class Sortings {
 
 //        // Best time O(nlogn) - When each time the partition divide the original array into two equal length parts, T(n)=2*T(n/2)+O(n)
 //        // Worst time O(n^2) - When each time the partition divide the original array into 0 and (n-1) two parts, T(n)=T(0)+T(n-1)+O(n)
-//        // Space O(1) - In-place
+//        // Best space O(logn) - The depth of the recursion tree
+//        // Worst space O(n) - The depth of the recursion tree
 //        // Un-stable
 //        recursionQuickSort(nums, 0, nums.length-1);
 //        iterationQuickSort(nums);
