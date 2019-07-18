@@ -3,6 +3,31 @@ package com.wen.FourthFifty;
 import java.util.Arrays;
 
 public class FindMinimumInRotatedSortedArrayII {
+//    public int findMin(int[] nums) {
+//        int left=0, right=nums.length-1;
+//        while(left<right){
+//        	if(nums[left]==nums[right]) {
+//        		left++;
+//        		continue;
+//        	} else if(nums[left]<nums[right]) {
+//        		return nums[left];
+//        	}
+//        	int mid=left+(right-left)/2;
+//        	if(nums[left]==nums[mid]) {
+//        		if(left<mid) {
+//        			left++;
+//        		} else {
+//            		left=mid+1;
+//        		}
+//        	} else if(nums[left]<nums[mid]) {
+//        		left=mid+1;
+//        	} else {
+//        		right=mid;
+//        	}
+//        }
+//        return nums[right];
+//    }
+    
     // Iterative, this is similar to recursive logically, because left++ and left=mid+1, right=mid-1 can all make the new array non-rotated, keep tracking the min value from each part
     public int findMin(int[] nums) {
         int left=0, right=nums.length-1;
