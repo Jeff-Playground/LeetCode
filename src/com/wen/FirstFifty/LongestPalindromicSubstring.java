@@ -1,6 +1,7 @@
 package com.wen.FirstFifty;
 
 public class LongestPalindromicSubstring {
+    // Manacher's algorithm
     public static String longestPalindrome(String s) {
         String t="#$";
         for(int i=0; i<s.length(); i++){
