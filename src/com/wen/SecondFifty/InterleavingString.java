@@ -92,7 +92,8 @@ public class InterleavingString {
 //                    if(s1.charAt(i-1)==s3.charAt(i+j-1)){
 //                        dp[i][j]=true;
 //                    }
-//                } else if(dp[i][j-1]){
+//                }
+//                if(!dp[i][j] && dp[i][j-1]){
 //                    if(s2.charAt(j-1)==s3.charAt(i+j-1)){
 //                        dp[i][j]=true;
 //                    }
