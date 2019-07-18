@@ -21,6 +21,7 @@ public class UniqueBinarySearchTreesII {
     private List<TreeNode> generateTreesDFS(int start, int end) {
         List<TreeNode> allTrees=new ArrayList<>();
         if(start>end){
+            // Note null is required here for generating null nodes for leaf nodes
             allTrees.add(null);
             return allTrees;
         }
