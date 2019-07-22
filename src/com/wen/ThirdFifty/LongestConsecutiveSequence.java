@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 public class LongestConsecutiveSequence {
     // UnionFind, not O(n)
-    //
+
     public class UnionFind{
         Map<Integer, Integer> components;
         Map<Integer, Integer> counts;

@@ -1,6 +1,7 @@
 package com.wen.FifthFifty;
 
 public class NumberOfDigitOne {
+    // Every 10 numbers has 1 number where 1 is in the ones place, every 100 numbers has 10 number where 1 is in the tens place...
     public int countDigitOne(int n) {
         int result=0;
         for(long base=1; base<=n; base*=10) {
