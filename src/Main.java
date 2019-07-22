@@ -55,8 +55,8 @@ public class Main {
 //        int[] nums={3,4,-1,1};
 //        FirstMissingPositive.firstMissingPositive(nums);
 
-//        int[] nums={0,1,0,2,1,0,1,3,2,1,2,1};
-//        TrappingRainWater.trap(nums);
+        int[] nums={2,0,2};
+        TrappingRainWater.trap(nums);
 
 //        int[] nums={2,3,1,1,4};
 //        JumpGameII.jump(nums);
@@ -471,7 +471,7 @@ public class Main {
 
 //        ShortestUnsortedContinuousSubarray.findUnsortedSubarray(new int[]{5,4,3,2,1});
 
-//        ShortestPalindrome.shortestPalindrome("aacecaaa");
+//        ShortestPalindrome.shortestPalindrome("32345");
 
 //        MaximalSquare.maximalSquare(new char[][]{{'1','1'},{'1','1'}});
 
@@ -496,7 +496,8 @@ public class Main {
 
 //        LQ3SumSmaller.threeSumSmaller(new int[]{0,-2,-2,-4,4,3,1,-2,-5,1,0,-5,-4,4,0,-4}, -4);
 
-        LQGraphValidTree.validTree(5, new int[][]{{0,1},{1,2},{2,3},{1,3},{1,4}});
+//        LQGraphValidTree.validTree(5, new int[][]{{0,1},{0,2},{0,3},{1,4}});
+//        LQGraphValidTree.validTree(5, new int[][]{{0,1},{1,2},{2,3},{1,3},{1,4}});
 //        LQGraphValidTree.validTree(1, new int[][]{});
     }
 }
