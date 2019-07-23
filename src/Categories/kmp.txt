@@ -1,2 +1,3 @@
 *Implement strStr()
 *Shortest Palindrome
+- 300 -

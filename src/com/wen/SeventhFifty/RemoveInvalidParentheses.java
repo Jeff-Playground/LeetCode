@@ -3,52 +3,88 @@ package com.wen.SeventhFifty;
 import java.util.*;
 
 public class RemoveInvalidParentheses {
-    // Iterative with queue
+    // Remove right "token" only, as it always produces one step further to the valid result
     public List<String> removeInvalidParentheses(String s) {
         List<String> result=new ArrayList<>();
-        Set<String> checked=new HashSet<>();
-        checked.add(s);
-        Queue<String> queue=new LinkedList<>();
-        queue.offer(s);
-        boolean found=false;
-        while(!queue.isEmpty()) {
-            String t=queue.poll();
-            if(isValid(t)) {
-                result.add(t);
-                found=true;
-            }
-            if(found) {
-                continue;
-            }
-            for(int i=0; i<t.length(); i++) {
-                if(t.charAt(i)!='(' && t.charAt(i)!=')') {
-                    continue;
-                }
-                String str=t.substring(0, i)+t.substring(i+1);
-                if(!checked.contains(str)) {
-                    queue.offer(str);
-                    checked.add(str);
-                }
-            }
-        }
+        removeInvalidParenthesesHelper(s, 0, 0, new char[]{'(', ')'}, result);
         return result;
     }
 
-    private static boolean isValid(String t) {
+    private void removeInvalidParenthesesHelper(String s, int start, int lastRemove, char[] token, List<String> result) {
         int count=0;
-        for(int i=0; i<t.length(); i++) {
-            if(t.charAt(i)=='(') {
+        for(int i=start; i<s.length(); i++){
+            char c=s.charAt(i);
+            if(c==token[0]){
                 count++;
-            } else if(t.charAt(i)==')') {
-                if(count==0) {
-                    return false;
-                } else {
-                    count--;
+            } else if(c==token[1]){
+                count--;
+            }
+            if(count>=0){
+                continue;
+            } else{
+                for(int j=lastRemove; j<=i; j++){
+                    char cj=s.charAt(j);
+                    if(cj==token[1] && (j==lastRemove || cj!=s.charAt(j-1))){
+                        removeInvalidParenthesesHelper(s.substring(0, j)+s.substring(j+1), i, j, token, result);
+                    }
                 }
+                return;
             }
         }
-        return count==0;
+        String r=new StringBuilder(s).reverse().toString();
+        if(token[0]=='('){
+            removeInvalidParenthesesHelper(r, 0, 0, new char[]{')', '('}, result);
+        } else{
+            result.add(r);
+        }
     }
+
+//    // BFS
+//    public List<String> removeInvalidParentheses(String s) {
+//        List<String> result=new ArrayList<>();
+//        Set<String> checked=new HashSet<>();
+//        checked.add(s);
+//        Queue<String> queue=new LinkedList<>();
+//        queue.offer(s);
+//        boolean found=false;
+//        while(!queue.isEmpty()) {
+//            String t=queue.poll();
+//            if(isValid(t)) {
+//                result.add(t);
+//                found=true;
+//            }
+//            if(found) {
+//                continue;
+//            }
+//            for(int i=0; i<t.length(); i++) {
+//                if(t.charAt(i)!='(' && t.charAt(i)!=')') {
+//                    continue;
+//                }
+//                String str=t.substring(0, i)+t.substring(i+1);
+//                if(!checked.contains(str)) {
+//                    queue.offer(str);
+//                    checked.add(str);
+//                }
+//            }
+//        }
+//        return result;
+//    }
+//
+//    private static boolean isValid(String t) {
+//        int count=0;
+//        for(int i=0; i<t.length(); i++) {
+//            if(t.charAt(i)=='(') {
+//                count++;
+//            } else if(t.charAt(i)==')') {
+//                if(count==0) {
+//                    return false;
+//                } else {
+//                    count--;
+//                }
+//            }
+//        }
+//        return count==0;
+//    }
 
 //    // DFS
 //    public List<String> removeInvalidParentheses(String s) {
