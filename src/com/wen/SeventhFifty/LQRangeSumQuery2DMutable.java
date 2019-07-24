@@ -1,7 +1,8 @@
 package com.wen.SeventhFifty;
 
-public class RangeSumQuery2DMutable {
+public class LQRangeSumQuery2DMutable {
     // Binary indexed tree
+    // In a binary indexed tree, indexes starts from 1, parentIndex=childIndex+lowbit(childIndex), lowbit can be calculated by x&(-x)
     public static class NumMatrix {
         int[][] matrix=null;
         int[][] biTree=null;

@@ -16,7 +16,7 @@ public class BurstBalloons {
                     dp[i][j]=left*nums[i]*right;
                 } else {
                     for(int k=i; k<=j; k++) {
-                        dp[i][j]=Math.max(dp[i][j],(k-1>=0?dp[i][k-1]:0)+nums[k]*left*right+(k+1<l?dp[k+1][j]:0));
+                        dp[i][j]=Math.max(dp[i][j],(k-1>=i?dp[i][k-1]:0)+nums[k]*left*right+(k+1<=j?dp[k+1][j]:0));
                     }
                 }
             }

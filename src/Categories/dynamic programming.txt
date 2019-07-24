@@ -25,3 +25,6 @@ House Robber
 House Robber II
 *Maximal Square
 - 300 -
+Range Sum Query - Immutable
+Range Sum Query 2D - Immutable
+*Burst Balloons

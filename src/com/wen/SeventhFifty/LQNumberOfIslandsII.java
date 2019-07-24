@@ -10,7 +10,7 @@ public class LQNumberOfIslandsII {
         public Point(int a, int b) { x = a; y = b; }
     }
 
-    public class UnionFind{
+    public static class UnionFind{
         // Stores the ancestor info for each node
         int[] pre=null;
         // Stores the number of nodes for each node(ancestor)
@@ -66,7 +66,7 @@ public class LQNumberOfIslandsII {
         }
     }
 
-    public List<Integer> numIslands2(int n, int m, Point[] operators) {
+    public static List<Integer> numIslands2(int n, int m, Point[] operators) {
         if(n<=0 || m<=0){
             throw new IllegalArgumentException("Input is invalid!");
         }
@@ -77,6 +77,7 @@ public class LQNumberOfIslandsII {
         int[][] dirs=new int[][]{{0,1},{0,-1},{1,0},{-1,0}};
         UnionFind uf=new UnionFind(m*n);
         for(Point p: operators){
+            // Note generating key in this way can guarantee that the keys will be consecutive
             int key=p.x*m+p.y;
             uf.add(key);
             for(int[] dir: dirs){
