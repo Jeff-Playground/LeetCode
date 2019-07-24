@@ -25,7 +25,7 @@ public class LQEncodeAndDecodeStrings {
 
     /*
      * @param str: A string
-     * @return: dcodes a single string to a list of strings
+     * @return: decodes a single string to a list of strings
      */
     public List<String> decode(String str) {
         if(str==null){

@@ -1,7 +1,7 @@
 package com.wen.SixthFifty;
 
 public class HIndexII {
-    // citations.length - i equals the number of papers that has higher citations than the i th paper
+    // citations.length - i equals the number of papers that has higher citations than the ith paper
     public int hIndex(int[] citations) {
         int l=citations.length;
         for(int i=0; i<l; i++){

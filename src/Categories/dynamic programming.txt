@@ -25,6 +25,13 @@ House Robber
 House Robber II
 *Maximal Square
 - 250 -
+LQPaintHouse
+*Ugly Number II
+*LQPaintHouseII
+LQPaintFence
+*Perfect Squares
+*Longest Increasing Subsequence
+- 300 -
 Range Sum Query - Immutable
 Range Sum Query 2D - Immutable
 *Burst Balloons

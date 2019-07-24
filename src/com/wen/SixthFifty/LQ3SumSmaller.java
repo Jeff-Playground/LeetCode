@@ -18,6 +18,7 @@ public class LQ3SumSmaller {
                 if(nums[left]+nums[right]>=remain){
                     right--;
                 } else{
+                    // Doing this because for all numbers which left<num<=right, there'll be right-left counts valid
                     result+=right-left;
                     left++;
                 }

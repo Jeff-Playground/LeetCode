@@ -1,6 +1,6 @@
 package com.wen.SixthFifty;
 
-public class LQUglyNumber {
+public class UglyNumber {
     public boolean isUgly(int num) {
         if(num<=0){
             return false;

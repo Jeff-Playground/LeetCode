@@ -5,8 +5,8 @@ import java.util.PriorityQueue;
 public class FindMedianFromDataStream {
     class MedianFinder {
         int length=0;
-        PriorityQueue<Integer> right=new PriorityQueue<>((a, b)->a-b);
         PriorityQueue<Integer> left=new PriorityQueue<>((a,b)->b-a);
+        PriorityQueue<Integer> right=new PriorityQueue<>((a, b)->a-b);
 
         /** initialize your data structure here. */
         public MedianFinder() {

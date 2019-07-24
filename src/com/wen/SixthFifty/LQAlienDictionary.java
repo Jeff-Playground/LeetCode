@@ -43,7 +43,7 @@ public class LQAlienDictionary {
                         graph.get(start).add(end);
                         inDegree[end-'a']++;
                     }
-                    // This is a god move!!!
+                    // break here because the differences after the first one are meaningless
                     break;
                 }
             }

@@ -90,5 +90,21 @@ LQFlatten2DVector
 LQMeetingRooms
 *LQMeetingRoomsII
 *LQVerifyPreorderSequenceInBinarySearchTree
+*Add Digits
+*Single Number III
+*Ugly Number II
+LQPalindromePermutation
+Missing Number
+Integer To English Words
+H-Index
+H-Index II
+*LQFindTheCelebrity
+*LQWiggleSort
+Game of Life
+Word Pattern
+*Nim Game
+LQFlipGame
+*LQBestMeetingPoint
+*Bulls and Cows
 - 300 -
 *Remove Invalid Parentheses

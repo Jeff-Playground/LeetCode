@@ -17,3 +17,6 @@ Two Sum II - Input array is sorted
 *Shortest Palindrome
 Palindrome Linked List
 - 250 -
+LQ3SumSmaller
+*MoveZeroes
+- 300 -

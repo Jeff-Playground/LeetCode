@@ -46,5 +46,12 @@ LQStrobogrammaticNumberII
 *LQCountUnivalueSubtrees
 - 250 -
 *LQFactorCombinations
+Binary Tree Paths
+*LQGraphValidTree
+LQPalindromePermutationII
+*Expression Add Operators
+LQWordPatternII
+*LQFlipGameII
+*LQBinaryTreeLongestConsecutiveSequence
 - 300 -
 *Remove Invalid Parentheses

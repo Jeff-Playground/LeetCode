@@ -1,6 +1,6 @@
 package com.wen.SixthFifty;
 
-public class LQUglyNumberII {
+public class UglyNumberII {
     public int nthUglyNumber(int n) {
         int[] factors={2,3,5};
         int fn=factors.length;

@@ -98,9 +98,9 @@ public class SerializeAndDeserializeBinaryTree {
 //    private TreeNode deserializeDFS(Queue<String> queue) {
 //        String s = queue.poll();
 //        if (s.equals("null")) return null;
-//        TreeNode root = new TreeNode(Integer.valueOf(s));
-//        root.left = deserializeDFS(queue);
-//        root.right = deserializeDFS(queue);
-//        return root;
+//        TreeNode node = new TreeNode(Integer.valueOf(s));
+//        node.left = deserializeDFS(queue);
+//        node.right = deserializeDFS(queue);
+//        return node;
 //    }
 }

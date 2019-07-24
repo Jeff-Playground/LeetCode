@@ -1,6 +1,8 @@
 package com.wen.SixthFifty;
 
 public class GameOfLife {
+    // 0: dead  1: live
+    // 2: dead to dead      3: dead to live     4: live to dead     5: live to live
     public void gameOfLife(int[][] board) {
         if(board==null || board.length==0 || board[0].length==0){
             return;

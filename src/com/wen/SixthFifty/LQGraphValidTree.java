@@ -8,7 +8,6 @@ public class LQGraphValidTree {
         if(n==1 && edges.length==0){
             return true;
         }
-        Set<Integer> visited=new HashSet<>();
         Map<Integer, Set<Integer>> graph=new HashMap<>();
         for(int[] edge: edges){
             Set<Integer> set0=graph.getOrDefault(edge[0], new HashSet<>());
@@ -18,6 +17,7 @@ public class LQGraphValidTree {
             graph.put(edge[0], set0);
             graph.put(edge[1], set1);
         }
+        Set<Integer> visited=new HashSet<>();
         if(!validTreeDFS(0, graph, visited)){
             return false;
         }
@@ -46,7 +46,6 @@ public class LQGraphValidTree {
 //        if(n==1 && edges.length==0){
 //            return true;
 //        }
-//        Set<Integer> visited=new HashSet<>();
 //        Map<Integer, Set<Integer>> graph=new HashMap<>();
 //        for(int[] edge: edges){
 //            Set<Integer> set0=graph.getOrDefault(edge[0], new HashSet<>());
@@ -56,6 +55,7 @@ public class LQGraphValidTree {
 //            graph.put(edge[0], set0);
 //            graph.put(edge[1], set1);
 //        }
+//        Set<Integer> visited=new HashSet<>();
 //        Queue<Integer> q=new LinkedList<>();
 //        q.offer(0);
 //        visited.add(0);
