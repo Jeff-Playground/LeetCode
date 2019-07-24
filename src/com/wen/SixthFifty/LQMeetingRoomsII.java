@@ -48,6 +48,8 @@ public class LQMeetingRoomsII {
 //        Collections.sort(intervals, (a, b)->a.start-b.start);
 //        Queue<Interval> q=new PriorityQueue<>((a, b)->a.end-b.end);
 //        for(Interval i: intervals){
+//            // Here it doesn't have to be a while loop and do Math.max every time because rooms are changed 1 at a time
+//            // Poll only one time each time ensures when the last meeting starts after all meetings before ended won't produce wrong answer
 //            if(!q.isEmpty()){
 //                Interval first=q.peek();
 //                if(first.end<i.start){

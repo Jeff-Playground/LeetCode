@@ -13,5 +13,5 @@ Word Break
 Number of Islands
 Maximal Square
 LQStrobogrammaticNumberII
-- 300 -
+- 250 -
 *Remove Invalid Parentheses

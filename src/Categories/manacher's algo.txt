@@ -1,2 +1,2 @@
 *Longest Palindromic Substring
-- 300 -
+- 250 -

@@ -44,5 +44,7 @@ Lowest Common Ancestor of a Binary Tree
 LQStrobogrammaticNumberII
 *LQStrobogrammaticNumberIII
 *LQCountUnivalueSubtrees
+- 250 -
+*LQFactorCombinations
 - 300 -
 *Remove Invalid Parentheses

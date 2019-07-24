@@ -1,4 +1,4 @@
-- 300 -
+- 250 -
 *Range Sum Query - Mutable
 *LQRangeSumQuery2DMutable
 *Count of Smaller Numbers After Self

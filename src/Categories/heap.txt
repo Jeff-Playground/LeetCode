@@ -1,2 +1,2 @@
 *Merge k Sorted Lists
-- 300 -
+- 250 -
