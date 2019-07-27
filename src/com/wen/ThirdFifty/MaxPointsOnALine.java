@@ -31,7 +31,7 @@ public class MaxPointsOnALine {
         return result;
     }
 
-    // Stein method
+    // Stein's method
     // This works better with positive numbers, the sign is introduced to handle case when a and b are of different signs
     private static int greatestCommonDivisor(int a, int b) {
         int sign=1;
@@ -61,7 +61,7 @@ public class MaxPointsOnALine {
         }
     }
 
-//    // Euclid method
+//    // Euclid's method
 //    private static int greatestCommonDivisor(int a, int b) {
 //        return b==0? a :greatestCommonDivisor(b, a%b);
 //    }
