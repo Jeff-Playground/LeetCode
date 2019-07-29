@@ -48,7 +48,6 @@ public class InsertDeleteGetRandomOOne {
 
         /** Get a random element from the set. */
         public int getRandom() {
-//            return nums.get(ThreadLocalRandom.current().nextInt()%nums.size());
             return nums.get(new Random().nextInt(nums.size()));
         }
     }

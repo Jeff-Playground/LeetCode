@@ -111,3 +111,6 @@ LQFlipGame
 *Increasing Triplet Subsequence
 Top K Frequent Elements
 - 350 -
+*Water and Jug Problem
+First Unique Character in a String
+Rotate Function

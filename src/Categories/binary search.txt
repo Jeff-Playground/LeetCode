@@ -18,3 +18,4 @@ First Bad Version
 - 300 -
 *Count of Smaller Numbers After Self
 - 350 -
+*Is Subsequence

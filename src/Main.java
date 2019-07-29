@@ -1,4 +1,5 @@
 import com.wen.EighthFifty.DesignTwitter;
+import com.wen.EighthFifty.EvaluateDivision;
 import com.wen.EighthFifty.RotateFunction;
 import com.wen.EleventhFifty.ShortestUnsortedContinuousSubarray;
 import com.wen.FifteenthFifty.LQClosestLeafInABinaryTree;
@@ -503,6 +504,10 @@ public class Main {
 
 //        CountOfSmallerNumbersAfterSelf.countSmaller(new int[]{5,2,6,1});
 
-        PerfectSquares.numSquares(12);
+//        PerfectSquares.numSquares(12);
+
+        EvaluateDivision.calcEquation(Arrays.asList(Arrays.asList("x1","x2"),Arrays.asList("x2","x3"),Arrays.asList("x3","x4"),Arrays.asList("x4","x5")),
+                new double[]{3.0,4.0,5.0,6.0},
+                Arrays.asList(Arrays.asList("x1","x5"),Arrays.asList("x5","x2"),Arrays.asList("x2","x4"),Arrays.asList("x2","x2"),Arrays.asList("x2","x9"),Arrays.asList("x9","x9")));
     }
 }

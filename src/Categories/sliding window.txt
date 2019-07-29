@@ -6,3 +6,4 @@ LQLongestSubstringWithAtMostTwoDistinctCharacters
 Minimum Size Subarray Sum
 - 300 -
 - 350 -
+First Unique Character in a String

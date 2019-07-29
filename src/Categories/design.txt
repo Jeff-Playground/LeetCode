@@ -15,3 +15,10 @@ LQUniqueWordAbbreviation
 - 300 -
 LQMovingAverageFromDataStream
 - 350 -
+*LQDesignSnakeGame
+Design Twitter
+*LQLoggerRateLimiter
+*LQDesignHitCounter
+LQDesignPhoneDirectory
+Insert Delete GetRandom O(1)
+Insert Delete GetRandom O(1) - Duplicates allowed
