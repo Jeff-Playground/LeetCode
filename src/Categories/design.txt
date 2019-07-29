@@ -14,3 +14,4 @@ LQUniqueWordAbbreviation
 *Find Median from Data Stream
 - 300 -
 LQMovingAverageFromDataStream
+- 350 -

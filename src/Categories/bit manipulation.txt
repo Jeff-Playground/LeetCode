@@ -8,3 +8,4 @@ Number of 1 Bits
 *Power of Two
 *Missing Number
 - 300 -
+- 350 -

@@ -17,3 +17,4 @@ First Bad Version
 *Longest Increasing Subsequence
 - 300 -
 *Count of Smaller Numbers After Self
+- 350 -

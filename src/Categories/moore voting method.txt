@@ -1,3 +1,4 @@
 Majority Element
 *Majority Element II
 - 300 -
+- 350 -

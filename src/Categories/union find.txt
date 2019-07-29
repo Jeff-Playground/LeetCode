@@ -2,3 +2,4 @@ Longest Consecutive Sequence
 *LQGraphValidTree
 - 300 -
 *LQNumberOfIslandsII
+- 350 -
