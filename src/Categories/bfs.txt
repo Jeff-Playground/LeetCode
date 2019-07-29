@@ -20,3 +20,4 @@ LQWallsAndGates
 *Reconstruct Itinerary
 - 350 -
 *Decode String
+- 400 -

@@ -19,3 +19,4 @@ First Bad Version
 *Count of Smaller Numbers After Self
 - 350 -
 *Is Subsequence
+- 400 -
