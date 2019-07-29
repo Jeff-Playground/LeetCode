@@ -107,3 +107,6 @@ LQFlipGame
 *Bulls and Cows
 - 300 -
 *Remove Invalid Parentheses
+*Wiggle Sort II
+*Increasing Triplet Subsequence
+Top K Frequent Elements

@@ -71,6 +71,7 @@ public class CountOfSmallerNumbersAfterSelf {
 //                ranks.put(numsCopy[i], rank++);
 //            }
 //        }
+//        // freq stores the counts of ranks of nums present at each iteration
 //        int[] freq=new int[ranks.size()*4];
 //        for(int i=nums.length-1; i>=0; i--){
 //            update(freq, 0, 0, ranks.size()-1, ranks.get(nums[i])-1, 1);
@@ -129,6 +130,7 @@ public class CountOfSmallerNumbersAfterSelf {
 //                ranks.put(numsCopy[i], rank++);
 //            }
 //        }
+//        // freq stores the counts of ranks of nums present at each iteration
 //        // Note binary indexed tree starts at 1, so length is ranks.length+1
 //        int[] freq=new int[rank];
 //        for(int i=nums.length-1; i>=0; i--){

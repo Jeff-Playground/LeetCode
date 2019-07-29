@@ -17,17 +17,16 @@ public class HouseRobberIII {
         return Math.max(result.get(0), result.get(1));
     }
 
+    // List has two elements, 0 - maximum when doesn't rob current node, 1 - maximum when rob current node
     private List<Integer> robHelper(TreeNode node) {
         if(node==null) {
             return new ArrayList<>(Arrays.asList(0,0));
         } else {
             List<Integer> result=new ArrayList<>();
-            result.add(node.val);
-            result.add(0);
             List<Integer> left=robHelper(node.left);
             List<Integer> right=robHelper(node.right);
-            result.set(0, result.get(0)+left.get(1)+right.get(1));
-            result.set(1, Math.max(left.get(0), left.get(1))+Math.max(right.get(0), right.get(1)));
+            result.add(Math.max(left.get(0), left.get(1))+Math.max(right.get(0), right.get(1)));
+            result.add(node.val+left.get(0)+right.get(0));
             return result;
         }
     }

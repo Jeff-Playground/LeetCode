@@ -13,3 +13,4 @@ Peeking Iterator
 LQUniqueWordAbbreviation
 *Find Median from Data Stream
 - 300 -
+LQMovingAverageFromDataStream
