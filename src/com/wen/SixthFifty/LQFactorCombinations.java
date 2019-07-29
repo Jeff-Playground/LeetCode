@@ -13,6 +13,11 @@ public class LQFactorCombinations {
     }
 
     public void getFactorsDFS(int n, int last, List<Integer> out, List<List<Integer>> result){
+        if(last!=0){
+            List<Integer> outCopy=new ArrayList<>(out);
+            outCopy.add(n);
+            result.add(outCopy);
+        }
         int start=last==0?2:last;
         for(int i=start; i*i<=n; i++){
             if(n%i==0){
@@ -20,11 +25,6 @@ public class LQFactorCombinations {
                 getFactorsDFS(n/i, i, out, result);
                 out.remove(out.size()-1);
             }
-        }
-        if(last!=0){
-            List<Integer> outCopy=new ArrayList<>(out);
-            outCopy.add(n);
-            result.add(outCopy);
         }
     }
 }

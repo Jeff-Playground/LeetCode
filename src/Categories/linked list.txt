@@ -19,6 +19,5 @@ Remove Linked List Elements
 Reverse Linked List
 Palindrome Linked List
 *Delete Node in a Linked List
-- 250 -
 *Find the Duplicate Number
 - 300 -

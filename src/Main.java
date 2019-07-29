@@ -501,6 +501,8 @@ public class Main {
 //        LQGraphValidTree.validTree(5, new int[][]{{0,1},{1,2},{2,3},{1,3},{1,4}});
 //        LQGraphValidTree.validTree(1, new int[][]{});
 
-        CountOfSmallerNumbersAfterSelf.countSmaller(new int[]{5,2,6,1});
+//        CountOfSmallerNumbersAfterSelf.countSmaller(new int[]{5,2,6,1});
+
+        PerfectSquares.numSquares(12);
     }
 }

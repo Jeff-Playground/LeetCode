@@ -7,7 +7,6 @@ Add and Search Word - Data structure design
 Implement Stack using Queues
 Implement Queue using Stacks
 Implement Queue using Stacks
-- 250 -
 *LQEncodeAndDecodeStrings
 LQZigzagIterator
 Peeking Iterator

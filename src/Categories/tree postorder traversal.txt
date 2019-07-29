@@ -1,6 +1,5 @@
 Same Tree
 Binary Tree Postorder Traversal
 *LQCountUnivalueSubtrees
-- 250 -
 *LQBinaryTreeLongestConsecutiveSequence
 - 300 -

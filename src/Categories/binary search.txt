@@ -11,7 +11,6 @@ Find Peak Element
 *Minimum Size Subarray Sum
 *Count Complete Tree Nodes
 Search a 2D Matrix II
-- 250 -
 Missing Number
 First Bad Version
 *Find the Duplicate Number

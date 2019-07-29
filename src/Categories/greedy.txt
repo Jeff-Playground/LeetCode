@@ -3,4 +3,4 @@ Jump Game
 Best Time to Buy and Sell Stock II
 *Gas Station
 *Candy
-- 250 -
+- 300 -

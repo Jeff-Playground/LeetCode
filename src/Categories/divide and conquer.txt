@@ -7,4 +7,5 @@ Merge k Sorted Lists
 Basic Calculator
 Basic Calculator II
 Different Ways to Add Parentheses
-- 250 -
+*LQVerifyPreorderSequenceInBinarySearchTree
+- 300 -

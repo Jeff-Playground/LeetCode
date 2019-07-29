@@ -1,4 +1,3 @@
-- 250 -
 LQClosestBinarySearchTreeValue
 - 300 -
 *LQVerifyPreorderSequenceInBinarySearchTree

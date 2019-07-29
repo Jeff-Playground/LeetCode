@@ -1,2 +1,2 @@
 *Repeated DNA Sequences
-- 250 -
+- 300 -
