@@ -8,6 +8,7 @@ import com.wen.FifteenthFifty.SplitLinkedListInParts;
 import com.wen.FifthFifty.*;
 import com.wen.FirstFifty.*;
 import com.wen.FourthFifty.*;
+import com.wen.NinthFifty.CircularArrayLoop;
 import com.wen.NinthFifty.LQSequenceReconstruction;
 import com.wen.SecondFifty.*;
 import com.wen.SeventhFifty.CountOfSmallerNumbersAfterSelf;
@@ -506,8 +507,10 @@ public class Main {
 
 //        PerfectSquares.numSquares(12);
 
-        EvaluateDivision.calcEquation(Arrays.asList(Arrays.asList("x1","x2"),Arrays.asList("x2","x3"),Arrays.asList("x3","x4"),Arrays.asList("x4","x5")),
-                new double[]{3.0,4.0,5.0,6.0},
-                Arrays.asList(Arrays.asList("x1","x5"),Arrays.asList("x5","x2"),Arrays.asList("x2","x4"),Arrays.asList("x2","x2"),Arrays.asList("x2","x9"),Arrays.asList("x9","x9")));
+//        EvaluateDivision.calcEquation(Arrays.asList(Arrays.asList("x1","x2"),Arrays.asList("x2","x3"),Arrays.asList("x3","x4"),Arrays.asList("x4","x5")),
+//                new double[]{3.0,4.0,5.0,6.0},
+//                Arrays.asList(Arrays.asList("x1","x5"),Arrays.asList("x5","x2"),Arrays.asList("x2","x4"),Arrays.asList("x2","x2"),Arrays.asList("x2","x9"),Arrays.asList("x9","x9")));
+
+        CircularArrayLoop.circularArrayLoop(new int[]{-2,1,-1,-2,-2});
     }
 }
