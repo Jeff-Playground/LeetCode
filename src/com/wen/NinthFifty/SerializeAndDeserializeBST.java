@@ -12,6 +12,7 @@ public class SerializeAndDeserializeBST {
         TreeNode(int x) { val = x; }
     }
 
+    // Level order traversal
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         if(root==null){

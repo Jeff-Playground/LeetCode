@@ -1,6 +1,6 @@
 package com.wen.NinthFifty;
 
-public class SentenceScreenFitting {
+public class LQSentenceScreenFitting {
     public int wordsTyping(String[] sentence, int rows, int cols) {
         StringBuilder sen=new StringBuilder();
         for(String word: sentence){

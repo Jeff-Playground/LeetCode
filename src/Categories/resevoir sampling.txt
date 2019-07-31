@@ -1,5 +1,5 @@
 - 300 -
 - 350 -
 *Linked List Random Node
-*Rotate Function
+*Random Pick Index
 - 400 -

@@ -115,3 +115,6 @@ Top K Frequent Elements
 First Unique Character in a String
 Rotate Function
 - 400 -
+Third Maximum Number
+*LQSentenceScreenFitting
+Battleships in a Board

@@ -1,4 +1,6 @@
+import com.wen.EleventhFifty.CoinChange2;
 import com.wen.FirstFifty.*;
+import com.wen.NinthFifty.PartitionEqualSubsetSum;
 import com.wen.TenthFifty.LQTheMazeIII;
 
 public class Main {
@@ -495,7 +497,11 @@ public class Main {
 
 //        PredictTheWinner.PredictTheWinner(new int[]{1,5,2});
 
-        int[][] maze=new int[][]{{0,0,0,0,0},{1,1,0,0,1},{0,0,0,0,0},{0,1,0,0,1},{0,1,0,0,0}};
-        LQTheMazeIII.findShortestWay(maze, new int[]{4,3}, new int[]{0,1});
+//        int[][] maze=new int[][]{{0,0,0,0,0},{1,1,0,0,1},{0,0,0,0,0},{0,1,0,0,1},{0,1,0,0,0}};
+//        LQTheMazeIII.findShortestWay(maze, new int[]{4,3}, new int[]{0,1});
+
+//        PartitionEqualSubsetSum.canPartition(new int[]{1,2,5});
+
+//        CoinChange2.change(5, new int[]{1,2,5});
     }
 }

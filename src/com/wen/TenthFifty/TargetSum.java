@@ -1,35 +1,66 @@
 package com.wen.TenthFifty;
 
 public class TargetSum {
-    // DP, 0-1 knapsack
+    // DP, optimized to one dimensional array
     public int findTargetSumWays(int[] nums, int S) {
         int sum=0;
         for(int num: nums){
             sum+=num;
         }
         S=Math.abs(S);
-        if(S>sum || (sum+S)%2!=0){
+        if(S>sum || (sum+S)%2==1){
             return 0;
         }
-        int[][] dp=new int[(sum+S)/2+1][nums.length+1];
-        dp[0][0]=1;
-        for(int i=0; i<nums.length; i++){
-            if(nums[i]==0){
-                dp[0][i+1]=dp[0][i]*2;
-            } else {
-                dp[0][i+1]=dp[0][i];
-            }
-        }
-        for(int i=1; i<dp.length; i++){
-            for(int j=0; j<nums.length; j++){
-                dp[i][j+1]+=dp[i][j];
-                if(nums[j]<=i){
-                    dp[i][j+1]+=dp[i-nums[j]][j];
+        int l=nums.length;
+        int[] dp=new int[(sum+S)/2+1];
+        dp[0]=1;
+        for(int i=1; i<l+1; i++){
+            for(int j=(sum+S)/2; j>=0; j--){
+                if(nums[i-1]==0){
+                    dp[j]=2*dp[j];
+                } else{
+                    if(nums[i-1]<=j){
+                        dp[j]=dp[j]+dp[j-nums[i-1]];
+                    } else{
+                        dp[j]=dp[j];
+                    }
                 }
             }
         }
-        return dp[(sum+S)/2][nums.length];
+        return dp[(sum+S)/2];
     }
+
+//    // DP, 0-1 knapsack
+//    public int findTargetSumWays(int[] nums, int S) {
+//        int sum=0;
+//        for(int num: nums){
+//            sum+=num;
+//        }
+//        S=Math.abs(S);
+//        if(S>sum || (sum+S)%2==1){
+//            return 0;
+//        }
+//        int l=nums.length;
+//        int[][] dp=new int[l+1][(sum+S)/2+1];
+//        dp[0][0]=1;
+//        for(int i=1; i<l+1; i++){
+//            if(nums[i-1]==0){
+//                dp[i][0]=2*dp[i-1][0];
+//            } else{
+//                dp[i][0]=dp[i-1][0];
+//            }
+//        }
+//        for(int i=1; i<l+1; i++){
+//            for(int j=1; j<(sum+S)/2+1; j++){
+//                if(nums[i-1]<=j){
+//                    dp[i][j]=dp[i-1][j]+dp[i-1][j-nums[i-1]];
+//                } else{
+//                    dp[i][j]=dp[i-1][j];
+//                }
+//            }
+//        }
+//        return dp[l][(sum+S)/2];
+//    }
 
 //    // DFS
 //    public int findTargetSumWays(int[] nums, int S) {
