@@ -1,27 +1,5 @@
-import com.wen.EighthFifty.DesignTwitter;
-import com.wen.EighthFifty.EvaluateDivision;
-import com.wen.EighthFifty.RotateFunction;
-import com.wen.EleventhFifty.ShortestUnsortedContinuousSubarray;
-import com.wen.FifteenthFifty.LQClosestLeafInABinaryTree;
-import com.wen.FifteenthFifty.MinCostClimbingStairs;
-import com.wen.FifteenthFifty.SplitLinkedListInParts;
-import com.wen.FifthFifty.*;
 import com.wen.FirstFifty.*;
-import com.wen.FourthFifty.*;
-import com.wen.NinthFifty.CircularArrayLoop;
-import com.wen.NinthFifty.LQSequenceReconstruction;
-import com.wen.SecondFifty.*;
-import com.wen.SeventhFifty.CountOfSmallerNumbersAfterSelf;
-import com.wen.SeventhFifty.IsSubsequence;
-import com.wen.SeventhFifty.LQRangeSumQuery2DMutable;
-import com.wen.SeventhFifty.RangeSumQueryImmutable;
-import com.wen.SixthFifty.*;
-import com.wen.TenthFifty.RepeatedSubstringPattern;
-import com.wen.ThirdFifty.*;
-import com.wen.ThirteenthFifty.SetMismatch;
-import com.wen.TwentyFirstFifty.FindCommonCharacters;
-
-import java.util.Arrays;
+import com.wen.TenthFifty.LQTheMazeIII;
 
 public class Main {
 
@@ -511,6 +489,13 @@ public class Main {
 //                new double[]{3.0,4.0,5.0,6.0},
 //                Arrays.asList(Arrays.asList("x1","x5"),Arrays.asList("x5","x2"),Arrays.asList("x2","x4"),Arrays.asList("x2","x2"),Arrays.asList("x2","x9"),Arrays.asList("x9","x9")));
 
-        CircularArrayLoop.circularArrayLoop(new int[]{-2,1,-1,-2,-2});
+//        CircularArrayLoop.circularArrayLoop(new int[]{-2,1,-1,-2,-2});
+
+//        LQOptimalAccountBalancing.balanceGraph(new int[][]{{0,1,10},{1,0,1},{1,2,5},{2,0,5}});
+
+//        PredictTheWinner.PredictTheWinner(new int[]{1,5,2});
+
+        int[][] maze=new int[][]{{0,0,0,0,0},{1,1,0,0,1},{0,0,0,0,0},{0,1,0,0,1},{0,1,0,0,0}};
+        LQTheMazeIII.findShortestWay(maze, new int[]{4,3}, new int[]{0,1});
     }
 }

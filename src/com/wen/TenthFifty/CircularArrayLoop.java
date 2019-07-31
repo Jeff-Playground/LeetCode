@@ -1,4 +1,4 @@
-package com.wen.NinthFifty;
+package com.wen.TenthFifty;
 
 public class CircularArrayLoop {
     public boolean circularArrayLoop(int[] nums) {
