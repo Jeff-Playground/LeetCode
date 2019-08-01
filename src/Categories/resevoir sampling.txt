@@ -4,3 +4,4 @@
 *Random Pick Index
 - 400 -
 - 450 -
+- 500 -

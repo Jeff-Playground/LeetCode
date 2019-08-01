@@ -22,3 +22,6 @@ LQWallsAndGates
 *Decode String
 - 400 -
 - 450 -
+LQTheMaze
+LQTheMazeIII
+- 500 -

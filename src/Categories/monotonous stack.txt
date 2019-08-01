@@ -3,3 +3,5 @@
 - 400 -
 - 450 -
 *132 Pattern
+Next Greater Element I
+- 500 -

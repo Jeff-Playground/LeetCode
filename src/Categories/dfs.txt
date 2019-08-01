@@ -58,3 +58,7 @@ LQWordPatternII
 - 350 -
 - 400 -
 - 450 -
+LQTheMaze
+Target Sum
+LQTheMazeIII
+- 500 -

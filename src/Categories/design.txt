@@ -25,3 +25,4 @@ Insert Delete GetRandom O(1) - Duplicates allowed
 - 400 -
 - 450 -
 *LFU Cache
+- 500 -

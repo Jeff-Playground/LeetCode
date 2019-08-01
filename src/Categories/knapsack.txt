@@ -3,3 +3,5 @@
 - 400 -
 *Partition Equal Subset Sum
 - 450 -
+*Target Sum
+- 500 -

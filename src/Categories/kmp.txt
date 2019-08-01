@@ -5,3 +5,4 @@
 - 400 -
 - 450 -
 *Repeated Substring Pattern
+- 500 -

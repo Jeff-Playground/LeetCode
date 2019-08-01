@@ -3,6 +3,7 @@ import com.wen.FirstFifty.*;
 import com.wen.NinthFifty.PartitionEqualSubsetSum;
 import com.wen.TenthFifty.LQTheMazeIII;
 import com.wen.TenthFifty.RepeatedSubstringPattern;
+import com.wen.TenthFifty.SlidingWindowMedian;
 
 public class Main {
 
@@ -504,5 +505,9 @@ public class Main {
 //        PartitionEqualSubsetSum.canPartition(new int[]{1,2,5});
 
 //        CoinChange2.change(5, new int[]{1,2,5});
+
+//        SlidingWindowMedian.medianSlidingWindow(new int[]{Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MAX_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE},3);
+
+
     }
 }

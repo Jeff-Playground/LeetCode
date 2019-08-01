@@ -1,7 +1,7 @@
 package com.wen.TenthFifty;
 
 public class TargetSum {
-    // DP, optimized to one dimensional array
+    // DP, 0-1 knapsack optimized to one dimensional array
     public int findTargetSumWays(int[] nums, int S) {
         int sum=0;
         for(int num: nums){
@@ -31,6 +31,7 @@ public class TargetSum {
     }
 
 //    // DP, 0-1 knapsack
+//    // sPositive+sNegative=sum, sPositive-sNegative=S, so sPositive=(sum+S)/2
 //    public int findTargetSumWays(int[] nums, int S) {
 //        int sum=0;
 //        for(int num: nums){

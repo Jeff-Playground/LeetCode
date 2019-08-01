@@ -40,3 +40,4 @@ LQBombEnemy
 Is Subsequence
 - 400 -
 - 450 -
+- 500 -
