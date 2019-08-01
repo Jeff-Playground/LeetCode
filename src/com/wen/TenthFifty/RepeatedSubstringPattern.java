@@ -22,20 +22,22 @@ public class RepeatedSubstringPattern {
 //    }
 
     // KMP
-    // dp[i] stands for the length of the repeating chars in s.substring(0,i)
+    // next[i] stands for the index of the repeated chars
     public static boolean repeatedSubstringPattern(String s) {
         int l=s.length();
-        int i=0, j=1;
-        int[] dp=new int[l+1];
+        // Note here the length is l+1 because next[l] stands for the lastIndex+1=length of the repeating string
+        int[] next=new int[l+1];
+        int i=-1, j=0;
+        next[0]=-1;
         while(j<l){
-            if(s.charAt(i)==s.charAt(j)){
-                dp[++j]=++i;
-            } else if(i==0){
+            if(i==-1 || s.charAt(i)==s.charAt(j)){
+                i++;
                 j++;
+                next[j]=i;
             } else{
-                i=dp[i];
+                i=next[i];
             }
         }
-        return dp[l]>0 && dp[l]%(l-dp[l])==0;
+        return next[l]>0 && (next[l])%(l-(next[l]))==0;
     }
 }

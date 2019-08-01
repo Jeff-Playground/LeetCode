@@ -2,6 +2,7 @@ import com.wen.EleventhFifty.CoinChange2;
 import com.wen.FirstFifty.*;
 import com.wen.NinthFifty.PartitionEqualSubsetSum;
 import com.wen.TenthFifty.LQTheMazeIII;
+import com.wen.TenthFifty.RepeatedSubstringPattern;
 
 public class Main {
 

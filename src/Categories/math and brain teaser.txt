@@ -119,3 +119,7 @@ Third Maximum Number
 *LQSentenceScreenFitting
 Battleships in a Board
 - 450 -
+Sort Characters By Frequency
+132 Pattern
+Circular Array Loop
+*Poor Pigs
