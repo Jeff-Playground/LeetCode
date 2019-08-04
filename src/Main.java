@@ -1,9 +1,14 @@
 import com.wen.EleventhFifty.CoinChange2;
+import com.wen.EleventhFifty.LQWordAbbreviation;
 import com.wen.FirstFifty.*;
+import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.NinthFifty.PartitionEqualSubsetSum;
 import com.wen.TenthFifty.LQTheMazeIII;
 import com.wen.TenthFifty.RepeatedSubstringPattern;
 import com.wen.TenthFifty.SlidingWindowMedian;
+import com.wen.TwelfthFifty.LQMaximumVacationDays;
+import com.wen.TwelfthFifty.NextGreaterElementIII;
+import com.wen.TwelfthFifty.StudentAttendanceRecordII;
 
 public class Main {
 
@@ -508,6 +513,14 @@ public class Main {
 
 //        SlidingWindowMedian.medianSlidingWindow(new int[]{Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MAX_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE},3);
 
+//        NextGreaterElementIII.nextGreaterElement(12443322);
 
+//        LQWordAbbreviation.wordsAbbreviation(new String[]{"like","god","internal","me","internet","interval","intension","face","intrusion"});
+
+//        StudentAttendanceRecordII.checkRecord(99996);
+
+//        LQMaximumVacationDays.maxVacationDays(new int[][]{{0,0,0},{0,0,0},{0,0,0}}, new int[][]{{1,1,1},{7,7,7},{7,7,7}});
+
+        SplitArrayIntoConsecutiveSubsequences.isPossible(new int[]{1,2,3,4,4,5});
     }
 }
