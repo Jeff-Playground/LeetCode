@@ -57,6 +57,7 @@ LQWordPatternII
 *Reconstruct Itinerary
 - 350 -
 - 400 -
+*Path Sum III
 - 450 -
 LQTheMaze
 Target Sum

@@ -1,14 +1,4 @@
-import com.wen.EleventhFifty.CoinChange2;
-import com.wen.EleventhFifty.LQWordAbbreviation;
 import com.wen.FirstFifty.*;
-import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
-import com.wen.NinthFifty.PartitionEqualSubsetSum;
-import com.wen.TenthFifty.LQTheMazeIII;
-import com.wen.TenthFifty.RepeatedSubstringPattern;
-import com.wen.TenthFifty.SlidingWindowMedian;
-import com.wen.TwelfthFifty.LQMaximumVacationDays;
-import com.wen.TwelfthFifty.NextGreaterElementIII;
-import com.wen.TwelfthFifty.StudentAttendanceRecordII;
 
 public class Main {
 
@@ -521,6 +511,32 @@ public class Main {
 
 //        LQMaximumVacationDays.maxVacationDays(new int[][]{{0,0,0},{0,0,0},{0,0,0}}, new int[][]{{1,1,1},{7,7,7},{7,7,7}});
 
-        SplitArrayIntoConsecutiveSubsequences.isPossible(new int[]{1,2,3,4,4,5});
+//        SplitArrayIntoConsecutiveSubsequences.isPossible(new int[]{1,2,3,4,4,5});
+
+//        LQNextClosestTime.nextClosestTime("23:59");
+
+//        LQKEmptySlots.kEmptySlots(new int[]{6,5,8,9,7,1,10,2,3,4}, 2);
+//        LQKEmptySlots.kEmptySlots(new int[]{1,2,3,4}, 1);
+
+//        PathSumIII.TreeNode root=new PathSumIII.TreeNode(10);
+//        PathSumIII.TreeNode n1=new PathSumIII.TreeNode(5);
+//        PathSumIII.TreeNode n2=new PathSumIII.TreeNode(-3);
+//        PathSumIII.TreeNode n3=new PathSumIII.TreeNode(3);
+//        PathSumIII.TreeNode n4=new PathSumIII.TreeNode(2);
+//        PathSumIII.TreeNode n5=new PathSumIII.TreeNode(11);
+//        PathSumIII.TreeNode n6=new PathSumIII.TreeNode(3);
+//        PathSumIII.TreeNode n7=new PathSumIII.TreeNode(-2);
+//        PathSumIII.TreeNode n8=new PathSumIII.TreeNode(1);
+//        root.left=n1;
+//        root.right=n2;
+//        n1.left=n3;
+//        n1.right=n4;
+//        n2.right=n5;
+//        n3.left=n6;
+//        n3.right=n7;
+//        n4.right=n8;
+//        PathSumIII.pathSum(root, 8);
+
+//        RedundantConnection.findRedundantConnection(new int[][]{{1,2},{1,3},{2,3}});
     }
 }
