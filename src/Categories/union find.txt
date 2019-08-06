@@ -9,3 +9,4 @@ Longest Consecutive Sequence
 - 500 -
 - 550 -
 - 600 -
+- 650 -

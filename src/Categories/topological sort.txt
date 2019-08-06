@@ -9,3 +9,4 @@ Course Schedule II
 - 500 -
 - 550 -
 - 600 -
+- 650 -

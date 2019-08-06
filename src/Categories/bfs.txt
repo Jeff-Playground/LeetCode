@@ -29,3 +29,4 @@ LQTheMazeII
 Minesweeper
 - 550 -
 - 600 -
+- 650 -

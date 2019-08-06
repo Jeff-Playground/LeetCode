@@ -25,3 +25,4 @@ First Bad Version
 *Single Element in a Sorted Array
 - 550 -
 - 600 -
+- 650 -

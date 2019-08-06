@@ -70,3 +70,4 @@ Minesweeper
 Binary Tree Tilt
 - 600 -
 Construct String from Binary Tree
+- 650 -
