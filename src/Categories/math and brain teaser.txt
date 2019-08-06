@@ -139,3 +139,6 @@ Next Greater Element III
 *Subarray Sum Equals K
 Shortest Unsorted Continuous Subarray
 - 600 -
+Task Scheduler
+Solve the Equation
+*Set Mismatch

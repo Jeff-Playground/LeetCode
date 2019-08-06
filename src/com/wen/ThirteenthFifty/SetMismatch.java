@@ -20,6 +20,7 @@ public class SetMismatch {
         return result;
     }
 
+//    // Use -value to denote a number at a certain index exists without changing the value
 //    public int[] findErrorNums(int[] nums) {
 //        int[] result=new int[2];
 //        for(int num: nums){
