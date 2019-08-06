@@ -1,3 +1,4 @@
+import com.wen.FifteenthFifty.LongestWordInDictionary;
 import com.wen.FirstFifty.*;
 
 public class Main {
@@ -35,8 +36,8 @@ public class Main {
 //        int[] nums={3,4,-1,1};
 //        FirstMissingPositive.firstMissingPositive(nums);
 
-        int[] nums={2,0,2};
-        TrappingRainWater.trap(nums);
+//        int[] nums={2,0,2};
+//        TrappingRainWater.trap(nums);
 
 //        int[] nums={2,3,1,1,4};
 //        JumpGameII.jump(nums);
@@ -538,5 +539,7 @@ public class Main {
 //        PathSumIII.pathSum(root, 8);
 
 //        RedundantConnection.findRedundantConnection(new int[][]{{1,2},{1,3},{2,3}});
+
+        LongestWordInDictionary.longestWord(new String[]{"w","wo","wor","worl", "world"});
     }
 }
