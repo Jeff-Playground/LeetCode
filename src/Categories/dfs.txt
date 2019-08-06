@@ -71,3 +71,7 @@ Binary Tree Tilt
 - 600 -
 Construct String from Binary Tree
 - 650 -
+Find Duplicate Subtrees
+*Maximum Width of Binary Tree
+*LQEqualTreePartition
+*Number of Distinct Islands

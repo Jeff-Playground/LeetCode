@@ -30,3 +30,5 @@ Minesweeper
 - 550 -
 - 600 -
 - 650 -
+Cut Off Trees for Golf Event
+*Number of Distinct Islands

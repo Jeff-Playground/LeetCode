@@ -3,80 +3,82 @@ package com.wen.FourteenthFifty;
 import java.util.*;
 
 public class SplitArrayIntoConsecutiveSubsequences {
-    public boolean isPossible(int[] nums) {
-        if(nums==null || nums.length<3){
-            return false;
-        }
-        int l=nums.length;
-        Map<Integer, PriorityQueue<Integer>> map=new HashMap<>();
-        for(int num: nums){
-            PriorityQueue<Integer> last=getSeq(map, num-1);
-            int minLen=last.isEmpty()?0:last.poll();
-            PriorityQueue<Integer> cur=getSeq(map, num);
-            cur.offer(minLen+1);
-        }
-        for(int until: map.keySet()){
-            for(int len: map.get(until)){
-                if(len<3){
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    public PriorityQueue<Integer> getSeq(Map<Integer, PriorityQueue<Integer>> map, int until){
-        PriorityQueue<Integer> result=map.get(until);
-        if(result==null){
-            result=new PriorityQueue<>();
-        }
-        map.put(until, result);
-        return result;
-    }
-
 //    public boolean isPossible(int[] nums) {
 //        if(nums==null || nums.length<3){
 //            return false;
 //        }
 //        int l=nums.length;
-//        Integer prev=null;
-//        int prevCount=0, start=0;
-//        Queue<Integer> q=new LinkedList<>();
-//        for(int i=0; i<l; i++){
-//            int t=nums[i];
-//            if(i==l-1 || nums[i+1]!=t){
-//                int count=i-start+1;
-//                if(prev!=null && t-prev!=1){
-//                    while(prevCount-->0){
-//                        if(prev<q.poll()+2){
-//                            return false;
-//                        }
-//                    }
-//                    prev=null;
-//                }
-//                if(prev==null || t-prev==1){
-//                    while(prevCount>count){
-//                        prevCount--;
-//                        if(prev<q.poll()+2){
-//                            return false;
-//                        }
-//                    }
-//                    while(prevCount++<count){
-//                        q.offer(t);
-//                    }
-//                }
-//                prev=t;
-//                prevCount=count;
-//                start=i+1;
-//            }
+//        // Each PriorityQueue stores the lengths of the sequences containing a certain number, from small to big
+//        Map<Integer, PriorityQueue<Integer>> map=new HashMap<>();
+//        for(int num: nums){
+//            PriorityQueue<Integer> last=getSeq(map, num-1);
+//            int minLen=last.isEmpty()?0:last.poll();
+//            PriorityQueue<Integer> cur=getSeq(map, num);
+//            cur.offer(minLen+1);
 //        }
-//        while(prevCount-->0){
-//            if(prev<q.poll()+2){
-//                return false;
+//        for(int until: map.keySet()){
+//            for(int len: map.get(until)){
+//                if(len<3){
+//                    return false;
+//                }
 //            }
 //        }
 //        return true;
 //    }
+//
+//    public PriorityQueue<Integer> getSeq(Map<Integer, PriorityQueue<Integer>> map, int until){
+//        PriorityQueue<Integer> result=map.get(until);
+//        if(result==null){
+//            result=new PriorityQueue<>();
+//        }
+//        map.put(until, result);
+//        return result;
+//    }
+
+    public boolean isPossible(int[] nums) {
+        if(nums==null || nums.length<3){
+            return false;
+        }
+        int l=nums.length;
+        Integer prev=null;
+        int prevCount=0, start=0;
+        // Queue stores the starting point for the sequences
+        Queue<Integer> q=new LinkedList<>();
+        for(int i=0; i<l; i++){
+            int t=nums[i];
+            if(i==l-1 || nums[i+1]!=t){
+                int count=i-start+1;
+                if(prev!=null && t-prev!=1){
+                    while(prevCount-->0){
+                        if(prev<q.poll()+2){
+                            return false;
+                        }
+                    }
+                    prev=null;
+                }
+                if(prev==null || t-prev==1){
+                    while(prevCount>count){
+                        prevCount--;
+                        if(prev<q.poll()+2){
+                            return false;
+                        }
+                    }
+                    while(prevCount++<count){
+                        q.offer(t);
+                    }
+                }
+                prev=t;
+                prevCount=count;
+                start=i+1;
+            }
+        }
+        while(prevCount-->0){
+            if(prev<q.poll()+2){
+                return false;
+            }
+        }
+        return true;
+    }
 
 //    public static boolean isPossible(int[] nums) {
 //        if(nums==null || nums.length<3){
