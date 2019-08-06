@@ -47,3 +47,4 @@ Is Subsequence
 LQMaximumVacationDays
 - 600 -
 Maximum Length of Pair Chain
+- 650 -
