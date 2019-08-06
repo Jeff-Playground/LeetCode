@@ -43,3 +43,5 @@ Is Subsequence
 - 500 -
 *Longest Palindromic Subsequence
 - 550 -
+*Student Attendance Record II
+LQMaximumVacationDays

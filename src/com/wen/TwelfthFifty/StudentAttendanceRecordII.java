@@ -10,6 +10,7 @@ public class StudentAttendanceRecordII {
         }
         int m=1000000007;
         int[][] dp=new int[n][3];
+        // First calculate A by using A/A, L/A, P/A
         dp[0][0]=1;
         dp[0][1]=1;
         dp[0][2]=1;
@@ -21,6 +22,9 @@ public class StudentAttendanceRecordII {
             dp[i][1]=(dp[i-1][2]+dp[i-2][2])%m;
             dp[i][2]=(dp[i-1][1]+dp[i-1][2])%m;
         }
+        // Second calculate the real values, note: A(i)=A/A(i)
+        // L(i)=A(i-1)+P(i-1)+A(i-2)+P(i-2), because A(i-2)+P(i-2) means L(i-1) and i-2 is not L
+        // P(i)=A(i-1)+L(i-1)+P(i-1)
         dp[1][1]=3;
         dp[1][2]=3;
         for(int i=2; i<n; i++){
