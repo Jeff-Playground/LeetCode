@@ -26,3 +26,4 @@ Palindrome Linked List
 - 450 -
 - 500 -
 - 550 -
+- 600 -

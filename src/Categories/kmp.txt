@@ -7,3 +7,4 @@
 *Repeated Substring Pattern
 - 500 -
 - 550 -
+- 600 -

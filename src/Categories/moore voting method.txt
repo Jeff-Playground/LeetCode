@@ -6,3 +6,4 @@ Majority Element
 - 450 -
 - 500 -
 - 550 -
+- 600 -

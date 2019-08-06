@@ -7,3 +7,4 @@ Insertion Sort List
 *Sliding Window Median
 - 500 -
 - 550 -
+- 600 -
