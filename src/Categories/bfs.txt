@@ -27,3 +27,4 @@ LQTheMazeIII
 - 500 -
 LQTheMazeII
 Minesweeper
+- 550 -

@@ -7,3 +7,4 @@ Course Schedule II
 *LQSequenceReconstruction
 - 450 -
 - 500 -
+- 550 -

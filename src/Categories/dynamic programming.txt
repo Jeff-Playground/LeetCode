@@ -42,3 +42,4 @@ Is Subsequence
 - 450 -
 - 500 -
 *Longest Palindromic Subsequence
+- 550 -

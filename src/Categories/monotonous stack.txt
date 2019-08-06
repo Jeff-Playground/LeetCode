@@ -6,3 +6,4 @@
 Next Greater Element I
 - 500 -
 Next Greater Element II
+- 550 -
