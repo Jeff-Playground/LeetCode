@@ -18,3 +18,4 @@ Binary Tree Right Side View
 - 600 -
 - 650 -
 Maximum Width of Binary Tree
+- 700 -
