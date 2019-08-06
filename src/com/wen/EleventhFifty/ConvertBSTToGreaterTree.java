@@ -30,7 +30,7 @@ public class ConvertBSTToGreaterTree {
         }
     }
 
-//    // Morris traversal
+//    // Morris traversal(reverse inorder traversal)
 //    public TreeNode convertBST(TreeNode root) {
 //        TreeNode cur=root, pre=null;
 //        int sum=0;

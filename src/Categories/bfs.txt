@@ -25,3 +25,5 @@ LQWallsAndGates
 LQTheMaze
 LQTheMazeIII
 - 500 -
+LQTheMazeII
+Minesweeper

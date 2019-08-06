@@ -63,3 +63,6 @@ LQTheMaze
 Target Sum
 LQTheMazeIII
 - 500 -
+LQTheMazeII
+Minesweeper
+*LQBinaryTreeLongestConsecutiveSequenceII

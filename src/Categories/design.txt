@@ -26,3 +26,4 @@ Insert Delete GetRandom O(1) - Duplicates allowed
 - 450 -
 *LFU Cache
 - 500 -
+Encode and Decode TinyURL
