@@ -1,5 +1,9 @@
-import com.wen.FifteenthFifty.LongestWordInDictionary;
+import com.wen.FifteenthFifty.*;
 import com.wen.FirstFifty.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -540,6 +544,24 @@ public class Main {
 
 //        RedundantConnection.findRedundantConnection(new int[][]{{1,2},{1,3},{2,3}});
 
-        LongestWordInDictionary.longestWord(new String[]{"w","wo","wor","worl", "world"});
+//        LongestWordInDictionary.longestWord(new String[]{"w","wo","wor","worl", "world"});
+
+//        List<List<String>> accounts=new ArrayList<>();
+//        accounts.add(Arrays.asList("John","johnsmith@mail.com","john_newyork@mail.com"));
+//        accounts.add(Arrays.asList("John","johnsmith@mail.com","john00@mail.com"));
+//        accounts.add(Arrays.asList("Mary","mary@mail.com"));
+//        accounts.add(Arrays.asList("John","johnnybravo@mail.com"));
+//        AccountsMerge.accountsMerge(accounts);
+
+//        RemoveComments.removeComments(new String[]{"a/*comment", "line", "more_comment*/b"});
+
+//        FindPivotIndex.pivotIndex(new int[]{-1,-1,-1,-1,-1,0});
+
+        MyCalendarI.MyCalendar t=new MyCalendarI.MyCalendar();
+        t.book(20,32);
+        t.book(1,19);
+        t.book(34, 47);
+        t.book(30,48);
+        t.book(26,44);
     }
 }
