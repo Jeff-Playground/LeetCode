@@ -576,6 +576,8 @@ public class Main {
 //        t.book(25,39);
 //        t.book(6,19);
 
-        LQMinimumWindowSubsequence.minWindow("cnhczmccqouqadqtmjjzl","mm");
+//        LQMinimumWindowSubsequence.minWindow("cnhczmccqouqadqtmjjzl","mm");
+
+
     }
 }

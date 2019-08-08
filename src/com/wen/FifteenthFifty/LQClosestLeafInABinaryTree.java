@@ -23,8 +23,11 @@ public class LQClosestLeafInABinaryTree {
         if(node==null){
             return;
         }
+        // Introduce a flag to determine which branch to traverse first
+        int loc=1;
         if(map.containsKey(node.val)){
-            cur=map.get(node.val);
+            loc=map.get(node.val);
+            cur=Math.abs(loc);
         }
         if(node.left==null && node.right==null){
             if(min[0]>=cur){
@@ -32,8 +35,13 @@ public class LQClosestLeafInABinaryTree {
                 result[0]=node.val;
             }
         }
-        findClosestLeafDFS(node.left, cur+1, map, min, result);
-        findClosestLeafDFS(node.right, cur+1, map, min, result);
+        if(loc>=0){
+            findClosestLeafDFS(node.right, cur+1, map, min, result);
+            findClosestLeafDFS(node.left, cur+1, map, min, result);
+        } else{
+            findClosestLeafDFS(node.left, cur+1, map, min, result);
+            findClosestLeafDFS(node.right, cur+1, map, min, result);
+        }
     }
 
     // This finds the distance from all parents in different levels to k
@@ -52,7 +60,7 @@ public class LQClosestLeafInABinaryTree {
         }
         r=find(node.right, k, map);
         if(r!=-1){
-            map.put(node.val, r);
+            map.put(node.val, -r);
             return r+1;
         }
         return -1;
