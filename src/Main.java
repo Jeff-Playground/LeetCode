@@ -557,11 +557,25 @@ public class Main {
 
 //        FindPivotIndex.pivotIndex(new int[]{-1,-1,-1,-1,-1,0});
 
-        MyCalendarI.MyCalendar t=new MyCalendarI.MyCalendar();
-        t.book(20,32);
-        t.book(1,19);
-        t.book(34, 47);
-        t.book(30,48);
-        t.book(26,44);
+//        MyCalendarI.MyCalendar t=new MyCalendarI.MyCalendar();
+//        t.book(20,32);
+//        t.book(1,19);
+//        t.book(34, 47);
+//        t.book(30,48);
+//        t.book(26,44);
+
+//        MyCalendarII.MyCalendarTwo t=new MyCalendarII.MyCalendarTwo();
+//        t.book(24,40);
+//        t.book(43,50);
+//        t.book(27,43);
+//        t.book(5,21);
+//        t.book(30,40);
+//        t.book(14,29);
+//        t.book(3,19);
+//        t.book(3,14);
+//        t.book(25,39);
+//        t.book(6,19);
+
+        LQMinimumWindowSubsequence.minWindow("cnhczmccqouqadqtmjjzl","mm");
     }
 }
