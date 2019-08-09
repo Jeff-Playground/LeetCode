@@ -16,7 +16,9 @@ public class LQDesignSearchAutocompleteSystem {
             }
         }
 
+        // cur tracks current input is at which TrieNode
         TrieNode root, cur;
+        // sb stores current input string
         StringBuilder sb;
 
         public AutoCompleteSystem(String[] sentences, int[] times) {
@@ -72,10 +74,10 @@ public class LQDesignSearchAutocompleteSystem {
             PriorityQueue<Map.Entry<String, Integer>> queue = new PriorityQueue<>(
                     (a, b) -> a.getValue() == b.getValue() ? b.getKey().compareTo(a.getKey()) : a.getValue() - b.getValue());
             for (Map.Entry<String, Integer> entry : node.freq.entrySet()) {
-                if (queue.size() < 3 || entry.getValue() >= queue.peek().getValue()) {
+                if (queue.size() < k || entry.getValue() >= queue.peek().getValue()) {
                     queue.offer(entry);
                 }
-                if (queue.size() > 3) queue.poll();
+                if (queue.size() > k) queue.poll();
             }
 
             while (!queue.isEmpty()) {
