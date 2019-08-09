@@ -19,6 +19,7 @@ public class MaximumWidthOfBinaryTree {
         return widthOfBinaryTreeDFS(root, startIdx, 0, 0);
     }
 
+    // startIdx list stores the most left node index of each level, this is very similar to how a heap is stored in array
     public int widthOfBinaryTreeDFS(TreeNode node, List<Integer> startIdx, int level, int idx){
         if(node==null){
             return 0;
