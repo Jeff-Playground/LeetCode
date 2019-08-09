@@ -15,11 +15,13 @@ public class FindMinimumInRotatedSortedArrayII {
 //        	}
 //        	int mid=left+(right-left)/2;
 //        	if(nums[left]==nums[mid]) {
-//        		if(left<mid) {
-//        			left++;
-//        		} else {
-//            		left=mid+1;
-//        		}
+//        	    left++;
+//        	    // Underlying is like, so can be simplified as above:
+//        		// if(left<mid) {
+//        		// 	left++;
+//        		// } else {
+//            	// 	left=mid+1;
+//        		// }
 //        	} else if(nums[left]<nums[mid]) {
 //        		left=mid+1;
 //        	} else {
