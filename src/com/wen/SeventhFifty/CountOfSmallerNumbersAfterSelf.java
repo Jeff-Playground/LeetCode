@@ -3,56 +3,56 @@ package com.wen.SeventhFifty;
 import java.util.*;
 
 public class CountOfSmallerNumbersAfterSelf {
-    // Merge sort
-    public static List<Integer> countSmaller(int[] nums) {
-        List<Integer> result=new ArrayList<>();
-        if(nums==null || nums.length==0){
-            return result;
-        }
-        int l=nums.length;
-        int[] count=new int[l];
-        int[] index=new int[l];
-        for(int i=0; i<l; i++){
-            index[i]=i;
-        }
-        countSmallerHelper(nums, 0, l-1, count, index);
-        for(int c: count){
-            result.add(c);
-        }
-        return result;
-    }
-
-    public static void countSmallerHelper(int[] nums, int left, int right, int[] count, int[] index){
-        if(left>=right){
-            return;
-        }
-        int mid=left+(right-left)/2;
-        countSmallerHelper(nums, left, mid, count, index);
-        countSmallerHelper(nums, mid+1, right, count, index);
-        int i=left, j=mid+1;
-        int rightCount=0;
-        int[] sortedIndex=new int[nums.length];
-        int k=left;
-        while(i<=mid && j<=right){
-            if(nums[index[i]]>nums[index[j]]){
-                rightCount++;
-                sortedIndex[k++]=index[j++];
-            } else{
-                count[index[i]]+=rightCount;
-                sortedIndex[k++]=index[i++];
-            }
-        }
-        while(i<=mid){
-            count[index[i]]+=rightCount;
-            sortedIndex[k++]=index[i++];
-        }
-        while(j<=right){
-            sortedIndex[k++]=index[j++];
-        }
-        for(i=left; i<=right; i++){
-            index[i]=sortedIndex[i];
-        }
-    }
+//    // Merge sort
+//    public static List<Integer> countSmaller(int[] nums) {
+//        List<Integer> result=new ArrayList<>();
+//        if(nums==null || nums.length==0){
+//            return result;
+//        }
+//        int l=nums.length;
+//        int[] count=new int[l];
+//        int[] index=new int[l];
+//        for(int i=0; i<l; i++){
+//            index[i]=i;
+//        }
+//        countSmallerHelper(nums, 0, l-1, count, index);
+//        for(int c: count){
+//            result.add(c);
+//        }
+//        return result;
+//    }
+//
+//    public static void countSmallerHelper(int[] nums, int left, int right, int[] count, int[] index){
+//        if(left>=right){
+//            return;
+//        }
+//        int mid=left+(right-left)/2;
+//        countSmallerHelper(nums, left, mid, count, index);
+//        countSmallerHelper(nums, mid+1, right, count, index);
+//        int i=left, j=mid+1;
+//        int rightCount=0;
+//        int[] sortedIndex=new int[nums.length];
+//        int k=left;
+//        while(i<=mid && j<=right){
+//            if(nums[index[i]]>nums[index[j]]){
+//                rightCount++;
+//                sortedIndex[k++]=index[j++];
+//            } else{
+//                count[index[i]]+=rightCount;
+//                sortedIndex[k++]=index[i++];
+//            }
+//        }
+//        while(i<=mid){
+//            count[index[i]]+=rightCount;
+//            sortedIndex[k++]=index[i++];
+//        }
+//        while(j<=right){
+//            sortedIndex[k++]=index[j++];
+//        }
+//        for(i=left; i<=right; i++){
+//            index[i]=sortedIndex[i];
+//        }
+//    }
 
 //    // Segment tree
 //    public List<Integer> countSmaller(int[] nums) {
@@ -132,7 +132,7 @@ public class CountOfSmallerNumbersAfterSelf {
 //        }
 //        // freq stores the counts of ranks of nums present at each iteration
 //        // Note binary indexed tree starts at 1, so length is ranks.length+1
-//        int[] freq=new int[rank];
+//        int[] freq=new int[ranks.size()+1];
 //        for(int i=nums.length-1; i>=0; i--){
 //            update(freq, ranks.get(nums[i]), 1);
 //            result.add(0, getSum(freq, ranks.get(nums[i])-1));
@@ -210,37 +210,37 @@ public class CountOfSmallerNumbersAfterSelf {
 //        return 0;
 //    }
 
-//    // Binary insertion sort
-//    public List<Integer> countSmaller(int[] nums) {
-//        List<Integer> result=new ArrayList<>();
-//        int[] sorted=new int[nums.length];
-//        int length=0;
-//        for(int i=nums.length-1; i>=0; i--) {
-//            if(length==0) {
-//                sorted[length++]=nums[i];
-//                result.add(0,length-1);
-//            } else {
-//                if(nums[i]<=sorted[length-1]) {
-//                    int left=0, right=length-1;
-//                    while(left<=right) {
-//                        int mid=left+(right-left)/2;
-//                        if(sorted[mid]<nums[i]) {
-//                            left=mid+1;
-//                        } else {
-//                            right=mid-1;
-//                        }
-//                    }
-//                    for(int j=length++; j>left; j--) {
-//                        sorted[j]=sorted[j-1];
-//                    }
-//                    sorted[left]=nums[i];
-//                    result.add(0,left);
-//                } else {
-//                    sorted[length++]=nums[i];
-//                    result.add(0,length-1);
-//                }
-//            }
-//        }
-//        return result;
-//    }
+    // Binary insertion sort
+    public List<Integer> countSmaller(int[] nums) {
+        List<Integer> result=new ArrayList<>();
+        int[] sorted=new int[nums.length];
+        int length=0;
+        for(int i=nums.length-1; i>=0; i--) {
+            if(length==0) {
+                sorted[length++]=nums[i];
+                result.add(0,length-1);
+            } else {
+                if(nums[i]<=sorted[length-1]) {
+                    int left=0, right=length-1;
+                    while(left<right) {
+                        int mid=left+(right-left)/2;
+                        if(sorted[mid]<nums[i]) {
+                            left=mid+1;
+                        } else {
+                            right=mid;
+                        }
+                    }
+                    for(int j=length++; j>left; j--) {
+                        sorted[j]=sorted[j-1];
+                    }
+                    sorted[left]=nums[i];
+                    result.add(0,left);
+                } else {
+                    sorted[length++]=nums[i];
+                    result.add(0,length-1);
+                }
+            }
+        }
+        return result;
+    }
 }
