@@ -3,7 +3,7 @@ package com.wen.SixthFifty;
 import java.util.Arrays;
 
 public class LongestIncreasingSubsequence {
-    // Binary search2
+    // Binary search2, similar to bs1 written in a different manner
     public int lengthOfLIS(int[] nums) {
         int l=nums.length;
         int[] seq=new int[l];

@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class LQLoggerRateLimiter {
     class Logger{
-        Map<String, Integer> map=new HashMap<>();
+        Map<String, Integer> map;
 
         public Logger(){
-
+            map=new HashMap<>();
         }
 
         public boolean shoudPrintMessage(int timestamp, String message){
