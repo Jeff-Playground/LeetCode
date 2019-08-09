@@ -1,7 +1,7 @@
 package com.wen.SecondFifty;
 
 public class SearchInRotatedSortedArrayII {
-    // return nums[right]==target because while(left<right)
+    // return nums[right]==target or nums[left]==target because while(left<right) exits when left==right
     public boolean search(int[] nums, int target) {
         if(nums==null || nums.length==0){
             return false;
@@ -53,6 +53,7 @@ public class SearchInRotatedSortedArrayII {
 //                } else{
 //                    left=mid+1;
 //                }
+//            // This part handles when left==right==mid
 //            } else{
 //                right--;
 //            }

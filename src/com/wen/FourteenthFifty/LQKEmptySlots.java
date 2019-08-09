@@ -13,6 +13,7 @@ public class LQKEmptySlots {
         int result=Integer.MAX_VALUE;
         for(int i=1; i<N-k; i++){
             int max=Math.max(days[i], days[i+k+1]);
+            // This means there're still at least k days remaining(so at least k flowers haven't bloomed)
             if(N-max>=k){
                 for(int j=i+1; j<i+k+1; j++){
                     if(days[j]<max){
