@@ -12,59 +12,60 @@ public class ValidateBinarySearchTree {
         public TreeNode(int x) { val = x; }
     }
 
-    // Morris Traversal
+//    // Morris Traversal
+//    public boolean isValidBST(TreeNode root) {
+//        if(root==null){
+//            return true;
+//        }
+//        TreeNode cur=root, pre=null, last=null;
+//        boolean result=true;
+//        while(cur!=null){
+//            if(cur.left!=null){
+//                pre=cur.left;
+//                while(pre.right!=null && pre.right!=cur){
+//                    pre=pre.right;
+//                }
+//                if(pre.right==null){
+//                    pre.right=cur;
+//                    cur=cur.left;
+//                } else{
+//                    pre.right=null;
+//                    if(last.val>=cur.val){
+//                        result=false;
+//                    }
+//                    last=cur;
+//                    cur=cur.right;
+//                }
+//            } else{
+//                if(last!=null && last.val>=cur.val){
+//                    result=false;
+//                }
+//                last=cur;
+//                cur=cur.right;
+//            }
+//        }
+//        return result;
+//    }
+
+    // Stack
     public boolean isValidBST(TreeNode root) {
-        if(root==null){
-            return true;
-        }
-        TreeNode cur=root, pre=null, parent=null;
-        boolean result=true;
-        while(cur!=null){
-            if(cur.left==null){
-                if(parent!=null && parent.val>=cur.val){
-                    result=false;
-                }
-                parent=cur;
-                cur=cur.right;
+        Stack<TreeNode> stack=new Stack<>();
+        TreeNode cur=root, last=null;
+        while(cur!=null || !stack.isEmpty()){
+            if(cur!=null){
+                stack.push(cur);
+                cur=cur.left;
             } else{
-                pre=cur.left;
-                while(pre.right!=null && pre.right!=cur){
-                    pre=pre.right;
+                cur=stack.pop();
+                if(last!=null && cur.val<=last.val){
+                    return false;
                 }
-                if(pre.right==null){
-                    pre.right=cur;
-                    cur=cur.left;
-                } else{
-                    pre.right=null;
-                    if(parent.val>=cur.val){
-                        result=false;
-                    }
-                    parent=cur;
-                    cur=cur.right;
-                }
+                last=cur;
+                cur=cur.right;
             }
         }
-        return result;
+        return true;
     }
-
-//    // Stack
-//    public boolean isValidBST(TreeNode root) {
-//        Stack<TreeNode> stack=new Stack<>();
-//        TreeNode cur=root, pre=null;
-//        while(cur!=null || !stack.isEmpty()){
-//            while(cur!=null){
-//                stack.push(cur);
-//                cur=cur.left;
-//            }
-//            TreeNode t=stack.pop();
-//            if(pre!=null && t.val<=pre.val){
-//                return false;
-//            }
-//            pre=t;
-//            cur=t.right;
-//        }
-//        return true;
-//    }
 
 //    // Put tree nodes in a list in order and check, this only works with left<root<right instead of left<=root<right
 //    public boolean isValidBST(TreeNode root) {

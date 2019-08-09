@@ -1,5 +1,5 @@
 LRU Cache
-Min Stack
+*Min Stack
 LQTwoSumIIIDataStructureDesign
 Binary Search Tree Iterator
 Implement Trie (Prefix Tree)
