@@ -10,9 +10,9 @@ public class MergeKSortedLists {
         ListNode(int x) { val = x; }
     }
 
-//    // Using a heap, note this is not inserting all elements into heap and then get the top from heap, the heap should only have k
-//    // elements at most
-//    // N is to number of total nodes, k is the number of lists
+//    // Using a heap, note this is not inserting all elements into heap and then get the top from heap,
+//    // the heap should only have k elements at most
+//    // N is the number of total nodes, k is the number of lists
 //    // Time complexity: O(Nlogk)
 //    // Space Complexity: O(1)+O(k) for in-place + PriorityQueue
 //    public ListNode mergeKLists(ListNode[] lists) {
@@ -29,24 +29,25 @@ public class MergeKSortedLists {
 //        ListNode p = head;
 //
 //        for(ListNode list: lists){
-//            if(list!=null)
+//            if(list!=null){
 //                queue.offer(list);
+//            }
 //        }
 //
 //        while(!queue.isEmpty()){
 //            ListNode n = queue.poll();
 //            p.next = n;
 //            p=p.next;
-//
-//            if(n.next!=null)
+//            if(n.next!=null){
 //                queue.offer(n.next);
+//            }
 //        }
 //
 //        return head.next;
 //    }
 
     // Recursive
-    // N is to number of total nodes, k is the number of lists
+    // N is the number of total nodes, k is the number of lists
     // Time complexity: O(Nlogk)
     // Space Complexity: O(1) for in-place
     public ListNode mergeKLists(ListNode[] lists) {

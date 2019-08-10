@@ -3,7 +3,7 @@ package com.wen.FourteenthFifty;
 import java.util.*;
 
 public class SplitArrayIntoConsecutiveSubsequences {
-//    public boolean isPossible(int[] nums) {
+//    public static boolean isPossible(int[] nums) {
 //        if(nums==null || nums.length<3){
 //            return false;
 //        }
@@ -26,7 +26,7 @@ public class SplitArrayIntoConsecutiveSubsequences {
 //        return true;
 //    }
 //
-//    public PriorityQueue<Integer> getSeq(Map<Integer, PriorityQueue<Integer>> map, int until){
+//    public static PriorityQueue<Integer> getSeq(Map<Integer, PriorityQueue<Integer>> map, int until){
 //        PriorityQueue<Integer> result=map.get(until);
 //        if(result==null){
 //            result=new PriorityQueue<>();
@@ -35,7 +35,7 @@ public class SplitArrayIntoConsecutiveSubsequences {
 //        return result;
 //    }
 
-    public boolean isPossible(int[] nums) {
+    public static boolean isPossible(int[] nums) {
         if(nums==null || nums.length<3){
             return false;
         }

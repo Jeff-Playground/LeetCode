@@ -14,7 +14,7 @@ public class PartitionEqualSubsetSum {
         boolean[] dp=new boolean[sum/2+1];
         dp[0]=true;
         for(int i=1; i<l+1; i++){
-            for(int j=sum/2; j>=0; j--){
+            for(int j=sum/2; j>=1; j--){
                 if(nums[i-1]<=j){
                     dp[j]=dp[j] || dp[j-nums[i-1]];
                 } else{

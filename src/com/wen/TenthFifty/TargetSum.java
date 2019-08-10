@@ -15,6 +15,7 @@ public class TargetSum {
         int[] dp=new int[(sum+S)/2+1];
         dp[0]=1;
         for(int i=1; i<l+1; i++){
+            // Note here j has to include 0 because it needs the part to handle nums[i-1]==0
             for(int j=(sum+S)/2; j>=0; j--){
                 if(nums[i-1]==0){
                     dp[j]=2*dp[j];
@@ -45,6 +46,8 @@ public class TargetSum {
 //        int[][] dp=new int[l+1][(sum+S)/2+1];
 //        dp[0][0]=1;
 //        for(int i=1; i<l+1; i++){
+//            // Here dp[i][0] means make sPositive=0, so except 0 items which can be in either group,
+//            // put all other into sNegative
 //            if(nums[i-1]==0){
 //                dp[i][0]=2*dp[i-1][0];
 //            } else{
@@ -78,6 +81,7 @@ public class TargetSum {
 //            if(nums[start]>0){
 //                result[0]++;
 //            } else{
+//                // Handles when nums[start]==0 and it can be either "+" or "-"
 //                result[0]+=2;
 //            }
 //        }
