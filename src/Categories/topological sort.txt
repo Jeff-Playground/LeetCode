@@ -2,6 +2,7 @@ Course Schedule
 Course Schedule II
 - 300 -
 - 350 -
+*Evaluate Division
 - 400 -
 *LQSequenceReconstruction
 - 450 -

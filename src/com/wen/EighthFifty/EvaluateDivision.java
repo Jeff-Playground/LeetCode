@@ -72,12 +72,12 @@ public class EvaluateDivision {
 //        for(int i=0; i<l; i++){
 //            String a=equations.get(i).get(0);
 //            String b=equations.get(i).get(1);
-//            Map<String, Double> mapA=graph.getOrDefault(a, new HashMap<>());
-//            Map<String, Double> mapB=graph.getOrDefault(b, new HashMap<>());
+//            graph.putIfAbsent(a, new HashMap<>());
+//            graph.putIfAbsent(b, new HashMap<>());
+//            Map<String, Double> mapA=graph.get(a);
+//            Map<String, Double> mapB=graph.get(b);
 //            mapA.put(b, values[i]);
 //            mapB.put(a, 1/values[i]);
-//            graph.put(a, mapA);
-//            graph.put(b, mapB);
 //        }
 //        int m=queries.size();
 //        double[] result=new double[m];
