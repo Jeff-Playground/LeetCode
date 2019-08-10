@@ -29,22 +29,37 @@ public class LongestPalindromicSubsequence {
 //    }
 
     // This problem can be converted to find the largest common subsequence for s and StringBuilder(s).reverse().toString();
-    public int longestPalindromeSubseq(String s) {
+    public static int longestPalindromeSubseq(String s) {
         int result=0;
         if(s==null || s.length()==0){
             return result;
         }
         String sr= new StringBuilder(s).reverse().toString();
-        int[][] dp=new int[s.length()+1][sr.length()+1];
-        for(int i=1; i<=s.length(); i++){
-            for(int j=1; j<=sr.length(); j++){
-                if(s.charAt(i-1)==sr.charAt(j-1)){
-                    dp[i][j]=dp[i-1][j-1]+1;
+        int l=s.length();
+        int[][] dp=new int[l][l];
+        for(int i=0; i<l; i++){
+            for(int j=0; j<l; j++){
+                if(i==0){
+                    if(s.charAt(i)==sr.charAt(j)){
+                        dp[i][j]=1;
+                    } else{
+                        dp[i][j]=j>0?dp[i][j-1]:0;
+                    }
+                }else if(j==0){
+                    if(s.charAt(i)==sr.charAt(j)){
+                        dp[i][j]=1;
+                    } else{
+                        dp[i][j]=i>0?dp[i-1][j]:0;
+                    }
                 } else{
-                    dp[i][j]=Math.max(dp[i-1][j], dp[i][j-1]);
+                    if(s.charAt(i)==sr.charAt(j)){
+                        dp[i][j]=dp[i-1][j-1]+1;
+                    } else{
+                        dp[i][j]=Math.max(dp[i-1][j], dp[i][j-1]);
+                    }
                 }
             }
         }
-        return dp[s.length()][sr.length()];
+        return dp[l-1][l-1];
     }
 }

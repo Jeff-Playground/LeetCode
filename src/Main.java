@@ -1,3 +1,4 @@
+import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.FifteenthFifty.*;
 import com.wen.FirstFifty.*;
 import com.wen.SixteenthFifty.CouplesHoldingHands;
@@ -578,5 +579,7 @@ public class Main {
 //        t.book(6,19);
 
 //        LQMinimumWindowSubsequence.minWindow("cnhczmccqouqadqtmjjzl","mm");
+
+        LongestPalindromicSubsequence.longestPalindromeSubseq("aabaaba");
     }
 }
