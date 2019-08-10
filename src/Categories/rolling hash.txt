@@ -1,7 +1,6 @@
 *Repeated DNA Sequences
 - 300 -
 - 350 -
-Rotate Function
 - 400 -
 - 450 -
 - 500 -

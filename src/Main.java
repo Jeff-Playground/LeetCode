@@ -2,6 +2,7 @@ import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.FifteenthFifty.*;
 import com.wen.FirstFifty.*;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
+import com.wen.NinthFifty.LQSequenceReconstruction;
 import com.wen.SixteenthFifty.CouplesHoldingHands;
 
 import java.util.ArrayList;
@@ -582,6 +583,8 @@ public class Main {
 //        LQMinimumWindowSubsequence.minWindow("cnhczmccqouqadqtmjjzl","mm");
 
 //        LongestPalindromicSubsequence.longestPalindromeSubseq("aabaaba");
+
+//        LQSequenceReconstruction.sequenceReconstruction(new int[]{1,2,3}, new int[][]{{1,2}, {1,3}, {2,3}});
 
 
     }

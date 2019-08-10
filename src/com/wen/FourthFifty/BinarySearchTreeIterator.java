@@ -1,5 +1,4 @@
 package com.wen.FourthFifty;
-
 import java.util.Stack;
 
 public class BinarySearchTreeIterator {
@@ -14,24 +13,22 @@ public class BinarySearchTreeIterator {
         private Stack<TreeNode> stack=new Stack<>();
 
         public BSTIterator(TreeNode root) {
-            while(root!=null) {
-                stack.push(root);
-                root=root.left;
+            TreeNode cur=root;
+            while(cur!=null){
+                stack.push(cur);
+                cur=cur.left;
             }
         }
 
         /** @return the next smallest number */
         public int next() {
-            TreeNode cur=stack.pop();
-            int result=cur.val;
-            if(cur.right!=null) {
-                cur=cur.right;
-                while(cur!=null) {
-                    stack.push(cur);
-                    cur=cur.left;
-                }
+            TreeNode result=stack.pop();
+            TreeNode cur=result.right;
+            while(cur!=null){
+                stack.push(cur);
+                cur=cur.left;
             }
-            return result;
+            return result.val;
         }
 
         /** @return whether we have a next smallest number */

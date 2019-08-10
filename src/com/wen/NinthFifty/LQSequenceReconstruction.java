@@ -15,17 +15,18 @@ public class LQSequenceReconstruction {
         Map<Integer, Integer> inDegree=new HashMap<>();
         for(int[] seq: seqs){
             for(int i=0; i<seq.length; i++){
-                if(i==0 || !graph.containsKey(seq[i])){
+                if(!graph.containsKey(seq[i])){
                     graph.put(seq[i], new HashSet<>());
-                    inDegree.put(seq[i], 0);
+                    if(!inDegree.containsKey(seq[i])){
+                        inDegree.put(seq[i], 0);
+                    }
                 }
                 if(i+1<seq.length){
-                    Set<Integer> neighbours=graph.getOrDefault(seq[i], new HashSet<>());
+                    Set<Integer> neighbours=graph.get(seq[i]);
                     if(!neighbours.contains(seq[i+1])){
                         inDegree.put(seq[i+1], inDegree.getOrDefault(seq[i+1], 0)+1);
                     }
                     neighbours.add(seq[i+1]);
-                    graph.put(seq[i], neighbours);
                 }
             }
         }
