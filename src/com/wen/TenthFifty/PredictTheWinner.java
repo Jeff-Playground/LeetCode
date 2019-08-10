@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class PredictTheWinner {
     // DP2
+    // Further optimized space complexity to O(n^2), as it's got rid of the running stack
     public boolean PredictTheWinner(int[] nums) {
         int l=nums.length;
         int[][] dp=new int[l][l];
@@ -18,7 +19,9 @@ public class PredictTheWinner {
         return dp[0][l-1]>=0;
     }
 
-//    // DP1
+//    // DP1, use dp to cache the intermediate result get by earlier calculation
+//    // Optimized time complexity to O(n^2), because there're n^2 values need to be calculated in total(size of dp)
+//    // Space complexity: O(n^2+n), dp is n^2, running stack is n
 //    public static boolean PredictTheWinner(int[] nums) {
 //        int l=nums.length;
 //        int[][] dp=new int[l][l];
@@ -33,6 +36,21 @@ public class PredictTheWinner {
 //            dp[start][end]=start==end?nums[start]:Math.max(nums[start]-beatByScore(nums, dp, start+1, end), nums[end]-beatByScore(nums, dp, start, end-1));
 //        }
 //        return dp[start][end];
+//    }
+
+//    // Time complexity： O(2^n) because there're 2^n nodes in the recursion tree
+//    // Space complexity: O(1+n) - in-place, running stack is n
+//    public boolean PredictTheWinner(int[] nums) {
+//        int l=nums.length;
+//        return beatByScore(nums, 0, l-1)>0;
+//    }
+//
+//    private static int beatByScore(int[] nums, int start, int end) {
+//        if(start==end){
+//            return nums[start];
+//        } else{
+//            return Math.max(nums[start]-beatByScore(nums, start+1, end), nums[end]-beatByScore(nums, start, end-1));
+//        }
 //    }
 
 //    public static boolean PredictTheWinner(int[] nums) {

@@ -1,6 +1,7 @@
 *Max Points on a Line
 - 300 -
 - 350 -
+*Water and Jug Problem
 - 400 -
 - 450 -
 - 500 -

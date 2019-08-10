@@ -7,7 +7,7 @@ public class CoinChange2 {
 //        int[] dp=new int[amount+1];
 //        dp[0]=1;
 //        for(int i=1; i<l+1; i++){
-//            for(int j=amount; j>=0; j--){
+//            for(int j=amount; j>=1; j--){
 //                if(coins[i-1]<=j){
 //                    int max=j/coins[i-1];
 //                    // Note here k starts with 1 because dp[j] already included the value for k=0
@@ -51,7 +51,7 @@ public class CoinChange2 {
         int[] dp=new int[amount+1];
         dp[0]=1;
         for(int i=1; i<l+1; i++){
-            for(int j=0; j<amount+1; j++){
+            for(int j=1; j<amount+1; j++){
                 if(coins[i-1]<=j){
                     dp[j]=dp[j]+dp[j-coins[i-1]];
                 } else{

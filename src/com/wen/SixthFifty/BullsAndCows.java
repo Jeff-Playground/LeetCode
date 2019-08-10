@@ -5,7 +5,6 @@ public class BullsAndCows {
         int l=secret.length();
         int A=0, B=0;
         int[] count=new int[10];
-        int[] miss=new int[10];
         for(int i=0; i<l; i++){
             char s=secret.charAt(i);
             char g=guess.charAt(i);

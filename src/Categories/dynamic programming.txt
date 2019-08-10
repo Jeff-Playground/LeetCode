@@ -40,6 +40,7 @@ LQBombEnemy
 Is Subsequence
 - 400 -
 - 450 -
+*Predict the Winner
 - 500 -
 *Longest Palindromic Subsequence
 - 550 -
