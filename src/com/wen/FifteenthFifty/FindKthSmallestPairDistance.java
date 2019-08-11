@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class FindKthSmallestPairDistance {
     public int smallestDistancePair(int[] nums, int k) {
         Arrays.sort(nums);
-        int l=nums.length, max=nums[nums.length-1], min=nums[0];
+        int l=nums.length, max=nums[l-1], min=nums[0];
         int[] noMoreCount=new int[(max-min)*2+1];
         int cur=0;
         for(int i=0; i<(max-min)*2+1; i++){
