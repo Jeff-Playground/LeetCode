@@ -33,3 +33,4 @@ Encode and Decode TinyURL
 *LQDesignSearchAutocompleteSystem
 - 700 -
 *Design HashMap
+- 750 -

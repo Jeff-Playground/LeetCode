@@ -17,3 +17,4 @@ Is Subsequence
 - 700 -
 Monotone Increasing Digits
 *LQNumberOfCornerRectangles
+- 750 -

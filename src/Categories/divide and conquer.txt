@@ -18,3 +18,4 @@ Different Ways to Add Parentheses
 - 600 -
 - 650 -
 - 700 -
+- 750 -
