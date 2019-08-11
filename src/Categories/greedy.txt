@@ -15,3 +15,5 @@ Is Subsequence
 - 650 -
 *Split Array into Consecutive Subsequences
 - 700 -
+Monotone Increasing Digits
+*LQNumberOfCornerRectangles

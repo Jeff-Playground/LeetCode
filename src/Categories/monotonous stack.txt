@@ -10,3 +10,5 @@ Next Greater Element II
 - 600 -
 - 650 -
 - 700 -
+Asteroid Collision
+Daily Temperatures
