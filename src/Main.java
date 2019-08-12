@@ -3,6 +3,7 @@ import com.wen.FifteenthFifty.*;
 import com.wen.FirstFifty.*;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.NinthFifty.LQSequenceReconstruction;
+import com.wen.SixteenthFifty.CheapestFlightsWithinKStops;
 import com.wen.SixteenthFifty.CouplesHoldingHands;
 
 import java.util.ArrayList;
@@ -586,6 +587,6 @@ public class Main {
 
 //        LQSequenceReconstruction.sequenceReconstruction(new int[]{1,2,3}, new int[][]{{1,2}, {1,3}, {2,3}});
 
-
+        CheapestFlightsWithinKStops.findCheapestPrice(3, new int[][]{{0,1,100}, {1,2,100}, {0,2,500}}, 0, 2, 1);
     }
 }
