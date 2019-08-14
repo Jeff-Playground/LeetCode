@@ -5,6 +5,7 @@ import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.NinthFifty.LQSequenceReconstruction;
 import com.wen.SixteenthFifty.CheapestFlightsWithinKStops;
 import com.wen.SixteenthFifty.CouplesHoldingHands;
+import com.wen.SixteenthFifty.LQMinimizeMaxDistanceToGasStation;
 import com.wen.SixteenthFifty.SwapAdjacentInLRString;
 
 import java.util.ArrayList;
@@ -590,7 +591,8 @@ public class Main {
 
 //        CheapestFlightsWithinKStops.findCheapestPrice(3, new int[][]{{0,1,100}, {1,2,100}, {0,2,500}}, 0, 2, 1);
 
-        SwapAdjacentInLRString.canTransform("XXXLXXXXXX",
-                "XXXLXXXXXX");
+//        SwapAdjacentInLRString.canTransform("XXXLXXXXXX","XXXLXXXXXX");
+
+        LQMinimizeMaxDistanceToGasStation.minmaxGasDist(new int[]{1,2,3,4,5,6,7,8,9,10}, 9);
     }
 }
