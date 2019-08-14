@@ -3,10 +3,7 @@ import com.wen.FifteenthFifty.*;
 import com.wen.FirstFifty.*;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.NinthFifty.LQSequenceReconstruction;
-import com.wen.SixteenthFifty.CheapestFlightsWithinKStops;
-import com.wen.SixteenthFifty.CouplesHoldingHands;
-import com.wen.SixteenthFifty.LQMinimizeMaxDistanceToGasStation;
-import com.wen.SixteenthFifty.SwapAdjacentInLRString;
+import com.wen.SixteenthFifty.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -593,6 +590,8 @@ public class Main {
 
 //        SwapAdjacentInLRString.canTransform("XXXLXXXXXX","XXXLXXXXXX");
 
-        LQMinimizeMaxDistanceToGasStation.minmaxGasDist(new int[]{1,2,3,4,5,6,7,8,9,10}, 9);
+//        LQMinimizeMaxDistanceToGasStation.minmaxGasDist(new int[]{1,2,3,4,5,6,7,8,9,10}, 9);
+
+        IsGraphBipartite.isBipartite(new int[][]{{3},{2,4},{1},{0,4},{1,3}});
     }
 }
