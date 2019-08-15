@@ -3,6 +3,7 @@ import com.wen.FifteenthFifty.*;
 import com.wen.FirstFifty.*;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.NinthFifty.LQSequenceReconstruction;
+import com.wen.SeventeenthFifty.FindEventualSafeStates;
 import com.wen.SixteenthFifty.*;
 
 import java.util.ArrayList;
@@ -592,6 +593,8 @@ public class Main {
 
 //        LQMinimizeMaxDistanceToGasStation.minmaxGasDist(new int[]{1,2,3,4,5,6,7,8,9,10}, 9);
 
-        IsGraphBipartite.isBipartite(new int[][]{{3},{2,4},{1},{0,4},{1,3}});
+//        IsGraphBipartite.isBipartite(new int[][]{{3},{2,4},{1},{0,4},{1,3}});
+
+        FindEventualSafeStates.eventualSafeNodes(new int[][]{{1, 2}, {2, 3}, {5}, {0}, {5}, {}, {}});
     }
 }
