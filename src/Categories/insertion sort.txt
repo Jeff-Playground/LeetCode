@@ -11,3 +11,4 @@ Insertion Sort List
 - 650 -
 - 700 -
 - 750 -
+- 800 -

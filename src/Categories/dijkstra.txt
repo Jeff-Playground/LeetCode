@@ -10,3 +10,4 @@ LQTheMazeII
 - 700 -
 - 750 -
 *Swim in Rising Water
+- 800 -
