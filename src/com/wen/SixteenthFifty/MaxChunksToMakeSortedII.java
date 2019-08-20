@@ -50,6 +50,7 @@ public class MaxChunksToMakeSortedII {
 //        }
 //        int[] sorted=Arrays.copyOf(arr, arr.length);
 //        Arrays.sort(sorted);
+//        // The sum of the sorted array at each point should be unique
 //        int result=0, sum1=0, sum2=0;
 //        for(int i=0; i<arr.length; i++){
 //            sum1+=arr[i];

@@ -1,6 +1,6 @@
 package com.wen.SixteenthFifty;
 
-public class SplitBST {
+public class LQSplitBST {
     public class TreeNode {
         int val;
         TreeNode left;

@@ -160,3 +160,11 @@ My Calendar I
 LQSentenceSimilarity
 *LQClosestLeafInABinaryTree
 - 750 -
+Prime Number of Set Bits in Binary Representation
+Toeplitz Matrix
+Max Chunks To Make Sorted
+*Max Chunks To Make Sorted II
+*Custom Sort String
+*LQBasicCalculatorIII
+*Swap Adjacent in LR String
+Custom Sort String

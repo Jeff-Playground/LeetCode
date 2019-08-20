@@ -7,6 +7,7 @@ public class ReorganizeString {
         if(S==null || S.length()<=1){
             return S;
         }
+        // count stores info on the count number by count[i]/100 and identifies char by count[i]%100
         int[] count=new int[26];
         for(int i=0; i<26; i++){
             count[i]=i;

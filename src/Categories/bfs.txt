@@ -36,3 +36,4 @@ Cut Off Trees for Golf Event
 *Accounts Merge
 - 750 -
 *Cracking the Safe
+*Sliding Puzzle
