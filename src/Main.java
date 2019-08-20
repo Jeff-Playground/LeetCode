@@ -595,6 +595,8 @@ public class Main {
 
 //        IsGraphBipartite.isBipartite(new int[][]{{3},{2,4},{1},{0,4},{1,3}});
 
-        FindEventualSafeStates.eventualSafeNodes(new int[][]{{1, 2}, {2, 3}, {5}, {0}, {5}, {}, {}});
+//        FindEventualSafeStates.eventualSafeNodes(new int[][]{{1, 2}, {2, 3}, {5}, {0}, {5}, {}, {}});
+
+//        AirbnbTest.evaluateActions(Arrays.asList("A Munich Hold", "B Bohemia Move Munich", "C Warsaw Support B"));
     }
 }
