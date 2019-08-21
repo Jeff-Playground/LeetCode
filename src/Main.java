@@ -3,6 +3,7 @@ import com.wen.FifteenthFifty.*;
 import com.wen.FirstFifty.*;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.NinthFifty.LQSequenceReconstruction;
+import com.wen.SeventeenthFifty.BricksFallingWhenHit;
 import com.wen.SeventeenthFifty.FindEventualSafeStates;
 import com.wen.SixteenthFifty.*;
 
@@ -598,5 +599,8 @@ public class Main {
 //        FindEventualSafeStates.eventualSafeNodes(new int[][]{{1, 2}, {2, 3}, {5}, {0}, {5}, {}, {}});
 
 //        AirbnbTest.evaluateActions(Arrays.asList("A Munich Hold", "B Bohemia Move Munich", "C Warsaw Support B"));
+
+        BricksFallingWhenHit.hitBricks(new int[][]{{1},{1},{1},{1},{1}},
+                new int[][]{{3,0},{4,0},{1,0},{2,0},{0,0}});
     }
 }

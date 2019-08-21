@@ -7,6 +7,7 @@ public class SumOfSubarrayMinimums {
         int l=A.length;
         int result=0, mod=(int)Math.pow(10,9)+7;
         int dp[]=new int[l+1];
+        // The monotonous stack can be replaced by logic of loop, which takes less space but more time
         Stack<Integer> stack=new Stack<>();
         for(int i=0; i<l; i++){
             while(!stack.isEmpty() && (A[i]<A[stack.peek()-1])){
