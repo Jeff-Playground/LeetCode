@@ -4,7 +4,9 @@ import com.wen.FirstFifty.*;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.NinthFifty.LQSequenceReconstruction;
 import com.wen.SeventeenthFifty.BricksFallingWhenHit;
+import com.wen.SeventeenthFifty.ExpressiveWords;
 import com.wen.SeventeenthFifty.FindEventualSafeStates;
+import com.wen.SeventeenthFifty.SplitArrayWithSameAverage;
 import com.wen.SixteenthFifty.*;
 
 import java.util.ArrayList;
@@ -600,7 +602,11 @@ public class Main {
 
 //        AirbnbTest.evaluateActions(Arrays.asList("A Munich Hold", "B Bohemia Move Munich", "C Warsaw Support B"));
 
-        BricksFallingWhenHit.hitBricks(new int[][]{{1},{1},{1},{1},{1}},
-                new int[][]{{3,0},{4,0},{1,0},{2,0},{0,0}});
+//        BricksFallingWhenHit.hitBricks(new int[][]{{1},{1},{1},{1},{1}},
+//                new int[][]{{3,0},{4,0},{1,0},{2,0},{0,0}});
+
+//        SplitArrayWithSameAverage.splitArraySameAverage(new int[]{2,12,18,16,19,3});
+
+//        ExpressiveWords.expressiveWords("yyrrrrrjaappoooyybbbebbbbriiiiiyyynnnvvwtwwwwwooeeexxxxxkkkkkaaaaauuuu", new String[]{"yrrjjappooybbebriiyynvvwtwwoeexkauu"});
     }
 }
