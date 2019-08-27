@@ -47,6 +47,9 @@ public class GuessTheWord {
         }
     }
 
+    // Get the similar words count for each word, and find the max value among 0-6
+    // Then in all words, find the index which makes this max value the smallest
+    // Because this can ensure the counts are distributed among 0-6 move evenly, and eventually can get rid of more words in each check.
     private int getMinIdx(int[][] simCount, Set<Integer> options){
         int N=simCount.length;
         int simMin=Integer.MAX_VALUE, minIdx=-1;
