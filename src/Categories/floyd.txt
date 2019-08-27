@@ -3,12 +3,10 @@
 - 400 -
 - 450 -
 - 500 -
-LQTheMazeII
 - 550 -
 - 600 -
 - 650 -
 - 700 -
 *Network Delay Time
 - 750 -
-*Swim in Rising Water
 - 800 -

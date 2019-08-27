@@ -7,6 +7,7 @@
 - 600 -
 - 650 -
 - 700 -
+*Network Delay Time
 - 750 -
 *Cheapest Flights Within K Stops
 - 800 -
