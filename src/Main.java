@@ -1,12 +1,10 @@
 import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.FifteenthFifty.*;
 import com.wen.FirstFifty.*;
+import com.wen.FourteenthFifty.FallingSquares;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.NinthFifty.LQSequenceReconstruction;
-import com.wen.SeventeenthFifty.BricksFallingWhenHit;
-import com.wen.SeventeenthFifty.ExpressiveWords;
-import com.wen.SeventeenthFifty.FindEventualSafeStates;
-import com.wen.SeventeenthFifty.SplitArrayWithSameAverage;
+import com.wen.SeventeenthFifty.*;
 import com.wen.SixteenthFifty.*;
 
 import java.util.ArrayList;
@@ -608,5 +606,10 @@ public class Main {
 //        SplitArrayWithSameAverage.splitArraySameAverage(new int[]{2,12,18,16,19,3});
 
 //        ExpressiveWords.expressiveWords("yyrrrrrjaappoooyybbbebbbbriiiiiyyynnnvvwtwwwwwooeeexxxxxkkkkkaaaaauuuu", new String[]{"yrrjjappooybbebriiyynvvwtwwoeexkauu"});
+
+//        RectangleAreaII.rectangleArea(new int[][]{{0,0,1000000000,1000000000}});
+//        RectangleAreaII.rectangleArea(new int[][]{{0,0,2,2},{1,0,2,3},{1,0,3,1}});
+
+//        FallingSquares.fallingSquares(new int[][]{{9,7},{1,9},{3,1}});
     }
 }

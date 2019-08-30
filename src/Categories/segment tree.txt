@@ -8,6 +8,7 @@
 - 550 -
 - 600 -
 - 650 -
+*Number of Longest Increasing Subsequence
 - 700 -
 - 750 -
 - 800 -

@@ -49,6 +49,7 @@ LQMaximumVacationDays
 - 600 -
 Maximum Length of Pair Chain
 - 650 -
+Number of Longest Increasing Subsequence
 - 700 -
 *LQMinimumWindowSubsequence
 Min Cost Climbing Stairs
