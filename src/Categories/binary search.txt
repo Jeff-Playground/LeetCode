@@ -32,3 +32,4 @@ First Bad Version
 *LQMinimizeMaxDistanceToGasStation
 *Swim in Rising Water
 - 800 -
+- 850 -

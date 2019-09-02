@@ -10,3 +10,4 @@
 *Network Delay Time
 - 750 -
 - 800 -
+- 850 -

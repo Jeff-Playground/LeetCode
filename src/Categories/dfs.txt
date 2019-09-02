@@ -84,3 +84,4 @@ Find Duplicate Subtrees
 - 800 -
 *Find Eventual Safe States
 *Bricks Falling When Hit
+- 850 -

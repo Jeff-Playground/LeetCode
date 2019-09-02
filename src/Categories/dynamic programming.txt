@@ -56,3 +56,4 @@ Min Cost Climbing Stairs
 - 750 -
 - 800 -
 *Race Car
+- 850 -
