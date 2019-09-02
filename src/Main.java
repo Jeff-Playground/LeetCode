@@ -55,8 +55,8 @@ public class Main {
 //        int[] nums={1,2,3};
 //        Permutations.permute(nums);
 
-        int[] nums={1,1,1,2,3};
-        PermutationsII.permuteUnique(nums);
+//        int[] nums={1,1,1,2,3};
+//        PermutationsII.permuteUnique(nums);
 
 //        int[][] multi = new int[][]{
 //                { 1,2,5 },
