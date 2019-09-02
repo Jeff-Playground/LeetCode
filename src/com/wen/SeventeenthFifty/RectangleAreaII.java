@@ -3,91 +3,91 @@ package com.wen.SeventeenthFifty;
 import java.util.*;
 
 public class RectangleAreaII {
-    // Segment tree with coordinates compression
-    public static int rectangleArea(int[][] rectangles) {
-        int l=rectangles.length;
-        int OPEN=1, CLOSE=-1;
-        Set<Integer> xVals=new TreeSet<>();
-        int[][] events=new int[2*l][];
-        int t=0;
-        for(int[] rec: rectangles){
-            events[t++]=new int[]{rec[1], OPEN, rec[0], rec[2]};
-            events[t++]=new int[]{rec[3], CLOSE, rec[0], rec[2]};
-            xVals.add(rec[0]);
-            xVals.add(rec[2]);
-        }
-        Arrays.sort(events, (a, b)->Integer.compare(a[0], b[0]));
-        Integer[] sortedX=xVals.toArray(new Integer[0]);
-        Map<Integer, Integer> xIdx=new HashMap<>();
-        for(int i=0; i<sortedX.length; i++){
-            xIdx.put(sortedX[i], i);
-        }
-        long result=0, curX=0;
-        int lastY=events[0][0];
-        Node active=new Node(0, sortedX.length-1, sortedX);
-        for(int[] event: events){
-            int y=event[0], type=event[1], x1=event[2], x2=event[3];
-            result+=curX*(y-lastY);
-            curX=active.update(xIdx.get(x1), xIdx.get(x2), type);
-            lastY=y;
-        }
-        result%=1_000_000_007;
-        return (int)result;
-    }
-
-    static class Node{
-        int start, end;
-        Node left, right;
-        Integer[] sortedIdx;
-        int count;
-        long total;
-
-        public Node(int start, int end, Integer[] sortedIdx){
-            this.sortedIdx=sortedIdx;
-            this.start=start;
-            this.end=end;
-            left=null;
-            right=null;
-            count=0;
-            total=0;
-        }
-
-        public int getRangeMid(){
-            return start+(end-start)/2;
-        }
-
-        public Node getLeft(){
-            if(left==null){
-                left=new Node(start, getRangeMid(), sortedIdx);
-            }
-            return left;
-        }
-
-        public Node getRight() {
-            if(right==null){
-                right=new Node(getRangeMid(), end, sortedIdx);
-            }
-            return right;
-        }
-
-        public long update(int i, int j, int val){
-            if(i>=j){
-                return 0;
-            }
-            if(i==start && j==end){
-                count+=val;
-            } else{
-                getLeft().update(i, Math.min(j, getRangeMid()), val);
-                getRight().update(Math.max(i, getRangeMid()), j, val);
-            }
-            if(count>0){
-                total=sortedIdx[end]-sortedIdx[start];
-            } else{
-                total=getLeft().total+getRight().total;
-            }
-            return total;
-        }
-    }
+//    // Segment tree with coordinates compression
+//    public static int rectangleArea(int[][] rectangles) {
+//        int l=rectangles.length;
+//        int OPEN=1, CLOSE=-1;
+//        Set<Integer> xVals=new TreeSet<>();
+//        int[][] events=new int[2*l][];
+//        int t=0;
+//        for(int[] rec: rectangles){
+//            events[t++]=new int[]{rec[1], OPEN, rec[0], rec[2]};
+//            events[t++]=new int[]{rec[3], CLOSE, rec[0], rec[2]};
+//            xVals.add(rec[0]);
+//            xVals.add(rec[2]);
+//        }
+//        Arrays.sort(events, (a, b)->Integer.compare(a[0], b[0]));
+//        Integer[] sortedX=xVals.toArray(new Integer[0]);
+//        Map<Integer, Integer> xIdx=new HashMap<>();
+//        for(int i=0; i<sortedX.length; i++){
+//            xIdx.put(sortedX[i], i);
+//        }
+//        long result=0, curX=0;
+//        int lastY=events[0][0];
+//        Node active=new Node(0, sortedX.length-1, sortedX);
+//        for(int[] event: events){
+//            int y=event[0], type=event[1], x1=event[2], x2=event[3];
+//            result+=curX*(y-lastY);
+//            curX=active.update(xIdx.get(x1), xIdx.get(x2), type);
+//            lastY=y;
+//        }
+//        result%=1_000_000_007;
+//        return (int)result;
+//    }
+//
+//    static class Node{
+//        int start, end;
+//        Node left, right;
+//        Integer[] sortedIdx;
+//        int count;
+//        long total;
+//
+//        public Node(int start, int end, Integer[] sortedIdx){
+//            this.sortedIdx=sortedIdx;
+//            this.start=start;
+//            this.end=end;
+//            left=null;
+//            right=null;
+//            count=0;
+//            total=0;
+//        }
+//
+//        public int getRangeMid(){
+//            return start+(end-start)/2;
+//        }
+//
+//        public Node getLeft(){
+//            if(left==null){
+//                left=new Node(start, getRangeMid(), sortedIdx);
+//            }
+//            return left;
+//        }
+//
+//        public Node getRight() {
+//            if(right==null){
+//                right=new Node(getRangeMid(), end, sortedIdx);
+//            }
+//            return right;
+//        }
+//
+//        public long update(int i, int j, int val){
+//            if(i>=j){
+//                return 0;
+//            }
+//            if(i==start && j==end){
+//                count+=val;
+//            } else{
+//                getLeft().update(i, Math.min(j, getRangeMid()), val);
+//                getRight().update(Math.max(i, getRangeMid()), j, val);
+//            }
+//            if(count>0){
+//                total=sortedIdx[end]-sortedIdx[start];
+//            } else{
+//                total=getLeft().total+getRight().total;
+//            }
+//            return total;
+//        }
+//    }
 
 //    // Line sweep
 //    public static int rectangleArea(int[][] rectangles) {

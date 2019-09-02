@@ -82,3 +82,5 @@ Find Duplicate Subtrees
 *Swim in Rising Water
 *Is Graph Bipartite?
 - 800 -
+*Find Eventual Safe States
+*Bricks Falling When Hit

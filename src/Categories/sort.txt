@@ -14,3 +14,4 @@ Third Maximum Number
 - 750 -
 *Partition Labels
 - 800 -
+Hand of Straights

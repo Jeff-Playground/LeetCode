@@ -20,9 +20,13 @@ public class RaceCar {
             dp[t]=n;
         } else{
             for(int j=0; j<n-1; j++){
+                // (n-1) ops reach the first point before target, then reverse(1) and j ops, then reverse again travel k distance and reach t
+                // t==1<<((n-1))-1)-((1<<j)-1)+dp[k]
                 dp[t]=Math.min(dp[t], n-1+2+j+racecarHelper(dp, t-(1<<(n-1))+(1<<j)));
             }
             if((1<<n)-1-t<t){
+                // n ops reach the first point beyond target, then reverse(1) and travel distance k distance
+                // t==(1<<n)-1-k
                 dp[t]=Math.min(dp[t], n+1+racecarHelper(dp, (1<<n)-1-t));
             }
         }
@@ -65,13 +69,15 @@ public class RaceCar {
 //                if(pos==target){
 //                    return result;
 //                }
+//                // Note the pruning condition: newPos>0 && newPos<target*2
+//                // Keep going in same direction
 //                int newPos=pos+speed, newSpeed=speed*2;
 //                String newKey=newPos+","+newSpeed;
-//                // Note the pruning condition: newPos>0 && newPos<target*2
 //                if(!visited.contains(newKey) && newPos>0 && newPos<target*2){
 //                    visited.add(newKey);
 //                    q.offer(new int[]{newPos, newSpeed});
 //                }
+//                // Reverse
 //                newPos=pos;
 //                newSpeed=speed>0?-1:1;
 //                newKey=newPos+","+newSpeed;

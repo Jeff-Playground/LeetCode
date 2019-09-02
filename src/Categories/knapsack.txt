@@ -12,3 +12,4 @@
 - 700 -
 - 750 -
 - 800 -
+*Split Array With Same Average
