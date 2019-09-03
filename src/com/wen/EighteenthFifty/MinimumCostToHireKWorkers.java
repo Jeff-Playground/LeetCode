@@ -14,14 +14,17 @@ public class MinimumCostToHireKWorkers {
         for(int i=0; i<l; i++) {
             workers.add(new int[] {quality[i], wage[i]});
         }
+        // Sort workers by wage/quality increasing ly(better workers first)
         Collections.sort(workers, (a, b)->Double.compare((double)a[1]/a[0], (double)b[1]/b[0]));
         int totalQuality=0;
+        // Pop out the workers with highest quality(the ones need to be paid more when paid by ratio according to quality)
         PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->Integer.compare(b[0], a[0]));
         for(int i=0; i<l; i++) {
             int[] worker=workers.get(i);
             totalQuality+=worker[0];
             pq.offer(worker);
             if(pq.size()==K) {
+                // Pay by the last worker because it's the most expensive one per quality
                 result=Math.min(result, (double)worker[1]*totalQuality/worker[0]);
                 totalQuality-=pq.poll()[0];
             }

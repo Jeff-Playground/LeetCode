@@ -22,3 +22,4 @@ Monotone Increasing Digits
 *Reorganize String
 - 800 -
 - 850 -
+*Minimum Cost to Hire K Workers
