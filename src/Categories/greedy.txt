@@ -23,3 +23,4 @@ Monotone Increasing Digits
 - 800 -
 - 850 -
 *Minimum Cost to Hire K Workers
+- 900 -
