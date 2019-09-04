@@ -12,6 +12,7 @@ Third Maximum Number
 - 650 -
 - 700 -
 - 750 -
+LQEmployeeFreeTime
 *Partition Labels
 - 800 -
 Hand of Straights

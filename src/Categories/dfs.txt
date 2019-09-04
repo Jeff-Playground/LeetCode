@@ -79,6 +79,7 @@ Find Duplicate Subtrees
 *LQNumberOfDistinctIslandsII
 - 750 -
 *Cracking the Safe
+Pyramid Transition Matrix
 *Swim in Rising Water
 *Is Graph Bipartite?
 - 800 -

@@ -18,6 +18,7 @@ Number of 1 Bits
 - 650 -
 - 700 -
 - 750 -
+LQIPToCIDR
 - 800 -
 - 850 -
 - 900 -

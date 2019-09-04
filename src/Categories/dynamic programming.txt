@@ -54,6 +54,7 @@ Number of Longest Increasing Subsequence
 *LQMinimumWindowSubsequence
 Min Cost Climbing Stairs
 - 750 -
+Pyramid Transition Matrix
 - 800 -
 *Race Car
 - 850 -

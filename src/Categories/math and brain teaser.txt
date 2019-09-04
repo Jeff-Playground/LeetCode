@@ -109,6 +109,7 @@ LQFlipGame
 *Remove Invalid Parentheses
 *Wiggle Sort II
 *Increasing Triplet Subsequence
+Palindrome Pairs
 Top K Frequent Elements
 - 350 -
 *Water and Jug Problem

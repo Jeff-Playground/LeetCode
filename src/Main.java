@@ -611,5 +611,36 @@ public class Main {
 //        RectangleAreaII.rectangleArea(new int[][]{{0,0,2,2},{1,0,2,3},{1,0,3,1}});
 
 //        FallingSquares.fallingSquares(new int[][]{{9,7},{1,9},{3,1}});
+
+//    	palindromePairs(new String[] {"abcd","dcba","lls","s","sssll", ""});
+
+//		ipToCIDR("255.0.0.7", 10);
+
+        // Input: schedule = [[[1,2],[5,6]],[[1,3]],[[4,10]]]
+        // Output: [[3,4]]
+//		Interval i1=new Interval(1,2),
+//				i2=new Interval(5,6),
+//						i3=new Interval(1,3),
+//								i4=new Interval(4,10);
+//		List<List<Interval>> schedule=new ArrayList<>();
+//		schedule.add(Arrays.asList(i1,i2));
+//		schedule.add(Arrays.asList(i3));
+//		schedule.add(Arrays.asList(i4));
+//		employeeFreeTime(schedule);
+
+        // Input: schedule = [[[1,3],[6,7]],[[2,4]],[[2,5],[9,12]]]
+        // Output: [[5,6],[7,9]]
+//		Interval i1=new Interval(1,3),
+//				i2=new Interval(6,7),
+//						i3=new Interval(2,4),
+//								i4=new Interval(2,5),
+//										i5=new Interval(9,12);
+//		List<List<Interval>> schedule=new ArrayList<>();
+//		schedule.add(Arrays.asList(i1,i2));
+//		schedule.add(Arrays.asList(i3));
+//		schedule.add(Arrays.asList(i4,i5));
+//		employeeFreeTime(schedule);
+
+//		pyramidTransition("BCD", Arrays.asList("BCG", "CDE", "GEA", "FFF"));
     }
 }
