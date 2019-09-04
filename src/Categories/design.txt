@@ -13,6 +13,7 @@ Peeking Iterator
 LQUniqueWordAbbreviation
 *Find Median from Data Stream
 - 300 -
+*Flatten Nested List Iterator
 LQMovingAverageFromDataStream
 - 350 -
 *LQDesignSnakeGame
