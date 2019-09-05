@@ -4,6 +4,7 @@ import com.wen.FirstFifty.*;
 import com.wen.FourteenthFifty.FallingSquares;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.NinthFifty.LQSequenceReconstruction;
+import com.wen.SecondFifty.TextJustification;
 import com.wen.SeventeenthFifty.*;
 import com.wen.SixteenthFifty.*;
 
@@ -64,7 +65,9 @@ public class Main {
 //        };
 //        MinimumPathSum.minPathSum(multi);
 
-//        String[] words={"This", "is", "an", "example", "of", "text", "justification."};
+        String[] words={"This", "is", "an", "example", "of", "text", "justification."};
+        TextJustification.fullJustify(words,16);
+//        String[] words={"What","must","be","acknowledgment","shall","be"};
 //        TextJustification.fullJustify(words,16);
 
 //        EditDistance.minDistance("horse","ros");

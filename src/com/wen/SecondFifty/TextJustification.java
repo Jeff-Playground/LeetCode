@@ -5,6 +5,58 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TextJustification {
+//    public static List<String> fullJustify(String[] words, int maxWidth) {
+//        List<String> result = new ArrayList<>();
+//        if (words == null || words.length == 0) {
+//            return result;
+//        }
+//        int l=words.length, i=0;
+//        StringBuilder line=new StringBuilder();
+//        while(i<l){
+//            line.setLength(0);
+//            int start=i, end=i+1, length=words[start].length();
+//            while(end<l && length<=maxWidth){
+//                length+=1+words[end++].length();
+//            }
+//            if(end<l || length>maxWidth){
+//                end--;
+//                if(end>start){
+//                    length-=1+words[end--].length();
+//                }
+//                int count=end-start+1, spaces=maxWidth-length+count-1;
+//                line.append(words[start++]);
+//                if(count>1){
+//                    int sep=spaces/(count-1), remain=spaces%(count-1);
+//                    while(start<=end){
+//                        int spCount=sep+((remain-->0)?1:0);
+//                        while(spCount-->0){
+//                            line.append(" ");
+//                        }
+//                        line.append(words[start++]);
+//                    }
+//                } else{
+//                    int spCount=spaces;
+//                    while(spCount-->0){
+//                        line.append(" ");
+//                    }
+//                }
+//            } else{
+//                line.append(words[start++]);
+//                while(start<end){
+//                    line.append(" ");
+//                    line.append(words[start++]);
+//                }
+//                int spCount=maxWidth-length;
+//                while(spCount-->0){
+//                    line.append(" ");
+//                }
+//            }
+//            result.add(line.toString());
+//            i=end+1;
+//        }
+//        return result;
+//    }
+
     public static List<String> fullJustify(String[] words, int maxWidth) {
         List<String> result=new ArrayList<String>();
         if(words==null || words.length==0){

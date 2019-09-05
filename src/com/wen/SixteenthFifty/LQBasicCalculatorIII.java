@@ -20,7 +20,7 @@ public class LQBasicCalculatorIII {
                             bracketCount--;
                         }
                         if(bracketCount==0){
-                            cur=calculate(s.substring(i, j));
+                            cur=calculate(s.substring(i+1, j));
                             i=j-1;
                             break;
                         }
