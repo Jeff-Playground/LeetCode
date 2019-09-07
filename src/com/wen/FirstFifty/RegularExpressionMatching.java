@@ -4,25 +4,25 @@ import java.util.Arrays;
 
 public class RegularExpressionMatching {
     // Dynamic Programming
-    public boolean isMatch(String s, String p) {
+    public static boolean isMatch(String s, String p) {
         int m=s.length(), n=p.length();
-        boolean[][] flags=new boolean[m+1][n+1];
-        Arrays.fill(flags, false);
-        flags[0][0]=true;
+        boolean[][] dp=new boolean[m+1][n+1];
+        dp[0][0]=true;
         for(int i=0; i<m+1; i++){
             for(int j=0; j<n+1; j++){
                 if(j>1 && p.charAt(j-1)=='*'){
-                    flags[i][j]=flags[i][j-2] || (i>0 && (s.charAt(i-1)==p.charAt(j-2) || p.charAt(j-2)=='.') && flags[i-1][j]);
-                } else{
-                    flags[i][j]=i>0 && flags[i-1][j-1] && (s.charAt(i-1)==p.charAt(j-1) || p.charAt(j-1)=='.');
+                    dp[i][j]=dp[i][j-2] || (i>0 && (s.charAt(i-1)==p.charAt(j-2) || p.charAt(j-2)=='.') && dp[i-1][j]);
+                } else if(i>0 && j>0){
+                    dp[i][j]=dp[i-1][j-1] && (s.charAt(i-1)==p.charAt(j-1) || p.charAt(j-1)=='.');
                 }
             }
         }
-        return flags[m][n];
+        return dp[m][n];
     }
 
-//    Recursion
+    // Recursion
 //    public boolean isMatch(String s, String p) {
+//        // Check p for emptiness because empty s can match to a p like "a*"
 //        if(p.isEmpty()) {
 //            return s.isEmpty();
 //        }
