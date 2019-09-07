@@ -7,10 +7,10 @@ public class WildcardMatching {
 //        int sStar=-1, sCur=0;
 //        int pStar=-1, pCur=0;
 //        while(sCur<m) {
-//            if(pCur<p.length() && (p.charAt(pCur)=='?' || p.charAt(pCur)==s.charAt(sCur))) {
+//            if(pCur<n && (p.charAt(pCur)=='?' || p.charAt(pCur)==s.charAt(sCur))) {
 //                pCur++;
 //                sCur++;
-//            } else if(pCur<p.length() && p.charAt(pCur)=='*') {
+//            } else if(pCur<n && p.charAt(pCur)=='*') {
 //                pStar=pCur;
 //                sStar=sCur;
 //                pCur++;
@@ -21,10 +21,10 @@ public class WildcardMatching {
 //                return false;
 //            }
 //        }
-//        while(pCur<p.length() && p.charAt(pCur)=='*') {
+//        while(pCur<n && p.charAt(pCur)=='*') {
 //            pCur++;
 //        }
-//        return pCur==p.length();
+//        return pCur==n;
 //    }
 
 //    // Dynamic Programming
