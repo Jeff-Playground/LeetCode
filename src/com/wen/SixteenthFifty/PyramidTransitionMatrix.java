@@ -4,7 +4,7 @@ import java.util.*;
 
 public class PyramidTransitionMatrix {
     // DP
-    public boolean pyramidTransition(String bottom, List<String> allowed) {
+    public static boolean pyramidTransition(String bottom, List<String> allowed) {
         Map<Character, Set<String>> triples=new HashMap<>();
         for(String triple: allowed) {
             triples.putIfAbsent(triple.charAt(2), new HashSet<>());

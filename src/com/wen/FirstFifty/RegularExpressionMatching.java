@@ -20,7 +20,7 @@ public class RegularExpressionMatching {
         return dp[m][n];
     }
 
-    // Recursion
+//    // Recursion
 //    public boolean isMatch(String s, String p) {
 //        // Check p for emptiness because empty s can match to a p like "a*"
 //        if(p.isEmpty()) {
