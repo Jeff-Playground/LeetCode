@@ -649,6 +649,6 @@ public class Main {
 
 //        PyramidTransitionMatrix.pyramidTransition("BCD", Arrays.asList("BCG", "CDE", "GEA", "FFF"));
 
-		RegularExpressionMatching.isMatch("aaa", "ab*a*c*a");
+//		RegularExpressionMatching.isMatch("aaa", "ab*a*c*a");
     }
 }
