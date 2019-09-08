@@ -1,3 +1,5 @@
+package com.wen.Airbnb;
+
 import java.util.*;
 
 public class AirbnbTest {
