@@ -50,6 +50,7 @@ public class LQMeetingRoomsII {
 //        for(Interval i: intervals){
 //            // Here it doesn't have to be a while loop and do Math.max every time because rooms are changed 1 at a time
 //            // Poll only one time each time ensures when the last meeting starts after all meetings before ended won't produce wrong answer
+//            // Can think of it like using a room checked out by the last polled meeting
 //            if(!q.isEmpty()){
 //                Interval first=q.peek();
 //                if(first.end<i.start){
