@@ -6,6 +6,7 @@ import java.util.Queue;
 import java.util.Set;
 
 public class SlidingPuzzle {
+    // BFS
     public int slidingPuzzle(int[][] board) {
         int result=0;
         int m=board.length, n=board[0].length;
@@ -13,6 +14,7 @@ public class SlidingPuzzle {
         for(int i=0; i<m; i++) {
             for(int j=0; j<n; j++) {
                 start+=(char)(board[i][j]+'0');
+                // Final goal starts with 1 and ends with 0
                 goal+=(char)((i*n+j+1)%(m*n)+'0');
             }
         }
