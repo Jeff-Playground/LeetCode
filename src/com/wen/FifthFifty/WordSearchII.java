@@ -34,7 +34,8 @@ public class WordSearchII {
     private static void findWordsDFS(char[][] board, int x, int y, Trie t, int[][] visited, List<String> result) {
         if(!t.word.isEmpty()){
             result.add(t.word);
-            // This is to ensure no duplicates added to result
+            // This is to ensure no duplicates added to result, duplicates may be added when there are multiple valid
+            // words on the different location of the board
             t.word="";
         }
         int m=board.length, n=board[0].length;
@@ -44,7 +45,6 @@ public class WordSearchII {
             int xn=x+dir[0], yn=y+dir[1];
             if(xn>=0 && xn<m && yn>=0 && yn<n && visited[xn][yn]==0 && t.next[board[xn][yn]-'a']!=null){
                 findWordsDFS(board, xn, yn, t.next[board[xn][yn]-'a'], visited, result);
-                visited[xn][yn]=0;
             }
         }
         visited[x][y]=0;
