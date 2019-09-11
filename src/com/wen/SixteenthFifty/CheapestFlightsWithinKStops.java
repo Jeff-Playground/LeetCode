@@ -32,6 +32,7 @@ public class CheapestFlightsWithinKStops {
         int cnt=0;
         while(!q.isEmpty() && cnt<=K){
             int size=q.size();
+            // Note here introduce last to store last level's state, not required in normal SPFA
             int[] last=Arrays.copyOf(cost, n);
             while(size-->0){
                 int cur=q.poll();

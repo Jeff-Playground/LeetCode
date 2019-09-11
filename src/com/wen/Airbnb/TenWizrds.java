@@ -1,9 +1,6 @@
 package com.wen.Airbnb;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class TenWizrds {
     public static void main(String args[]) {
@@ -29,34 +26,79 @@ public class TenWizrds {
         }
     }
 
+    // SPFA
     private static List<Integer> getShortestPath(List<List<Integer>> wizards, int src, int dst) {
         List<Integer> result=new ArrayList<>();
-        int[] visited=new int[wizards.size()];
-        int[] last=new int[wizards.size()];
+        int n=wizards.size();
+        int[] cost=new int[n];
+        Arrays.fill(cost, Integer.MAX_VALUE);
+        cost[src]=0;
+        int[] last=new int[n];
         Arrays.fill(last, -1);
-        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->a[0]-b[0]);
-        for(Integer srcTo: wizards.get(src)){
-            pq.offer(new int[]{(src-srcTo)*(src-srcTo), src, srcTo});
-        }
-        visited[src]=1;
-        while(!pq.isEmpty()){
-            int[] cur=pq.poll();
-            if(visited[cur[2]]==0){
-                visited[cur[2]]=1;
-                last[cur[2]]=cur[1];
-                if(cur[2]==dst){
-                    result.add(dst);
-                    int t=dst;
-                    while(t!=src){
-                        result.add(0, last[t]);
-                        t=last[t];
+        Queue<Integer> q=new LinkedList<>();
+        q.offer(src);
+        int[] count=new int[n];
+        count[src]++;
+        while(!q.isEmpty()){
+            int cur=q.poll();
+            for(int to: wizards.get(cur)){
+                if(cost[to]>cost[cur]+(cur-to)*(cur-to)){
+                    cost[to]=cost[cur]+(cur-to)*(cur-to);
+                    last[to]=cur;
+                    q.offer(to);
+                    if(++count[to]>n){
+                        return null;
                     }
-                    return result;
-                } else{
-
                 }
             }
         }
-        return null;
+        if(cost[dst]<Integer.MAX_VALUE){
+            result.add(dst);
+            int t=dst;
+            while(t!=src){
+                result.add(0,last[t]);
+                t=last[t];
+            }
+        }
+        return result;
     }
+
+//    // Dijkstra
+//    private static List<Integer> getShortestPath(List<List<Integer>> wizards, int src, int dst) {
+//        List<Integer> result=new ArrayList<>();
+//        int[] visited=new int[wizards.size()];
+//        visited[src]=1;
+//        int[] last=new int[wizards.size()];
+//        Arrays.fill(last, -1);
+//        Map<Integer, Integer> reached=new HashMap<>();
+//        reached.put(src, 0);
+//        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->(a[2]+reached.get(a[0]))-(b[2]+reached.get(b[0])));
+//        for(Integer srcTo: wizards.get(src)){
+//            pq.offer(new int[]{src, srcTo, (src-srcTo)*(src-srcTo)});
+//        }
+//        while(!pq.isEmpty()){
+//            int[] cur=pq.poll();
+//            if(visited[cur[1]]==0){
+//                visited[cur[1]]=1;
+//                reached.put(cur[1], reached.get(cur[0])+cur[2]);
+//                last[cur[1]]=cur[0];
+//                if(cur[1]==dst){
+//                    result.add(dst);
+//                    int t=dst;
+//                    while(t!=src){
+//                        result.add(0, last[t]);
+//                        t=last[t];
+//                    }
+//                    return result;
+//                } else{
+//                    for(Integer curTo: wizards.get(cur[1])){
+//                        if(visited[curTo]==0){
+//                            pq.offer(new int[]{cur[1], curTo, (cur[1]-curTo)*(cur[1]-curTo)});
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        return null;
+//    }
 }

@@ -3,38 +3,38 @@ package com.wen.FifteenthFifty;
 import java.util.*;
 
 public class NetworkDelayTime {
-    // Dijkstra
-    public int networkDelayTime(int[][] times, int N, int K) {
-        int[][] edges=new int[N+1][N+1];
-        for(int i=0; i<N+1; i++) {
-            Arrays.fill(edges[i],-1);
-        }
-        Map<Integer, Integer> reached=new HashMap<>();
-        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->((edges[a[0]][a[1]]+reached.get(a[0]))-(edges[b[0]][b[1]]+reached.get(b[0]))));
-        reached.put(K, 0);
-        for(int[] time: times) {
-            edges[time[0]][time[1]]=time[2];
-            if(time[0]==K) {
-                pq.offer(new int[] {time[0], time[1]});
-            }
-        }
-        while(!pq.isEmpty()) {
-            int[] cur=pq.poll();
-            if(!reached.containsKey(cur[1])) {
-                reached.put(cur[1], reached.get(cur[0])+edges[cur[0]][cur[1]]);
-                if(reached.size()==N) {
-                    return reached.get(cur[1]);
-                } else {
-                    for(int i=0; i<N+1; i++) {
-                        if(!reached.containsKey(i) && edges[cur[1]][i]!=-1) {
-                            pq.offer(new int[] {cur[1], i});
-                        }
-                    }
-                }
-            }
-        }
-        return -1;
-    }
+//    // Dijkstra
+//    public int networkDelayTime(int[][] times, int N, int K) {
+//        int[][] edges=new int[N+1][N+1];
+//        for(int i=0; i<N+1; i++) {
+//            Arrays.fill(edges[i],-1);
+//        }
+//        Map<Integer, Integer> reached=new HashMap<>();
+//        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->((edges[a[0]][a[1]]+reached.get(a[0]))-(edges[b[0]][b[1]]+reached.get(b[0]))));
+//        reached.put(K, 0);
+//        for(int[] time: times) {
+//            edges[time[0]][time[1]]=time[2];
+//            if(time[0]==K) {
+//                pq.offer(new int[] {time[0], time[1]});
+//            }
+//        }
+//        while(!pq.isEmpty()) {
+//            int[] cur=pq.poll();
+//            if(!reached.containsKey(cur[1])) {
+//                reached.put(cur[1], reached.get(cur[0])+edges[cur[0]][cur[1]]);
+//                if(reached.size()==N) {
+//                    return reached.get(cur[1]);
+//                } else {
+//                    for(int i=0; i<N+1; i++) {
+//                        if(!reached.containsKey(i) && edges[cur[1]][i]!=-1) {
+//                            pq.offer(new int[] {cur[1], i});
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        return -1;
+//    }
 
 //    // Bellman-ford
 //    public int networkDelayTime(int[][] times, int N, int K) {
@@ -77,10 +77,9 @@ public class NetworkDelayTime {
         count[K]++;
         while(!q.isEmpty()) {
             int reached=q.poll();
-            int[] last=Arrays.copyOf(cost, N+1);
             for(int[] time: times) {
-                if(time[0]==reached && last[time[0]]+time[2]<last[time[1]]) {
-                    cost[time[1]]=last[time[0]]+time[2];
+                if(time[0]==reached && cost[time[0]]+time[2]<cost[time[1]]) {
+                    cost[time[1]]=cost[time[0]]+time[2];
                     q.offer(time[1]);
                     // Logic to determine whether there's a negative loop
                     // Note here normally should be >N-1, but to handle the case when N==1, give N
