@@ -1,0 +1,23 @@
+QPS:
+query per second
+
+A prod level cache machine:
+72GB RAM
+
+算一下你需要多大的machine多少台
+https://gist.github.com/jboner/2841832 這裡面的數字要有點sense
+(Read 1 MB sequentially from memory     250,000   ns      250 us)
+假設我們現在要用72GB RA‍‍‍‍‌‌‍‍‌‍‌‌‌‍‌‍‍‌‍M 4 core的machine
+那總共以儲存data來說 需要30TB/72GB = 420台
+這樣的話每台的QPS = 10M/420 = 23000, 即使所有core都用了 每個core要處理6000QPS
+代表說 1/6000 = 167us 搭配上面那個link可知道即使是ram sequentially read 1MB要250us 所以我們如果用這個size的machine 會無法負荷
+改變主意 假設現在用16GB RAM  4core的machine
+30TB/16GB = 1875台, QPS per CPU = 10M/1875/4 = 1400QPS = 700us per queries. 這個數字負擔小多了
+
+HashMap with Doubly linked list:
+For every chunk of data, we store a copy in the hashmap and we store an entry ( without the value ) in a linkedList.
+Multi-threads: make writes as granular as possible
+               when map implemented with array of linked list, lock only one specific row instead of whole map
+Data sharding: The other way to do it would be to use consistent hashing with multiple copies of every shard on the ring
+Data replica: Master slave technique : There is only one active server at a time in a shard and it has a follower which keeps getting the update. When the master server goes down, the slave server takes over as the master server. Master and slave can maintain a change log with version number to make sure they are caught up.
+              If we are fine with all servers becoming eventually consistent, then we can have one master ( taking all the write traffic ) and many slaves where slaves can service the read traffic as well.
