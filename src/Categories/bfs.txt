@@ -17,7 +17,6 @@ LQStrobogrammaticNumberII
 LQWallsAndGates
 - 300 -
 *Remove Invalid Parentheses
-*Reconstruct Itinerary
 - 350 -
 *Decode String
 - 400 -
@@ -31,11 +30,10 @@ Minesweeper
 - 600 -
 - 650 -
 Cut Off Trees for Golf Event
-*Number of Distinct Islands
+*LQNumberOfDistinctIslands
 - 700 -
 *Accounts Merge
 - 750 -
-*Cracking the Safe
 *Sliding Puzzle
 - 800 -
 Bus Routes

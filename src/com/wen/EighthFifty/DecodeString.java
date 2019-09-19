@@ -4,49 +4,65 @@ import java.util.Stack;
 
 public class DecodeString {
     public String decodeString(String s) {
-        int[] idx=new int[] {0};
-        return decodeStringHelper(s, idx);
+        int firstBracket=s.indexOf('[');
+        if(firstBracket==-1) {
+            return s;
+        } else {
+            StringBuilder result=new StringBuilder();
+            int startNum=firstBracket-1;
+            while(startNum>=0 && isNumber(s.charAt(startNum))) {
+                startNum--;
+            }
+            if(startNum<firstBracket) {
+                int count=Integer.parseInt(s.substring(startNum+1, firstBracket));
+                int lastBracket=s.length()-1;
+                while(s.charAt(lastBracket)!=']') {
+                    lastBracket--;
+                }
+                int nextBracket=getNextBracket(s, firstBracket);
+                if(lastBracket==nextBracket) {
+                    String inBracket=decodeString(s.substring(firstBracket+1, lastBracket));
+                    if(startNum>=0) {
+                        result.append(s.substring(0, startNum+1));
+                    }
+                    while(count-->0) {
+                        result.append(inBracket);
+                    }
+                    if(lastBracket<s.length()-1) {
+                        result.append(s.substring(lastBracket+1));
+                    }
+                } else {
+                    String inBracket=decodeString(s.substring(firstBracket+1, nextBracket));
+                    if(startNum>=0) {
+                        result.append(s.substring(0, startNum+1));
+                    }
+                    while(count-->0) {
+                        result.append(inBracket);
+                    }
+                    result.append(decodeString(s.substring(nextBracket+1)));
+                }
+            }
+            return result.toString();
+        }
     }
 
-    private String decodeStringHelper(String s, int[] idx) {
-        int count=-1;
-        String result="", cur="";
-        int numCount=0;
-        while(idx[0]<s.length()) {
-            char c=s.charAt(idx[0]);
-            if(c>='0' && c<='9') {
-                if(numCount==0) {
-                    result+=cur;
-                    cur="";
-                    int i=idx[0];
-                    while(s.charAt(i+1)!='[') {
-                        i++;
-                    }
-                    count=Integer.parseInt(s.substring(idx[0], i+1));
-                    idx[0]=i+1;
-                    numCount++;
-                } else {
-                    cur+=decodeStringHelper(s, idx);
+    private int getNextBracket(String s, int start) {
+        int count=0;
+        for(int i=start; i<s.length(); i++) {
+            if(s.charAt(i)=='[') {
+                count++;
+            } else if(s.charAt(i)==']') {
+                count--;
+                if(count==0) {
+                    return i;
                 }
-            } else if(c=='[') {
-                idx[0]++;
-            } else if(c==']'){
-                if(numCount==0) {
-                    break;
-                } else {
-                    while(count-->0) {
-                        result+=cur;
-                    }
-                    idx[0]++;
-                    cur="";
-                    numCount--;
-                }
-            } else {
-                cur+=c;
-                idx[0]++;
             }
         }
-        return result+cur;
+        return -1;
+    }
+
+    private boolean isNumber(char c) {
+        return c>='0' && c<='9';
     }
 
 //    public String decodeString(String s) {

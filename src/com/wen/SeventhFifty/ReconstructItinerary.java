@@ -3,7 +3,6 @@ package com.wen.SeventhFifty;
 import java.util.*;
 
 public class ReconstructItinerary {
-    // BFS
     public List<String> findItinerary(List<List<String>> tickets) {
         String dept="JFK";
         List<String> result=new ArrayList<>();
@@ -30,7 +29,7 @@ public class ReconstructItinerary {
         return result;
     }
 
-//    // DFS
+//    // DFS to find euler path
 //    public List<String> findItinerary(List<List<String>> tickets) {
 //        String dept="JFK";
 //        List<String> result=new ArrayList<>();

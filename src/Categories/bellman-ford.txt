@@ -1,3 +1,6 @@
+Use one dimensional array int[] last to track the last node of the shortest path, because there's only one source, not
+necessary to use two dimensional array
+
 - 300 -
 - 350 -
 - 400 -
