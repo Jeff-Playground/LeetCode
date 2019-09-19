@@ -1,0 +1,4 @@
+Consistency over availability:
+Still needs sharding to handle big amount of data, but for each sharding node, instead of doing peer-to-peer, we have a master-master design, where
+transaction log is stored on a shared network file system. In the case of a node failure, the standby master would sync based on the transaction log
+and start handling request.
