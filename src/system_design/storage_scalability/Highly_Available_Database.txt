@@ -1,0 +1,23 @@
+Sharding makes joins difficult, so sharding normally means no normalization. However, this can leads to inconsistencies, but it's OK for a eventually-consistency
+system.
+
+Sharding works well when aiming for a low-latency and high-availability system.
+
+For each shard, a peer-to-peer design can be used. This is implemented again by consistent hashing, for one entry, it can go to multiple nodes on the ring, and
+all these nodes don't have a master among them. This avoids single-point-failure, and it ensures eventual consistency without data loss.
+
+Read and Write consistency: (Operations are coordinated by a coordinator node)
+W and R are called write and read consistency number respectively. To recap, W is the minimum number of nodes from which the coordinating node should get an ack
+before making a write successful and R is the minimum number of nodes from which the coordinating node should get back read values to return them back to the
+client.
+R, W together forms quorum of the system. For a read to be consistent(return the latest write), we need to keep W + R > P.
+Depending on the feature requirement W and R can be adjusted, for example to have very fast writes we can keep W = 1 and R = P. If our system is read heavy we
+can keep R = 1 and W = P. If read and write are equally distributed, we can keep both R and W as (P+1)/2.
+
+Resolve conflicts:
+First, if data(key, value) we store is such that value is just a single column, we can use a simple criteria of LWW(last write wins) to resolve conflicts. So
+if two servers have different view of a key, in the resolve step we can update the server with the stale with the new data and therefore become consistent.
+The other way is to store augmented data for each row indicating all the coordinating nodes for the row till now. Now, to detect and understand conflict we
+can compare the augmented data. If one is a subset of the other(all the writes seen by one of the row has been seen by the other row) we can safely ignore
+the one with smaller augmented data. Otherwise, we have a conflit for our row and need application level logic to resolve it. This way is usually required
+when our value if composed of more than one independent column.
