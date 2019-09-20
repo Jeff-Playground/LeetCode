@@ -1,0 +1,28 @@
+Scalability Lecture
+Scalability Lecture by David Malan, Harvard Web Development
+
+Vertical scaling:
+    there's a ceiling
+    single point of failure
+
+Horizontal scaling:
+    Distribute the requests with a load balancer
+    Load Balancer:
+        Random
+        Least loaded
+        Session/cookies
+        Round-robin/Weighted round-robin
+        Layer 4
+        Layer 7
+    RAID
+    Sticky sessions:
+        Store session info in load balancer server or a standalone server
+        Store server info in the cookie(a uuid or a random number), load balancer maintains the mapping for this info to servers
+    Data replication:
+        active-passive
+        active-active
+    Data partitioning
+    Load balancing based on geographic location(DNS level):
+        Redirection happens when TTL expires
+    Security:
+        80(TCP) and 443(SSL) from external, 80(TCP) only inside, 3306(TCP) to databases
