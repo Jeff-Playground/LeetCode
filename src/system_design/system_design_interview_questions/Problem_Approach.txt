@@ -1,9 +1,0 @@
-Feature expectations ( First 2 mins )
-
-Estimations ( 2-5 mins )
-
-Design Goals ( 1 mins )
-
-Skeleton of the design ( 4 - 5 mins )
-
-Deep dive ( 20-30 mins )
