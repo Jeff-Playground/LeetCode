@@ -1,0 +1,11 @@
+base62 encoding
+
+MD5 hashing
+
+NoSQL over SQL because of the built in sharding and failure handling
+
+Redis vs. Memcached:
+    They're equally fast
+    Redis has better memory management
+    Redis by default can dump to disk, Memcached has to depend on third party tools
+    Redis includes tools for helping with scaling
