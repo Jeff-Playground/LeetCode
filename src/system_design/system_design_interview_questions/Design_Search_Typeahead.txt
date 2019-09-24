@@ -1,0 +1,19 @@
+Trie:
+    Each node stores the top 5 popular queries
+    For query writes, update from child to parent nodes
+    For sharding, it can happen on the second or third level
+    For high availability, each shard can have multiple replicas and implemented in master-slave mode
+
+Can frequent writes affect read efficiency:
+    Yes, potentially. Possible solution is to maintain locks on nodes to make sure reads don't get inconsistent values. As such, writes start to compete with reads.
+    To improve read efficiency:
+        For updating we can use sampling instead of do update for every query.
+        Or we can use a separate datastore to maintain the query frequency. Only when it reaches a certain threshold do we do actual updates to the trie.
+
+
+
+
+
+
+
+
