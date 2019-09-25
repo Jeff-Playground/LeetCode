@@ -1,0 +1,9 @@
+Design details:
+    Store all messages or just the ones not delivered yet
+
+Websockets:
+    full duplex connection
+    heartbeat for connection health check
+
+Redis:
+    maintain a table to store info on which node is serving which client and the last heartbeat time(this can be used for fail-over and show status of user)
