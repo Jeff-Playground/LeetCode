@@ -6,6 +6,7 @@ import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.NinthFifty.LQSequenceReconstruction;
 import com.wen.SecondFifty.TextJustification;
 import com.wen.SeventeenthFifty.*;
+import com.wen.SeventhFifty.BestTimeToBuyAndSellStockWithCooldown;
 import com.wen.SeventhFifty.PalindromePairs;
 import com.wen.SixteenthFifty.*;
 
@@ -594,7 +595,7 @@ public class Main {
 
 //        LQSequenceReconstruction.sequenceReconstruction(new int[]{1,2,3}, new int[][]{{1,2}, {1,3}, {2,3}});
 
-        CheapestFlightsWithinKStops.findCheapestPrice(4, new int[][]{{0,1,1},{0,2,5},{1,2,1},{2,3,1}}, 0, 3, 1);
+//        CheapestFlightsWithinKStops.findCheapestPrice(4, new int[][]{{0,1,1},{0,2,5},{1,2,1},{2,3,1}}, 0, 3, 1);
 
 //        SwapAdjacentInLRString.canTransform("XXXLXXXXXX","XXXLXXXXXX");
 
@@ -650,5 +651,7 @@ public class Main {
 //        PyramidTransitionMatrix.pyramidTransition("BCD", Arrays.asList("BCG", "CDE", "GEA", "FFF"));
 
 //		RegularExpressionMatching.isMatch("aaa", "ab*a*c*a");
+
+        BestTimeToBuyAndSellStockWithCooldown.maxProfit(new int[]{1,2,4});
     }
 }
