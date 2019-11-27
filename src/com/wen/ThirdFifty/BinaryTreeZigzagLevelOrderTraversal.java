@@ -18,38 +18,28 @@ public class BinaryTreeZigzagLevelOrderTraversal {
         if(root==null){
             return result;
         }
-        Queue<TreeNode> queue1=new LinkedList<>();
-        Queue<TreeNode> queue2=new LinkedList<>();
-        queue1.offer(root);
-        while(!queue1.isEmpty() || !queue2.isEmpty()){
-            List<Integer> level1=new ArrayList<>();
-            while(!queue1.isEmpty()){
-                TreeNode temp=queue1.poll();
-                level1.add(temp.val);
-                if(temp.left!=null){
-                    queue2.offer(temp.left);
+        Queue<TreeNode> q=new LinkedList<>();
+        q.offer(root);
+        int level=0;
+        while(!q.isEmpty()){
+            int size=q.size();
+            List<Integer> curLevel=new ArrayList<>();
+            for(int i=0; i<size; i++){
+                TreeNode cur=q.poll();
+                if(level%2==0){
+                    curLevel.add(cur.val);
+                } else{
+                    curLevel.add(0, cur.val);
                 }
-                if(temp.right!=null){
-                    queue2.offer(temp.right);
+                if(cur.left!=null){
+                    q.offer(cur.left);
                 }
-            }
-            if(level1.size()!=0){
-                result.add(level1);
-            }
-            List<Integer> level2=new ArrayList<>();
-            while(!queue2.isEmpty()){
-                TreeNode temp=queue2.poll();
-                level2.add(0, temp.val);
-                if(temp.left!=null){
-                    queue1.offer(temp.left);
-                }
-                if(temp.right!=null){
-                    queue1.offer(temp.right);
+                if(cur.right!=null){
+                    q.offer(cur.right);
                 }
             }
-            if(level2.size()!=0){
-                result.add(level2);
-            }
+            level++;
+            result.add(curLevel);
         }
         return result;
     }
