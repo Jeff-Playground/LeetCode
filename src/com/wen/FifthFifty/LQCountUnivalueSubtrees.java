@@ -37,28 +37,18 @@ public class LQCountUnivalueSubtrees {
         }
     }
 
-    public boolean countUnivalSubtreesDFS(TreeNode node, int[] result) {
-        boolean left=node.left!=null?countUnivalSubtreesDFS(node.left, result):true;
-        boolean right=node.right!=null?countUnivalSubtreesDFS(node.right, result):true;
-        if(node.left==null && node.right==null) {
-            result[0]++;
+    public boolean countUnivalSubtreesDFS(TreeNode node, int[] count){
+        if(node==null){
             return true;
-        } else if(node.left!=null && node.right==null) {
-            if(left && node.left.val==node.val) {
-                result[0]++;
+        } else if(countUnivalSubtreesDFS(node.left, count) & countUnivalSubtreesDFS(node.right, count)){
+            if((node.left!=null && node.val==node.left.val || node.left==null) && (node.right!=null && node.val==node.right.val || node.right==null)){
+                count[0]++;
                 return true;
+            } else{
+                return false;
             }
-        } else if(node.left==null && node.right!=null) {
-            if(right && node.right.val==node.val) {
-                result[0]++;
-                return true;
-            }
-        } else {
-            if(left && right && node.left.val==node.val && node.left.val==node.right.val) {
-                result[0]++;
-                return true;
-            }
+        } else{
+            return false;
         }
-        return false;
     }
 }
