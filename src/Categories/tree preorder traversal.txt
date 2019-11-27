@@ -1,6 +1,7 @@
 Same Tree
 Binary Tree Preorder Traversal
 *Serialize and Deserialize Binary Tree
+*LQBinaryTreeLongestConsecutiveSequence
 - 300 -
 - 350 -
 - 400 -
