@@ -12,33 +12,59 @@ public class BinaryTreePostorderTraversal {
         public TreeNode(int x) { val = x; }
     }
 
-    // Morris Traversal
+//    // Morris Traversal 1 (new dummy node)
+//    public List<Integer> postorderTraversal(TreeNode root) {
+//        List<Integer> result=new ArrayList<>();
+//        TreeNode dummy=new TreeNode(-1);
+//        dummy.left=root;
+//        TreeNode cur=dummy, pre=null;
+//        while(cur!=null){
+//            if(cur.left!=null){
+//                pre=cur.left;
+//                while(pre.right!=null && pre.right!=cur){
+//                    pre=pre.right;
+//                }
+//                if(pre.right==null){
+//                    pre.right=cur;
+//                    cur=cur.left;
+//                } else {
+//                    pre.right=null;
+//                    TreeNode temp=cur.left;
+//                    int index=result.size();
+//                    while(temp!=null){
+//                        result.add(index, temp.val);
+//                        temp=temp.right;
+//                    }
+//                    cur=cur.right;
+//                }
+//            } else{
+//                cur=cur.right;
+//            }
+//        }
+//        return result;
+//    }
+
+    // Morris Traversal 2 (modified based on preorder traversal)
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> result=new ArrayList<>();
-        TreeNode dummy=new TreeNode(-1);
-        dummy.left=root;
-        TreeNode cur=dummy, pre=null;
+        TreeNode cur=root, pre=null;
         while(cur!=null){
-            if(cur.left!=null){
-                pre=cur.left;
-                while(pre.right!=null && pre.right!=cur){
-                    pre=pre.right;
+            if(cur.right!=null){
+                pre=cur.right;
+                while(pre.left!=null && pre.left!=cur){
+                    pre=pre.left;
                 }
-                if(pre.right==null){
-                    pre.right=cur;
-                    cur=cur.left;
-                } else {
-                    pre.right=null;
-                    TreeNode temp=cur.left;
-                    int index=result.size();
-                    while(temp!=null){
-                        result.add(index, temp.val);
-                        temp=temp.right;
-                    }
+                if(pre.left==null){
+                    result.add(0, cur.val);
+                    pre.left=cur;
                     cur=cur.right;
+                } else{
+                    pre.left=null;
+                    cur=cur.left;
                 }
             } else{
-                cur=cur.right;
+                result.add(0, cur.val);
+                cur=cur.left;
             }
         }
         return result;
