@@ -67,7 +67,11 @@ public class ValidateBinarySearchTree {
         return true;
     }
 
-//    // Put tree nodes in a list in order and check, this only works with left<root<right instead of left<=root<right
+//    // Put tree nodes in a list in order and check, this only works with left<root<right instead of left<=root<right,
+//    // for example, it can't distinguish
+//    //       20       against     20
+//    //      /                       \
+//    //    20                         20
 //    public boolean isValidBST(TreeNode root) {
 //        if(root==null){
 //            return true;
@@ -91,7 +95,7 @@ public class ValidateBinarySearchTree {
 //        inorder(root.right, list);
 //    }
 
-//    // DFS
+//    // DFS, this can be used to solve case left<=root<right
 //    public boolean isValidBST(TreeNode root) {
 //        if(root==null){
 //            return true;
