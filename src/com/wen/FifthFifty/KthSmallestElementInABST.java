@@ -10,7 +10,8 @@ public class KthSmallestElementInABST {
         TreeNode(int x) { val = x; }
     }
 
-    // Recreate tree with count of all nodes in subtree including self
+    // Recreate tree with count of all nodes in both subtrees including self(note the count is not the index of current
+    // node)
     class MyTreeNode{
         int val;
         int count;
