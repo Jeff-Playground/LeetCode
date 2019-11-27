@@ -39,111 +39,100 @@ public class SameTree {
 //        return true;
 //    }
 
-//    // Inorder
-//    public boolean isSameTree(TreeNode p, TreeNode q) {
-//        if((p==null && q!=null) || (p!=null && q==null)){
-//            return false;
-//        }
-//        Stack<TreeNode> stackP=new Stack<>();
-//        Stack<TreeNode> stackQ=new Stack<>();
-//        while((p!=null || !stackP.isEmpty()) && (q!=null || !stackQ.isEmpty())){
-//            while(p!=null){
-//                stackP.push(p);
-//                p=p.left;
-//            }
-//            while(q!=null){
-//                stackQ.push(q);
-//                q=q.left;
-//            }
-//            TreeNode tP=stackP.pop();
-//            TreeNode tQ=stackQ.pop();
-//            if(tP.val!= tQ.val){
-//                return false;
-//            }
-//            if(stackP.size()!= stackQ.size()){
-//                return false;
-//            }
-//            p=tP.right;
-//            q=tQ.right;
-//        }
-//        return stackP.size()==stackQ.size() && ((p==null && q==null) || (p!=null && q!=null && p.val==q.val));
-//    }
-
-//    // Preorder
-//    public boolean isSameTree(TreeNode p, TreeNode q) {
-//        Stack<TreeNode> stackP=new Stack<>();
-//        Stack<TreeNode> stackQ=new Stack<>();
-//        if(p!=null){
-//            stackP.push(p);
-//        }
-//        if(q!=null){
-//            stackQ.push(q);
-//        }
-//        while(!stackP.isEmpty() && !stackQ.isEmpty()){
-//            TreeNode tP=stackP.pop();
-//            TreeNode tQ=stackQ.pop();
-//            if(tP.val!= tQ.val){
-//                return false;
-//            }
-//            if(tP.right!=null){
-//                stackP.push(tP.right);
-//            }
-//            if(tQ.right!=null){
-//                stackQ.push(tQ.right);
-//            }
-//            if(stackP.size()!= stackQ.size()){
-//                return false;
-//            }
-//            if(tP.left!=null){
-//                stackP.push(tP.left);
-//            }
-//            if(tQ.left!=null){
-//                stackQ.push(tQ.left);
-//            }
-//            if(stackP.size()!= stackQ.size()){
-//                return false;
-//            }
-//        }
-//        return stackP.size()==stackQ.size();
-//    }
-
-    // Postorder
+    // Inorder
     public boolean isSameTree(TreeNode p, TreeNode q) {
         if((p==null && q!=null) || (p!=null && q==null)){
             return false;
         }
         Stack<TreeNode> stackP=new Stack<>();
         Stack<TreeNode> stackQ=new Stack<>();
-        TreeNode preP=null, preQ=null;
         while((p!=null || !stackP.isEmpty()) && (q!=null || !stackQ.isEmpty())){
-            while(p!=null || q!=null){
-                if(p==null || q==null){
-                    return false;
-                }
+            if(p!=null && q!=null){
                 stackP.push(p);
-                p= p.left;
+                p=p.left;
                 stackQ.push(q);
-                q= q.left;
-            }
-            p=stackP.peek();
-            q=stackQ.peek();
-            if((p.right==null || p.right==preP) && (q.right==null || q.right==preQ)){
-                stackP.pop();
-                stackQ.pop();
+                q=q.left;
+            } else if(p==null && q==null){
+                p=stackP.pop();
+                q=stackQ.pop();
                 if(p.val!=q.val){
                     return false;
                 }
-                preP=p;
-                preQ=q;
-                p=null;
-                q=null;
-            } else{
                 p=p.right;
                 q=q.right;
+            } else{
+                return false;
             }
         }
-        return stackP.size()==stackQ.size();
+        return true;
     }
+
+//    // Preorder
+//    public boolean isSameTree(TreeNode p, TreeNode q) {
+//        if(p!=null && q!=null){
+//            Stack<TreeNode> stackP=new Stack<>();
+//            Stack<TreeNode> stackQ=new Stack<>();
+//            while((!stackP.isEmpty() || p!=null) && (!stackQ.isEmpty() || q!=null)){
+//                if(p!=null && q!=null){
+//                    if(p.val!=q.val){
+//                        return false;
+//                    }
+//                    stackP.push(p);
+//                    p=p.left;
+//                    stackQ.push(q);
+//                    q=q.left;
+//                } else if(p==null && q==null){
+//                    p=stackP.pop();
+//                    p=p.right;
+//                    q=stackQ.pop();
+//                    q=q.right;
+//                } else{
+//                    return false;
+//                }
+//            }
+//            return true;
+//        } else{
+//            return p==null && q==null;
+//        }
+//    }
+
+//    // Postorder
+//    public boolean isSameTree(TreeNode p, TreeNode q) {
+//        if((p==null && q!=null) || (p!=null && q==null)){
+//            return false;
+//        }
+//        Stack<TreeNode> stackP=new Stack<>();
+//        Stack<TreeNode> stackQ=new Stack<>();
+//        TreeNode preP=null, preQ=null;
+//        while((p!=null || !stackP.isEmpty()) && (q!=null || !stackQ.isEmpty())){
+//            while(p!=null || q!=null){
+//                if(p==null || q==null){
+//                    return false;
+//                }
+//                stackP.push(p);
+//                p= p.left;
+//                stackQ.push(q);
+//                q= q.left;
+//            }
+//            p=stackP.peek();
+//            q=stackQ.peek();
+//            if((p.right==null || p.right==preP) && (q.right==null || q.right==preQ)){
+//                stackP.pop();
+//                stackQ.pop();
+//                if(p.val!=q.val){
+//                    return false;
+//                }
+//                preP=p;
+//                preQ=q;
+//                p=null;
+//                q=null;
+//            } else{
+//                p=p.right;
+//                q=q.right;
+//            }
+//        }
+//        return stackP.size()==stackQ.size();
+//    }
 
 //    // DFS
 //    public boolean isSameTree(TreeNode p, TreeNode q) {
