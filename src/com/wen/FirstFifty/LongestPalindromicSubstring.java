@@ -9,20 +9,24 @@ public class LongestPalindromicSubstring {
         }
         int l=t.length();
         String result="";
-        int[] reach=new int[l];
-        int mid=0, rMax=0;
+        int[] r=new int[l];
+        int maxMid=0, maxR=0, lastMid=0, lastR=0;
         for(int i=1; i<l; i++){
-            reach[i]=i<=mid+rMax-1?Math.min(reach[mid*2-i],mid+rMax-i):1;
-            while(i-reach[i]>=0 && i+reach[i]<l && t.charAt(i-reach[i])==t.charAt(i+reach[i])){
-                reach[i]++;
+            r[i]= i<=lastMid+lastR-1 ? Math.min(r[lastMid*2-i],lastMid+lastR-i) : 1;
+            while(i-r[i]>=0 && i+r[i]<l && t.charAt(i-r[i])==t.charAt(i+r[i])){
+                r[i]++;
             }
-            if(reach[i]>rMax){
-                mid=i;
-                rMax=reach[i];
+            if(i+r[i]-1>lastMid+lastR-1){
+                lastMid=i;
+                lastR=r[i];
+            }
+            if(r[i]>maxR){
+                maxMid=i;
+                maxR=r[i];
             }
         }
-        if(mid!=0){
-            result=s.substring((mid-rMax+1)/2, (mid+rMax-1)/2);
+        if(maxMid!=0){
+            result=s.substring((maxMid-maxR+1)/2, (maxMid+maxR-1)/2);
         }
         return result;
     }
