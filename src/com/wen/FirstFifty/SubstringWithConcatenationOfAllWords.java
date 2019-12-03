@@ -24,7 +24,7 @@ public class SubstringWithConcatenationOfAllWords {
                 Map<String, Integer> current=new HashMap<>();
                 int start=i, count=0;
                 checked.add(start);
-                for(int j=start; j<s.length(); j+=k){
+                for(int j=i; j<s.length(); j+=k){
                     if(j+k>s.length()){
                         break;
                     }
