@@ -13,29 +13,21 @@ public class MinimumWindowSubstring {
 //        Map<Character, Integer> tMap=new HashMap<Character, Integer>();
 //        int left=0, count=0, minLen=s.length()+1;
 //        for(char c: t.toCharArray()) {
-//            if(tMap.containsKey(c)) {
-//                tMap.put(c, tMap.get(c)+1);
-//            } else {
-//                tMap.put(c, 1);
-//            }
+//            tMap.put(c, tMap.getOrDefault(c, 0)+1);
 //        }
 //        for(int i=0; i<s.length(); i++) {
 //            char c=s.charAt(i);
-//            if(tMap.containsKey(c)) {
-//                if(tMap.get(c)>0) {
-//                    count++;
-//                }
-//                tMap.put(c, tMap.get(c).intValue()-1);
-//            } else {
-//                tMap.put(c, -1);
+//            if(tMap.getOrDefault(c, 0)>0) {
+//                count++;
 //            }
+//            tMap.put(c, tMap.getOrDefault(c, 0)-1);
 //            while(count==t.length()) {
 //                if(minLen>i-left+1) {
 //                    minLen=i-left+1;
 //                    res=s.substring(left, i+1);
 //                }
 //                char leftChar=s.charAt(left);
-//                tMap.put(leftChar, tMap.get(leftChar).intValue()+1);
+//                tMap.put(leftChar, tMap.get(leftChar)+1);
 //                if(tMap.get(leftChar)>0) {
 //                    count--;
 //                }
