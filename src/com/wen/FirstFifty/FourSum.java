@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FourSum {
     public List<List<Integer>> fourSum(int[] nums, int target) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<>();
         if(nums==null || nums.length<4) {
             return result;
         }
@@ -22,7 +22,7 @@ public class FourSum {
                 int m=j+1, n=nums.length-1;
                 while(m<n) {
                     if(nums[i]+nums[j]+nums[m]+nums[n]==target) {
-                        List<Integer> temp=new ArrayList<Integer>();
+                        List<Integer> temp=new ArrayList<>();
                         temp.add(nums[i]);
                         temp.add(nums[j]);
                         temp.add(nums[m]);
