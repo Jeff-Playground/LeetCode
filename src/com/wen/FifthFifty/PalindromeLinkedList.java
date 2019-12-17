@@ -37,13 +37,13 @@ public class PalindromeLinkedList {
 //        return true;
 //    }
 
-    // O(1) space complexity: Reverse the second part of the list
+    // O(1) space complexity: Reverse the first part of the list
     public boolean isPalindrome(ListNode head) {
         if(head==null){
             return true;
         }
         ListNode slow=head, fast=head;
-        ListNode dummy=new ListNode(-1);
+        ListNode dummy=new ListNode(-1);    // Used as the dummy head for the reversed first part of the list
         while(fast.next!=null && fast.next.next!=null){
             fast=fast.next.next;
             ListNode temp=slow.next;
