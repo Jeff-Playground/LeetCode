@@ -13,7 +13,7 @@ public class ValidPalindrome {
                 left++;
             } else if(!isLetterNumChar(s.charAt(right))){
                 right--;
-            } else if((s.charAt(left)-'a'+32)%32!=(s.charAt(right)-'a'+32)%32){ // 'a'-'A'==32
+            } else if((s.charAt(left)-'a'+32)%32!=(s.charAt(right)-'a'+32)%32){ // 'a'-'A'==32, 'a'=97, 'A'=65
                 return false;
             } else{
                 left++;

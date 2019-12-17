@@ -9,11 +9,12 @@ public class SortColors {
                 nums[i]=nums[i0];
                 nums[i0]=0;
                 i0++;
+                // Note this if doesn't need to do i-- because nums[i0] can only be 0 or 1, as it's already checked(i0<=i)
             } else if(nums[i]==2){
                 nums[i]=nums[i2];
                 nums[i2]=2;
                 i2--;
-                // Note need to do i-- because there's no garantee nums[i2] was 1, so the swapped number need to be checked again
+                // Note need to do i-- because there's no grantee nums[i2] was 1, so the swapped number need to be checked again
                 i--;
             }
         }
