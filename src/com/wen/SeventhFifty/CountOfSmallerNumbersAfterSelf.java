@@ -63,7 +63,7 @@ public class CountOfSmallerNumbersAfterSelf {
 //        int[] numsCopy=Arrays.copyOf(nums, nums.length);
 //        Arrays.sort(numsCopy);
 //        Map<Integer, Integer> ranks=new HashMap<>();
-//        int rank=1;
+//        int rank=0;
 //        for(int i=0; i<numsCopy.length; i++){
 //            if(i>0 && numsCopy[i]==numsCopy[i-1]){
 //                continue;
@@ -74,8 +74,8 @@ public class CountOfSmallerNumbersAfterSelf {
 //        // freq stores the counts of ranks of nums present at each iteration
 //        int[] freq=new int[ranks.size()*4];
 //        for(int i=nums.length-1; i>=0; i--){
-//            update(freq, 0, 0, ranks.size()-1, ranks.get(nums[i])-1, 1);
-//            result.add(0, querySum(freq, 0, 0, ranks.size()-1, ranks.get(nums[i])-1-1));
+//            update(freq, 0, 0, ranks.size()-1, ranks.get(nums[i]), 1);
+//            result.add(0, querySum(freq, 0, 0, ranks.size()-1, ranks.get(nums[i])-1));
 //        }
 //        return result;
 //    }
@@ -122,6 +122,7 @@ public class CountOfSmallerNumbersAfterSelf {
 //        int[] numsCopy=Arrays.copyOf(nums, nums.length);
 //        Arrays.sort(numsCopy);
 //        Map<Integer, Integer> ranks=new HashMap<>();
+//        // Note here rank starts at 1 to accommodate with binary index tree starting index
 //        int rank=1;
 //        for(int i=0; i<numsCopy.length; i++){
 //            if(i>0 && numsCopy[i]==numsCopy[i-1]){
