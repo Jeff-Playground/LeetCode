@@ -2,6 +2,8 @@ package com.wen.FourteenthFifty;
 
 public class NumberOfLongestIncreasingSubsequence {
     // Segment tree
+    // Value here stands for the count of subsequences with length in the corresponding range(the range the node stands
+    // for -- [leftRange, rightRange])
     class Value{
         int length;
         int count;
@@ -85,7 +87,7 @@ public class NumberOfLongestIncreasingSubsequence {
     private Value merge(Value v1, Value v2) {
         if(v1.length==v2.length) {
             if(v1.length==0) {
-                return v1;
+                return v1;      // This is essentially returning new Value(0,1) without creating a new object
             } else {
                 return new Value(v1.length, v1.count+v2.count);
             }
