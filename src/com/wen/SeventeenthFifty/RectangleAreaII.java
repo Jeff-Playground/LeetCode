@@ -39,7 +39,7 @@ public class RectangleAreaII {
 //        int start, end;
 //        Node left, right;
 //        Integer[] sortedIdx;
-//        int count;
+//        int activeType;
 //        long total;
 //
 //        public Node(int start, int end, Integer[] sortedIdx){
@@ -48,7 +48,7 @@ public class RectangleAreaII {
 //            this.end=end;
 //            left=null;
 //            right=null;
-//            count=0;
+//            activeType=0;
 //            total=0;
 //        }
 //
@@ -70,17 +70,17 @@ public class RectangleAreaII {
 //            return right;
 //        }
 //
-//        public long update(int i, int j, int val){
-//            if(i>=j){
+//        public long update(int compressedX1, int compressedX2, int type){
+//            if(compressedX1>=compressedX2){
 //                return 0;
 //            }
-//            if(i==start && j==end){
-//                count+=val;
+//            if(compressedX1==start && compressedX2==end){
+//                activeType+=type;
 //            } else{
-//                getLeft().update(i, Math.min(j, getRangeMid()), val);
-//                getRight().update(Math.max(i, getRangeMid()), j, val);
+//                getLeft().update(compressedX1, Math.min(compressedX2, getRangeMid()), type);
+//                getRight().update(Math.max(compressedX1, getRangeMid()), compressedX2, type);
 //            }
-//            if(count>0){
+//            if(activeType>0){       // This means at least one rectangle made it OPEN
 //                total=sortedIdx[end]-sortedIdx[start];
 //            } else{
 //                total=getLeft().total+getRight().total;
@@ -100,31 +100,31 @@ public class RectangleAreaII {
 //            events[t++]=new int[]{rec[3], CLOSE, rec[0], rec[2]};
 //        }
 //        Arrays.sort(events, (a, b)->Integer.compare(a[0],b[0]));
-//        List<int[]> active=new ArrayList<>();
-//        int start=events[0][0];
+//        List<int[]> activeEdges=new ArrayList<>();
+//        int lastY=events[0][0];
 //        long result=0;
 //        for(int[] event: events){
 //            int curY=event[0], type=event[1], x1=event[2], x2=event[3];
-//            long query=0;
+//            long activeX=0;
 //            int cur=-1;
-//            for(int[] xs:active){
-//                cur=Math.max(cur, xs[0]);
-//                query+=Math.max(xs[1]-cur, 0);
-//                cur=Math.max(cur, xs[1]);
+//            for(int[] edge:activeEdges){
+//                cur=Math.max(cur, edge[0]);
+//                activeX+=Math.max(edge[1]-cur, 0);
+//                cur=Math.max(cur, edge[1]);
 //            }
-//            result+=query*(curY-start);
+//            result+=activeX*(curY-lastY);
 //            if(type==OPEN){
-//                active.add(new int[]{x1, x2});
-//                Collections.sort(active, (a, b)->Integer.compare(a[0], b[0]));
+//                activeEdges.add(new int[]{x1, x2});
+//                Collections.sort(activeEdges, (a, b)->Integer.compare(a[0], b[0]));
 //            } else{
-//                for(int i=0; i<active.size(); i++){
-//                    if(active.get(i)[0]==x1 && active.get(i)[1]==x2){
-//                        active.remove(i);
+//                for(int i=0; i<activeEdges.size(); i++){
+//                    if(activeEdges.get(i)[0]==x1 && activeEdges.get(i)[1]==x2){
+//                        activeEdges.remove(i);
 //                        break;
 //                    }
 //                }
 //            }
-//            start=curY;
+//            lastY=curY;
 //        }
 //        result%=1_000_000_007;
 //        return (int)result;
@@ -169,40 +169,40 @@ public class RectangleAreaII {
 //        return (int)result;
 //    }
 
-//    // Principle of inclusion-exclusion(will TLE)
-//    public int rectangleArea(int[][] rectangles) {
-//        int n=rectangles.length;
-//        long result=0;
-//        for(int subset=1; subset<=((1<<n)-1); subset++){
-//            int[] rec=new int[]{0,0,1_000_000_000,1_000_000_000};
-//            int parity=-1;
-//            for(int bit=0; bit<n; bit++){
-//                if(((subset>>bit)&1)!=0){
-//                    rec=intersect(rec, rectangles[bit]);
-//                    parity*=-1;
-//                }
-//            }
-//            result+=parity*area(rec);
-//        }
-//        long mod=1_000_000_007;
-//        result%=mod;
-//        if(result<0){
-//            result+=mod;
-//        }
-//        return (int)result;
-//    }
-//
-//    private long area(int[] rec) {
-//        long dx=Math.max(0, rec[2]-rec[0]), dy=Math.max(0, rec[3]-rec[1]);
-//        return dx*dy;
-//    }
-//
-//    private int[] intersect(int[] rec1, int[] rec2) {
-//        return new int[]{
-//                Math.max(rec1[0], rec2[0]),
-//                Math.max(rec1[1], rec2[1]),
-//                Math.min(rec1[2], rec2[2]),
-//                Math.min(rec1[3], rec2[3])
-//        };
-//    }
+    // Principle of inclusion-exclusion(will TLE)
+    public int rectangleArea(int[][] rectangles) {
+        int n=rectangles.length;
+        long result=0;
+        for(int subset=1; subset<=((1<<n)-1); subset++){
+            int[] rec=new int[]{0,0,1_000_000_000,1_000_000_000};
+            int parity=-1;
+            for(int bit=0; bit<n; bit++){
+                if(((subset>>bit)&1)!=0){
+                    rec=intersect(rec, rectangles[bit]);
+                    parity*=-1;
+                }
+            }
+            result+=parity*area(rec);
+        }
+        long mod=1_000_000_007;
+        result%=mod;
+        if(result<0){
+            result+=mod;
+        }
+        return (int)result;
+    }
+
+    private long area(int[] rec) {
+        long dx=Math.max(0, rec[2]-rec[0]), dy=Math.max(0, rec[3]-rec[1]);
+        return dx*dy;
+    }
+
+    private int[] intersect(int[] rec1, int[] rec2) {
+        return new int[]{
+                Math.max(rec1[0], rec2[0]),
+                Math.max(rec1[1], rec2[1]),
+                Math.min(rec1[2], rec2[2]),
+                Math.min(rec1[3], rec2[3])
+        };
+    }
 }
