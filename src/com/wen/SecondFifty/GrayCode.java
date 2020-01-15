@@ -3,29 +3,33 @@ package com.wen.SecondFifty;
 import java.util.*;
 
 public class GrayCode {
+    // Gray code is a series of code which the consecutive codes only have one digit that differs
     public List<Integer> grayCode(int n) {
         List<Integer> result=new ArrayList<>();
         Set<Integer> set=new HashSet<>();
-        Stack<Integer> stack=new Stack<>();
-        stack.push(0);
+        int priorValue=0;
         set.add(0);
         result.add(0);
-        while(!stack.isEmpty()){
-            int t=stack.pop();
-            for(int i=0; i<n; i++){
-                int temp=t;
-                if((temp & (1<<i))==0){
-                    temp|=(1<<i);
+        while(priorValue!=-1){
+            int index=0;
+            while(index<n){
+                int temp=priorValue;
+                if((temp & (1<<index))==0){
+                    temp|=(1<<index);
                 }else{
-                    temp&=~(1<<i);
+                    temp&=~(1<<index);
                 }
                 if(set.contains(temp)){
+                    index++;
                     continue;
                 }
                 set.add(temp);
-                stack.push(temp);
+                priorValue=temp;
                 result.add(temp);
                 break;
+            }
+            if(index==n){
+                priorValue=-1;
             }
         }
         return result;

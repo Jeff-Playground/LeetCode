@@ -1,6 +1,3 @@
-Permutations
-Permutations II
-Combinations
 Subsets
 Gray Code
 Subsets II

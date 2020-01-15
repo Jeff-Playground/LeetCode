@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Subsets {
-    // Using a truth table
+    // Using an increasing binary array
     public static List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> result=new ArrayList<>();
         int max=1<<nums.length;
