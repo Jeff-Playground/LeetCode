@@ -3,139 +3,95 @@ package com.wen.ThirdFifty;
 import java.util.*;
 
 public class CloneGraph {
-    public static class UndirectedGraphNode {
-        int label;
-        public List<UndirectedGraphNode> neighbors;
-        public UndirectedGraphNode(int x) {
-            label = x; neighbors = new ArrayList<UndirectedGraphNode>();
+    public static class Node {
+        public int val;
+        public List<Node> neighbors;
+
+        public Node() {}
+
+        public Node(int _val,List<Node> _neighbors) {
+            val = _val;
+            neighbors = _neighbors;
         }
     }
 
-//    // DFS recursive
-//    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-//        Map<Integer, UndirectedGraphNode> visited=new HashMap<>();
-//        return cloneGraphDFS(visited, node);
+//    // BFS, note created is acting as visited
+//    public Node cloneGraph(Node node) {
+//        if(node==null){
+//            return null;
+//        }
+//        Map<Integer, Node> created=new HashMap<>();
+//        Node nodeCopy=new Node();
+//        nodeCopy.val=node.val;
+//        created.put(nodeCopy.val, nodeCopy);
+//        Queue<Node> q=new LinkedList<>();
+//        q.offer(node);
+//        while(!q.isEmpty()){
+//            int size=q.size();
+//            for(int i=0; i<size; i++){
+//                Node cur=q.poll();
+//                for(Node nghbr: cur.neighbors){
+//                    Node clone=null;
+//                    if(!created.containsKey(nghbr.val)){
+//                        clone=new Node();
+//                        clone.val=nghbr.val;
+//                        created.put(nghbr.val, clone);
+//                        q.offer(nghbr);
+//                    } else{
+//                        clone=created.get(nghbr.val);
+//                    }
+//                    created.get(cur.val).neighbors.add(clone);
+//                }
+//            }
+//        }
+//        return nodeCopy;
+//    }
+
+//    // DFS, note created is acting as visited
+//    public Node cloneGraph(Node node) {
+//        if(node==null){
+//            return null;
+//        }
+//        Map<Integer, Node> created=new HashMap<>();
+//        cloneGraphDFS(node, created);
+//        return created.get(node.val);
 //    }
 //
-//    private UndirectedGraphNode cloneGraphDFS(Map<Integer, UndirectedGraphNode> visited, UndirectedGraphNode node) {
-//        if(node==null){
-//            return null;
-//        }
-//        if(visited.get(node.label)==null){
-//            UndirectedGraphNode copy=new UndirectedGraphNode(node.label);
-//            visited.put(node.label, copy);
-//            for(UndirectedGraphNode n: node.neighbors){
-//                copy.neighbors.add(cloneGraphDFS(visited, n));
+//    private void cloneGraphDFS(Node node, Map<Integer, Node> created){
+//        if(!created.containsKey(node.val)){
+//            Node clone=new Node();
+//            clone.val=node.val;
+//            created.put(node.val, clone);
+//            for(Node nghbr: node.neighbors){
+//                cloneGraphDFS(nghbr, created);
+//                clone.neighbors.add(created.get(nghbr.val));
 //            }
-//            return copy;
-//        } else{
-//            return visited.get(node.label);
 //        }
 //    }
 
-//    // DFS with Stack, this can be further optimized to get rid of visited. The underlying logic is to ensure no duplicates enters the stack.
-//    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-//        if(node==null){
-//            return null;
-//        }
-//        Set<Integer> visited=new HashSet<>();
-//        Map<Integer, UndirectedGraphNode> created=new HashMap<>();
-//        Stack<UndirectedGraphNode> stack=new Stack<>();
-//        stack.push(node);
-//        while(!stack.isEmpty()){
-//            UndirectedGraphNode cur=stack.pop();
-//            if(visited.contains(cur.label)){
-//                continue;
-//            }
-//            visited.add(cur.label);
-//            UndirectedGraphNode copy=null;
-//            if(created.get(cur.label)==null){
-//                copy=new UndirectedGraphNode(cur.label);
-//                created.put(cur.label, copy);
-//            } else{
-//                copy=created.get(cur.label);
-//            }
-//            for(UndirectedGraphNode n: cur.neighbors){
-//                stack.push(n);
-//                UndirectedGraphNode nCopy=null;
-//                if(created.get(n.label)==null){
-//                    nCopy=new UndirectedGraphNode(n.label);
-//                    created.put(n.label, nCopy);
-//                } else{
-//                    nCopy=created.get(n.label);
-//                }
-//                copy.neighbors.add(nCopy);
-//            }
-//        }
-//        return created.get(node.label);
-//    }
-
-//    // BFS, this can be further optimized to get rid of visited. The underlying logic is to ensure no duplicates enters the queue.
-//    public static UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-//        if(node==null){
-//            return null;
-//        }
-//        Set<Integer> visited=new HashSet<>();
-//        Map<Integer, UndirectedGraphNode> created=new HashMap<>();
-//        Queue<UndirectedGraphNode> queue=new LinkedList<>();
-//        queue.offer(node);
-//        while(!queue.isEmpty()){
-//            for(int i=queue.size(); i>0; i--){
-//                UndirectedGraphNode cur=queue.poll();
-//                if(visited.contains(cur.label)){
-//                    continue;
-//                }
-//                visited.add(cur.label);
-//                UndirectedGraphNode copy=null;
-//                if(created.get(cur.label)==null){
-//                    copy=new UndirectedGraphNode(cur.label);
-//                    created.put(cur.label, copy);
-//                } else{
-//                    copy=created.get(cur.label);
-//                }
-//                for(UndirectedGraphNode n: cur.neighbors){
-//                    queue.offer(n);
-//                    UndirectedGraphNode nCopy=null;
-//                    if(created.get(n.label)==null){
-//                        nCopy=new UndirectedGraphNode(n.label);
-//                        created.put(n.label, nCopy);
-//                    } else{
-//                        nCopy=created.get(n.label);
-//                    }
-//                    copy.neighbors.add(nCopy);
-//                }
-//            }
-//        }
-//        return created.get(node.label);
-//    }
-
-    // BFS, optimized to get rid of visited (Basically just use created as visited)
-    public static UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+    // DFS with Stack, note created is acting as visited
+    public Node cloneGraph(Node node) {
         if(node==null){
             return null;
         }
-        Map<Integer, UndirectedGraphNode> created=new HashMap<>();
-        Queue<UndirectedGraphNode> queue=new LinkedList<>();
-        UndirectedGraphNode nodeCopy=new UndirectedGraphNode(node.label);
-        created.put(node.label, nodeCopy);
-        queue.offer(node);
-        while(!queue.isEmpty()){
-            for(int i=queue.size(); i>0; i--){
-                UndirectedGraphNode cur=queue.poll();
-                for(UndirectedGraphNode n: cur.neighbors){
-                    if(created.get(n.label)==null){
-                        queue.offer(n);
-                        UndirectedGraphNode nCopy=new UndirectedGraphNode(n.label);
-                    }
-                    UndirectedGraphNode nCopy=null;
-                    if(created.get(n.label)==null){
-                        nCopy=new UndirectedGraphNode(n.label);
-                        created.put(n.label, nCopy);
-                    }
-                    cur.neighbors.add(created.get(n.label));
+        Map<Integer, Node> created=new HashMap<>();
+        Stack<Node> stack=new Stack<>();
+        Node nodeCopy=new Node();
+        nodeCopy.val=node.val;
+        created.put(node.val, nodeCopy);
+        stack.push(node);
+        while(!stack.isEmpty()){
+            Node cur=stack.pop();
+            for(Node nghbr: cur.neighbors){
+                if(!created.containsKey(nghbr.val)){
+                    Node clone=new Node();
+                    clone.val=nghbr.val;
+                    created.put(nghbr.val, clone);
+                    stack.push(nghbr);
                 }
+                created.get(cur.val).neighbors.add(created.get(nghbr.val));
             }
         }
-        return created.get(node.label);
+        return nodeCopy;
     }
 }
