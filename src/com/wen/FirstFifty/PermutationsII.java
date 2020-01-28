@@ -6,7 +6,7 @@ public class PermutationsII {
     // Recursive 2: swapping two elements each time
     // Swapping method is basically fixing the starting few numbers and creating variations by swapping
     public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> result=new ArrayList<List<Integer>>();
+        List<List<Integer>> result=new ArrayList<>();
         // No need to sort
 //        Arrays.sort(nums);
         permuteUnique(nums, 0, result);
@@ -44,7 +44,7 @@ public class PermutationsII {
     }
 
     private List<Integer> convertArrayToList(int[] nums) {
-        List<Integer> result=new ArrayList<Integer>();
+        List<Integer> result=new ArrayList<>();
         for(int i=0; i<nums.length; i++){
             result.add(nums[i]);
         }

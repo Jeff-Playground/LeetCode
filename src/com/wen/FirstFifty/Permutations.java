@@ -24,7 +24,7 @@ public class Permutations {
 
     // Recursive 2: swapping two elements each time
     public static List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> result=new ArrayList<List<Integer>>();
+        List<List<Integer>> result=new ArrayList<>();
         if(nums==null || nums.length==0){
             return result;
         }
@@ -51,7 +51,7 @@ public class Permutations {
     }
 
     private static List<Integer> convertArrayToList(int[] nums) {
-        List<Integer> result=new ArrayList<Integer>();
+        List<Integer> result=new ArrayList<>();
         for(int i=0; i<nums.length; i++){
             result.add(nums[i]);
         }

@@ -11,7 +11,7 @@ public class MaximumDepthOfBinaryTree {
         public TreeNode(int x) { val = x; }
     }
 
-    // Level traverse
+    // Level order traverse
     public int maxDepth(TreeNode root) {
         if(root==null){
             return 0;
@@ -35,6 +35,7 @@ public class MaximumDepthOfBinaryTree {
         return result;
     }
 
+//    // DFS
 //    public int maxDepth(TreeNode root) {
 //        if(root==null){
 //            return 0;

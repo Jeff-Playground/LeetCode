@@ -6,12 +6,12 @@ import java.util.List;
 
 public class CombinationSumII {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> result=new ArrayList<List<Integer>>();
+        List<List<Integer>> result=new ArrayList<>();
         if(candidates==null || candidates.length==0) {
             return result;
         }
         Arrays.sort(candidates);
-        List<Integer> out = new ArrayList<Integer>();
+        List<Integer> out = new ArrayList<>();
         combinationSum2DFS(candidates, target, 0, out, result);
         return result;
     }
@@ -20,7 +20,7 @@ public class CombinationSumII {
         if(target<0) {
             return;
         }else if(target==0) {
-            List<Integer> temp=new ArrayList<Integer>(out);
+            List<Integer> temp=new ArrayList<>(out);
             result.add(temp);
         }else {
             for(int i=start; i<candidates.length; i++) {

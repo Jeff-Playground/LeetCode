@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RestoreIPAddresses {
+    // Note a valid IP can start with 0, for example, "0.0.0.0" is valid
     public static List<String> restoreIpAddresses(String s) {
         List<String> result=new ArrayList<>();
         if(s==null || s.length()<4 || s.length()>12){
