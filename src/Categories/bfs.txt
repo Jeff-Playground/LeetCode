@@ -12,7 +12,6 @@ LQWallsAndGates
 - 300 -
 *Remove Invalid Parentheses
 - 350 -
-*Decode String
 - 400 -
 - 450 -
 LQTheMaze

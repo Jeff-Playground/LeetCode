@@ -15,6 +15,7 @@ public class MaximalSquare {
                     if(i==0 || j==0){
                         dp[i][j]=1;
                     } else{
+                        // This can be thought of as adding 1 level to the minimum adjacent square
                         dp[i][j]=Math.min(dp[i-1][j-1], Math.min(dp[i-1][j], dp[i][j-1]))+1;
                     }
                 }

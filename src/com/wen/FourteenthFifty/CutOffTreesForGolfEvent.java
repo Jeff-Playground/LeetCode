@@ -3,7 +3,7 @@ package com.wen.FourteenthFifty;
 import java.util.*;
 
 public class CutOffTreesForGolfEvent {
-    // Note coordinates can be passed around as one integer since the given matrix will not exceed 50x50
+    // BFS
     public int cutOffTree(List<List<Integer>> forest) {
         if(forest==null || forest.size()==0 || forest.get(0).size()==0){
             throw new IllegalArgumentException("Given forest can't be null or empty!");

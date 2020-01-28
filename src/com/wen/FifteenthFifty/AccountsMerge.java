@@ -59,8 +59,9 @@ public class AccountsMerge {
         }
         for (List<String> account : accounts) {
             String p = findRoot(root, account.get(1));
-            for (int i = 2; i < account.size(); i++)
+            for (int i = 2; i < account.size(); i++){
                 root.put(findRoot(root, account.get(i)), p);
+            }
         }
         for(List<String> account: accounts){
             String fr=findRoot(root, account.get(1));

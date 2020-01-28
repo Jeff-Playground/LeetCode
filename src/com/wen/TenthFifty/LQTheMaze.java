@@ -25,6 +25,7 @@ public class LQTheMaze {
                     return true;
                 }
                 if(maze[x][y]==0){
+                    // Mark to 2 to work as visited
                     maze[x][y]=2;
                     q.offer(new int[]{x, y});
                 }

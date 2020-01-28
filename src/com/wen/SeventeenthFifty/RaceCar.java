@@ -3,6 +3,10 @@ package com.wen.SeventeenthFifty;
 import java.util.*;
 
 public class RaceCar {
+    // The core part of this problem is the path can't go beyond 2*target, the reason is if it goes beyond 2*target,
+    // then it will have to go back for at least t, which is definitely longer than reaching target from 0, which is
+    // also t
+
     // Recursive dp
     public int racecar(int target) {
         int[] dp=new int[target+1];
@@ -20,8 +24,8 @@ public class RaceCar {
             dp[t]=n;
         } else{
             for(int j=0; j<n-1; j++){
-                // (n-1) ops reach the first point before target, then reverse(1) and j ops, then reverse again travel k distance and reach t
-                // t==1<<((n-1))-1)-((1<<j)-1)+dp[k]
+                // (n-1) operations reach the first point before target, then reverse(1) and j ops, then reverse again
+                // travel k distance and reach t t==1<<((n-1))-1)-((1<<j)-1)+dp[k]
                 dp[t]=Math.min(dp[t], n-1+2+j+racecarHelper(dp, t-(1<<(n-1))+(1<<j)));
             }
             if((1<<n)-1-t<t){

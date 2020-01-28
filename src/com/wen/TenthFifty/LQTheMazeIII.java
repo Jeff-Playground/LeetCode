@@ -10,6 +10,7 @@ public class LQTheMazeIII {
         int m=maze.length, n=maze[0].length;
         int[][] dirs=new int[][]{{-1,0}, {1,0}, {0,-1}, {0,1}};
         String[] dirsMove=new String[]{"u", "d", "l", "r"};
+        // min has value in format "stepCount-stepMove", it's also acting as visited in this case
         String[] min=new String[m*n];
         min[ball[0]*n+ball[1]]=0+"-"+"";
         Queue<int[]> q=new LinkedList<>();
@@ -30,6 +31,7 @@ public class LQTheMazeIII {
                     y+=dir[1];
                     curStep++;
                 }
+                // curStep>step means the ball has moved at least 1 distance
                 if(curStep>step){
                     curMove+=dirsMove[i];
                     int minStep=min[x*n+y]==null?Integer.MAX_VALUE:Integer.parseInt(min[x*n+y].substring(0,min[x*n+y].indexOf("-")));
