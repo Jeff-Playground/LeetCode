@@ -11,24 +11,23 @@ public class SudokuSolver {
     public boolean solve(char[][] board){
         for(int i=0; i<9; i++){
             for(int j=0; j<9; j++){
-                if(board[i][j]!='.'){
-                    continue;
-                }
-                for(int k=1; k<=9; k++){
-                    board[i][j] = (char) (k+'0');
-                    if(isValid(board, i, j) && solve(board)){
-                        return true;
+                if(board[i][j]=='.'){
+                    for(int k=1; k<=9; k++){
+                        board[i][j] = (char) (k+'0');
+                        if(isValid(board, i, j) && solve(board)){
+                            return true;
+                        }
+                        board[i][j] = '.';
                     }
-                    board[i][j] = '.';
+                    return false;
                 }
-                return false;
             }
         }
         return true;
     }
 
     public boolean isValid(char[][] board, int i, int j){
-        Set<Character> set = new HashSet<Character>();
+        Set<Character> set = new HashSet<>();
         for(int k=0; k<9; k++){
             if(set.contains(board[i][k])){
                 return false;
@@ -49,10 +48,11 @@ public class SudokuSolver {
         }
         set.clear();
 
+        int row=i/3*3, col=j/3*3;
         for(int m=0; m<3; m++){
             for(int n=0; n<3; n++){
-                int x=i/3*3+m;
-                int y=j/3*3+n;
+                int x=row+m;
+                int y=col+n;
                 if(set.contains(board[x][y])){
                     return false;
                 }
