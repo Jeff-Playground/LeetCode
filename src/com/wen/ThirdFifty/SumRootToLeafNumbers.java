@@ -10,26 +10,26 @@ public class SumRootToLeafNumbers {
         public TreeNode(int x) { val = x; }
     }
 
-    // Iterative
-    public int sumNumbers(TreeNode root) {
+    // Preorder traversal
+    public static int sumNumbers(TreeNode root) {
         int result=0;
-        if(root==null){
-            return result;
-        }
+        TreeNode cur=root;
         Stack<TreeNode> stack=new Stack<>();
-        stack.push(root);
-        while(!stack.isEmpty()){
-            TreeNode temp=stack.pop();
-            if(temp.left==null && temp.right==null){
-                result+=temp.val;
-            }
-            if(temp.left!=null){
-                temp.left.val+=temp.val*10;
-                stack.push(temp.left);
-            }
-            if(temp.right!=null){
-                temp.right.val+=temp.val*10;
-                stack.push(temp.right);
+        while(cur!=null || !stack.isEmpty()){
+            if(cur!=null){
+                stack.push(cur);
+                if(cur.left==null && cur.right==null){
+                    result+=cur.val;
+                } else if(cur.left!=null){
+                    cur.left.val+=cur.val*10;
+                }
+                cur=cur.left;
+            } else{
+                cur=stack.pop();
+                if(cur.right!=null){
+                    cur.right.val+=cur.val*10;
+                }
+                cur=cur.right;
             }
         }
         return result;

@@ -12,20 +12,20 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
         return buildTree(preorder, 0, preorder.length-1, inorder, 0, inorder.length-1);
     }
 
-    private static TreeNode buildTree(int[] preorder, int pLeft, int pRight, int[] inorder, int iLeft, int iRight) {
-        if(pLeft>pRight || iLeft>iRight){
+    private static TreeNode buildTree(int[] preorder, int preLeft, int preRight, int[] inorder, int inLeft, int inRight) {
+        if(preLeft>preRight || inLeft>inRight){
             return null;
         }
         int i=0;
-        for(i=iLeft; i<=iRight; i++){
-            if(preorder[pLeft]==inorder[i]){
+        for(i=inLeft; i<=inRight; i++){
+            if(preorder[preLeft]==inorder[i]){
                 break;
             }
         }
-        TreeNode cur=new TreeNode(preorder[pLeft]);
-        // pLeft+i-iLeft is the value for the left tree in preorder, which contains the left root node
-        cur.left=buildTree(preorder, pLeft+1, pLeft+i-iLeft, inorder, iLeft, i-1);
-        cur.right=buildTree(preorder, pLeft+i-iLeft+1, pRight, inorder, i+1, iRight);
+        TreeNode cur=new TreeNode(preorder[preLeft]);
+        // preLeft+i-inLeft is the value for the left tree in preorder, which contains the left root node
+        cur.left=buildTree(preorder, preLeft+1, preLeft+i-inLeft, inorder, inLeft, i-1);
+        cur.right=buildTree(preorder, preLeft+i-inLeft+1, preRight, inorder, i+1, inRight);
         return cur;
     }
 }

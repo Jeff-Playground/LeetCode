@@ -25,7 +25,7 @@ public class LQStrobogrammaticNumberIII {
             if((seed.length()==high.length() && seed.compareTo(high)>0) || (seed.length()==low.length() && seed.compareTo(low)<0)){
                 return;
             }
-            // Invalid number starts with 0
+            // Invalid number starts with 0 but is not 0
             if(seed.length()!=1 && seed.charAt(0)=='0'){
                 return;
             }

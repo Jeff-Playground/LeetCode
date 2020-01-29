@@ -1,7 +1,5 @@
 package com.wen.ThirdFifty;
 
-import java.util.Stack;
-
 public class FlattenBinaryTreeToLinkedList {
     public static class TreeNode {
         int val;
@@ -10,49 +8,25 @@ public class FlattenBinaryTreeToLinkedList {
         public TreeNode(int x) { val = x; }
     }
 
-    // Preorder traversal
+    // Iterative
     public void flatten(TreeNode root) {
         if(root==null){
             return;
         }
-        Stack<TreeNode> stack=new Stack<>();
-        stack.push(root);
-        while(!stack.isEmpty()){
-            TreeNode cur=stack.pop();
+        TreeNode cur=root;
+        while(cur!=null){
             if(cur.left!=null){
                 TreeNode temp=cur.left;
-                while (temp.right!=null){
+                while(temp.right!=null){
                     temp=temp.right;
                 }
                 temp.right=cur.right;
                 cur.right=cur.left;
                 cur.left=null;
             }
-            if(cur.right!=null){
-                stack.push(cur.right);
-            }
+            cur=cur.right;
         }
     }
-
-//    // Iterative
-//    public void flatten(TreeNode root) {
-//        if(root==null){
-//            return;
-//        }
-//        TreeNode cur=root;
-//        while(cur!=null){
-//            if(cur.left!=null){
-//                TreeNode temp=cur.left;
-//                while(temp.right!=null){
-//                    temp=temp.right;
-//                }
-//                temp.right=cur.right;
-//                cur.right=cur.left;
-//                cur.left=null;
-//            }
-//            cur=cur.right;
-//        }
-//    }
 
 //    // Recursive
 //    public void flatten(TreeNode root) {

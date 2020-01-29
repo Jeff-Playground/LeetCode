@@ -1,3 +1,4 @@
+// In a binary indexed tree, indexes starts from 1, parentIndex=childIndex+lowbit(childIndex), lowbit can be calculated by x&(-x)
 - 300 -
 *Range Sum Query - Mutable
 *LQRangeSumQuery2DMutable

@@ -12,19 +12,19 @@ public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
         return buildTree(inorder, 0, inorder.length-1, postorder, 0, postorder.length-1);
     }
 
-    private TreeNode buildTree(int[] inorder, int iLeft, int iRight, int[] postorder, int pLeft, int pRight) {
-        if(pLeft>pRight || iLeft>iRight){
+    private TreeNode buildTree(int[] inorder, int inLeft, int inRight, int[] postorder, int postLeft, int postRight) {
+        if(postLeft>postRight || inLeft>inRight){
             return null;
         }
-        int i=iLeft;
-        for(i=iLeft; i<=iRight; i++){
-            if(inorder[i]==postorder[pRight]){
+        int i=inLeft;
+        for(i=inLeft; i<=inRight; i++){
+            if(inorder[i]==postorder[postRight]){
                 break;
             }
         }
-        TreeNode cur=new TreeNode(postorder[pRight]);
-        cur.left=buildTree(inorder, iLeft, i-1, postorder, pLeft, pLeft+i-iLeft-1);
-        cur.right=buildTree(inorder, i+1, iRight, postorder, pLeft+i-iLeft, pRight-1);
+        TreeNode cur=new TreeNode(postorder[postRight]);
+        cur.left=buildTree(inorder, inLeft, i-1, postorder, postLeft, postLeft+i-inLeft-1);
+        cur.right=buildTree(inorder, i+1, inRight, postorder, postLeft+i-inLeft, postRight-1);
         return cur;
     }
 }

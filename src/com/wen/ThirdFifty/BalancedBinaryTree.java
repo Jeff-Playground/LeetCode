@@ -1,6 +1,7 @@
 package com.wen.ThirdFifty;
 
 public class BalancedBinaryTree {
+    // Depth here is the maximum depth of a tree
     public static class TreeNode {
         int val;
         public TreeNode left;

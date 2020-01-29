@@ -14,17 +14,16 @@ public class WordBreakII {
             return known.get(s);
         }
         if(s.isEmpty()){
-            return new ArrayList<String>(Arrays.asList(""));
+            return new ArrayList<>(Arrays.asList(""));
         }
         List<String> result=new ArrayList<>();
         for(String word: wordDict){
             if(word.length()<=s.length()){
-                if(!s.substring(0, word.length()).equals(word)){
-                    continue;
-                }
-                List<String> remainResult=wordBreakDFS(s.substring(word.length()), wordDict, known);
-                for(String element: remainResult){
-                    result.add(word+(element.isEmpty()?"":" "+element));
+                if(s.substring(0, word.length()).equals(word)){
+                    List<String> remainResult=wordBreakDFS(s.substring(word.length()), wordDict, known);
+                    for(String element: remainResult){
+                        result.add(word+(element.isEmpty()?"":" "+element));
+                    }
                 }
             }
         }

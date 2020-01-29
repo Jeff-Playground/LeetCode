@@ -16,7 +16,7 @@ public class PalindromePartitioning {
 
     private static void partitionDFS(String s, int start, List<String> out, List<List<String>> result) {
         if(start==s.length()){
-            result.add(new ArrayList<String>(out));
+            result.add(new ArrayList<>(out));
             return;
         }
         for(int i=start+1; i<s.length()+1; i++){
