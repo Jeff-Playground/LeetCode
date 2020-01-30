@@ -17,7 +17,7 @@ public class LQWordPatternII {
             return false;
         } else{
             char[] pArray=pattern.toCharArray();
-            int lp=pArray.length;
+            int pl=pArray.length;
             char pc=pArray[0];
             if(pToS.containsKey(pc)){
                 String vs=pToS.get(pc);
@@ -30,8 +30,8 @@ public class LQWordPatternII {
                     }
                 }
             } else{
-                int ls=str.length();
-                for(int j=1; j<=ls-lp+1; j++){
+                int sl=str.length();
+                for(int j=1; j<=sl-pl+1; j++){
                     if(!sToP.containsKey(str.substring(0,j))) {
                         pToS.put(pc, str.substring(0,j));
                         sToP.put(str.substring(0,j), pc);
