@@ -74,16 +74,15 @@ public class TargetSum {
 //    }
 //
 //    public void findTargetSumWaysDFS(int[] nums, int start, int target, int[] result){
-//        if(start>nums.length-1){
-//            return;
-//        }
-//        if(start==nums.length-1 && nums[start]==Math.abs(target)){
-//            if(nums[start]>0){
-//                result[0]++;
-//            } else{
-//                // Handles when nums[start]==0 and it can be either "+" or "-"
-//                result[0]+=2;
+//        if(start==nums.length-1){
+//            if(nums[start]==Math.abs(target)){
+//                if(nums[start]>0){
+//                    result[0]++;
+//                } else{
+//                    result[0]+=2;
+//                }
 //            }
+//            return;
 //        }
 //        findTargetSumWaysDFS(nums, start+1, target-nums[start], result);
 //        findTargetSumWaysDFS(nums, start+1, target+nums[start], result);

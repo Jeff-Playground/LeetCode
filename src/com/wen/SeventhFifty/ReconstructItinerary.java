@@ -12,7 +12,7 @@ public class ReconstructItinerary {
             String dest=ticket.get(1);
             PriorityQueue<String> dests=map.getOrDefault(orig, new PriorityQueue<>((a, b)->(a.compareTo(b))));
             dests.add(dest);
-            map.put(orig, dests);
+            map.putIfAbsent(orig, dests);
         }
         Stack<String> stack=new Stack<>();
         stack.push(dept);

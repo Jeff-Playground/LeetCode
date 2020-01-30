@@ -21,7 +21,9 @@ public class LQNumberOfDistinctIslandsII {
         return result.size();
     }
 
-    public String normalize(List<Integer> island, int maxEdge){
+    // For normalize, first there're 8 possible positions for a same island. Normalizing is to find the smallest number
+    // representation and convert it to a String, for different islands, this final string would be different
+    public String normalize(List<Integer> island, int columnSize){
         String result="";
         int size=island.size();
         int[][] rotate=new int[][]{{1,1}, {1,-1}, {-1,1}, {-1,-1}};
@@ -30,16 +32,16 @@ public class LQNumberOfDistinctIslandsII {
             int minX=Integer.MAX_VALUE, minY=Integer.MAX_VALUE;
             for(int i=0; i<size; i++){
                 int num=island.get(i);
-                xs[i]=num/maxEdge*rotate[k%4][0];
-                ys[i]=num%maxEdge*rotate[k%4][1];
+                xs[i]=num/columnSize*rotate[k%4][0];
+                ys[i]=num%columnSize*rotate[k%4][1];
                 minX=Math.min(minX, xs[i]);
                 minY=Math.min(minY, ys[i]);
             }
             for(int i=0; i<size; i++){
                 if(k<4){
-                    out[i]=(xs[i]-minX)*maxEdge+ys[i]-minY;
+                    out[i]=(xs[i]-minX)*columnSize+ys[i]-minY;
                 } else{
-                    out[i]=(ys[i]-minY)*maxEdge+xs[i]-minX;
+                    out[i]=(ys[i]-minY)*columnSize+xs[i]-minX;
                 }
             }
             Arrays.sort(out);
@@ -54,11 +56,12 @@ public class LQNumberOfDistinctIslandsII {
     public void numberofDistinctIslandsDFS(int[][] grid, int x, int y, List<Integer> island) {
         int m=grid.length, n=grid[0].length;
         int[][] dirs=new int[][]{{-1,0}, {1,0}, {0,-1}, {0,1}};
-        if(x>=0 && x<m && y>=0 && y<n && grid[x][y]==1){
-            grid[x][y]=-1;
-            island.add(x*Math.max(m,n)+y);
-            for(int[] dir: dirs){
-                numberofDistinctIslandsDFS(grid, x+dir[0], y+dir[1], island);
+        grid[x][y]=-1;
+        island.add(x*n+y);
+        for(int[] dir: dirs){
+            int newX=x+dir[0], newY=y+dir[1];
+            if(newX>=0 && newX<m && newY>=0 && newY<n && grid[newX][newY]==1) {
+                numberofDistinctIslandsDFS(grid, newX, newY, island);
             }
         }
     }
