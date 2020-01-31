@@ -57,6 +57,7 @@ public class LQNumberOfDistinctIslandsII {
         int m=grid.length, n=grid[0].length;
         int[][] dirs=new int[][]{{-1,0}, {1,0}, {0,-1}, {0,1}};
         grid[x][y]=-1;
+        // Note here it uses n instead of Math.max(m, n)
         island.add(x*n+y);
         for(int[] dir: dirs){
             int newX=x+dir[0], newY=y+dir[1];

@@ -4,45 +4,46 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class SwimInRisingWater {
-    // Binary search
-    public int swimInWater(int[][] grid) {
-        if(grid==null || grid.length==0 || grid[0].length==0){
-            return 0;
-        }
-        int N=grid.length;
-        int left=0, right=N*N-1;
-        int[][] dirs=new int[][]{{-1,0},{1,0},{0,-1},{0,1}};
-        while(left<right){
-            int mid=left+(right-left)/2;
-            int[][] visited=new int[N][N];
-            if(swimInWaterDFS(grid, visited, dirs, mid, 0, 0)){
-                right=mid;
-            } else{
-                left=mid+1;
-            }
-        }
-        return left;
-    }
-
-    private boolean swimInWaterDFS(int[][] grid, int[][] visited, int[][] dirs, int depth, int x, int y){
-        if(grid[x][y]>depth){
-            return false;
-        } else{
-            int N=grid.length;
-            if(x==N-1 && y==N-1){
-                return true;
-            }
-            visited[x][y]=1;
-            for(int[] dir: dirs){
-                if(x+dir[0]>=0 && x+dir[0]<N && y+dir[1]>=0 && y+dir[1]<N && visited[x+dir[0]][y+dir[1]]==0){
-                    if(swimInWaterDFS(grid, visited, dirs, depth, x+dir[0], y+dir[1])){
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-    }
+//    // Binary search
+//    public int swimInWater(int[][] grid) {
+//        if(grid==null || grid.length==0 || grid[0].length==0){
+//            return 0;
+//        }
+//        int N=grid.length;
+//        int left=0, right=N*N-1;
+//        int[][] dirs=new int[][]{{-1,0},{1,0},{0,-1},{0,1}};
+//        while(left<right){
+//            int mid=left+(right-left)/2;
+//            int[][] visited=new int[N][N];
+//            if(swimInWaterDFS(grid, visited, dirs, mid, 0, 0)){
+//                right=mid;
+//            } else{
+//                left=mid+1;
+//            }
+//        }
+//        return left;
+//    }
+//
+//    private boolean swimInWaterDFS(int[][] grid, int[][] visited, int[][] dirs, int depth, int x, int y){
+//        if(grid[x][y]>depth){
+//            return false;
+//        } else{
+//            int N=grid.length;
+//            if(x==N-1 && y==N-1){
+//                return true;
+//            }
+//            visited[x][y]=1;
+//            for(int[] dir: dirs){
+//                int newX=x+dir[0], newY=y+dir[1];
+//                if(newX>=0 && newX<N && newY>=0 && newY<N && visited[newX][newY]==0){
+//                    if(swimInWaterDFS(grid, visited, dirs, depth, newX, newY)){
+//                        return true;
+//                    }
+//                }
+//            }
+//            return false;
+//        }
+//    }
 
 //    // DFS with cache
 //    public int swimInWater(int[][] grid) {
@@ -77,31 +78,32 @@ public class SwimInRisingWater {
 //        }
 //    }
 
-//    // Dijkstra
-//    public int swimInWater(int[][] grid) {
-//        if(grid==null || grid.length==0 || grid[0].length==0){
-//            return 0;
-//        }
-//        int N=grid.length, k=N*N, result=grid[0][0];
-//        int[][] dirs=new int[][]{{-1,0}, {1,0}, {0,-1}, {0,1}};
-//        PriorityQueue<Integer> pq=new PriorityQueue<>();
-//        pq.offer(grid[0][0]*k);
-//        grid[0][0]=-1;
-//        while(!pq.isEmpty()){
-//            int cur=pq.poll();
-//            int curDepth=cur/k, curX=(cur%k)/N, curY=(cur%k)%N;
-//            result=Math.max(result, curDepth);
-//            if(curX==N-1 && curY==N-1){
-//                return result;
-//            }
-//            for(int[] dir: dirs){
-//                if(curX+dir[0]>=0 && curX+dir[0]<N && curY+dir[1]>=0 && curY+dir[1]<N && grid[curX+dir[0]][curY+dir[1]]!=-1){
-//                    int key=grid[curX+dir[0]][curY+dir[1]]*k+(curX+dir[0])*N+curY+dir[1];
-//                    pq.offer(key);
-//                    grid[curX+dir[0]][curY+dir[1]]=-1;
-//                }
-//            }
-//        }
-//        return result;
-//    }
+    // Dijkstra
+    public int swimInWater(int[][] grid) {
+        if(grid==null || grid.length==0 || grid[0].length==0){
+            return 0;
+        }
+        int N=grid.length, k=N*N, result=grid[0][0];
+        int[][] dirs=new int[][]{{-1,0}, {1,0}, {0,-1}, {0,1}};
+        PriorityQueue<Integer> pq=new PriorityQueue<>();
+        pq.offer(grid[0][0]*k);
+        grid[0][0]=-1;
+        while(!pq.isEmpty()){
+            int cur=pq.poll();
+            int curDepth=cur/k, curX=(cur%k)/N, curY=(cur%k)%N;
+            result=Math.max(result, curDepth);
+            if(curX==N-1 && curY==N-1){
+                return result;
+            }
+            for(int[] dir: dirs){
+                int newX=curX+dir[0], newY=curY+dir[1];
+                if(newX>=0 && newX<N && newY>=0 && newY<N && grid[newX][newY]!=-1){
+                    int key=grid[newX][newY]*k+newX*N+newY;
+                    pq.offer(key);
+                    grid[newX][newY]=-1;
+                }
+            }
+        }
+        return result;
+    }
 }
