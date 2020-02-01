@@ -1,3 +1,7 @@
+Euler path both starts with and ends with a node which has odd number of in plus out degrees.
+To find a euler path, just iterate over all out edges for a starting node, and after the loop note down the node, beware
+the final path generated is in reversed order.
+
 - 300 -
 *Reconstruct Itinerary
 - 350 -

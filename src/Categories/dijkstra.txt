@@ -1,6 +1,8 @@
-Use one dimensional array int[] last to track the last node of the shortest path, because there's only one source, not
+Used for one to many minimum path.
+Use a PriorityQueue to do BFS like search.
+Use one dimensional array: int[] last, to track the last node of the shortest path, because there's only one source, not
 necessary to use two dimensional array
-Use a Map or an array to store the current minimum path to each node
+Use a Map or an array to store the current minimum path length to each node.
 
 - 300 -
 - 350 -

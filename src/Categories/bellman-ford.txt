@@ -1,5 +1,10 @@
-Use one dimensional array int[] last to track the last node of the shortest path, because there's only one source, not
-necessary to use two dimensional array
+Used for one to many minimum path.
+Iterate over the all the give edges to search and relax the minimum length to reach each node.
+Use one dimensional array: int[] last, to track the last node of the shortest path, because there's only one source, not
+necessary to use two dimensional array.
+The normal relaxing of the nodes takes N-1 times, where N is the number of nodes. Because this is the minimum number of
+edges required to form a connected acyclic graph(tree). To determine whether there's a negative loop, just try relaxing
+one more time, and if it succeeded, it means there's a negative loop.
 
 - 300 -
 - 350 -

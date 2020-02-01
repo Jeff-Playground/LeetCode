@@ -3,6 +3,8 @@ package com.wen.SeventhFifty;
 import java.util.*;
 
 public class MinimumHeightTrees {
+    // Find the nodes with inDegree==1 level by level and remove them from the all nodes set, the result will have no
+    // more than 2 nodes, because otherwise it can be further reduced.
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         if (n < 3) {
             List<Integer> result = new ArrayList<>();
@@ -15,10 +17,10 @@ public class MinimumHeightTrees {
         for (int[] edge : edges) {
             Set<Integer> s0 = tree.getOrDefault(edge[0], new HashSet<>());
             s0.add(edge[1]);
-            tree.put(edge[0], s0);
+            tree.putIfAbsent(edge[0], s0);
             Set<Integer> s1 = tree.getOrDefault(edge[1], new HashSet<>());
             s1.add(edge[0]);
-            tree.put(edge[1], s1);
+            tree.putIfAbsent(edge[1], s1);
         }
         Set<Integer> nodes = new HashSet<>();
         for (int i = 0; i < n; i++) {

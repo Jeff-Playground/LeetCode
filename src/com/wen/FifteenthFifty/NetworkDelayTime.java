@@ -69,12 +69,12 @@ public class NetworkDelayTime {
     // SPFA
     public int networkDelayTime(int[][] times, int N, int K) {
         int[] cost=new int[N+1];
-        int[] count=new int[N+1];
+//        int[] count=new int[N+1];
         Arrays.fill(cost, Integer.MAX_VALUE);
         cost[K]=0;
         Queue<Integer> q=new LinkedList<>();
         q.offer(K);
-        count[K]++;
+//        count[K]++;
         while(!q.isEmpty()) {
             int reached=q.poll();
             for(int[] time: times) {
