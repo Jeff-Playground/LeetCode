@@ -30,6 +30,6 @@ dependent on dp[i][j-nums[i-1]] which is from previous value in the same loop.
 - 700 -
 - 750 -
 - 800 -
-*Split Array With Same Average
+*Split Array With Same Average     (0-1 knapsack extend)
 - 850 -
 - 900 -
