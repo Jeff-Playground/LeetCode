@@ -617,7 +617,7 @@ public class Main {
 //        BricksFallingWhenHit.hitBricks(new int[][]{{1},{1},{1},{1},{1}},
 //                new int[][]{{3,0},{4,0},{1,0},{2,0},{0,0}});
 
-//        SplitArrayWithSameAverage.splitArraySameAverage(new int[]{2,12,18,16,19,3});
+//        SplitArrayWithSameAverage.splitArraySameAverage(new int[]{23,98,92,20,29,79,21,71,95,46,45,0,95,1});
 
 //        ExpressiveWords.expressiveWords("yyrrrrrjaappoooyybbbebbbbriiiiiyyynnnvvwtwwwwwooeeexxxxxkkkkkaaaaauuuu", new String[]{"yrrjjappooybbebriiyynvvwtwwoeexkauu"});
 

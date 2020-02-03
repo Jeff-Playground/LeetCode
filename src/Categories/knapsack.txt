@@ -23,7 +23,7 @@ dependent on dp[i][j-nums[i-1]] which is from previous value in the same loop.
 - 450 -
 *Target Sum     (0-1 knapsack)
 - 500 -
-*Coin Change 2     (bounded knapsack)
+*Coin Change 2     (bounded knapsack, unbounded knapsack)
 - 550 -
 - 600 -
 - 650 -

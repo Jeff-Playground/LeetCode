@@ -3,7 +3,55 @@ package com.wen.SeventeenthFifty;
 import java.util.*;
 
 public class SplitArrayWithSameAverage {
-    // Similar to knapsack
+//    // 0-1 knapsack, dp.get(j) stands for the length of numbers that adds up to j
+//    public static boolean splitArraySameAverage(int[] A) {
+//        if(A==null || A.length<2){
+//            return false;
+//        }
+//        int l=A.length, sum=0;
+//        for(int num: A){
+//            sum+=num;
+//        }
+//        boolean possible=false;
+//        for(int i=1; !possible && i<=l; i++){
+//            if(sum*i%l==0){
+//                possible=true;
+//            }
+//        }
+//        if(possible) {
+//            List<Set<Integer>> dp = new ArrayList<>();
+//            for (int j = 0; j <= sum; j++) {
+//                dp.add(new HashSet<>());
+//            }
+//            for (int i = 1; i <= l; i++) {
+//                for (int j = sum; j >= 1; j--) {
+//                    Set<Integer> cur = dp.get(j);
+//                    if (A[i - 1] <= j) {
+//                        if (A[i - 1] == j) {
+//                            cur.add(1);
+//                        }
+//                        // This is to avoid concurrent modification exception when A[i-1]==0
+//                        Set<Integer> prev = A[i - 1] == 0 ? new HashSet<>(dp.get(j - A[i - 1])) : dp.get(j - A[i - 1]);
+//                        for (int prevLength : prev) {
+//                            cur.add(prevLength + 1);
+//                        }
+//                    }
+//                }
+//            }
+//            for (int j = 1; j < sum; j++) {
+//                if (dp.get(j).size() > 0) {
+//                    for (int length : dp.get(j)) {
+//                        if (j * l == sum * length) {
+//                            return true;
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        return false;
+//    }
+
+    // 0-1 knapsack, dp[i][j] stands for whether there exists i numbers adds up to j
     public boolean splitArraySameAverage(int[] A) {
         if(A==null || A.length<2){
             return false;
@@ -19,6 +67,7 @@ public class SplitArrayWithSameAverage {
             }
         }
         if(possible){
+            // Note here dp[i][j] stands for all the first i numbers can add to sum j, every number must be added
             boolean[][] dp=new boolean[max+1][sum+1];
             dp[0][0]=true;
             for(int num: A){
@@ -38,6 +87,7 @@ public class SplitArrayWithSameAverage {
         return false;
     }
 
+//    // DP, dp.get(i) stands for the sums of i numbers in the array
 //    public static boolean splitArraySameAverage(int[] A) {
 //        if(A==null || A.length<2){
 //            return false;
