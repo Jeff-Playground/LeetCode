@@ -3,10 +3,10 @@ package com.wen.SixthFifty;
 public class FindTheDuplicateNumber {
     // The duplicated number can appear more than once, so can't use sum-(1+n)*n/2 to find it
 
-//    // Estimate a mid and verify it, if the estimation is too small(count<=mid), means duplicates on the right, otherwise on the left
+//    // Estimate a mid and verify it, if the estimation is too small(count<=mid), means duplicates on the right,
+//    // otherwise on the left
 //    public int findDuplicate(int[] nums) {
-//        int n=nums.length-1;
-//        int min=1, max=n;
+//        int min=1, max=nums.length-1;
 //        while(min<max){
 //            int mid=min+(max-min)/2;
 //            int count=0;

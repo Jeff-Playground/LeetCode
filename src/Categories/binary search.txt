@@ -9,8 +9,6 @@ Sqrt(x)
 *Find Minimum in Rotated Sorted Array II
 Find Peak Element
 *Minimum Size Subarray Sum
-*Count Complete Tree Nodes
-Search a 2D Matrix II
 Missing Number
 First Bad Version
 *Find the Duplicate Number

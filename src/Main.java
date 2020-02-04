@@ -1,5 +1,7 @@
 import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.FifteenthFifty.*;
+import com.wen.FifthFifty.MinimumSizeSubarraySum;
+import com.wen.FifthFifty.SearchA2DMatrixII;
 import com.wen.FirstFifty.*;
 import com.wen.FourteenthFifty.CutOffTreesForGolfEvent;
 import com.wen.FourteenthFifty.FallingSquares;
@@ -672,5 +674,9 @@ public class Main {
 //        SumRootToLeafNumbers.TreeNode n1=new SumRootToLeafNumbers.TreeNode(0);
 //        root.left=n1;
 //        SumRootToLeafNumbers.sumNumbers(root);
+
+//        MinimumSizeSubarraySum.minSubArrayLen(7, new int[]{2,3,1,2,4,3});
+
+//        SearchA2DMatrixII.searchMatrix(new int[][]{{1,4,7,11,15},{2,5,8,12,19},{3,6,9,16,22},{10,13,14,17,24},{18,21,23,26,30}}, 5);
     }
 }
