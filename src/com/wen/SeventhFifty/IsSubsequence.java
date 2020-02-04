@@ -50,12 +50,9 @@ public class IsSubsequence {
         int sl=s.length(), tl=t.length();
         Map<Character, List<Integer>> tMap=new HashMap<>();
         for(int i=0; i<tl; i++){
-            List<Integer> list=tMap.get(t.charAt(i));
-            if(list==null){
-                list=new ArrayList<>();
-                tMap.put(t.charAt(i),list);
-            }
+            List<Integer> list=tMap.getOrDefault(t.charAt(i), new ArrayList<>());
             list.add(i);
+            tMap.putIfAbsent(t.charAt(i), list);
         }
         int prev=-1;
         for (int i=0; i<sl; i++) {

@@ -5,14 +5,14 @@ import java.util.Arrays;
 public class FindKthSmallestPairDistance {
     public int smallestDistancePair(int[] nums, int k) {
         Arrays.sort(nums);
-        int l=nums.length, max=nums[l-1], min=nums[0];
-        int[] noMoreCount=new int[(max-min)*2+1];
+        int l=nums.length, max=nums[nums.length-1], min=nums[0];
+        int[] diffToMinNoMoreCount=new int[max-min+1];
         int cur=0;
-        for(int i=0; i<(max-min)*2+1; i++){
+        for(int i=0; i<max-min+1; i++){
             while(cur<l && nums[cur]-min<=i){
                 cur++;
             }
-            noMoreCount[i]=cur;
+            diffToMinNoMoreCount[i]=cur;
         }
 
         int[] duplicateCount=new int[l];
@@ -28,8 +28,9 @@ public class FindKthSmallestPairDistance {
             int mid=left+(right-left)/2;
             int guess=0;
             for(int i=0; i<l && nums[i]-min+mid<(max-min)*2+1; i++){
-                // This is to add the count for all pairs start with nums[i] and has diff<=mid
-                guess+=noMoreCount[nums[i]-min+mid]-noMoreCount[nums[i]-min]+duplicateCount[i];
+                // This is to add the count of pairs which starts with nums[i] and have a diff<=mid
+                // This is basically using min as a tool to calculate the relative diff
+                guess+=diffToMinNoMoreCount[nums[i]-min+mid>max-min?max-min:nums[i]-min+mid]-diffToMinNoMoreCount[nums[i]-min]+duplicateCount[i];
             }
             if(guess>=k){
                 right=mid;

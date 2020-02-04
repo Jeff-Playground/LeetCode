@@ -9,6 +9,7 @@ Basic Calculator II
 Different Ways to Add Parentheses
 *LQVerifyPreorderSequenceInBinarySearchTree
 - 300 -
+*Count of Smaller Numbers After Self
 - 350 -
 - 400 -
 *Path Sum III

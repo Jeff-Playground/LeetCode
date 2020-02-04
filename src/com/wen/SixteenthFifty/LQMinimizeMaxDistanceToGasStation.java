@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LQMinimizeMaxDistanceToGasStation {
+    // Binary search. Basically make a guess of what the max distance can be, then validate it. Here the count is the
+    // number of gas stations need to be inserted, so when count<=k, means more stations can be inserted and mid is too
+    // big, otherwise mid is too small.
     public static double minmaxGasDist(int[] stations, int k) {
         int l=stations.length;
         List<Integer> diff=new ArrayList<>();
