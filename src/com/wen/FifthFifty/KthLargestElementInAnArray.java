@@ -3,6 +3,8 @@ package com.wen.FifthFifty;
 import java.util.Stack;
 
 public class KthLargestElementInAnArray {
+    // Note that it is the kth largest element in the sorted order, not the kth distinct element, otherwise a TreeSet
+    // works better here
     // Quick sort with Stack iteratively
     public int findKthLargest(int[] nums, int k) {
         Stack<Integer> stack=new Stack<>();

@@ -23,17 +23,17 @@ public class SlidingWindowMaximum {
             return new int[]{nums[deque.peekFirst()]};
         } else{
             int[] result=new int[l-k+1];
-            result[0]=nums[deque.peekFirst()];
-            for(int i=1; i<=l-k; i++){
-                if(deque.peekFirst()==i-1){
+            for(int i=0; i<l-k; i++){
+                result[i]=nums[deque.peekFirst()];
+                if(deque.peekFirst()==i){
                     deque.pollFirst();
                 }
-                while(!deque.isEmpty() && nums[deque.peekLast()]<=nums[i+k-1]){
+                while(!deque.isEmpty() && nums[deque.peekLast()]<=nums[i+k]){
                     deque.pollLast();
                 }
-                deque.offerLast(i+k-1);
-                result[i]=nums[deque.peekFirst()];
+                deque.offerLast(i+k);
             }
+            result[l-k]=nums[deque.peekFirst()];
             return result;
         }
     }
