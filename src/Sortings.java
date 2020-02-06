@@ -24,10 +24,13 @@ public class Sortings {
 //        // Un-stable
 //        selectionSort(nums);
 
-//        // Best time O(n+n*3*logn)=O(nlogn) - Doing swap for putting the max to end n times takes O(n), then heapify takes O(n*3*logn) 
-//        // Worst time O(n+n*3*logn)=O(nlogn) - because doing around n/2 rounds as there are n/2 parents and for each round doing 2 compares and 1 swap
+//        // Best time O(n+n*3*logn)=O(nlogn)
+//        // Worst time O(n+n*3*logn)=O(nlogn) - Doing swap for putting the max to end n times takes O(n), then heapify
+//        //                                    takes O(n*3*logn) because doing around n/2 rounds as there are n/2
+//        //                                    parents and for each round doing 2 compares and 1 swap
 //        // Space O(1) - In-place
 //        // Un-stable
+//        // Note for forming a heap, it only works with starting index as 0
 //        heapSort(nums);
 
 //        // Best time O(n) - Only do the first time iteration and no exchange happens(Original array in order)
@@ -36,15 +39,17 @@ public class Sortings {
 //        // Stable
 //        bubbleSort(nums);
 
-//        // Best time O(nlogn) - When each time the partition divide the original array into two equal length parts, T(n)=2*T(n/2)+O(n)
-//        // Worst time O(n^2) - When each time the partition divide the original array into 0 and (n-1) two parts, T(n)=T(0)+T(n-1)+O(n)
+//        // Best time O(nlogn) - When each time the partition divide the original array into two equal length parts,
+//        //                      T(n)=2*T(n/2)+O(n)，and result can be deduced by using the Master Theorem
+//        // Worst time O(n^2) - When each time the partition divide the original array into 0 and (n-1) two parts,
+//        //                     T(n)=T(0)+T(n-1)+O(n)
 //        // Best space O(logn) - The depth of the recursion tree
 //        // Worst space O(n) - The depth of the recursion tree
 //        // Un-stable
 //        recursionQuickSort(nums, 0, nums.length-1);
 //        iterationQuickSort(nums);
 
-//        // Best time O(nlogn)
+//        // Best time O(nlogn) - Because there're logn levels in the recursion tree, and each level takes n to solve
 //        // Worst time O(nlogn)
 //        // Space O(n) - Needs extra space for execution stack and extra array: O(logn+n)=O(n)
 //        // Stable

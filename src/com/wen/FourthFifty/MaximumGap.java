@@ -28,6 +28,7 @@ public class MaximumGap {
             bucketMin[idx]=Math.min(bucketMin[idx], num);
             existingIdx.add(idx);
         }
+        // Here pre==0 must be in the set because for min the index is 0
         int pre=0;
         for(int i=1; i<n; i++) {
             if(!existingIdx.contains(i)) {
