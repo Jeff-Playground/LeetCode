@@ -14,6 +14,7 @@ import com.wen.SeventhFifty.BestTimeToBuyAndSellStockWithCooldown;
 import com.wen.SeventhFifty.PalindromePairs;
 import com.wen.SeventhFifty.RemoveInvalidParentheses;
 import com.wen.SixteenthFifty.*;
+import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
 import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
 
@@ -678,5 +679,7 @@ public class Main {
 //        MinimumSizeSubarraySum.minSubArrayLen(7, new int[]{2,3,1,2,4,3});
 
 //        SearchA2DMatrixII.searchMatrix(new int[][]{{1,4,7,11,15},{2,5,8,12,19},{3,6,9,16,22},{10,13,14,17,24},{18,21,23,26,30}}, 5);
+
+//        LQVerifyPreorderSequenceInBinarySearchTree.verifyPreorder(new int[]{10,7,4,8,6,40,23});
     }
 }

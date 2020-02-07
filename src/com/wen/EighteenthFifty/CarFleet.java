@@ -9,13 +9,13 @@ public class CarFleet {
     public int carFleet(int target, int[] position, int[] speed) {
         int result=0;
         double cur=0;
-        Map<Integer, Double> time=new TreeMap<>();
+        Map<Integer, Double> times=new TreeMap<>();
         int l=position.length;
         for(int i=0; i<l; i++){
             // Note this trick makes the order reversed
-            time.put(-position[i], (double)(target-position[i])/speed[i]);
+            times.put(-position[i], (double)(target-position[i])/speed[i]);
         }
-        for(Double t: time.values()){
+        for(Double t: times.values()){
             if(t<=cur){
                 continue;
             }

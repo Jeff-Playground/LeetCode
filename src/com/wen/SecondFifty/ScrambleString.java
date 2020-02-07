@@ -3,7 +3,8 @@ package com.wen.SecondFifty;
 import java.util.Arrays;
 
 public class ScrambleString {
-    // Dynamic Programming
+    // Dynamic Programming, boolean dp[i][j][k] stands for whether the substrings of length k from s1 starting at i and
+    // from s2 starting at j is scrambled string
     public boolean isScramble(String s1, String s2) {
         if(s1.length()!=s2.length()){
             return false;
@@ -22,11 +23,13 @@ public class ScrambleString {
             for(int i=0; i<=n-len; i++) {
                 for(int j=0; j<=n-len; j++) {
                     for(int k=1; k<len; k++){
-                        if((dp[i][j][k] && dp[i+k][j+k][len-k]) || (dp[i+k][j][len-k] && dp[i][j+len-k][k])){
-                            dp[i][j][len]=true;
+                        if(!dp[i][j][len]){
+                            if((dp[i][j][k] && dp[i+k][j+k][len-k]) || (dp[i+k][j][len-k] && dp[i][j+len-k][k])){
+                                dp[i][j][len]=true;
+                                break;
+                            }
                         }
                     }
-
                 }
             }
         }

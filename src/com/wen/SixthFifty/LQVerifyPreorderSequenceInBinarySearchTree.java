@@ -20,37 +20,31 @@ public class LQVerifyPreorderSequenceInBinarySearchTree {
 //    }
 
     // Divide and conquer
-    public boolean verifyPreorder(int[] preorder) {
-        if(preorder==null){
-            return true;
-        } else{
-            return verifyPreorderHelper(preorder, 0, preorder.length-1, Integer.MIN_VALUE, Integer.MAX_VALUE);
-        }
+    public static boolean verifyPreorder(int[] preorder) {
+        return verifyPreorderHelper(preorder, 0, preorder.length-1);
     }
 
-    public boolean verifyPreorderHelper(int[] preorder, int start, int end, int low, int high) {
-        if(end<=start){
+    private static boolean verifyPreorderHelper(int[]  preorder, int left, int right){
+        if(left>=right){
             return true;
         }
-        int rootVal=preorder[start];
+        int root=preorder[left];
         int rightStart=-1;
-        for(int i=start+1; i<=end; i++){
-            if(preorder[i]<rootVal){
-                if(rightStart!=-1 || preorder[i]<low){
-                    return false;
-                }
-            } else if(preorder[i]>rootVal){
-                if(rightStart==-1){
-                    rightStart=i;
-                }
-                if(preorder[i]>high){
+        for(int i=left+1; i<=right; i++){
+            if(preorder[i]>root){
+                rightStart=i;
+                break;
+            }
+        }
+        if(rightStart!=-1){
+            for(int i=rightStart+1; i<=right; i++){
+                if(preorder[i]<=root){
                     return false;
                 }
             }
+            return verifyPreorderHelper(preorder, left+1, rightStart-1) && verifyPreorderHelper(preorder, rightStart, right);
+        } else{
+            return verifyPreorderHelper(preorder, left+1, right);
         }
-        boolean left=verifyPreorderHelper(preorder, start+1, rightStart-1, Integer.MIN_VALUE, rootVal-1);
-        // Note here need to check rightStart>end because rightStart could be out of the checking range
-        boolean right=(rightStart==-1 || rightStart>end)?true:verifyPreorderHelper(preorder, rightStart, end, rootVal+1, Integer.MAX_VALUE);
-        return left&&right;
     }
 }

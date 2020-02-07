@@ -6,41 +6,35 @@ public class BasicCalculatorII {
     public int calculate(String s) {
         int l=s.length();
         int result=0;
+        int val=0;
+        char preOp='+';
         Stack<Integer> stack=new Stack<>();
-        int val=0, add=1;
-        boolean calculate=false;
-        char sign='*';
-        for(int i=0; i<=l; i++) {
+        for(int i=0; i<=l; i++){
             char c=i<l?s.charAt(i):'$';
-            if(c>='0' && c<='9') {
-                val=val*10+(c-'0');
-            } else if(c=='+' || c=='-' || c=='*' || c=='/' || c=='$') {
-                stack.push(val);
-                val=0;
-                if(calculate) {
-                    int num2=stack.pop(), num1=stack.pop();
-                    if(sign=='*') {
-                        stack.push(num1*num2);
-                    } else {
-                        stack.push(num1/num2);
+            if(c==' '){
+                continue;
+            }
+            if(c>='0' && c<='9'){
+                val=val*10+c-'0';
+            } else{
+                if(preOp=='+'){
+                    stack.push(val);
+                } else if(preOp=='-'){
+                    stack.push(-val);
+                } else {
+                    int pre=stack.pop();
+                    if(preOp=='*'){
+                        stack.push(pre*val);
+                    } else if(preOp=='/'){
+                        stack.push(pre/val);
                     }
-                    calculate=false;
                 }
-                if(c=='+' || c=='-') {
-                    add=c=='+'?1:-1;
-                    stack.push(add);
-                } else if(c=='*' || c=='/') {
-                    calculate=true;
-                    sign=c;
-                }
+                preOp=c;
+                val=0;
             }
         }
-        while(!stack.isEmpty()) {
-            int num=stack.pop();
-            if(!stack.isEmpty()) {
-                num*=stack.pop();
-            }
-            result+=num;
+        while(!stack.isEmpty()){
+            result+=stack.pop();
         }
         return result;
     }
@@ -48,19 +42,19 @@ public class BasicCalculatorII {
 //    public int calculate(String s) {
 //        int l=s.length();
 //        int val=0, result=0, curResult=0;
-//        char op='+';
+//        char preOp='+';
 //        for(int i=0; i<=l; i++) {
 //            char c=i<l?s.charAt(i):'$';
 //            if(c>='0' && c<='9') {
 //                val=val*10+(c-'0');
 //            } else if(c=='+' || c=='-' || c=='*' || c=='/' || c=='$') {
-//                if(op=='+') {
+//                if(preOp=='+') {
 //                    curResult+=val;
-//                } else if(op=='-') {
+//                } else if(preOp=='-') {
 //                    curResult-=val;
-//                } else if(op=='*') {
+//                } else if(preOp=='*') {
 //                    curResult*=val;
-//                } else if(op=='/') {
+//                } else if(preOp=='/') {
 //                    curResult/=val;
 //                }
 //                if(c=='+' || c=='-' || c=='$') {
@@ -68,7 +62,7 @@ public class BasicCalculatorII {
 //                    curResult=0;
 //                }
 //                val=0;
-//                op=c;
+//                preOp=c;
 //            }
 //        }
 //        return result;
