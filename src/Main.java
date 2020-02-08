@@ -41,7 +41,7 @@ public class Main {
 //        l3.next=l4;
 //        l4.next=l5;
 //        ReverseNodesInKGroup test=new ReverseNodesInKGroup();
-//        test.reverseKGroup(l1,3);
+//        test.reverseKGroup(l1,2);
 
 //        String[] words={"word","good","best","good"};
 //        SubstringWithConcatenationOfAllWords.findSubstring("wordgoodgoodgoodbestword", words);
@@ -400,21 +400,21 @@ public class Main {
 //        int[] nums={0,0,1,1};
 //        MinCostClimbingStairs.minCostClimbingStairs(nums);
 
-//        SplitLinkedListInParts.ListNode l1=new SplitLinkedListInParts.ListNode(1);
-//        SplitLinkedListInParts.ListNode l2=new SplitLinkedListInParts.ListNode(2);
-//        SplitLinkedListInParts.ListNode l3=new SplitLinkedListInParts.ListNode(3);
+        SplitLinkedListInParts.ListNode l1=new SplitLinkedListInParts.ListNode(1);
+        SplitLinkedListInParts.ListNode l2=new SplitLinkedListInParts.ListNode(2);
+        SplitLinkedListInParts.ListNode l3=new SplitLinkedListInParts.ListNode(3);
 //        SplitLinkedListInParts.ListNode l4=new SplitLinkedListInParts.ListNode(4);
 //        SplitLinkedListInParts.ListNode l5=new SplitLinkedListInParts.ListNode(5);
 //        SplitLinkedListInParts.ListNode l6=new SplitLinkedListInParts.ListNode(6);
 //        SplitLinkedListInParts.ListNode l7=new SplitLinkedListInParts.ListNode(7);
-//        l1.next=l2;
-//        l2.next=l3;
+        l1.next=l2;
+        l2.next=l3;
 //        l3.next=l4;
 //        l4.next=l5;
 //        l5.next=l6;
 //        l6.next=l7;
-//        SplitLinkedListInParts test=new SplitLinkedListInParts();
-//        test.splitListToParts(l1,3);
+        SplitLinkedListInParts test=new SplitLinkedListInParts();
+        test.splitListToParts(l1,3);
 
 //        LQClosestLeafInABinaryTree.TreeNode root=new LQClosestLeafInABinaryTree.TreeNode(1);
 //        LQClosestLeafInABinaryTree.TreeNode n1=new LQClosestLeafInABinaryTree.TreeNode(3);

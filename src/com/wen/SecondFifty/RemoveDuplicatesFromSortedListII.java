@@ -8,22 +8,24 @@ public class RemoveDuplicatesFromSortedListII {
     }
 
     public ListNode deleteDuplicates(ListNode head) {
-        ListNode start=new ListNode(-1);
-        start.next=head;
-        ListNode slow=start;
-        ListNode fast=head;
-        while(fast!=null){
-            if(fast.next==null || fast.val!=fast.next.val){
-                if(slow.next==fast){
-                    slow=fast;
-                } else{
-                    slow.next=fast.next;
-                }
-                fast=fast.next;
+        ListNode dummy=new ListNode(-1);
+        dummy.next=head;
+        ListNode pre=dummy, cur=head;
+        while(cur!=null){
+            if(cur.next==null){
+                break;
+            }
+            if(cur.next.val!=cur.val){
+                pre=cur;
+                cur=cur.next;
             } else{
-                fast=fast.next;
+                int val=cur.val;
+                while(cur!=null && cur.val==val){
+                    cur=cur.next;
+                }
+                pre.next=cur;
             }
         }
-        return start.next;
+        return dummy.next;
     }
 }

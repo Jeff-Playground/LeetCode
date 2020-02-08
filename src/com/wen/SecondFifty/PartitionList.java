@@ -9,30 +9,25 @@ public class PartitionList {
 
     // Iterate over the original list
     public ListNode partition(ListNode head, int x) {
-        if(head==null){
-            return null;
-        }
         ListNode dummy=new ListNode(-1);
         dummy.next=head;
-        ListNode cur=dummy;
-        while(cur.next!=null){
-            if(cur.next.val>=x){
-                break;
-            } else{
+        ListNode cur=dummy, lastLess=null;
+        while(cur!=null){
+            if(lastLess==null){
+                if(cur.next!=null && cur.next.val>=x){
+                    lastLess=cur;
+                }
                 cur=cur.next;
-            }
-        }
-        ListNode nodeBeforeX=cur;
-        while(cur.next!=null){
-            if(cur.next.val<x){
-                ListNode next=cur.next.next;
-                ListNode move=cur.next;
-                move.next=nodeBeforeX.next;
-                nodeBeforeX.next=move;
-                nodeBeforeX=nodeBeforeX.next;
-                cur.next=next;
             } else{
-                cur=cur.next;
+                if(cur.next!=null && cur.next.val<x){
+                    ListNode temp=cur.next;
+                    cur.next=cur.next.next;
+                    temp.next=lastLess.next;
+                    lastLess.next=temp;
+                    lastLess=lastLess.next;
+                } else{
+                    cur=cur.next;
+                }
             }
         }
         return dummy.next;

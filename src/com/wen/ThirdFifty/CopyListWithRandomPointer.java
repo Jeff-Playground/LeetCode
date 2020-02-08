@@ -9,36 +9,37 @@ public class CopyListWithRandomPointer {
         RandomListNode(int x) { this.label = x; }
     }
 
-    public RandomListNode copyRandomList(RandomListNode head) {
-        if(head==null){
-            return null;
-        }
-        RandomListNode cur=head;
-        while(cur!=null){
-            RandomListNode curCopy=new RandomListNode(cur.label);
-            curCopy.next=cur.next;
-            cur.next=curCopy;
-            cur=curCopy.next;
-        }
-        cur=head;
-        while(cur!=null){
-            if(cur.random!=null){
-                cur.next.random=cur.random.next;
-            }
-            cur=cur.next.next;
-        }
-        cur=head;
-        RandomListNode result=head.next;
-        while(cur!=null){
-            RandomListNode tmp=cur.next;
-            cur.next=tmp.next;
-            if(tmp.next!=null){
-                tmp.next=tmp.next.next;
-            }
-            cur=cur.next;
-        }
-        return result;
-    }
+//    // Copy each node and put it right after the copied node in the linked list
+//    public RandomListNode copyRandomList(RandomListNode head) {
+//        if(head==null){
+//            return null;
+//        }
+//        RandomListNode cur=head;
+//        while(cur!=null){
+//            RandomListNode curCopy=new RandomListNode(cur.label);
+//            curCopy.next=cur.next;
+//            cur.next=curCopy;
+//            cur=curCopy.next;
+//        }
+//        cur=head;
+//        while(cur!=null){
+//            if(cur.random!=null){
+//                cur.next.random=cur.random.next;
+//            }
+//            cur=cur.next.next;
+//        }
+//        cur=head;
+//        RandomListNode result=head.next;
+//        while(cur!=null){
+//            RandomListNode tmp=cur.next;
+//            cur.next=tmp.next;
+//            if(tmp.next!=null){
+//                tmp.next=tmp.next.next;
+//            }
+//            cur=cur.next;
+//        }
+//        return result;
+//    }
 
 //    // DFS recursive
 //    public RandomListNode copyRandomList(RandomListNode head) {

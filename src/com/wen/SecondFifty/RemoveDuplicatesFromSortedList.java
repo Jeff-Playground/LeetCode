@@ -9,15 +9,15 @@ public class RemoveDuplicatesFromSortedList {
 
     // One cursor
     public ListNode deleteDuplicates(ListNode head) {
-        ListNode cursor=head;
-        if(cursor== null || cursor.next==null){
+        ListNode cur=head;
+        if(cur== null || cur.next==null){
             return head;
         }
-        while(cursor!=null){
-            if(cursor.next==null || cursor.val!=cursor.next.val){
-                cursor=cursor.next;
+        while(cur!=null){
+            if(cur.next==null || cur.val!=cur.next.val){
+                cur=cur.next;
             } else{
-                cursor.next=cursor.next.next;
+                cur.next=cur.next.next;
             }
         }
         return head;

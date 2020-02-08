@@ -13,18 +13,4 @@ public class DeleteNodeInALinkedList {
             node.next=node.next.next;
         }
     }
-
-//    public void deleteNode(ListNode node) {
-//        if(node!=null && node.next!=null){
-//            while(node.next!=null){
-//                node.val=node.next.val;
-//                if(node.next.next==null){
-//                    node.next=null;
-//                    return;
-//                }
-//                node=node.next;
-//            }
-//            node=null;
-//        }
-//    }
 }
