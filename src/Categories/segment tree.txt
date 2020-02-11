@@ -9,6 +9,7 @@
 - 600 -
 - 650 -
 *Number of Longest Increasing Subsequence
+*Falling Squares
 - 700 -
 - 750 -
 - 800 -
