@@ -59,6 +59,7 @@ LQWordPatternII
 *Remove Invalid Parentheses
 *Reconstruct Itinerary
 - 350 -
+*Combination Sum IV
 *Decode String
 - 400 -
 *Path Sum III

@@ -1,3 +1,4 @@
+import com.wen.EighthFifty.CombinationSumIV;
 import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.FifteenthFifty.*;
 import com.wen.FifthFifty.MinimumSizeSubarraySum;
@@ -400,21 +401,21 @@ public class Main {
 //        int[] nums={0,0,1,1};
 //        MinCostClimbingStairs.minCostClimbingStairs(nums);
 
-        SplitLinkedListInParts.ListNode l1=new SplitLinkedListInParts.ListNode(1);
-        SplitLinkedListInParts.ListNode l2=new SplitLinkedListInParts.ListNode(2);
-        SplitLinkedListInParts.ListNode l3=new SplitLinkedListInParts.ListNode(3);
+//        SplitLinkedListInParts.ListNode l1=new SplitLinkedListInParts.ListNode(1);
+//        SplitLinkedListInParts.ListNode l2=new SplitLinkedListInParts.ListNode(2);
+//        SplitLinkedListInParts.ListNode l3=new SplitLinkedListInParts.ListNode(3);
 //        SplitLinkedListInParts.ListNode l4=new SplitLinkedListInParts.ListNode(4);
 //        SplitLinkedListInParts.ListNode l5=new SplitLinkedListInParts.ListNode(5);
 //        SplitLinkedListInParts.ListNode l6=new SplitLinkedListInParts.ListNode(6);
 //        SplitLinkedListInParts.ListNode l7=new SplitLinkedListInParts.ListNode(7);
-        l1.next=l2;
-        l2.next=l3;
+//        l1.next=l2;
+//        l2.next=l3;
 //        l3.next=l4;
 //        l4.next=l5;
 //        l5.next=l6;
 //        l6.next=l7;
-        SplitLinkedListInParts test=new SplitLinkedListInParts();
-        test.splitListToParts(l1,3);
+//        SplitLinkedListInParts test=new SplitLinkedListInParts();
+//        test.splitListToParts(l1,3);
 
 //        LQClosestLeafInABinaryTree.TreeNode root=new LQClosestLeafInABinaryTree.TreeNode(1);
 //        LQClosestLeafInABinaryTree.TreeNode n1=new LQClosestLeafInABinaryTree.TreeNode(3);
@@ -681,5 +682,7 @@ public class Main {
 //        SearchA2DMatrixII.searchMatrix(new int[][]{{1,4,7,11,15},{2,5,8,12,19},{3,6,9,16,22},{10,13,14,17,24},{18,21,23,26,30}}, 5);
 
 //        LQVerifyPreorderSequenceInBinarySearchTree.verifyPreorder(new int[]{10,7,4,8,6,40,23});
+
+        CombinationSumIV.combinationSum4(new int[]{2,1,3}, 35);
     }
 }
