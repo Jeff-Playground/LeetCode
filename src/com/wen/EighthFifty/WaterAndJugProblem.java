@@ -10,8 +10,11 @@ public class WaterAndJugProblem {
 
     // Stein's method
     public int gcd(int x, int y){
-        if(x==0){
-            return y;
+        if(x<y){
+            return gcd(y, x);
+        }
+        if(y==0){
+            return x;
         }
         if(x%2==0 && y%2==0){
             return 2*gcd(x>>1, y>>1);
@@ -20,7 +23,7 @@ public class WaterAndJugProblem {
         } else if(y%2==0){
             return gcd(x, y>>1);
         } else{
-            return gcd(Math.abs(x-y)>>1, Math.min(x, y));
+            return gcd(x-y, y);
         }
     }
 
