@@ -47,20 +47,19 @@ public class AccountsMerge {
 //    }
 
     // Union find
-    public List<List<String>> accountsMerge(List<List<String>> accounts) {
+    public static List<List<String>> accountsMerge(List<List<String>> accounts) {
         Map<String, String> root=new HashMap<>();
         Map<String, String> owner=new HashMap<>();
         Map<String, TreeSet<String>> union=new HashMap<>();
         for (List<String> account : accounts) {
             for (int i = 1; i < account.size(); i++) {
-                root.put(account.get(i), account.get(i));
-                owner.put(account.get(i), account.get(0));
-            }
-        }
-        for (List<String> account : accounts) {
-            String p = findRoot(root, account.get(1));
-            for (int i = 2; i < account.size(); i++){
-                root.put(findRoot(root, account.get(i)), p);
+                if(root.containsKey(account.get(i))){
+                    // This is the union, note for the find a new element would find itself, which is fine
+                    root.put(findRoot(root, account.get(i)), findRoot(root,account.get(1)));
+                } else{
+                    root.put(account.get(i), account.get(1));
+                }
+                owner.putIfAbsent(account.get(i), account.get(0));
             }
         }
         for(List<String> account: accounts){
@@ -79,7 +78,8 @@ public class AccountsMerge {
         return result;
     }
 
-    private String findRoot(Map<String, String> root, String cur) {
+    // This is the find
+    private static String findRoot(Map<String, String> root, String cur) {
         while(!root.get(cur).equals(cur)){
             root.put(root.get(cur), root.get(root.get(cur)));
             cur=root.get(cur);

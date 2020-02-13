@@ -570,12 +570,13 @@ public class Main {
 
 //        LongestWordInDictionary.longestWord(new String[]{"w","wo","wor","worl", "world"});
 
-//        List<List<String>> accounts=new ArrayList<>();
-//        accounts.add(Arrays.asList("John","johnsmith@mail.com","john_newyork@mail.com"));
-//        accounts.add(Arrays.asList("John","johnsmith@mail.com","john00@mail.com"));
-//        accounts.add(Arrays.asList("Mary","mary@mail.com"));
-//        accounts.add(Arrays.asList("John","johnnybravo@mail.com"));
-//        AccountsMerge.accountsMerge(accounts);
+        List<List<String>> accounts=new ArrayList<>();
+        accounts.add(Arrays.asList("Alex","Alex5@m.co","Alex4@m.co","Alex0@m.co"));
+        accounts.add(Arrays.asList("Ethan","Ethan3@m.co","Ethan3@m.co","Ethan0@m.co"));
+        accounts.add(Arrays.asList("Kevin","Kevin4@m.co","Kevin2@m.co","Kevin2@m.co"));
+        accounts.add(Arrays.asList("Gabe","Gabe0@m.co","Gabe3@m.co","Gabe2@m.co"));
+        accounts.add(Arrays.asList("Gabe","Gabe3@m.co","Gabe4@m.co","Gabe2@m.co"));
+        AccountsMerge.accountsMerge(accounts);
 
 //        RemoveComments.removeComments(new String[]{"a/*comment", "line", "more_comment*/b"});
 
@@ -683,6 +684,6 @@ public class Main {
 
 //        LQVerifyPreorderSequenceInBinarySearchTree.verifyPreorder(new int[]{10,7,4,8,6,40,23});
 
-        CombinationSumIV.combinationSum4(new int[]{2,1,3}, 35);
+//        CombinationSumIV.combinationSum4(new int[]{2,1,3}, 35);
     }
 }
