@@ -1,3 +1,6 @@
+Use an array of Trie to store the children nodes, and a boolean isEnd to store word ends. For auto-complete, can add a
+Map of word and corresponding count to store history.
+
 *Implement Trie (Prefix Tree)
 *Add and Search Word - Data structure design
 *Word Search II
