@@ -73,53 +73,53 @@ public class BricksFallingWhenHit {
 //        count[x]+=count[y];
 //    }
     
-//    // DFS
-//    public static int[] hitBricks(int[][] grid, int[][] hits) {
-//        int m=grid.length, n=grid[0].length, l=hits.length;
-//        int[] result=new int[l];
-//        int[][] dirs=new int[][]{{-1,0}, {1,0}, {0,-1}, {0,1}};
-//        Set<Integer> notDropped=new HashSet<>();
-//        for(int[] hit: hits){
-//            grid[hit[0]][hit[1]]--;
-//        }
-//        for(int j=0; j<n; j++){
-//            if(grid[0][j]==1){
-//                getNotDropped(grid, 0, j, notDropped, dirs);
-//            }
-//        }
-//        for(int i=l-1; i>=0; i--){
-//            int[] hit=hits[i];
-//            int beforeSize=notDropped.size(), x=hit[0], y=hit[1];
-//            if(++grid[x][y]==1){
-//                boolean connectedToTop=(x==0);
-//                if(!connectedToTop) {
-//                    for (int[] dir : dirs) {
-//                        int newX = x + dir[0], newY = y + dir[1];
-//                        if (newX >= 0 && newX < m && newY >= 0 && newY < n && notDropped.contains(newX * n + newY)) {
-//                            connectedToTop = true;
-//                            break;
-//                        }
-//                    }
-//                }
-//                if(connectedToTop){
-//                    getNotDropped(grid, x, y, notDropped, dirs);
-//                    result[i]=notDropped.size()-1-beforeSize;
-//                }
-//            }
-//        }
-//        return result;
-//    }
-//
-//    private static void getNotDropped(int[][] grid, int x, int y, Set<Integer> notDropped, int[][] dirs){
-//        int m=grid.length, n=grid[0].length;
-//        notDropped.add(x*n+y);
-//        for(int[] dir: dirs){
-//            int a=x+dir[0], b=y+dir[1];
-//            if(a>=0 && a<m && b>=0 && b<n && grid[a][b]==1 && !notDropped.contains(a*n+b)){
-//                getNotDropped(grid, a, b, notDropped, dirs);
-//            }
-//        }
-//    }
+    // DFS
+    public static int[] hitBricks(int[][] grid, int[][] hits) {
+        int m=grid.length, n=grid[0].length, l=hits.length;
+        int[] result=new int[l];
+        int[][] dirs=new int[][]{{-1,0}, {1,0}, {0,-1}, {0,1}};
+        Set<Integer> notDropped=new HashSet<>();
+        for(int[] hit: hits){
+            grid[hit[0]][hit[1]]--;
+        }
+        for(int j=0; j<n; j++){
+            if(grid[0][j]==1){
+                getNotDropped(grid, 0, j, notDropped, dirs);
+            }
+        }
+        for(int i=l-1; i>=0; i--){
+            int[] hit=hits[i];
+            int beforeSize=notDropped.size(), x=hit[0], y=hit[1];
+            if(++grid[x][y]==1){
+                boolean connectedToTop=(x==0);
+                if(!connectedToTop) {
+                    for (int[] dir : dirs) {
+                        int newX = x + dir[0], newY = y + dir[1];
+                        if (newX >= 0 && newX < m && newY >= 0 && newY < n && notDropped.contains(newX * n + newY)) {
+                            connectedToTop = true;
+                            break;
+                        }
+                    }
+                }
+                if(connectedToTop){
+                    getNotDropped(grid, x, y, notDropped, dirs);
+                    result[i]=notDropped.size()-1-beforeSize;
+                }
+            }
+        }
+        return result;
+    }
+
+    private static void getNotDropped(int[][] grid, int x, int y, Set<Integer> notDropped, int[][] dirs){
+        int m=grid.length, n=grid[0].length;
+        notDropped.add(x*n+y);
+        for(int[] dir: dirs){
+            int a=x+dir[0], b=y+dir[1];
+            if(a>=0 && a<m && b>=0 && b<n && grid[a][b]==1 && !notDropped.contains(a*n+b)){
+                getNotDropped(grid, a, b, notDropped, dirs);
+            }
+        }
+    }
 
 //    // DFS, will TLE because there're too many duplicated checks
 //    public static int[] hitBricks(int[][] grid, int[][] hits) {

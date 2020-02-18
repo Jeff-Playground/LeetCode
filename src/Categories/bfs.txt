@@ -30,6 +30,7 @@ Cut Off Trees for Golf Event
 *Accounts Merge
 - 750 -
 *Sliding Puzzle
+*Is Graph Bipartite?
 - 800 -
 Bus Routes
 *Race Car

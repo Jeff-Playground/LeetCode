@@ -2,6 +2,7 @@ package com.wen.SecondFifty;
 
 public class JumpGame {
     // Dynamic Programming
+    // dp[i] stands for the remaining max distance current jump can reach
     public boolean canJump(int[] nums) {
         int[] dp=new int[nums.length];
         for(int i=1; i<nums.length; i++){

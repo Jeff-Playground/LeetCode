@@ -1,5 +1,6 @@
 Use a int array group to store the group info for nodes, and another int array count to store the number of nodes in
-each group. Union find should support add, find and union.
+each group. Union find should support add, find and union. Note the union logic need to be written with care to avoid
+cycles.
 
 *Longest Consecutive Sequence
 *LQGraphValidTree

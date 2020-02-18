@@ -5,6 +5,7 @@ import java.util.Collections;
 
 public class MaximumLengthOfPairChain {
     // DP
+    // dp[i] stands for the length of the longest chain ends with pair[i]
     public int findLongestChain(int[][] pairs) {
         int result=1;
         Arrays.sort(pairs, (a, b)->a[0]-b[0]);

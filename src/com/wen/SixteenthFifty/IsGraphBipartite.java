@@ -6,6 +6,9 @@ import java.util.Map;
 import java.util.Queue;
 
 public class IsGraphBipartite {
+    // A graph is bipartite if we can split it's set of nodes into two independent subsets A and B such that every edge
+    // in the graph has one node in A and another node in B.
+
 //    // DFS, recursive
 //    public boolean isBipartite(int[][] graph) {
 //        int l=graph.length;
@@ -39,7 +42,7 @@ public class IsGraphBipartite {
 //        return true;
 //    }
 
-//    // DFS, iterative
+//    // BFS
 //    public boolean isBipartite(int[][] graph) {
 //        int l=graph.length;
 //        int[] color=new int[l];
@@ -68,7 +71,8 @@ public class IsGraphBipartite {
 //        return true;
 //    }
 
-    // Union find
+    // Union find, note eventually there's not necessarily only two groups, there'll be two groups if the graph is
+    // connected
     public boolean isBipartite(int[][] graph) {
         int l=graph.length;
         int[] group=new int[l];

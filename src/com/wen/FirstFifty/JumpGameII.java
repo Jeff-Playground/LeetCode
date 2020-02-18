@@ -6,17 +6,17 @@ public class JumpGameII {
         int jump=0;
         while(cur<nums.length-1){
             jump++;
-            int temp=0, tempCur=0;
+            int nextMax=0, curMax=0;
             if(cur+nums[cur]>=nums.length-1){
                 break;
             }
             for(int i=1; i<=nums[cur]; i++){
-                if(cur+i+nums[cur+i]>temp){
-                    tempCur=cur+i;
-                    temp=cur+i+nums[cur+i];
+                if(cur+i+nums[cur+i]>nextMax){
+                    curMax=cur+i;
+                    nextMax=cur+i+nums[cur+i];
                 }
             }
-            cur=tempCur;
+            cur=curMax;
         }
         return jump;
     }

@@ -32,5 +32,6 @@ Palindrome Linked List
 Split Linked List in Parts
 - 750 -
 - 800 -
+Linked List Components
 - 850 -
 - 900 -
