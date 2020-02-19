@@ -686,6 +686,10 @@ public class Main {
 
 //        CombinationSumIV.combinationSum4(new int[]{2,1,3}, 35);
 
-        CouplesHoldingHands.minSwapsCouples(new int[]{0, 5, 1, 3, 2, 4});
+//        CouplesHoldingHands.minSwapsCouples(new int[]{0, 5, 1, 3, 2, 4});
+
+//        MonotoneIncreasingDigits.monotoneIncreasingDigits(332);
+
+//        LQNumberOfCornerRectangles.countCornerRectangles(new int[][]{{1,0,0,1,0},{0,0,1,0,1},{0,0,0,1,0},{1,0,1,0,1}});
     }
 }

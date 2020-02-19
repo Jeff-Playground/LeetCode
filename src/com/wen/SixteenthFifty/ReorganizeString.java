@@ -18,6 +18,9 @@ public class ReorganizeString {
         }
         Arrays.sort(count);
         char[] result=new char[total];
+        // Here the update starts with idx=1 because it updates the chars with smaller counts first, and the char with
+        // largest count should take the first place idx=0 to avoid issues. Besides, updating by doing idx+=2 can ensure
+        // the updates doesn't result in conflict in any way
         int idx=1;
         for(int c: count){
             char ch=(char)('a'+c%100);

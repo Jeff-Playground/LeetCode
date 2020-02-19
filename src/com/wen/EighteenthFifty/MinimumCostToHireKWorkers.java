@@ -24,8 +24,9 @@ public class MinimumCostToHireKWorkers {
             totalQuality+=worker[0];
             pq.offer(worker);
             if(pq.size()==K) {
-                // Pay by the last worker because it's the most expensive one per quality
-                result=Math.min(result, (double)worker[1]*totalQuality/worker[0]);
+                // Pay by the last worker because it's the most expensive one per quality, and the previous workers
+                // can't make less than him
+                result=Math.min(result, (double)totalQuality*worker[1]/worker[0]);
                 totalQuality-=pq.poll()[0];
             }
         }
