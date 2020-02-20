@@ -662,7 +662,7 @@ public class Main {
 
 //        PyramidTransitionMatrix.pyramidTransition("BCD", Arrays.asList("BCG", "CDE", "GEA", "FFF"));
 
-//		RegularExpressionMatching.isMatch("aaa", "ab*a*c*a");
+//		RegularExpressionMatching.isMatch("aaa","a*a");
 
 //        BestTimeToBuyAndSellStockWithCooldown.maxProfit(new int[]{1,2,4});
 

@@ -53,28 +53,39 @@ public class PredictTheWinner {
 //        }
 //    }
 
-//    public static boolean PredictTheWinner(int[] nums) {
-//        return canWin(nums, 0, nums.length-1, 0, 0, 1);
+//    public boolean PredictTheWinner(int[] nums) {
+//        return canWin(nums, 0, nums.length-1, new int[] {0,0}, 0);
 //    }
 //
-//    public static boolean canWin(int[] nums, int start, int end, int cur1, int cur2, int player){
-//        if(start>end || start>nums.length-1 || end<0){
-//            if(player==1){
-//                return cur1>=cur2;
-//            } else{
-//                return cur2>cur1;
+//    // Note the back tracking steps on the score array
+//    private boolean canWin(int[] nums, int start, int end, int[] score, int player) {
+//        if(start==end) {
+//            if(player==0) {
+//                return score[player]+nums[start]>=score[player^1];
+//            } else {
+//                return score[player]+nums[start]>score[player^1];
 //            }
-//        } else if(start==end){
-//            if(player==1){
-//                return cur1+nums[start]>=cur2;
-//            } else{
-//                return cur2+nums[start]>cur1;
+//        } else if(start+1==end) {
+//            if(player==0) {
+//                return score[player]+Math.abs(nums[start]-nums[end])>=score[player^1];
+//            } else {
+//                return score[player]+Math.abs(nums[start]-nums[end])>score[player^1];
 //            }
-//        } else{
-//            if(player==1){
-//                return !canWin(nums, start+1, end, cur1+nums[start], cur2, 2) || !canWin(nums, start, end-1, cur1+nums[end], cur2, 2);
-//            } else{
-//                return !canWin(nums, start+1, end, cur1, cur2+nums[start], 1) || !canWin(nums, start, end-1, cur1, cur2+nums[end], 1);
+//        } else {
+//            score[player]+=nums[start];
+//            if(!canWin(nums, start+1, end, score, player^1)) {
+//                score[player]-=nums[start];
+//                return true;
+//            } else {
+//                score[player]-=nums[start];
+//                score[player]+=nums[end];
+//                if(!canWin(nums, start, end-1, score, player^1)) {
+//                    score[player]-=nums[end];
+//                    return true;
+//                } else {
+//                    score[player]-=nums[end];
+//                    return false;
+//                }
 //            }
 //        }
 //    }
