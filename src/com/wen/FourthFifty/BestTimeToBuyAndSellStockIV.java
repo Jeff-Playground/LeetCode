@@ -21,6 +21,9 @@ public class BestTimeToBuyAndSellStockIV {
 //        return global[k];
 //    }
 
+    // Dynamic Programming
+    // local[i][j] stands for the maximum profit to complete the j-th trade on day i, global[i][j] stands for the
+    // maximum profit to complete the j-th trade on or before day i
     public int maxProfit(int k, int[] prices) {
         if(k<=0) {
             return 0;

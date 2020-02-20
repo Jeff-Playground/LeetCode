@@ -70,6 +70,8 @@ public class InterleavingString {
 //    }
 
     // Dynamic Programming
+    // dp[i][j] stands for whether s3.substring(0, i+j+1) is the interleaving of s1.substring(0, i+1) and
+    // s2.substring(0, j+1)
     public static boolean isInterleave(String s1, String s2, String s3) {
         int l1=s1.length(), l2=s2.length();
         if(l1+l2!=s3.length()){

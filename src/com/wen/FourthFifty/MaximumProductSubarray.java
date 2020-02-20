@@ -1,23 +1,23 @@
 package com.wen.FourthFifty;
 
 public class MaximumProductSubarray {
-    public int maxProduct(int[] nums) {
-        int result=nums[0], n=nums.length, prod=1;
-        for(int i=1; i<n; i++){
-            result=Math.max(result, prod*=nums[i]);
-            if(nums[i]==0){
-                prod=1;
-            }
-        }
-        prod=1;
-        for(int i=n-1; i>=0; i--){
-            result=Math.max(result, prod*=nums[i]);
-            if(nums[i]==0){
-                prod=1;
-            }
-        }
-        return result;
-    }
+//    public int maxProduct(int[] nums) {
+//        int result=nums[0], n=nums.length, prod=1;
+//        for(int i=1; i<n; i++){
+//            result=Math.max(result, prod*=nums[i]);
+//            if(nums[i]==0){
+//                prod=1;
+//            }
+//        }
+//        prod=1;
+//        for(int i=n-1; i>=0; i--){
+//            result=Math.max(result, prod*=nums[i]);
+//            if(nums[i]==0){
+//                prod=1;
+//            }
+//        }
+//        return result;
+//    }
 
 //    // Algorithm optimized DP(simplify code)
 //    public int maxProduct(int[] nums) {
@@ -71,17 +71,19 @@ public class MaximumProductSubarray {
 //        return result;
 //    }
 
-//    // DP
-//    public int maxProduct(int[] nums) {
-//        int result=nums[0], n=nums.length;
-//        int[] dpGreatest=new int[n], dpSmallest=new int[n];
-//        dpGreatest[0]=nums[0];
-//        dpSmallest[0]=nums[0];
-//        for(int i=1; i<n; i++){
-//            dpGreatest[i]=Math.max(Math.max(dpGreatest[i-1]*nums[i], dpSmallest[i-1]*nums[i]), nums[i]);
-//            dpSmallest[i]=Math.min(Math.min(dpGreatest[i-1]*nums[i], dpSmallest[i-1]*nums[i]), nums[i]);
-//            result=Math.max(result, dpGreatest[i]);
-//        }
-//        return result;
-//    }
+    // DP
+    // dpGrestest[i] stores the maximum product till nums[i], dpSmallest[i] stores the minimum product till nums[i],
+    // note here minimum is because of the negative sign, the absolute value is not necessarily small
+    public int maxProduct(int[] nums) {
+        int result=nums[0], n=nums.length;
+        int[] dpGreatest=new int[n], dpSmallest=new int[n];
+        dpGreatest[0]=nums[0];
+        dpSmallest[0]=nums[0];
+        for(int i=1; i<n; i++){
+            dpGreatest[i]=Math.max(Math.max(dpGreatest[i-1]*nums[i], dpSmallest[i-1]*nums[i]), nums[i]);
+            dpSmallest[i]=Math.min(Math.min(dpGreatest[i-1]*nums[i], dpSmallest[i-1]*nums[i]), nums[i]);
+            result=Math.max(result, dpGreatest[i]);
+        }
+        return result;
+    }
 }

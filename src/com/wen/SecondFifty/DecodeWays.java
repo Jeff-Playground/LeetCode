@@ -21,6 +21,7 @@ public class DecodeWays {
     }
 
 //    // Dynamic Programming
+//    // dp[i] stands for the number of decoding ways for s.substring(0, i+1)
 //    public static int numDecodings(String s) {
 //        if(s==null || s.length()==0){
 //            return 0;

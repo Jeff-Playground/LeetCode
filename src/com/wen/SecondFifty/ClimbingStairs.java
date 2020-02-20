@@ -12,6 +12,7 @@ public class ClimbingStairs {
     }
 
 //    // Dynamic programming
+//    // dp[i] stands for the number of ways to reach stair i+1
 //    public int climbStairs(int n) {
 //        if(n==1){
 //            return 1;

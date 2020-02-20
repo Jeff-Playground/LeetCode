@@ -2,6 +2,7 @@ package com.wen.FifthFifty;
 
 public class MaximalSquare {
     // DP
+    // dp[i][j] stands for the edge of the largest square ends at matrix[i][j]
     public int maximalSquare(char[][] matrix) {
         if(matrix==null || matrix.length==0 || matrix[0].length==0){
             return 0;

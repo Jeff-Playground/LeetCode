@@ -1,6 +1,8 @@
 package com.wen.FifthFifty;
 
 public class HouseRobberII {
+    // The trick is to make the original problem into robbing [0, nums.length-2] and [1, nums.length-1], this way the
+    // two robberies won't have start and end adjacent issue, and result only need to pick the larger one
     public int rob(int[] nums) {
         if(nums==null || nums.length==0) {
             return 0;

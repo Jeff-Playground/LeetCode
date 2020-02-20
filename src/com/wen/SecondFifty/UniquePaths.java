@@ -20,6 +20,7 @@ public class UniquePaths {
     }
 
 //    // Dynamic Programming with two-dimensional array
+//    // dp[i][j] stands for the unique paths count to reach node (i,j)
 //    public int uniquePaths(int m, int n) {
 //        int dp[][]=new int[m][n];
 //        for(int i=0; i<=m-1; i++) {
@@ -34,16 +35,16 @@ public class UniquePaths {
 //        return dp[m-1][n-1];
 //    }
 
-//    // Permutation formula
+//    // Combination formula, note the result is C(n-1, m-1+n-1) instead of C(n, m+n), and beware of the overflow issue
 //    public int uniquePaths(int m, int n) {
-//        if(m<n) {
+//        if(m<n){
 //            return uniquePaths(n, m);
 //        }
 //        long dividend=1, divisor=1;
-//        for(int i=1; i<n; i++) {
-//            dividend*=m+n-1-i;
-//            divisor*=i;
+//        for(int i=0; i<n-1; i++){
+//            dividend*=m-1+n-1-i;
+//            divisor*=i+1;
 //        }
-//        return (int) (dividend/divisor);
+//        return (int)(dividend/divisor);
 //    }
 }

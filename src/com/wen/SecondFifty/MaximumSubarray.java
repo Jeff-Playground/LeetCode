@@ -1,13 +1,29 @@
 package com.wen.SecondFifty;
 
 public class MaximumSubarray {
-    // DP
+//    // DP
+//    // dp[i] stands for the maximum sum ending with nums[i]
+//    public int maxSubArray(int[] nums) {
+//        int l=nums.length, result=Integer.MIN_VALUE;
+//        int[] dp=new int[l];
+//        for(int i=0; i<l; i++){
+//            if(i==0 || dp[i-1]<0){
+//                dp[i]=nums[i];
+//            } else{
+//                dp[i]=dp[i-1]+nums[i]>0?dp[i-1]+nums[i]:0;
+//            }
+//            result=Math.max(result, dp[i]);
+//        }
+//        return result;
+//    }
+
+    // As dp[i] only depends on dp[i-1], dp can be optimized as below
     public int maxSubArray(int[] nums) {
         int result=Integer.MIN_VALUE;
-        int curSum=0;
+        int sum=0;
         for(int num: nums) {
-            curSum=Math.max(curSum+num, num);
-            result=Math.max(result, curSum);
+            sum=Math.max(sum+num, num);
+            result=Math.max(result, sum);
         }
         return result;
     }

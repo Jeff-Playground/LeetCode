@@ -2,6 +2,7 @@ package com.wen.SecondFifty;
 
 public class EditDistance {
     // Dynamic Programming
+    // dp[i][j] stands for the minimum distance between word1.substring(0, i+1) and word2.substring(0, j+1)
     public static int minDistance(String word1, String word2) {
         int l1=word1.length(), l2=word2.length();
         int[][] dp=new int[l1+1][l2+1];

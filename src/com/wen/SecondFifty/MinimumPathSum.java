@@ -2,6 +2,7 @@ package com.wen.SecondFifty;
 
 public class MinimumPathSum {
     // Dynamic Programming
+    // dp[i][j] stands for the minimum sum to reach node (i, j)
     public static int minPathSum(int[][] grid) {
         if(grid==null || grid.length==0){
             return 0;

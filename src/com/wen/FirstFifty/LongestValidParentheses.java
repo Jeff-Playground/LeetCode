@@ -1,46 +1,48 @@
 package com.wen.FirstFifty;
 
 public class LongestValidParentheses {
-    // Dynamic Programming(Start from end of string)
-    public int longestValidParentheses(String s) {
-        int[] dp = new int[s.length()];
-        int maxLen = 0;
-        for(int i = s.length()-2; i >=0; i--){
-            if(s.charAt(i)=='('){
-                int end = i + dp[i+1] + 1;
-                if(end < s.length() && s.charAt(end)==')'){
-                    dp[i] = dp[i+1] + 2;
-                    if(end + 1 < s.length()){
-                        dp[i] += dp[end + 1];
-                    }
-                }
-            }
-            maxLen = Math.max(maxLen, dp[i]);
-        }
-        return maxLen;
-    }
-
-//    // Dynamic Programming(Start from beginning of string)
+//    // Dynamic Programming(Start from end of string)
+//    // dp[i] stands for the length of the longest valid parentheses starting from index i to the end
 //    public int longestValidParentheses(String s) {
-//        int result=0;
-//        if(s==null || s.length()<2){
-//            return result;
-//        }
-//        int[] dp=new int[s.length()];
-//        for(int i=1; i<s.length(); i++){
-//            if(s.charAt(i)==')'){
-//                int start=i-1-dp[i-1];
-//                if(start>=0 && s.charAt(start)=='('){
-//                    dp[i]=dp[i-1]+2;
-//                    if(start-1>=0){
-//                        dp[i]+=dp[start-1];
+//        int[] dp = new int[s.length()];
+//        int maxLen = 0;
+//        for(int i = s.length()-2; i >=0; i--){
+//            if(s.charAt(i)=='('){
+//                int end = i + dp[i+1] + 1;
+//                if(end < s.length() && s.charAt(end)==')'){
+//                    dp[i] = dp[i+1] + 2;
+//                    if(end + 1 < s.length()){
+//                        dp[i] += dp[end + 1];
 //                    }
 //                }
-//                result=Math.max(result, dp[i]);
 //            }
+//            maxLen = Math.max(maxLen, dp[i]);
 //        }
-//        return result;
+//        return maxLen;
 //    }
+
+    // Dynamic Programming(Start from beginning of string)
+    // dp[i] stands for the longest valid parentheses ending with index i to the start
+    public int longestValidParentheses(String s) {
+        int result=0;
+        if(s==null || s.length()<2){
+            return result;
+        }
+        int[] dp=new int[s.length()];
+        for(int i=1; i<s.length(); i++){
+            if(s.charAt(i)==')'){
+                int start=i-1-dp[i-1];
+                if(start>=0 && s.charAt(start)=='('){
+                    dp[i]=dp[i-1]+2;
+                    if(start-1>=0){
+                        dp[i]+=dp[start-1];
+                    }
+                }
+                result=Math.max(result, dp[i]);
+            }
+        }
+        return result;
+    }
 
 //    public int longestValidParentheses(String s) {
 //        if(s==null){

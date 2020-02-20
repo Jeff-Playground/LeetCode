@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Triangle {
     // Dynamic programming, from bottom to top
+    // dp[i] stands for the sum from bottom to current layer to reach node i
     public int minimumTotal(List<List<Integer>> triangle) {
         int l=triangle.size();
         int[] dp=new int[l];

@@ -28,6 +28,7 @@ public class WildcardMatching {
 //    }
 
 //    // Dynamic Programming
+//    // dp[i][j] stands for whether s.substring(0, i) and p.substring(0, j) is matching
 //    public static boolean isMatch(String s, String p) {
 //        int m=s.length(), n=p.length();
 //        boolean[][] dp=new boolean[m+1][n+1];

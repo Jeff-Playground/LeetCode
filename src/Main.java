@@ -18,6 +18,7 @@ import com.wen.SixteenthFifty.*;
 import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
 import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
+import com.wen.ThirdFifty.WordBreakII;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -287,7 +288,7 @@ public class Main {
 //        int[] ratings={1,3,2,2,1};
 //        Candy.candy(ratings);
 
-//        WordBreakII.wordBreak("catsanddog", Arrays.asList("cat","cats","and","sand","dog"));
+        WordBreakII.wordBreak("catsandog", Arrays.asList("cat","cats","and","sand","dog"));
 
 //        LRUCache cache=new LRUCache(2);
 //        cache.put(1,1);

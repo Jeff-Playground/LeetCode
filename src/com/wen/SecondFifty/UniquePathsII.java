@@ -27,6 +27,7 @@ public class UniquePathsII {
     }
 
 //    // Dynamic Programming with two-dimensional array
+//    // dp[i][j] stands for the unique paths count to reach node (i,j)
 //    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 //        int m=obstacleGrid.length, n=obstacleGrid[0].length;
 //        int dp[][]=new int[m][n];

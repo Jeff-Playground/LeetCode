@@ -1,6 +1,7 @@
 package com.wen.SixthFifty;
 
 public class LQPaintHouse {
+    // dp[i][j] stands for the minimum cost to paint the house at i to color j
     public int minCost(int[][] costs) {
         if(costs==null || costs.length==0 || costs[0].length==0){
             return 0;
