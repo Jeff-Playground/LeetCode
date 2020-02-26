@@ -1,6 +1,7 @@
 package com.wen.SeventhFifty;
 
 public class BurstBalloons {
+    // dp[i][j] stands for the maxCoins for range [i, j]
     public int maxCoins(int[] nums) {
         if(nums==null || nums.length==0) {
             return 0;

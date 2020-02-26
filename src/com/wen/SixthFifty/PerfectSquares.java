@@ -3,6 +3,7 @@ package com.wen.SixthFifty;
 import java.util.Arrays;
 
 public class PerfectSquares {
+    // dp[i] stands for the minimum count of square numbers which adds up to i
     public static int numSquares(int n) {
         int[] dp=new int[n+1];
         Arrays.fill(dp, n);

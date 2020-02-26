@@ -52,7 +52,9 @@ public class RangeSumQueryImmutable {
             return queryTree(segTree, 0, 0, length-1, i, j);
         }
     }
+
 //    // DP
+//    // dp[i] stands for the sum of numbers before nums[i] inclusively
 //    class NumArray {
 //        private int[] dp=null;
 //

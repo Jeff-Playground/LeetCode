@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class PredictTheWinner {
     // DP2
+    // dp[i][j] stands for the beatByScore for nums in [i, j]
     // Further optimized space complexity to O(n^2), as it's got rid of the running stack
     public boolean PredictTheWinner(int[] nums) {
         int l=nums.length;
@@ -20,6 +21,7 @@ public class PredictTheWinner {
     }
 
 //    // DP1, use dp to cache the intermediate result get by earlier calculation
+//    // dp[i][j] stands for the beatByScore for nums in [i, j]
 //    // Optimized time complexity to O(n^2), because there're n^2 values need to be calculated in total(size of dp)
 //    // Space complexity: O(n^2+n), dp is n^2, running stack is n
 //    public static boolean PredictTheWinner(int[] nums) {
@@ -28,7 +30,7 @@ public class PredictTheWinner {
 //        for(int i=0; i<l; i++){
 //            Arrays.fill(dp[i], -1);
 //        }
-//        return beatByScore(nums, dp, 0, l-1)>0;
+//        return beatByScore(nums, dp, 0, l-1)>=0;
 //    }
 //
 //    private static int beatByScore(int[] nums, int[][] dp, int start, int end) {
@@ -42,7 +44,7 @@ public class PredictTheWinner {
 //    // Space complexity: O(1+n) - in-place, running stack is n
 //    public boolean PredictTheWinner(int[] nums) {
 //        int l=nums.length;
-//        return beatByScore(nums, 0, l-1)>0;
+//        return beatByScore(nums, 0, l-1)>=0;
 //    }
 //
 //    private static int beatByScore(int[] nums, int start, int end) {

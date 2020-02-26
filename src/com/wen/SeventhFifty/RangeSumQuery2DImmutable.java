@@ -1,6 +1,7 @@
 package com.wen.SeventhFifty;
 
 public class RangeSumQuery2DImmutable {
+    // dp[i][j] stands for the sum of all numbers nums[x][y] where x<=i and y<=j
     class NumMatrix {
         int[][] dp=null;
 
