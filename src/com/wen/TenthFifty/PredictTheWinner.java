@@ -67,12 +67,6 @@ public class PredictTheWinner {
 //            } else {
 //                return score[player]+nums[start]>score[player^1];
 //            }
-//        } else if(start+1==end) {
-//            if(player==0) {
-//                return score[player]+Math.abs(nums[start]-nums[end])>=score[player^1];
-//            } else {
-//                return score[player]+Math.abs(nums[start]-nums[end])>score[player^1];
-//            }
 //        } else {
 //            score[player]+=nums[start];
 //            if(!canWin(nums, start+1, end, score, player^1)) {
