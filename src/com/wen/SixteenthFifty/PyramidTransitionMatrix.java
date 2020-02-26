@@ -4,6 +4,7 @@ import java.util.*;
 
 public class PyramidTransitionMatrix {
     // DP
+    // dp[i][j][k] stands for the letter at location (i, j) can be (char)('A'+k)
     public static boolean pyramidTransition(String bottom, List<String> allowed) {
         Map<Character, Set<String>> triples=new HashMap<>();
         for(String triple: allowed) {

@@ -15,6 +15,7 @@ Is Subsequence
 - 650 -
 *Split Array into Consecutive Subsequences
 - 700 -
+*LQMinimumWindowSubsequence
 Monotone Increasing Digits
 *LQNumberOfCornerRectangles
 - 750 -

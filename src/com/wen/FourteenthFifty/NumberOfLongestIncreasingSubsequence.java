@@ -1,5 +1,7 @@
 package com.wen.FourteenthFifty;
 
+import java.util.Arrays;
+
 public class NumberOfLongestIncreasingSubsequence {
     // Segment tree
     // Value here stands for the count of subsequences with length in the corresponding range(the range the node stands
@@ -97,35 +99,34 @@ public class NumberOfLongestIncreasingSubsequence {
     }
 
 //    // DP
+//    // dp[i] stands for the length of longest increasing subsequence ends with nums[i], count[i] stands for the number
+//    // of the LIS ends with nums[i]
 //    public int findNumberOfLIS(int[] nums) {
 //        if(nums==null || nums.length==0) {
 //            return 0;
 //        }
 //        int l=nums.length;
 //        int[] dp=new int[l];
-//        int[] cnt=new int[l];
-//        dp[0]=1;
-//        cnt[0]=1;
+//        int[] count=new int[l];
+//        Arrays.fill(dp, 1);
+//        Arrays.fill(count, 1);
 //        int maxLength=1, maxCount=1;
 //        for(int i=1; i<l; i++) {
-//            int length=1, count=1;
-//            for(int j=i-1; j>=0 && j>=length-2; j--) {
+//            for(int j=i-1; j>=0 && j>=dp[i]-2; j--) {
 //                if(nums[j]<nums[i]) {
-//                    if(dp[j]+1>length) {
-//                        length=dp[j]+1;
-//                        count=cnt[j];
-//                    } else if(dp[j]+1==length) {
-//                        count+=cnt[j];
+//                    if(dp[j]+1>dp[i]) {
+//                        dp[i]=dp[j]+1;
+//                        count[i]=count[j];
+//                    } else if(dp[j]+1==dp[i]) {
+//                        count[i]+=count[j];
 //                    }
 //                }
 //            }
-//            dp[i]=length;
-//            cnt[i]=count;
-//            if(length>maxLength) {
-//                maxLength=length;
-//                maxCount=count;
-//            } else if(length==maxLength) {
-//                maxCount+=count;
+//            if(dp[i]>maxLength) {
+//                maxLength=dp[i];
+//                maxCount=count[i];
+//            } else if(dp[i]==maxLength) {
+//                maxCount+=count[i];
 //            }
 //        }
 //        return maxCount;

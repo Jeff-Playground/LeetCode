@@ -3,6 +3,8 @@ package com.wen.TwelfthFifty;
 import java.util.Arrays;
 
 public class LQMaximumVacationDays {
+    // DP
+    // dp[i][j] stands for the max vacation days for week i in city j
     public static int maxVacationDays(int[][] flights, int[][] days) {
         int N=flights.length, K=days[0].length;
         int[][] dp=new int[K][N];

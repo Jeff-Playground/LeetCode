@@ -10,6 +10,7 @@ public class MinCostClimbingStairs {
     }
 
 //    // DP1
+//    // min[i] stands for the minimum cost to reach stair i
 //    public int minCostClimbingStairs(int[] cost) {
 //        int[] min=new int[cost.length+1];
 //        for(int i=2; i<=cost.length; i++){
