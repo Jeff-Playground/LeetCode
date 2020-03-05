@@ -130,6 +130,8 @@ Circular Array Loop
 - 500 -
 Most Frequent Subtree Sum
 Super Washing Machines
+Longest Uncommon Subsequence I
+*Longest Uncommon Subsequence II
 *LQWordAbbreviation
 LQConstructBinaryTreeFromString
 Complex Number Multiplication
