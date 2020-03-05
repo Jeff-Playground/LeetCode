@@ -1,0 +1,19 @@
+Scenario
+    DAU/MAU
+    QPS
+        Webserver: 1k QPS
+        SQL DB: 1k QPS
+        NoSQL DB: 10k QPS
+        Cache: 1m QPS
+    Peak=Average*Ratio
+
+Service
+
+Storage
+    Design Twitter as an example:
+    Pull model: too many DB reads for followers, can be solved by using cache
+    Push model(Fan-out): for celebrity with too many followers, the fan-out would take too long for some followers, can
+                         be optimized by adding more machines doing fan-out
+    Both models can be combined, for celebrities use pull, while for others push
+Scale
+
