@@ -1,0 +1,92 @@
+Design distributed file system(HDFS/GFS):
+    Scenario:
+        Write/read file, what's the maximum file size?
+        File saved on multiple machines, whats the number of machines?
+    Service:
+        Communication between servers:
+            Peer-to-peer:
+                Advantages:
+                    No single point of failure
+                Disadvantages:
+                    Hard to keep consistency of data
+            Master-slave:
+                For DB: master supports read/write, slaves are read-only replicas
+                For GFS/HDFS: master is the coordinator, where slaves stores files/data
+                Advantages:
+                    Relatively easy to keep consistency of data
+                    Easy to set up
+                Disadvantages:
+                    Single master is a single point of failure
+    Storage:
+        What's in a file:
+            Metadata: is read more often then the actual file data
+            Data
+        How can a file be stored in one single machine:
+            Sequentially: (windows)
+            Fragmented: File data is separated into chunks (linux)
+                Disk is separated into blocks:
+                    Easy to check for errors
+                    Fragmentation
+                Within metadata, there's a index on the block locations of the file chunks
+                    Make a chunk big:
+                        Advantages: reduce the size of metadata
+                        Disadvantages: for small files it's wasting some disk space
+        How can a file be stored in multiple machines:
+            Master-slave:
+                Master:
+                    stores the metadata of the file(s), which contains info on chunk index(<chunk_server_no>+<offset>)
+                    maintain and return chunk server list info for read requests
+                    maintain and return free chunk server info for write requests
+                    NOTE here can't simply send file to master for write requests to avoid it becomes a bottleneck
+                Slaves(chunk servers) stores the actual data
+                    Normally the chunk size would be 64MB
+                Optimization:
+                    The <offset> can be stored on slaves. For each chunk server, maintain a index storing <offset> info for chunks on the node
+                    Benefits:
+                        Reduce the metadata size on master
+                        Reduce the trafic between slaves and master(when a files is moved and offset changed, no need to inform the master)
+        How to write a file:
+            Divide a file into chunks, and transfer separately
+                Benefits: When error only need to rewrite a chunk instead of the whole thing
+            Clients should be responsible for dividing the file
+            Working flow: (Note the client here is an application)
+                1. Client divides the file into multiple chunks
+                2. Client communicates with master to get a chunk server destination
+                3. Client write the chunk to the dedicated chunk server
+                4. The written-into chunk server will notify the master about written done, and reply to client with confirmation
+                5. Repeat 2 3 4 until whole file is written into the file system
+            Optimization:
+                When writing a chunk, write to multiple chunk servers as replicas
+                NOTE for avoid chunk server bottleneck, the write can be to a leader instead of directly to all chunk servers, leader will be responsible for transferring to other nodes
+        How to update a file:
+            Remove the original and rewrite at a different location
+        How to read a file:
+            Working flow:
+                1. Client communicates with master by providing the file name and get a chunk server list(location list)
+                2. Client goes to each chunk server to get the file chunk by chunk
+    Scale:
+        Have multiple masters to avoid single point of failure
+        How to validate a chunk:
+            Checksum:
+                1 checksum is normally 4bytes(32bit)
+                it's written at the end of each write
+                can discover an error of one bit
+                it can be checked for each read
+                methods: MD5, SHA1, SHA256, SHA512
+        How to avoid data loss when a chunk server is down:
+            Replica:
+                Normally keep 3 replicas in different locations to avoid catastrophic failures
+        Chunk server selection strategy for writes:
+            LRU
+            High free space
+        How to recover when a chunk is broken:
+            1. Ask master for other replica locations
+            2. Get the chunk from one of the returned locations
+        How to find if a chunk server is down:
+            Chunk server to send heartbeats to master
+        How to solve chunk server bottleneck:
+            Pick a leader:
+                Find the closest node
+                Find the currently free node
+            How to solve chunk server failure on leader node:
+                Abort the original operation and retry the request with master
