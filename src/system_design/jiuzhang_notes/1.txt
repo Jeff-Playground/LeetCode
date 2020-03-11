@@ -1,19 +1,62 @@
-Scenario
-    DAU/MAU
-    QPS
-        Webserver: 1k QPS
-        SQL DB: 1k QPS
-        NoSQL DB: 10k QPS
-        Cache: 1m QPS
-    Peak=Average*Ratio
-
-Service
-
-Storage
-    Design Twitter as an example:
-    Pull model: too many DB reads for followers, can be solved by using cache
-    Push model(Fan-out): for celebrity with too many followers, the fan-out would take too long for some followers, can
-                         be optimized by adding more machines doing fan-out
-    Both models can be combined, for celebrities use pull, while for others push
-Scale
-
+Design Twitter
+    Scenario:
+        DAU/MAU
+        Average=DAU*RequestPerDay/86400seconds
+        Peak=Average*Ratio, the Ratio is normally around 3
+        Read QPS: 300k
+        Write QPS: 5k
+        How to pick server based on QPS:
+            Webserver: 1k QPS
+            SQL DB: 1k QPS
+            NoSQL DB: 10k QPS
+            Cache: 1m QPS
+    Service:
+        User service: Register, Login   - SQL
+        Tweet service: Post a tweet, News feed timeline     - NoSQL
+        Media service: Upload video, Upload image       - File system
+        Friendship service: Follow, Un-follow       - SQL/NoSQL
+    Storage:
+        Memory only:
+        SQL Database:
+            Users info
+        NoSQL Database:
+            Tweets info: owner_id, tweet_content, timestamp
+            Social graph info
+        File system:
+            Media files
+        Store news feed:
+            Pull model:
+                Working flow:
+                    1. Client goes to webserver and request news feed
+                    2. Webserver goes to friendship table to get the list of followed
+                    3. Webserver goes to tweet table to get the tweets based on the list of followed
+                    4. Webserver do merge and return the news feed result to client
+            Push model(Fan-out): (Note here push is fan-outing data to disk/database, not to cache)
+                Working flow:
+                    1. Maintain a list for news feed for each and every user on server side(Note this is in one table, partitioned by user_id)
+                    2. When a user sends a tweet, it will be fan-out to the list of all the followers
+                    3. When a client requests news feed, just go to the list and return the top 100
+            Push is inefficient considering possibility of fake/inactive users
+    Scale:
+        Pull:
+            Potential issue and solution:
+                a lot of DB reads for followed, can be solved by using cache
+            Cache:
+                Timeline: can only store the more recent timeline for each user to save space
+                          this is updated each time a new tweet is sent
+                News feed: when refreshing can add all tweets later than the last timestamp
+                           this is updated on each login, note followed users' new tweets will update it but only for current active users
+        Push:
+            Potential issue and solution:
+                for celebrity with too many followers, the fan-out would take too long for some followers, can be optimized by adding more machines doing fan-out
+        Combine the two models:
+            For normal users, use push model as there won't be too many fan-out operations
+            For celebrity users, cache their timeline and use the pull model
+            So for news feed requests, it will merge the result from the news feed table and celebrities' timeline
+        Follow and un-follow:
+            When follow, merge the followed user timeline into the follower's ASYNCHRONOUSLY
+            When un-follow, remove the un-followed user timeline ASYNCHRONOUSLY
+        How to store likes/comments:
+            Create a new table and use the tweet_id and origin_user_id as the foreign key
+        New feed pagination:
+            Note the page is not divided by row count, page should be divided by timestamps to avoid adding new feed causing problem
