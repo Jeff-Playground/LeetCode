@@ -3,8 +3,8 @@ Consistent hashing: adding a new node wouldn't change much of the original nodes
     Micro shards/Virtual nodes: each machine can be mapped to a lot of(for example 1000) micro shards on the ring
                                 each micro shard is a node/value on the ring
         When computing the machine location of a value, just hash it to map to a node on the ring, and find the first existing node on the ring clock-wise
+            e.g. Hash(value)=location, lookup location in TreeMap(RBTree) to find the corresponding machine
         When adding a new machine, each new node would get part of the data from the first existing node clock-wise on the ring
-
 Backup vs. Replica:
     Backup: static, and is done on a regular basis at a scheduled time
             when data loss occurs, it can only recover to one of the backup time snapshot
@@ -13,21 +13,17 @@ Backup vs. Replica:
              when data loss occurs, it can use one of the duplicate nodes for recovering immediately
              it's online and can be used for read requests
              it's more expensive than backup
-
 SQL replica: (MySQL)
     Master-slave:
         Master handles write and read requests while slave only read requests
         Write ahead log: All requests are persisted in log, and master will notify slave to read logs when new requests happens
                          Data on slaves are delayed
         When master is down, one of the slaves will be promoted to master and start handling read and write requests
-
 NoSQL replica: (Cassandra)
     Data are stored on 3 clock-wise virtual nodes on the hashing ring belong to 3 different machines
-
 SQL vs. NoSQL replica:
     SQL replica is usually shipped by master-slave setup, it can be manually configured to use consistent hashing
     NoSQL replica is automatically by consistent hashing, so it requires less effort for replica and sharding
-
 Design Tiny URL:
     Scenario:
         Generate a short URL based on a long URL
