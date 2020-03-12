@@ -1,17 +1,11 @@
 Design user system:
     Scenario:
         Many reads and few writes, can be optimized by cache
-    Storage:
-        SQL - 1k QPS
-        NoSQL - 10k QPS
-        Cache - 1m QPS
-            LRU/LFU for updating cache
-            Memcached(cache aside): memory only, better stability and scalability
-            Redis(cache through): supports physical persistence
     Service:
         Authentication service: by session
             session normally has session_key, user_id, ttl
             session_key will be sent back to user, and will be included in all requests' cookies
+        User service:
         Friendship service:
             Relationship can be stored in one direction(1 row), or in both ways(2 rows)
             For storing relationship:
@@ -23,10 +17,18 @@ Design user system:
                     NoSQL normally doesn't support multi-indexes
                     NoSQL comes with sharding, SQL sharding has to be handled by developers
                 Cassandra:
-                    wide-column NoSQL DB
+                    wide-column NoSQL DB(MongoDB is document NoSQL DB)
                     row_key: hash key/partition key
                     column_key: can be queried by range
                     value: not easily queryable, can be used to store metadata
+    Storage:
+        SQL - 1k QPS
+        NoSQL - 10k QPS
+        Cache - 1m QPS
+            LRU/LFU for updating cache
+            Memcached(cache aside): memory only, better stability and scalability
+            Redis(cache through): supports physical persistence
+            Operations order: Normally delete from cache first, then save to database
     Scale:
         Single point failure:
             Sharding: distribute data to different nodes, one node down won't bring down the whole system
