@@ -694,7 +694,6 @@ public class Main {
 
 //        LQNumberOfCornerRectangles.countCornerRectangles(new int[][]{{1,0,0,1,0},{0,0,1,0,1},{0,0,0,1,0},{1,0,1,0,1}});
 
-        PrisonCellsAfterNDays.prisonAfterNDays(new int[]{0,0,0,1,1,0,1,0
-        }, 574);
+//        PrisonCellsAfterNDays.prisonAfterNDays(new int[]{0,0,0,1,1,0,1,0}, 574);
     }
 }
