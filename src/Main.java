@@ -19,6 +19,7 @@ import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
 import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
+import com.wen.TwentiethFifty.PrisonCellsAfterNDays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -692,5 +693,8 @@ public class Main {
 //        MonotoneIncreasingDigits.monotoneIncreasingDigits(332);
 
 //        LQNumberOfCornerRectangles.countCornerRectangles(new int[][]{{1,0,0,1,0},{0,0,1,0,1},{0,0,0,1,0},{1,0,1,0,1}});
+
+        PrisonCellsAfterNDays.prisonAfterNDays(new int[]{0,0,0,1,1,0,1,0
+        }, 574);
     }
 }
