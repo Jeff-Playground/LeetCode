@@ -1,0 +1,100 @@
+Design a web crawler:
+    Scenario:
+        Given seeds, crawl the whole web
+            Assume a total of 1T web pages, and crawl all of them every week: 1T/(7*24*3600)=1.6M/second
+            Assume a total of 10PB storage, average size of a web page: 10PB/1T=10KB
+        A simplistic news/web crawler:
+            given the URL of news list page, grab and extract all the news titles from the news list page
+            Basically just make a HTTP request, and parse the response using regular expression
+        A single-threaded web crawler:
+            Basically a simple producer-consumer system doing BFS:
+                Use a queue/buffer for storing the list of URLs, starting with some seeds URLs inside
+                Crawler would perform the function of both producer and consumer:
+                    Consumer would retrieve the URLs from the queue, make the request and store result, and extract URLs embedded in the response
+                    Producer would put the extracted URLs back into the queue
+                Can be optimized by using a HashSet to ensure not duplicated crawling
+        A multi-threaded web crawler:
+            How multiple threads work together on shared resource:
+                Sleep(exponential back-off)
+                Condition variable(mutex)
+                Semaphore(allows a maximum of pre-defined number of threads to access the resource)
+            Note more treads not necessarily means better performance because:
+                Context switch cost(CPU number limitation)
+                Port number limitation(Each request would need one port, there're a total of 2^16=65536 ports on one machine, and some are reserved)
+                Network bottleneck for single machine
+        A distributed web crawler:
+            This is similar to a multi-threaded web crawler on one single machine except the worker will be hosted on multiple machines, and the queue will be replaced by a database
+            Introduce a task table to replace the queue:
+                columns:
+                    id
+                    url
+                    state: idle/working
+                    priority:
+                    available_time: the scheduled time for next crawling, used to control the frequency for crawling on the url
+                Every worker can retrieve 1000 items from task table on each select and start working on them
+    Service:
+        Crawler: the worker to do the crawling on URLs
+        TaskService: the service for maintaining the task queue/DB
+        StorageService: the service for maintaining the crawled content storage
+    Storage:
+        Use SQL to store the task table(the item count here is equal to the number of web pages available on internet)
+        Use NoSQL to store the crawled content
+    Scale:
+        How to handle slow select:
+            Scale up the task DB horizontally, and implement sharding as needed
+        How to handle update failure(content not updated for specific URLs):
+            Exponential back-off
+        How to handle dead cycle(too many web pages in one single website and crawler keeps working on it):
+            Specify quota for certain websites, for example: 10%
+        How to handle websites located in multiple regions:
+            Set up a set of system in every different region
+
+Design a type-ahead system:
+    Scenario:
+        Google suggestion: prefix -> top n hot key words
+            DAU: 500M
+            Average searches per day:
+                Every user searches 6 times, each time types 4 letters: 4*6*500M=12B
+            Average QPS: 12B/(24*3600)=138K
+            Peak QPS: 2*138K=276K
+        Twitter suggestion: prefix -> suggestion+user+hashtag
+    Service:
+        Google suggestion:
+            QueryService:
+                the service handling type-ahead requests from user side, and persisting data into DB/trie
+            DataCollectionService:
+                the service interacting with log on hard disk, and load data into DB/trie
+    Storage:
+        Google suggestion:
+            QueryService:
+                DB/Redis:
+                    hit_stats table(this is a way to implement trie by DB):
+                        columns:
+                            keyword:
+                            hit_count: results are sorted dependently by this column
+                        To enhance the performance, add all possible patterns as keys, for example, for pattern abc, there would be 3 keys: a, ab, abc
+                    If implemented by DB, can be optimized by adding memcached as a cache-through service
+                Trie:
+                    For each node, store the top n hot key words starting by this pattern
+                    This can be put in the memory of the QueryService web servers, and serialized onto disk
+                    This will need to be serialized to be able to write in disk, so it can recover on failures
+                    Note for an online trie, it's read-only, and it will be updated offline by the DataCollectionService
+                    Tries will need to be updated off-line regularly
+                    Trie can be stored distributively onto multiple servers, where a hash-service will decide the location of a certain pattern
+            DataCollectionService:
+                BigTable:
+                    columns:
+                        user:
+                        keyword:
+                        timestamp:
+                    The service can do group by keyword to calculate the data needed for populating trie
+    Scale:
+        How to reduce response time:
+            In front-end(browser):
+                cache result in cookies
+                do pre-fetch
+            What if trie gets too large for one machine:
+                store cache across multiple servers and use consistent hashing to help decide locations of patterns
+            How to reduce the size of log:
+                Probabilistic logging:
+                    Log with 1/1000 probability
