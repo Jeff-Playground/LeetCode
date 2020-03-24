@@ -1,0 +1,82 @@
+Map reduce: MapReduce is a programming model and an associated implementation for processing and generating big data sets with a parallel, distributed algorithm on a cluster.
+    1. Input
+    2. Split
+    3. Map
+    Step 4 and 5 together is also called shuffle:
+        4. Sort and partition, where partition is to prepare for keys to be fetched to different reduce machines
+            Done on the map machines
+            Here sort is external sorting as data is too large to be completely read into memory
+        5. Merge sort and fetch, merge sort is similar to merge k sorted list
+            Done on the reduce machines
+    6. Reduce
+        The maximum number of reduce machines is the number of keys
+    7. Output
+Use cases:
+    Word count:
+        Map input:
+            Key: file location
+            Value: file content
+        Reduce input:
+            Key: word
+            Value: word count(1)
+        Reduce output:
+            Key: word
+            Value: word count aggregated value
+    Inverted index:
+        Map input:
+            Key: URL
+            Value: content of webpage under URL
+        Reduce input:
+            Key: word
+            Value: URL of where word came from
+        Reduce output:
+            Key: word
+            Value: List of URLs where word came from
+    Anagram:
+        Map input:
+            Key: word index
+            Value: word
+        Reduce input:
+            Key: sorted string of word
+            Value: word
+        Reduce output:
+            Key: sorted string of word
+            Value: list of underlying words(anagrams)
+    Top K frequent words:(Repeat below MapReduce process until the input is small enough to be fitted onto one machine)
+        Map input:
+            Key: file location
+            Value: file content
+        Reduce input:
+            Key: word
+            Value: word count(1)
+        Reduce output:
+            (Note here for each reducer, maintain a PriorityQueue to ensure the output has maximum of K key-value pairs)
+            (PriorityQueue can be called during cleanUp)
+            A maximum of K pairs of:
+                Key: word
+                Value: word count aggregated value
+Design a MapReduce system:
+    Use master-slave pattern:
+        master is the coordinator, and slaves are workers where map and reduce logic is executed
+        master responsibilities:
+            Split input and assign to map workers
+            Assign reduce workers for partitions
+    Whole process step by step:
+        1. (Start)User program start master and worker.
+        2. (Assign Task)Master assign task to the map workers and reduce workers.(Assign Map and Reduce code)
+        3. (Split)Master split the input data.
+        4. (Map Read)Each map worker read the split input data.
+        5. (Map)Each map worker do the "Map" job on their machine.
+        6. (Map Output)Each map worker output the file in its local disk.
+        7. (Reduce Fetch)Each reduce worker fetch the data from the map worker.
+        8. (Reduce)Each reducer worker do the "Reduce" job on their machine.
+        9. (Reduce output)Reduce worker output he final output data.
+    Scale:
+        When a map worker or reduce worker is down while processing, master will get a worker from the worker pool and reassign the task
+        Input and output will be stored in GFS, and GFS will be responsible for data replication
+        Data for step 4 and 5 are stored in local disk of map workers:
+            when failure, recovery is simply discard the data and redo the process
+        Map and reduce is normally separated on different workers, so initialization can be performed in parallel
+        How to solve the issue when data for a specific key is too large:
+            This would make reduce worker handling this key to be very slow.
+            The trick is to add a random postfix to this key only, so the work can be distributed to different reduce workers instead of going to a single worker.

@@ -92,7 +92,7 @@ Design a type-ahead system:
         How to reduce response time:
             In front-end(browser):
                 cache result in cookies
-                do pre-fetch
+                do pre-fetch: basically return more result than needed, and highly likely it will contain result for the search on next typed in letter
             What if trie gets too large for one machine:
                 store cache across multiple servers and use consistent hashing to help decide locations of patterns
             How to reduce the size of log:
