@@ -113,6 +113,8 @@ Additive Number
 *Increasing Triplet Subsequence
 Palindrome Pairs
 Top K Frequent Elements
+Intersection of Two Arrays
+Intersection of Two Arrays II
 - 350 -
 *Water and Jug Problem
 First Unique Character in a String
