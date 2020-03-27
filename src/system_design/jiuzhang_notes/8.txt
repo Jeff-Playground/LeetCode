@@ -49,7 +49,7 @@ Design Bigtable:
                     No disk size limitation
                     Automatic replicas
                     Automatic fail-over and recovery
-                Note data is also stored on slave's local disk, maybe partially
+                Note data is also cached on slave's local disk, only partially
         How to handle race condition:
             Implement distributed lock:
                 Chubby
