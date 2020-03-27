@@ -1,0 +1,58 @@
+Design Bigtable:
+    Scenario:
+        Lookup: Binary search
+        Write/update: Append, only to the last unsorted file. All other files are sorted.
+        Organize: External sorting
+                  Merge k sorted list
+    Service:
+        Write/update:
+            1. Call the interface for write/update
+            2. Append the key+value to unsorted file
+            Optimization:
+                Read the unsorted file into memory in the first place, and make sorted when writing. This file can be serialized to disk regularly.
+                Use write-ahead-log to avoid data loss when memory fails.
+            Optimized steps:
+                1. Call the interface for write/update
+                2. Write to WAL
+                3. Save and sort in memory
+                4. Persist to file regularly
+        Lookup:
+            1. Call the interface for read
+            2. Search in sorted list from memory, if found, return
+            3. If can't find in memory, do binary search in all files and find the latest
+            Optimization:
+                How to speed up search in single file:
+                    Add index, index is normally implemented with a B tree
+                How to speed up search in multiple files:
+                    Bloom filter: False is always false, but true might be false.
+                        The larger the number of hash functions, the lesser the probability of false positives.
+                        The larger the bit array, the lesser the probability of false positives.
+                        The more items added, the larger the probability of false positives.
+            Optimized steps:
+                1. Call the interface for read
+                2. Search in sorted list from memory, if found, return
+                3. If can't find in memory, go over files by bloom filter, and for files with positive result search by index.
+        Notes:
+            For Google Bigtable, sorted list is implemented by using skip list data structure, and the data files are called SSTables.
+            The slave servers are called tablet servers.
+    Storage:
+        File system
+    Scale:
+        How to read/write key+value from 1PB file:
+            Horizontal sharding with master-slave pattern:
+                Master maintains health info for slaves by heartbeat mechanism
+                Master has key location info based on consistent hashing
+                All operations would go to master first to get the corresponding slave server id, then perform the operations on the server.
+        What if the data is too much for slave server local disks:
+            Store data into GFS:
+                Advantages:
+                    No disk size limitation
+                    Automatic replicas
+                    Automatic fail-over and recovery
+                Note data is also stored on slave's local disk, maybe partially
+        How to handle race condition:
+            Implement distributed lock:
+                Chubby
+                Zookeeper
+            Write/read request would lock the key to ensure no read/write operations during write/read
+            The consistent hashing logic can be moved to lock server, so master will only be responsible to ensure slaves up and healthy
