@@ -1,0 +1,137 @@
+Design WhatsApp:
+    Scenario:
+        User login/logout:
+            1B MAU
+            DAU/MAU=75%
+            Assume DAU is 100M
+            QPS:
+                20 messages/user per day on average
+                Average QPS=20*100M/86400=20k
+                Peak QPS=20k*5=100k
+            Message storage: 30bytes*10 messages/user per day*100M=30GB
+        Contacts
+        Two users message each other
+        Group chat
+        Online status
+        Archived message history
+        Multi-devices
+    Service:
+        Real-time message delivery service:
+        Message management service:
+    Storage:
+        user table:
+        message table:(NoSQL, no updates)
+            id:
+            thread_id:
+            from_user_id:
+            to_user_id:
+            content:
+            created_at:
+        thread table:(SQL, has updates, note this will be created for every participants in a conversation, because it involves individual properties like is_muted and nickname)
+            owner_id: indexed
+            thread_id: indexed
+            participants_id:
+            created_at:
+            updated_at:
+            is_muted:
+            nickname:
+        Steps for a user to send a message:
+            1. user send the message and receiver info to server
+            2. server create a thread for each and every user involved in the conversation(sender included)
+            3. server create a message with thread_id
+        Steps for a user to receive a message:
+            1. user make a request to server every 10 seconds
+            2. to server the request, server will query the thread table first to check updates and then query message table accordingly
+    Scale:
+        How to scale the system if data is too much:
+            message table is NoSQL and comes with scaling
+            thread table will need to do data sharding based on owner_id
+        How to optimized the receiving 10s pull mechanism:
+            Socket with push service:
+                Note:
+                    heartbeat is not enforced for socket, but here heartbeat should be used for ensure user active
+                    socket on server side will use single listening port and distinguish connections by client side ip/port
+                    socket on client side will occupy one port and can't share it
+                For each and every user, there'll be a socket connection
+                For users inactive for a certain period of time, socket will be closed to free up resource
+            If socket is closed, user will need to send a pull request at next active time to get messages
+            Main difference for socket with HTTP is socket allows server to push data, while HTTP only allows client pull data
+        Optimized process:
+            1. When user launches app, it will make a socket connection to server
+            2. When another user send a message, it's first sent to server, then processed(stored) by server, and it's pushed to user by server
+            3. User receives the message
+        How to support large group chat:
+            Add a channel service to maintain the online info, and only push messages to users online
+        How to update online status:
+            For users to let server know they're online, send heartbeat on a regular basis
+            For server to let users know who's online, users pull info from server on a regular basis
+            Here the heartbeat can be combined with the ask who's online request
+
+Design a ratelimiter:
+    Scenario:
+        Limit based on the type of requests:
+            Before user logged on: IP
+            After user logged on: user
+            Register/Login/Activate: Email
+        Reject request when too many requests:
+            2/s, 5/min, 10/h, 100/day
+    Service:
+        ratelimiter itself is a service, no need to divide further
+    Storage:
+        Memcached:
+            reason:
+                log-like
+                has TTL
+                more efficient than DB
+                no persistence request
+            key:
+                event+feature+timestamp
+            value:
+                sum of request times
+        To check if too many requests:
+            Basically do a for loop on all keys for the past time range and get the sum, then compare sum to threshold
+    Scale:
+        For checking requests in one day(86400 seconds), it's 86k records, how to optimize:
+            Data can be saved based on seconds, minutes and hours depends on the time range:
+                An example for a request at 23:30:33, it will need to query for:
+                    23:30:00 - 23:30:33 on seconds(34 records)
+                    23:00:00 - 23:29:59 on minutes(30 records)
+                    00:00:00 - 22:59:59 on hours(23 records)
+                    23:31:00 - 23:59:59 on minutes(29 records)
+                    23:30:34 - 23:30:59 on seconds(26 records)
+                    So 34+30+23+29+26=142 in total
+
+Design a datadog:
+    Scenario:
+        Log every request for a service
+        Search for the requested count for a service
+        Search for the total time of requests
+        Search for the request curve for a given period
+        Assume QPS is 2k
+    Service:
+        datadog itself is a service, no need to divide further
+    Storage:
+        Much more writes than reads
+        Need hard disk persistence
+        SQL, NoSQL and file system are all fine
+        For request recording on tiny URL service with NoSQL:
+            key: short URL
+            value: request info, stored like formatted append only log
+                   values should be organized in a way that old data is aggregated into longer range, and recent data shorter range
+                   it's similar to how data is organized for ratelimiter:
+                        ...
+                        2016/02/26 23 1h 200
+                        ...
+                        2016/03/27 23:50 5m 40
+                        2016/03/27 23:55 5m 30
+                        2016/03/28 00:00 1m 10
+                        2016/03/28 00:01 1m 21
+                        ...
+                        2016/03/28 16:00 m 2
+                        ...
+    Scale:
+        How to handle large QPS:
+            Aggregate request data in memory for a certain period of time(15s) before writing to DB
+        How to organize data:
+            When the value for a key is too large, it will be organized and aggregated
+            Old data log is called retention
