@@ -1,8 +1,8 @@
 Design Twitter
     Scenario:
         DAU/MAU
-        Average=DAU*RequestPerDay/86400seconds
-        Peak=Average*Ratio, the Ratio is normally around 3
+        Average QPS=DAU*RequestPerDay/86400seconds
+        Peak QPS=Average QPS*Ratio, the Ratio is normally around 3
         Read QPS: 300k
         Write QPS: 5k
         How to pick server based on QPS:
@@ -54,8 +54,8 @@ Design Twitter
             For celebrity users, cache their timeline and use the pull model
             So for news feed requests, it will merge the result from the news feed table and celebrities' timeline
         Follow and un-follow:
-            When follow, merge the followed user timeline into the follower's ASYNCHRONOUSLY
-            When un-follow, remove the un-followed user timeline ASYNCHRONOUSLY
+            When follow, merge the followed user timeline into the follower's news feed ASYNCHRONOUSLY
+            When un-follow, remove the un-followed user timeline from the news feed ASYNCHRONOUSLY
         How to store likes/comments:
             Create a new table and use the tweet_id and origin_user_id as the foreign key
         New feed pagination:
