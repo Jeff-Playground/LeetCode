@@ -26,7 +26,7 @@ public class NetworkDelayTime {
 //                    return reached.get(cur[1]);
 //                } else {
 //                    for(int i=0; i<N+1; i++) {
-//                        if(!reached.containsKey(i) && edges[cur[1]][i]!=-1) {
+//                        if(edges[cur[1]][i]!=-1 && !reached.containsKey(i)) {
 //                            pq.offer(new int[] {cur[1], i});
 //                        }
 //                    }

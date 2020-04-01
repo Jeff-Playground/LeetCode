@@ -1,3 +1,4 @@
+import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
 import com.wen.EighthFifty.CombinationSumIV;
 import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.FifteenthFifty.*;
@@ -695,5 +696,7 @@ public class Main {
 //        LQNumberOfCornerRectangles.countCornerRectangles(new int[][]{{1,0,0,1,0},{0,0,1,0,1},{0,0,0,1,0},{1,0,1,0,1}});
 
 //        PrisonCellsAfterNDays.prisonAfterNDays(new int[]{0,0,0,1,1,0,1,0}, 574);
+
+//        ShortestPathToGetAllKeys.shortestPathAllKeys(new String[]{"@...a",".###A","b.BCc"});
     }
 }
