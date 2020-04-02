@@ -1,3 +1,4 @@
+import com.wen.EighteenthFifty.ReachableNodesInSubdividedGraph;
 import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
 import com.wen.EighthFifty.CombinationSumIV;
 import com.wen.EleventhFifty.LongestPalindromicSubsequence;
@@ -698,5 +699,7 @@ public class Main {
 //        PrisonCellsAfterNDays.prisonAfterNDays(new int[]{0,0,0,1,1,0,1,0}, 574);
 
 //        ShortestPathToGetAllKeys.shortestPathAllKeys(new String[]{"@...a",".###A","b.BCc"});
+
+//        ReachableNodesInSubdividedGraph.reachableNodes(new int[][]{{1,2,5},{0,3,3},{1,3,2},{2,3,4},{0,4,1}},7,5);
     }
 }
