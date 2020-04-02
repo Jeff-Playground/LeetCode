@@ -13,3 +13,6 @@
 - 850 -
 *Minimum Number of Refueling Stops
 - 900 -
+- 950 -
+K Closest Points to Origin
+- 1000 -
