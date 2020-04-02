@@ -5,6 +5,7 @@ cycles.
 *Longest Consecutive Sequence
 *LQGraphValidTree
 - 300 -
+LQNumberOfConnectedComponentsInAnUndirectedGraph
 *LQNumberOfIslandsII
 - 350 -
 *Evaluate Division

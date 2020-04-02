@@ -15,6 +15,7 @@ import com.wen.NinthFifty.LQSequenceReconstruction;
 import com.wen.SecondFifty.TextJustification;
 import com.wen.SeventeenthFifty.*;
 import com.wen.SeventhFifty.BestTimeToBuyAndSellStockWithCooldown;
+import com.wen.SeventhFifty.LQNumberOfConnectedComponentsInAnUndirectedGraph;
 import com.wen.SeventhFifty.PalindromePairs;
 import com.wen.SeventhFifty.RemoveInvalidParentheses;
 import com.wen.SixteenthFifty.*;
@@ -703,6 +704,10 @@ public class Main {
 
 //        ReachableNodesInSubdividedGraph.reachableNodes(new int[][]{{1,2,5},{0,3,3},{1,3,2},{2,3,4},{0,4,1}},7,5);
 
-        MinimumNumberOfRefuelingStops.minRefuelStops(1000000,70768,new int[][]{{12575,171159},{81909,101253},{163732,164401},{190025,65493},{442889,31147},{481202,166081},{586028,206379},{591952,52748},{595013,9163},{611883,217156}});
+//        MinimumNumberOfRefuelingStops.minRefuelStops(1000000,70768,new int[][]{{12575,171159},{81909,101253},{163732,164401},{190025,65493},{442889,31147},{481202,166081},{586028,206379},{591952,52748},{595013,9163},{611883,217156}});
+
+//        LQNumberOfConnectedComponentsInAnUndirectedGraph.countComponents(5, new int[][]{{0,1},{1,2},{3,4}});
+
+//        LQNumberOfConnectedComponentsInAnUndirectedGraph.countComponents(5, new int[][]{{0,1},{1,2},{2,3},{3,4}});
     }
 }
