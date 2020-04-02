@@ -26,3 +26,7 @@ Monotone Increasing Digits
 *K-Similar Strings
 *Minimum Cost to Hire K Workers
 - 900 -
+- 950 -
+- 1000 -
+Last Stone Weight
+- 1050 -

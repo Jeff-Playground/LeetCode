@@ -38,3 +38,13 @@ Bus Routes
 *K-Similar Strings
 *Shortest Path to Get All Keys
 - 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+- 1250 -
+- 1300 -
+Jump Game III
+- 1350 -

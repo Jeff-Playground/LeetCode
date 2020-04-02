@@ -1,3 +1,4 @@
+import com.wen.EighteenthFifty.MinimumNumberOfRefuelingStops;
 import com.wen.EighteenthFifty.ReachableNodesInSubdividedGraph;
 import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
 import com.wen.EighthFifty.CombinationSumIV;
@@ -701,5 +702,7 @@ public class Main {
 //        ShortestPathToGetAllKeys.shortestPathAllKeys(new String[]{"@...a",".###A","b.BCc"});
 
 //        ReachableNodesInSubdividedGraph.reachableNodes(new int[][]{{1,2,5},{0,3,3},{1,3,2},{2,3,4},{0,4,1}},7,5);
+
+        MinimumNumberOfRefuelingStops.minRefuelStops(1000000,70768,new int[][]{{12575,171159},{81909,101253},{163732,164401},{190025,65493},{442889,31147},{481202,166081},{586028,206379},{591952,52748},{595013,9163},{611883,217156}});
     }
 }
