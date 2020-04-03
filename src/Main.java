@@ -24,6 +24,7 @@ import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
 import com.wen.TwentiethFifty.PrisonCellsAfterNDays;
+import com.wen.TwentySecondFifty.LQAllPathsFromSourceLeadToDestination;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -707,7 +708,12 @@ public class Main {
 //        MinimumNumberOfRefuelingStops.minRefuelStops(1000000,70768,new int[][]{{12575,171159},{81909,101253},{163732,164401},{190025,65493},{442889,31147},{481202,166081},{586028,206379},{591952,52748},{595013,9163},{611883,217156}});
 
 //        LQNumberOfConnectedComponentsInAnUndirectedGraph.countComponents(5, new int[][]{{0,1},{1,2},{3,4}});
-
 //        LQNumberOfConnectedComponentsInAnUndirectedGraph.countComponents(5, new int[][]{{0,1},{1,2},{2,3},{3,4}});
+
+        System.out.println(LQAllPathsFromSourceLeadToDestination.leadsToDestination(3, new int[][]{{0,1},{0,2}}, 0, 2));
+        System.out.println(LQAllPathsFromSourceLeadToDestination.leadsToDestination(4, new int[][]{{0,1},{0,3},{1,2},{2,1}}, 0, 3));
+        System.out.println(LQAllPathsFromSourceLeadToDestination.leadsToDestination(4, new int[][]{{0,1},{0,2},{1,3},{2,3}}, 0, 3));
+        System.out.println(LQAllPathsFromSourceLeadToDestination.leadsToDestination(3, new int[][]{{0,1},{1,1},{1,2}}, 0, 2));
+        System.out.println(LQAllPathsFromSourceLeadToDestination.leadsToDestination(2, new int[][]{{0,1},{1,1}}, 0, 1));
     }
 }
