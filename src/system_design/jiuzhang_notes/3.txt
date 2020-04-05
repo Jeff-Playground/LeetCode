@@ -53,7 +53,7 @@ Design Tiny URL:
             NoSQL doesn't support transaction
             SQL has better query support
             SQL has sequential ID
-            NoSQL has better performace
+            NoSQL has better performance
             NoSQL is usually shipped with scalability
         short_url random generation:
             SQL:
