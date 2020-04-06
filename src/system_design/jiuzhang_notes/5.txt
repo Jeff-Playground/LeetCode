@@ -18,7 +18,7 @@ Design a web crawler:
                 Sleep(exponential back-off)
                 Condition variable(mutex)
                 Semaphore(allows a maximum of pre-defined number of threads to access the resource)
-            Note more treads not necessarily means better performance because:
+            Note more threads not necessarily means better performance because:
                 Context switch cost(CPU number limitation)
                 Port number limitation(Each request would need one port, there're a total of 2^16=65536 ports on one machine, and some are reserved)
                 Network bottleneck for single machine

@@ -44,7 +44,7 @@ Design distributed file system(HDFS/GFS):
                     The <offset> can be stored on slaves. For each chunk server, maintain a index storing <offset> info for chunks on the node
                     Benefits:
                         Reduce the metadata size on master
-                        Reduce the trafic between slaves and master(when a files is moved and offset changed, no need to inform the master)
+                        Reduce the traffic between slaves and master(when a files is moved and offset changed, no need to inform the master)
         How to write a file:
             Divide a file into chunks, and transfer separately
                 Benefits: When error only need to rewrite a chunk instead of the whole thing

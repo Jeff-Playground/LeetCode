@@ -188,4 +188,5 @@ Maximize Distance to Closest Person
 - 900 -
 - 950 -
 Prison Cells After N Days
+Find the Town Judge
 - 1000 -
