@@ -1,6 +1,6 @@
 Design Uber:
     Scenario:
-        Driver QPS:(Assume 20k divers online by average and all drivers report location by every 4 seconds)
+        Driver QPS:(Assume 200k divers online by average and all drivers report location by every 4 seconds)
             200k/4=50k
         Peak driver QPS: 50k*3=150k
         Rider QPS can be ignored as it's much lesser than driver QPS and it's not done regularly
