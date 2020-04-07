@@ -90,6 +90,7 @@ Pyramid Transition Matrix
 - 800 -
 *Find Eventual Safe States
 *Bricks Falling When Hit
+*Similar String Groups
 - 850 -
 *K-Similar Strings
 - 900 -

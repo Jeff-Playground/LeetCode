@@ -34,6 +34,7 @@ Cut Off Trees for Golf Event
 - 800 -
 Bus Routes
 *Race Car
+*Similar String Groups
 - 850 -
 *K-Similar Strings
 *Shortest Path to Get All Keys
