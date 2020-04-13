@@ -127,7 +127,7 @@ Design a datadog:
                         2016/03/28 00:00 1m 10
                         2016/03/28 00:01 1m 21
                         ...
-                        2016/03/28 16:00 m 2
+                        2016/03/28 16:00 1m 2
                         ...
     Scale:
         How to handle large QPS:
