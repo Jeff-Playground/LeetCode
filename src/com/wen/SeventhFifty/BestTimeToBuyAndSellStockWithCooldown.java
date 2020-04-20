@@ -50,7 +50,7 @@ public class BestTimeToBuyAndSellStockWithCooldown {
         for(int i=1; i<l; i++){
             buy[i]=Math.max(rest[i-1]-prices[i], buy[i-1]);
             sell[i]=Math.max(buy[i-1]+prices[i], sell[i-1]);
-            rest[i]=Math.max(sell[i-1], Math.max(buy[i-1], rest[i-1]));
+            rest[i]=Math.max(sell[i-1], rest[i-1]);
         }
         return sell[l-1];
     }
