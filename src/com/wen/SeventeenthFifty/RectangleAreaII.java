@@ -24,7 +24,7 @@ public class RectangleAreaII {
 //        }
 //        long result=0, curX=0;
 //        int lastY=events[0][0];
-//        CacheEntry active=new CacheEntry(0, sortedX.length-1, sortedX);
+//        Node active=new Node(0, sortedX.length-1, sortedX);
 //        for(int[] event: events){
 //            int y=event[0], type=event[1], x1=event[2], x2=event[3];
 //            result+=curX*(y-lastY);
@@ -35,14 +35,14 @@ public class RectangleAreaII {
 //        return (int)result;
 //    }
 //
-//    static class CacheEntry{
+//    static class Node{
 //        int start, end;
-//        CacheEntry left, right;
+//        Node left, right;
 //        Integer[] sortedIdx;
 //        int activeType;
 //        long total;
 //
-//        public CacheEntry(int start, int end, Integer[] sortedIdx){
+//        public Node(int start, int end, Integer[] sortedIdx){
 //            this.sortedIdx=sortedIdx;
 //            this.start=start;
 //            this.end=end;
@@ -56,16 +56,16 @@ public class RectangleAreaII {
 //            return start+(end-start)/2;
 //        }
 //
-//        public CacheEntry getLeft(){
+//        public Node getLeft(){
 //            if(left==null){
-//                left=new CacheEntry(start, getRangeMid(), sortedIdx);
+//                left=new Node(start, getRangeMid(), sortedIdx);
 //            }
 //            return left;
 //        }
 //
-//        public CacheEntry getRight() {
+//        public Node getRight() {
 //            if(right==null){
-//                right=new CacheEntry(getRangeMid(), end, sortedIdx);
+//                right=new Node(getRangeMid(), end, sortedIdx);
 //            }
 //            return right;
 //        }
