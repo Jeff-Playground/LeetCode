@@ -17,6 +17,7 @@ import com.wen.SeventeenthFifty.*;
 import com.wen.SeventhFifty.*;
 import com.wen.SixteenthFifty.*;
 import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
+import com.wen.ThirdFifty.LRUCache;
 import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
@@ -293,7 +294,7 @@ public class Main {
 //        int[] ratings={1,3,2,2,1};
 //        Candy.candy(ratings);
 
-        WordBreakII.wordBreak("catsandog", Arrays.asList("cat","cats","and","sand","dog"));
+//        WordBreakII.wordBreak("catsandog", Arrays.asList("cat","cats","and","sand","dog"));
 
 //        LRUCache cache=new LRUCache(2);
 //        cache.put(1,1);
@@ -305,6 +306,13 @@ public class Main {
 //        cache.get(1);
 //        cache.get(3);
 //        cache.get(4);
+
+        LRUCache cache=new LRUCache(1);
+        cache.put(2,1);
+        cache.get(2);
+        cache.put(3,2);
+        cache.get(2);
+        cache.get(3);
 
 ////        MaxPointsOnALine.Point[] points={new MaxPointsOnALine.Point(1,1), new MaxPointsOnALine.Point(3,2),
 ////                new MaxPointsOnALine.Point(5,3), new MaxPointsOnALine.Point(4,1), new MaxPointsOnALine.Point(2,3),

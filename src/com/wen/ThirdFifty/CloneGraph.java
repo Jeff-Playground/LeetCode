@@ -16,24 +16,24 @@ public class CloneGraph {
     }
 
 //    // BFS, note created is acting as visited
-//    public Node cloneGraph(Node node) {
+//    public CacheEntry cloneGraph(CacheEntry node) {
 //        if(node==null){
 //            return null;
 //        }
-//        Map<Integer, Node> created=new HashMap<>();
-//        Node nodeCopy=new Node();
+//        Map<Integer, CacheEntry> created=new HashMap<>();
+//        CacheEntry nodeCopy=new CacheEntry();
 //        nodeCopy.val=node.val;
 //        created.put(nodeCopy.val, nodeCopy);
-//        Queue<Node> q=new LinkedList<>();
+//        Queue<CacheEntry> q=new LinkedList<>();
 //        q.offer(node);
 //        while(!q.isEmpty()){
 //            int size=q.size();
 //            for(int i=0; i<size; i++){
-//                Node cur=q.poll();
-//                for(Node nghbr: cur.neighbors){
-//                    Node clone=null;
+//                CacheEntry cur=q.poll();
+//                for(CacheEntry nghbr: cur.neighbors){
+//                    CacheEntry clone=null;
 //                    if(!created.containsKey(nghbr.val)){
-//                        clone=new Node();
+//                        clone=new CacheEntry();
 //                        clone.val=nghbr.val;
 //                        created.put(nghbr.val, clone);
 //                        q.offer(nghbr);
@@ -48,21 +48,21 @@ public class CloneGraph {
 //    }
 
 //    // DFS, note created is acting as visited
-//    public Node cloneGraph(Node node) {
+//    public CacheEntry cloneGraph(CacheEntry node) {
 //        if(node==null){
 //            return null;
 //        }
-//        Map<Integer, Node> created=new HashMap<>();
+//        Map<Integer, CacheEntry> created=new HashMap<>();
 //        cloneGraphDFS(node, created);
 //        return created.get(node.val);
 //    }
 //
-//    private void cloneGraphDFS(Node node, Map<Integer, Node> created){
+//    private void cloneGraphDFS(CacheEntry node, Map<Integer, CacheEntry> created){
 //        if(!created.containsKey(node.val)){
-//            Node clone=new Node();
+//            CacheEntry clone=new CacheEntry();
 //            clone.val=node.val;
 //            created.put(node.val, clone);
-//            for(Node nghbr: node.neighbors){
+//            for(CacheEntry nghbr: node.neighbors){
 //                cloneGraphDFS(nghbr, created);
 //                clone.neighbors.add(created.get(nghbr.val));
 //            }
