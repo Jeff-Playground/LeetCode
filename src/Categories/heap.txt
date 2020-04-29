@@ -1,5 +1,7 @@
 *Merge k Sorted Lists
+Ugly Number II
 - 300 -
+Super Ugly Number
 - 350 -
 - 400 -
 - 450 -
