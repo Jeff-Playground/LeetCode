@@ -16,6 +16,7 @@ First Bad Version
 - 300 -
 *Count of Smaller Numbers After Self
 - 350 -
+*Kth Smallest Element in a Sorted Matrix
 *Is Subsequence
 - 400 -
 - 450 -
