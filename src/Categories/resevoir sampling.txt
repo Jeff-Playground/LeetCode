@@ -1,3 +1,6 @@
+When sampling k items, first get the first k items, then for the n-th item, the possibility for including it is k/n, and
+if included, randomly replace one of the chosen k items.
+
 - 300 -
 - 350 -
 *Linked List Random Node
