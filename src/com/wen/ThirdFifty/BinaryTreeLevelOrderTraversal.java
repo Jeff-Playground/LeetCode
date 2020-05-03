@@ -28,12 +28,8 @@ public class BinaryTreeLevelOrderTraversal {
 //            result.add(new ArrayList<>());
 //        }
 //        result.get(level).add(root.val);
-//        if(root.left!=null){
-//            levelOrderDFS(root.left, level+1, result);
-//        }
-//        if(root.right!=null){
-//            levelOrderDFS(root.right, level+1, result);
-//        }
+//        levelOrderDFS(root.left, level+1, result);
+//        levelOrderDFS(root.right, level+1, result);
 //    }
 
     // Iterative(BFS)
