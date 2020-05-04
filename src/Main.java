@@ -728,5 +728,18 @@ public class Main {
 //        WiggleSortII.wiggleSort(new int[]{0,1,2,3,4,5,6,7,8,9,10});
 
 //        LongestTurbulentSubarray.maxTurbulenceSize(new int[]{0,8,45,88,48,68,28,55,17,24});
+
+//        LQLargestBSTSubtree.TreeNode root=new LQLargestBSTSubtree.TreeNode(10);
+//        LQLargestBSTSubtree.TreeNode n1=new LQLargestBSTSubtree.TreeNode(5);
+//        LQLargestBSTSubtree.TreeNode n2=new LQLargestBSTSubtree.TreeNode(15);
+//        LQLargestBSTSubtree.TreeNode n3=new LQLargestBSTSubtree.TreeNode(1);
+//        LQLargestBSTSubtree.TreeNode n4=new LQLargestBSTSubtree.TreeNode(8);
+//        LQLargestBSTSubtree.TreeNode n5=new LQLargestBSTSubtree.TreeNode(7);
+//        root.left=n1;
+//        root.right=n2;
+//        n1.left=n3;
+//        n1.right=n4;
+//        n2.right=n5;
+//        LQLargestBSTSubtree.largestBSTSubtree(root);
     }
 }
