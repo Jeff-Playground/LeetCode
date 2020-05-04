@@ -2,6 +2,7 @@ import com.wen.EighteenthFifty.MinimumNumberOfRefuelingStops;
 import com.wen.EighteenthFifty.ReachableNodesInSubdividedGraph;
 import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
 import com.wen.EighthFifty.CombinationSumIV;
+import com.wen.EighthFifty.LQFindLeavesOfBinaryTree;
 import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.FifteenthFifty.*;
 import com.wen.FifthFifty.MinimumSizeSubarraySum;
@@ -741,5 +742,16 @@ public class Main {
 //        n1.right=n4;
 //        n2.right=n5;
 //        LQLargestBSTSubtree.largestBSTSubtree(root);
+
+//        LQFindLeavesOfBinaryTree.TreeNode root=new LQFindLeavesOfBinaryTree.TreeNode(1);
+//        LQFindLeavesOfBinaryTree.TreeNode n1=new LQFindLeavesOfBinaryTree.TreeNode(2);
+//        LQFindLeavesOfBinaryTree.TreeNode n2=new LQFindLeavesOfBinaryTree.TreeNode(3);
+//        LQFindLeavesOfBinaryTree.TreeNode n3=new LQFindLeavesOfBinaryTree.TreeNode(4);
+//        LQFindLeavesOfBinaryTree.TreeNode n4=new LQFindLeavesOfBinaryTree.TreeNode(5);
+//        root.left=n1;
+//        root.right=n2;
+//        n1.left=n3;
+//        n1.right=n4;
+//        LQFindLeavesOfBinaryTree.findLeaves(root);
     }
 }
