@@ -3,6 +3,7 @@ import com.wen.EighteenthFifty.ReachableNodesInSubdividedGraph;
 import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
 import com.wen.EighthFifty.CombinationSumIV;
 import com.wen.EighthFifty.LQFindLeavesOfBinaryTree;
+import com.wen.EleventhFifty.FindModeInBinarySearchTree;
 import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.FifteenthFifty.*;
 import com.wen.FifthFifty.MinimumSizeSubarraySum;
@@ -753,5 +754,10 @@ public class Main {
 //        n1.left=n3;
 //        n1.right=n4;
 //        LQFindLeavesOfBinaryTree.findLeaves(root);
+
+//        FindModeInBinarySearchTree.TreeNode root=new FindModeInBinarySearchTree.TreeNode(1);
+//        FindModeInBinarySearchTree.TreeNode n1=new FindModeInBinarySearchTree.TreeNode(2);
+//        root.right=n1;
+//        FindModeInBinarySearchTree.findMode(root);
     }
 }
