@@ -4,6 +4,7 @@ Convert Sorted Array to Binary Search Tree
 *Convert Sorted List to Binary Search Tree
 LQClosestBinarySearchTreeValue
 *LQClosestBinarySearchTreeValueII
+*LQInorderSuccessorInBST
 - 300 -
 *LQVerifyPreorderSequenceInBinarySearchTree
 *Count of Smaller Numbers After Self
@@ -11,6 +12,7 @@ LQClosestBinarySearchTreeValue
 - 400 -
 - 450 -
 - 500 -
+*LQInorderSuccessorInBSTII
 - 550 -
 - 600 -
 - 650 -
