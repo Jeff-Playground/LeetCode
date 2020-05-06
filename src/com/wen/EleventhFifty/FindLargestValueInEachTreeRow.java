@@ -13,28 +13,28 @@ public class FindLargestValueInEachTreeRow {
         TreeNode(int x) { val = x; }
     }
 
-//    // Inorder traversal
-//    public List<Integer> largestValues(TreeNode root) {
-//        List<Integer> result=new ArrayList<>();
-//        lvHelper(root, 0, result);
-//        return result;
-//    }
-//
-//    private void lvHelper(TreeNode cur, int level, List<Integer> result){
-//        if(cur==null){
-//            return;
-//        }
-//        if(result.size()<level+1){
-//            result.add(cur.val);
-//        } else{
-//            int max=result.get(level);
-//            if(max<cur.val){
-//                result.set(level, cur.val);
-//            }
-//        }
-//        lvHelper(cur.left, level+1, result);
-//        lvHelper(cur.right, level+1, result);
-//    }
+    // Inorder traversal
+    public List<Integer> largestValues(TreeNode root) {
+        List<Integer> result=new ArrayList<>();
+        lvHelper(root, 0, result);
+        return result;
+    }
+
+    private void lvHelper(TreeNode cur, int level, List<Integer> result){
+        if(cur==null){
+            return;
+        }
+        if(result.size()<level+1){
+            result.add(cur.val);
+        } else{
+            int max=result.get(level);
+            if(max<cur.val){
+                result.set(level, cur.val);
+            }
+        }
+        lvHelper(cur.left, level+1, result);
+        lvHelper(cur.right, level+1, result);
+    }
 
 //    // Level-order traversal
 //    public List<Integer> largestValues(TreeNode root) {
