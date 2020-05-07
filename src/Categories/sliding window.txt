@@ -4,6 +4,7 @@ Longest Substring Without Repeating Characters
 LQLongestSubstringWithAtMostTwoDistinctCharacters
 Minimum Size Subarray Sum
 - 300 -
+LQLongestSubstringWithAtMostKDistinctCharacters
 - 350 -
 First Unique Character in a String
 - 400 -

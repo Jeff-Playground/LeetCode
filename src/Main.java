@@ -759,5 +759,7 @@ public class Main {
 //        FindModeInBinarySearchTree.TreeNode n1=new FindModeInBinarySearchTree.TreeNode(2);
 //        root.right=n1;
 //        FindModeInBinarySearchTree.findMode(root);
+
+//        LQLongestSubstringWithAtMostKDistinctCharacters.lengthOfLongestSubstringKDistinct("KB",10);
     }
 }
