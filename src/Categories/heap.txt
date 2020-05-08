@@ -3,6 +3,7 @@ Ugly Number II
 - 300 -
 Super Ugly Number
 - 350 -
+LQRearrangeStringKDistanceApart
 Find K Pairs with Smallest Sums
 - 400 -
 - 450 -

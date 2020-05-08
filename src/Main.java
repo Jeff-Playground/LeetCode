@@ -3,6 +3,7 @@ import com.wen.EighteenthFifty.ReachableNodesInSubdividedGraph;
 import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
 import com.wen.EighthFifty.CombinationSumIV;
 import com.wen.EighthFifty.LQFindLeavesOfBinaryTree;
+import com.wen.EighthFifty.LQRearrangeStringKDistanceApart;
 import com.wen.EleventhFifty.FindModeInBinarySearchTree;
 import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.FifteenthFifty.*;
@@ -761,5 +762,9 @@ public class Main {
 //        FindModeInBinarySearchTree.findMode(root);
 
 //        LQLongestSubstringWithAtMostKDistinctCharacters.lengthOfLongestSubstringKDistinct("KB",10);
+
+//        LQRearrangeStringKDistanceApart.rearrangeString("aabbcc",3);
+//        LQRearrangeStringKDistanceApart.rearrangeString("aaabc", 3);
+//        LQRearrangeStringKDistanceApart.rearrangeString("aaadbbcc", 2);
     }
 }
