@@ -9,6 +9,7 @@ Is Subsequence
 - 400 -
 - 450 -
 - 500 -
+IPO
 - 550 -
 - 600 -
 *Maximum Length of Pair Chain
