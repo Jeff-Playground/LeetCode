@@ -8,6 +8,7 @@ LQLongestSubstringWithAtMostKDistinctCharacters
 - 350 -
 First Unique Character in a String
 - 400 -
+*Longest Repeating Character Replacement
 Find All Anagrams in a String
 - 450 -
 - 500 -

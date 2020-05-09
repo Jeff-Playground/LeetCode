@@ -15,6 +15,7 @@ import com.wen.FourteenthFifty.FallingSquares;
 import com.wen.FourteenthFifty.FindKClosestElements;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.NinthFifty.LQSequenceReconstruction;
+import com.wen.NinthFifty.LongestRepeatingCharacterReplacement;
 import com.wen.SecondFifty.TextJustification;
 import com.wen.SeventeenthFifty.*;
 import com.wen.SeventhFifty.*;
@@ -766,5 +767,7 @@ public class Main {
 //        LQRearrangeStringKDistanceApart.rearrangeString("aabbcc",3);
 //        LQRearrangeStringKDistanceApart.rearrangeString("aaabc", 3);
 //        LQRearrangeStringKDistanceApart.rearrangeString("aaadbbcc", 2);
+
+//        LongestRepeatingCharacterReplacement.characterReplacement("AABABBA", 1);
     }
 }
