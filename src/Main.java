@@ -25,6 +25,7 @@ import com.wen.ThirdFifty.LRUCache;
 import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
+import com.wen.TwelfthFifty.PermutationInString;
 import com.wen.TwentiethFifty.FindTheTownJudge;
 import com.wen.TwentiethFifty.LongestTurbulentSubarray;
 import com.wen.TwentiethFifty.PrisonCellsAfterNDays;
@@ -769,5 +770,7 @@ public class Main {
 //        LQRearrangeStringKDistanceApart.rearrangeString("aaadbbcc", 2);
 
 //        LongestRepeatingCharacterReplacement.characterReplacement("AABABBA", 1);
+
+        PermutationInString.checkInclusion("hello", "ooolleoooleh");
     }
 }
