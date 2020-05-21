@@ -11,6 +11,7 @@ First Unique Character in a String
 *Longest Repeating Character Replacement
 Find All Anagrams in a String
 - 450 -
+*LQMaxConsecutiveOnesII
 - 500 -
 - 550 -
 *Permutation in String
@@ -22,3 +23,7 @@ Subarray Product Less Than K
 - 800 -
 - 850 -
 - 900 -
+- 950 -
+- 1000 -
+*Max Consecutive Ones III
+- 1050 -

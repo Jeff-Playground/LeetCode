@@ -21,6 +21,7 @@ import com.wen.SeventeenthFifty.*;
 import com.wen.SeventhFifty.*;
 import com.wen.SixteenthFifty.*;
 import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
+import com.wen.TenthFifty.LQMaxConsecutiveOnesII;
 import com.wen.ThirdFifty.LRUCache;
 import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
@@ -771,6 +772,8 @@ public class Main {
 
 //        LongestRepeatingCharacterReplacement.characterReplacement("AABABBA", 1);
 
-        PermutationInString.checkInclusion("hello", "ooolleoooleh");
+//        PermutationInString.checkInclusion("hello", "ooolleoooleh");
+
+//        LQMaxConsecutiveOnesII.findMaxConsecutiveOnes(new int[]{0,0,1,1,1,0,0,1,1,1,0});
     }
 }

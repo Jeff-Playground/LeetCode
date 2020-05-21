@@ -129,6 +129,7 @@ Sort Characters By Frequency
 Circular Array Loop
 *Poor Pigs
 *LQOptimalAccountBalancing
+Max Consecutive Ones
 - 500 -
 Most Frequent Subtree Sum
 Super Washing Machines
