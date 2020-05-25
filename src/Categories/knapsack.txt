@@ -8,8 +8,8 @@ order would overwrite this value.
 
 For bounded knapsack, it's similar to 0-1 knapsack except there'a a max for each item, so there's an additional loop
 for k in 0->max, and dp[i][j]+=dp[i-1][j-k*nums[i-1]].
-When optimizing to 1 dimensional array, the j loop is also reversed, but note it becomes k in 1->max because dp[j]
-already included the value for k=0.
+When optimizing to 1 dimensional array, the j loop is also reversed, but note it becomes k in max->1 instead of max->0
+because dp[j] already included the value for k=0.
 
 For unbounded knapsack, it's similar to 0-1 knapsack except dp[i][j]=dp[i-1][j]+dp[i][j-nums[i-1]], where the second
 case becomes the last value when nums[i-1] is included.

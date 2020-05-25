@@ -6,31 +6,33 @@ import java.util.List;
 public class ExpressionAddOperators {
     public List<String> addOperators(String num, int target) {
         List<String> result=new ArrayList<>();
-        if(num==null){
-            return result;
+        if(num!=null && !num.isEmpty()){
+            addOperatorsDFS(num, target, result, "", 0, 0);
         }
-        addOperatorsDFS(num, target, "", 0, 0, result);
         return result;
     }
 
-    public void addOperatorsDFS(String num, int target, String out, long pre, long lastNum, List<String> result){
-        if(num.length()==0 && pre==target){
-            result.add(out);
-        }
-        int l=num.length();
-        for(int i=1; i<=l; i++){
-            String curString=num.substring(0,i);
-            if(curString.length()>1 && curString.startsWith("0")){
-                return;
+    private void addOperatorsDFS(String num, int target, List<String> result, String out, long curValue, long lastNum){
+        if(num.isEmpty()){
+            if(curValue==target){
+                result.add(out);
             }
-            String remainString=num.substring(i);
-            long cur=Long.parseLong(curString);
-            if(out.length()>0){
-                addOperatorsDFS(remainString, target, out+"+"+curString, pre+cur, cur, result);
-                addOperatorsDFS(remainString, target, out+"-"+curString, pre-cur, -cur, result);
-                addOperatorsDFS(remainString, target, out+"*"+curString, pre-lastNum+lastNum*cur, lastNum*cur, result);
-            } else {
-                addOperatorsDFS(remainString, target, curString, cur, cur, result);
+        } else{
+            int l=num.length();
+            for(int i=1; i<=l; i++){
+                String cur=num.substring(0, i);
+                if(cur.length()>1 && cur.startsWith("0")){
+                    return;
+                } else{
+                    long curNum=Long.parseLong(cur);
+                    if(out.length()>0){
+                        addOperatorsDFS(num.substring(i), target, result, out+'+'+cur, curValue+curNum, curNum);
+                        addOperatorsDFS(num.substring(i), target, result, out+'-'+cur, curValue-curNum, -curNum);
+                        addOperatorsDFS(num.substring(i), target, result, out+'*'+cur, curValue-lastNum+lastNum*curNum, lastNum*curNum);
+                    } else{
+                        addOperatorsDFS(num.substring(i), target, result, cur, curValue+curNum, curNum);
+                    }
+                }
             }
         }
     }
