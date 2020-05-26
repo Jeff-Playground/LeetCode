@@ -643,6 +643,7 @@ public class Main {
 //                new int[][]{{3,0},{4,0},{1,0},{2,0},{0,0}});
 
 //        SplitArrayWithSameAverage.splitArraySameAverage(new int[]{23,98,92,20,29,79,21,71,95,46,45,0,95,1});
+//        SplitArrayWithSameAverage.splitArraySameAverage(new int[]{10,29,13,53,33,48,76,70,5,5});
 
 //        ExpressiveWords.expressiveWords("yyrrrrrjaappoooyybbbebbbbriiiiiyyynnnvvwtwwwwwooeeexxxxxkkkkkaaaaauuuu", new String[]{"yrrjjappooybbebriiyynvvwtwwoeexkauu"});
 
@@ -775,5 +776,7 @@ public class Main {
 //        PermutationInString.checkInclusion("hello", "ooolleoooleh");
 
 //        LQMaxConsecutiveOnesII.findMaxConsecutiveOnes(new int[]{0,0,1,1,1,0,0,1,1,1,0});
+
+//        CoinChange.coinChange(new int[]{1,2}, 2);
     }
 }
