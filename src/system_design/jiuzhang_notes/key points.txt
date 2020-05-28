@@ -1,0 +1,6 @@
+How to pick server based on QPS:
+    Webserver: 1k QPS
+    SQL DB: 1k QPS
+    NoSQL DB: 10k QPS
+    Cache: 1m QPS
+
