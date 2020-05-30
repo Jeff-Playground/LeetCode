@@ -5,6 +5,9 @@ Design Twitter
         Peak QPS=Average QPS*Ratio, the Ratio is normally around 3
         Read QPS: 300k
         Write QPS: 5k
+        Twitter:
+            Timeline: includes activities from the user and interactions with other users
+            News feed: included activities from the user's followed people
         How to pick server based on QPS:
             Webserver: 1k QPS
             SQL DB: 1k QPS
@@ -13,7 +16,7 @@ Design Twitter
     Service:
         User service: Register, Login   - SQL
         Tweet service: Post a tweet, News feed timeline     - NoSQL
-        Media service: Upload video, Upload image       - File system
+        Media service: Upload video, Upload image       - File System
         Friendship service: Follow, Un-follow       - SQL/NoSQL
     Storage:
         Memory only:
@@ -40,10 +43,10 @@ Design Twitter
     Scale:
         Pull:
             Potential issue and solution:
-                a lot of DB reads for followed, can be solved by using cache
+                a lot of DB reads for querying out info on followed, can be solved by using cache
             Cache:
                 Timeline: can only store the more recent timeline for each user to save space
-                          this is updated each time a new tweet is sent
+                          will be updated each time a new tweet is sent
                 News feed: when refreshing can add all tweets later than the last timestamp
                            this is updated on each login, note followed users' new tweets will update it but only for current active users
         Push:
@@ -52,11 +55,11 @@ Design Twitter
         Combine the two models:
             For normal users, use push model as there won't be too many fan-out operations
             For celebrity users, cache their timeline and use the pull model
-            So for news feed requests, it will merge the result from the news feed table and celebrities' timeline
+            So for news feed requests, it will merge the result from the news feed table and followed celebrities' timeline
         Follow and un-follow:
             When follow, merge the followed user timeline into the follower's news feed ASYNCHRONOUSLY
             When un-follow, remove the un-followed user timeline from the news feed ASYNCHRONOUSLY
         How to store likes/comments:
             Create a new table and use the tweet_id and origin_user_id as the foreign key
-        New feed pagination:
-            Note the page is not divided by row count, page should be divided by timestamps to avoid adding new feed causing problem
+        News feed pagination:
+            Note the page is not divided by row count, it should be divided by timestamps to avoid adding new feed causing problem

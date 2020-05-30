@@ -1,0 +1,24 @@
+Design Twitter:
+    Timeline: includes activities from the user and interactions with other users
+    News feed: included activities from the user's followed people
+    Pull model
+    Push model(fan-out)
+    Combined model(distinguish normal users and celebrities)
+
+Design user system:
+    Session: used for authenticatiom, a token/session_key will be sent back and forth for all requests
+    Use cache to serve high QPS
+    Do horizontal data sharding the avoid single point failure and increase performance
+    Friendship can be stored either one-way or two-way
+
+Design Tiny URL:
+    To generate short_url based on long_url:
+        hash function like MD5
+        randomly generate string and check against DB short_url key
+        Base62 on DB sequential ID
+    To reduce response time:
+        For reads, add cache, and set up distributed services based on user geographic locations(note only cache and related services need to be distributed)
+        For writes, add more DB nodes and do consistent sharding
+    To implement consistent sharding:
+        sharding_key can be computed with a hash on long_url, like Hash(long_url)&%62
+        the short_url will include the sharding key, so it becomes sharding_key+short_url

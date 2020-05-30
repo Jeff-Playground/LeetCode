@@ -1,5 +1,5 @@
 Consistent hashing: adding a new node wouldn't change much of the original nodes, so it's consistent
-    Hashing ring range: 0 - 2^64-1 (Java long)
+    Hashing ring range: 0 - 2^64-1 (Java Long.MAX_VALUE)
     Micro shards/Virtual nodes: each machine can be mapped to a lot of(for example 1000) micro shards on the ring
                                 each micro shard is a node/value on the ring
         When computing the machine location of a value, just hash it to map to a node on the ring, and find the first existing node on the ring clock-wise
@@ -15,12 +15,12 @@ Backup vs. Replica:
              it's more expensive than backup
 SQL replica: (MySQL)
     Master-slave:
-        Master handles write and read requests while slave only read requests
+        Master handles write and read requests while slave only handles read requests
         Write ahead log: All requests are persisted in log, and master will notify slave to read logs when new requests happens
                          Data on slaves are delayed
-        When master is down, one of the slaves will be promoted to master and start handling read and write requests
+        When master is down, one of the slaves will be promoted to master and start handling write and read requests
 NoSQL replica: (Cassandra)
-    Data are stored on 3 clock-wise virtual nodes on the hashing ring belong to 3 different machines
+    Data are stored on 3 clock-wise consecutive virtual nodes on the hashing ring belong to 3 different machines
 SQL vs. NoSQL replica:
     SQL replica is usually shipped by master-slave setup, it can be manually configured to use consistent hashing
     NoSQL replica is automatically by consistent hashing, so it requires less effort for replica and sharding
@@ -28,7 +28,7 @@ Design Tiny URL:
     Scenario:
         Generate a short URL based on a long URL
         Can retrieve and redirect(http status code 301) user to the mapped long URL given a short URL
-        Provide customized url for special urls(can be done by adding special short_url)
+        Provide customized URL for special URLs(can be done by adding special short_url)
         QPS:
             DAU
             Request per user per day
@@ -36,7 +36,7 @@ Design Tiny URL:
     Service:
         GET     /<short_url>
                 return a HTTP redirect response
-        POST    /data/shorten/
+        POST    /data/shorten
                 Data = {url: <long_url>}
                 return <short_url>
         short_url generation algorithm:
@@ -45,7 +45,7 @@ Design Tiny URL:
                 hard to avoid collision - not preferred
             Random generation then check against DB short_url key:
                 simple
-                generation becomes slower as time goes by(regenerations more often due to collision)
+                generation becomes slower as time goes by(regenerations more often due to collisions)
             Base62 on DB sequential ID: 6 bits short_url has 62^6=57B of capacity
                 depends on a global sequential ID
     Storage:
@@ -85,10 +85,10 @@ Design Tiny URL:
         Global sequential ID in a distributed system:
             1. Use one DB node specifically for generating sequential IDs, note it might need replicas to avoid single point of failure issue
             2. Use Zookeeper
-What happens when opening a URL in browser:
-1. Request goes to closest DNS server, where it has mapping info on the ip for the given domain name
-2. Browser send http/https request to the looked up ip
-3. Destination webserver receive the request and give it to the HTTP server listening on port 80
-4. The HTTP server sends the request to the web application
-5. Web application handles the request and return a response
-6. Browser get the response
+        What happens when opening a URL in browser:
+        1. Request goes to closest DNS server, where it has mapping info on the IP for the given domain name
+        2. Browser send HTTP/HTTPS request to the looked up IP
+        3. Destination webserver receive the request and give it to the HTTP server listening on port 80
+        4. The HTTP server sends the request to the web application
+        5. Web application handles the request and return a response
+        6. Browser get the response

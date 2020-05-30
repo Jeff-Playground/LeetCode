@@ -12,10 +12,10 @@ Design user system:
                 both SQL and NoSQL are fine in this case
                 SQL vs NoSQL:
                     SQL supports transactions better
-                    SQL is more mature, while NoSQL some things need to be taken care by user(serialization, secondary index)
+                    SQL is more mature, while in NoSQL some things need to be taken care by user(serialization, secondary index)
                     NoSQL normally has better performance
                     NoSQL normally doesn't support multi-indexes
-                    NoSQL comes with sharding, SQL sharding has to be handled by developers
+                    NoSQL comes with sharding, while in SQL sharding has to be handled by developers
                 Cassandra:
                     wide-column NoSQL DB(MongoDB is document NoSQL DB)
                     row_key: hash key/partition key
@@ -26,7 +26,7 @@ Design user system:
         NoSQL - 10k QPS
         Cache - 1m QPS
             LRU/LFU for updating cache
-            Memcached(cache aside): memory only, better stability and scalability
+            Memcached(cache aside): memory only, better performance, stability and scalability
             Redis(cache through): supports physical persistence
             Operations order: Normally delete from cache first, then save to database
     Scale:
@@ -36,4 +36,4 @@ Design user system:
                 Horizontal sharding: divide data by key range
                     Consistent hashing
             Replica: distribute reads to more nodes, and increase data safety
-                Master-slave: master for write and read, slave for read only
+                Master-slave: master for writes and reads, slave for read only

@@ -4,3 +4,66 @@ How to pick server based on QPS:
     NoSQL DB: 10k QPS
     Cache: 1m QPS
 
+Storage types:
+    Memory only
+    SQL Database
+    NoSQL Database
+    File system
+
+SQL vs NoSQL:
+    SQL suppots transactions better
+    SQL is more mature, while in NoSQL some things need to be taken care by user(serialization, secondary index)
+    NoSQL normally has better performance
+    NoSQL normally doesn't support multi-indexes
+    NoSQL comes with sharding, while in SQL sharding has to be handled by developers
+
+Session:
+    Can be used for authentication
+    Normally contains session_key/token, user_id, ttl, etc.
+    token will be sent back and forth for authentication
+
+Cache:
+    LRU/LFU for updating cache
+    Memcached(cache aside): memory only, better performance stability and scalability
+    Redis(cache through): supports physical persistence
+    Operation order: normally delete from cache first, then save to database
+
+Single point of failure:
+    Sharding: distribute data to different nodes, one node down won't bring down the whole system
+        Vertical sharding: divide data by columns
+        Horizontal sharding: divide data by key range
+            Consisten hashing
+    Replica: distributes reads to more nodes, and increase data safety
+        Master-slave: master for writes and reads, slave for reads only
+
+Consistent hashing
+    Adding a node wouldn't change much of the original nodes, so it's consistent
+    Hashing ring range: 0 ~ 2^64-1(Java Long.MAX_VALUE)
+    Micro shards/Virtual nodes:
+        each machine can be mapped to a lot of(for example 1000) micro shards on the ring
+        each micro shard is a node/value on the ring
+        When computing the machine location of a value, just has it to map to a node on the ring, and find the first existing node on the ring clock-wise
+            e.g. Hash(value)=location, lookup location in TreeMap(RBTree) to find the corresponding machine
+        When adding a new machine, each new node would get part of the data from the first existing node clock-wise on the ring
+
+Backup vs. Replica
+    Backup:
+        static, and is doen on a regular basis at a scheduled time
+        when data loss occurs, it can only recover to one of the backup time snapshot
+        it's offline and not used for read requets
+    Replica:
+        real-time, is done while doing write requests to multiple copies
+        when data loss occurs, it can use one of the duplicate nodes for recovering immediately
+        it's online and can be used for read requests
+        it's more expensive than backup
+        SQL replica: master-slave, WAL
+        NoSQL replica: same data stored on 3 consecutive virtual nodes belong to 3 different machines on hashing ring
+
+What happens when opening a URL in browser?
+1. Request goes to closest DNS server, where it has mapping info on the IP for the given domain name
+2. Browser send HTTP/HTTPS request to the looked up IP
+3. Destination weserver receive the request and give it to the HTTP server listening on port 80
+4. The HTTP server sends the request to the web application
+5. Web application handles the request and return a response
+6. Browser get the response
+
