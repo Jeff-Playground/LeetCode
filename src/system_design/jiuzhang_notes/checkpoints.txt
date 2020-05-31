@@ -22,3 +22,36 @@ Design Tiny URL:
     To implement consistent sharding:
         sharding_key can be computed with a hash on long_url, like Hash(long_url)&%62
         the short_url will include the sharding key, so it becomes sharding_key+short_url
+
+Design distributed files system:
+    Support read/write/update files, files are divided into chunks(When writing, division is done by client)
+    Implemented in master-slave pattern:
+        System health ensured by heartbeats
+        Master stores metadata, including chunk server location, and in some cases offset(offset can be moved onto chunk servers instead)
+        Slaves store actual file data in chunks, normally 64MB per chunk
+            Chunks have replicas, not necessarily on the same 3 servers for each chunk
+            A chunk can be validated using checksum mechanism
+            Slaves are selected by LRU/High-free-space strategy by master for writes
+
+Design a web crawler
+    Producer-consumer pattern:
+        Queue/buffer can be implemented using SQL DB
+        Crawled results can be stored in NoSQL DB
+    Handle update failure(website not updated):
+        Exponential back-off
+    Handle dead cycle(one website has too many web pages):
+        Specify a quota and only crawl a certain percentage of all pages
+    Handle websites in multiple regions:
+        Set up the same system in every different region
+
+Design a type-ahead system
+    Trie:
+        Two services involved, one for querying and the other for building the trie based on log
+        Is read-only and new version need to be built offline regularly
+        Can be implemented with NoSQL DB
+        Can be stored distributively and accessed by consistent hashing
+    Increase performance:
+        Cache on frontend(cookies)
+        Pre-fetch
+    Reduce log size: probabilistic logging
+

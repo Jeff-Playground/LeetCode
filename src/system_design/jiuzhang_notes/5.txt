@@ -12,7 +12,7 @@ Design a web crawler:
                 Crawler would perform the function of both producer and consumer:
                     Consumer would retrieve the URLs from the queue, make the request and store result, and extract URLs embedded in the response
                     Producer would put the extracted URLs back into the queue
-                Can be optimized by using a HashSet to ensure not duplicated crawling
+                Can be optimized by using a HashSet to ensure no duplicated crawling
         A multi-threaded web crawler:
             How multiple threads work together on shared resource:
                 Sleep(exponential back-off)
@@ -37,7 +37,7 @@ Design a web crawler:
         TaskService: the service for maintaining the task queue/DB
         StorageService: the service for maintaining the crawled content storage
     Storage:
-        Use SQL to store the task table(the item count here is equal to the number of web pages available on internet)
+        Use SQL to store the task table(the item count here is equal to the number of web pages available on the Internet)
         Use NoSQL to store the crawled content
     Scale:
         How to handle slow select:
@@ -79,7 +79,7 @@ Design a type-ahead system:
                     This can be put in the memory of the QueryService web servers, and serialized onto disk
                     This will need to be serialized to be able to write in disk, so it can recover on failures
                     Note for an online trie, it's read-only, and it will be updated offline by the DataCollectionService
-                    Tries will need to be updated off-line regularly
+                    Tries will need to be updated offline regularly
                     Trie can be stored distributively onto multiple servers, where a hash-service will decide the location of a certain pattern
             DataCollectionService:
                 BigTable:

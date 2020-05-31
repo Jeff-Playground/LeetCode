@@ -1,7 +1,7 @@
 Design distributed file system(HDFS/GFS):
     Scenario:
         Write/read file, what's the maximum file size?
-        File saved on multiple machines, whats the number of machines?
+        File saved on multiple machines, what's the number of machines?
     Service:
         Communication between servers:
             Peer-to-peer:
@@ -13,17 +13,17 @@ Design distributed file system(HDFS/GFS):
                 For DB: master supports read/write, slaves are read-only replicas
                 For GFS/HDFS: master is the coordinator, where slaves stores files/data
                 Advantages:
-                    Relatively easy to keep consistency of data
+                    Relatively easier to keep consistency of data
                     Easy to set up
                 Disadvantages:
                     Single master is a single point of failure
     Storage:
         What's in a file:
-            Metadata: is read more often then the actual file data
+            Metadata: it's read more often than the actual file data
             Data
         How can a file be stored in one single machine:
-            Sequentially: (windows)
-            Fragmented: File data is separated into chunks (linux)
+            Sequentially: (Windows)
+            Fragmented: File data is separated into chunks (Linux)
                 Disk is separated into blocks:
                     Easy to check for errors
                     Fragmentation
@@ -38,13 +38,13 @@ Design distributed file system(HDFS/GFS):
                     maintain and return chunk server list info for read requests
                     maintain and return free chunk server info for write requests
                     NOTE here can't simply send file to master for write requests to avoid it becomes a bottleneck
-                Slaves(chunk servers) stores the actual data
+                Slaves(chunk servers) store the actual data
                     Normally the chunk size would be 64MB
                 Optimization:
                     The <offset> can be stored on slaves. For each chunk server, maintain a index storing <offset> info for chunks on the node
                     Benefits:
                         Reduce the metadata size on master
-                        Reduce the traffic between slaves and master(when a files is moved and offset changed, no need to inform the master)
+                        Reduce the traffic between slaves and master(when a file is moved and offset changed, no need to inform the master)
         How to write a file:
             Divide a file into chunks, and transfer separately
                 Benefits: When error only need to rewrite a chunk instead of the whole thing
@@ -68,7 +68,7 @@ Design distributed file system(HDFS/GFS):
         Have multiple masters to avoid single point of failure
         How to validate a chunk:
             Checksum:
-                1 checksum is normally 4bytes(32bit)
+                1 checksum is normally 4 bytes(32bit)
                 it's written at the end of each write
                 can discover an error of one bit
                 it can be checked for each read
