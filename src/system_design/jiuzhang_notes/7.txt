@@ -1,11 +1,11 @@
 Design Uber:
     Scenario:
-        Driver QPS:(Assume 200k divers online by average and all drivers report location by every 4 seconds)
+        Driver QPS:(Assume 200k divers online by average and all drivers report location every 4 seconds)
             200k/4=50k
         Peak driver QPS: 50k*3=150k
         Rider QPS can be ignored as it's much lesser than driver QPS and it's not done regularly
         If all location info is persisted: 200k/4*86400*100B=0.5TB/day
-        If only current location info is persisted: 200k*100B=30MB/day
+        If only current location info is persisted: 200k*100B=20MB/day
     Service:
         GeoService:
             To store location of drivers
@@ -22,12 +22,12 @@ Design Uber:
                     先经后纬，经纬交叉
                     Finding two nodes within a certain distance becomes finding two hashes where certain number of chars in prefix is same
         From driver side, the process is like:
-            1. Driver make a request, and GeoService would persist driver's location
+            1. Driver makes a request, and GeoService would persist driver's location
             2. GeoService would call DispatchService to check if a trip is waiting on driver, and return result if any
             3. Driver can call GeoService to decline/accept/finish a trip
         From user side, the process is like:
-            1. User make a request, and DispatchService will create and return a tripId
-            2. User make a request every few seconds to check the trip status
+            1. User makes a request, and DispatchService will create and return a tripID
+            2. User makes a request every few seconds to check the trip status
             3. DispatchService would try to find a nearby driver and update the trip table with corresponding info, and update status column as "waiting_for_driver"
             4. When the matched driver send in location request, GeoService would also call DispatchService to check trip table for matched trips and return to driver
             5. If driver accepts, update trip table status to "on_the_way_to_pick_up", and user will get it in next check request
@@ -54,7 +54,7 @@ Design Uber:
             key: geohash
             value: a set of driverId
             Here for one driver, it can be stored in different levels, for example, for 9q9hvt, it can be stored in 9q9hvt,9q9hv and 9q9h
-            So when user make a request, the match program will fist look in the same prefix of 6 chars, then 5 chars if no match, then 4 chars if no match...
+            So when user make a request, the match program will first look in the same prefix of 6 chars, then 5 chars if no match, then 4 chars if no match...
     Scale:
         Is one or two Redis server OK since it can handle around 100K QPS?
             No, otherwise it would become a single point of failure

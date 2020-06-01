@@ -55,3 +55,41 @@ Design a type-ahead system
         Pre-fetch
     Reduce log size: probabilistic logging
 
+Design a MapReduce system
+    Master-slave
+        Master is coordinator, slaves are map workers and reduce workers depends on the assigned job
+        Slaves are initialized and in a pool
+    The input and output on each step is basically a stream of key-value pairs
+    Input and output of the system can be stored in a distributed file system for replications
+    Map -> Shuffle -> Reduce
+        Shuffle is done by both map and reduce workers
+        Shuffle is sort and partition on map workers and merge sort and fetch on reduce workers
+    When data for a specific key is too large, a trick of adding postfix to the key and partition is to different reducer workers can be implemented
+
+Design Uber
+    Server deployed in master-slave model as replications
+    Both driver and user make requests to server
+        Driver reports location within requests
+        Response to driver may include trip info if a match is initiated
+        User makes match request
+        Response to user will have trip info and matched driver info
+    Data can be sharded base on cities(Geo fence)
+
+Design Bigtable
+    File based
+        Write/update:
+            Load latest file into memory and make sorted, when write/update, write to WAL first, then write in sorted list in memory. The list should be persisted to file regularly
+        Read:
+            Add index to files, which can be implemented as B-tree
+            Add bloom filter to file
+    Master-slave
+        Master contains key location info, implemented with consistent hashing
+        Slave stores the actual data files
+        Master monitors slaves with heartbeat mechanism
+    File storage can use distributed file system for automatic replication, fail-over and recovery
+        Files can also be cached on slave machines partially
+    To handle race condition, use a distributed lock
+        Chubby
+        Zookeeper
+        Consistent hashing info can be moved to lock server from master
+

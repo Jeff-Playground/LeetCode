@@ -102,3 +102,39 @@ How multiple threads work together on shared resource:
     Condition variable(mutex)
     Semaphore(allows a maximum of pre-defined number of threads to access the resource)
 
+MapReduce:
+MapReduce is a programing model and an associated implementation for processing and generating big data sets with a parallel, distributed algorithm on a cluster.
+1. Input
+2. Split
+3. Map
+Step 4 and 5 together is also called shuffle:
+4. Sort and partition, where partition is to prepare for keys to be fetched to different reduce machines
+    Done on the map machines
+    Here sort is external sorting as data is too large to be completely read into memory
+    Here partition is basically a hash function which takes key as input and outputs partition id
+5. Merge sort and fetch, merge sort is similar to merge k sorted list
+    Done on the reduce machines
+6. Reduce
+    The maximum number of reduce machines is the number of keys
+7. Output
+Master-slave:
+Whole process step by step:
+1. (Start)User program start master and workers.
+2. (Assign Task)Master assign task to the map workers and reduce workers. (Assign Map and Reduce code)
+3. (Split)Master split the input data.
+4. (Map Read)Each map worker read the split input data.
+5. (Map)Each map worker does the "Map" job on its machine.
+6. (Map Output)Each map worker outputs the file in it's local disk.
+7. (Reduce Fetch)Each reduce worker fetches the data from the map workers.
+8. (Reduce)Each reducer worker does the "Reduce" job on its machine.
+9. (Reduce Output)Reduce workers output the final output data.
+
+Algorithms for location querying and matching:
+    Google S2:
+        Hilbert curve
+        Location to a number
+    Geohash:
+        Peano curve
+        Base32
+        Location to a string
+

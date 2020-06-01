@@ -51,7 +51,7 @@ Use cases:
             Key: word
             Value: word count(1)
         Reduce output:
-            (Note here for each reducer, maintain a PriorityQueue to ensure the output has maximum of K key-value pairs)
+            (Note here for each reducer, maintain a PriorityQueue to ensure the output has a maximum of K key-value pairs)
             (PriorityQueue can be called during cleanUp)
             A maximum of K pairs of:
                 Key: word
@@ -63,15 +63,15 @@ Design a MapReduce system:
             Split input and assign to map workers
             Assign reduce workers for partitions
     Whole process step by step:
-        1. (Start)User program start master and worker.
+        1. (Start)User program start master and workers.
         2. (Assign Task)Master assign task to the map workers and reduce workers.(Assign Map and Reduce code)
         3. (Split)Master split the input data.
         4. (Map Read)Each map worker read the split input data.
-        5. (Map)Each map worker do the "Map" job on their machine.
-        6. (Map Output)Each map worker output the file in its local disk.
-        7. (Reduce Fetch)Each reduce worker fetch the data from the map worker.
-        8. (Reduce)Each reducer worker do the "Reduce" job on their machine.
-        9. (Reduce output)Reduce worker output he final output data.
+        5. (Map)Each map worker does the "Map" job on its machine.
+        6. (Map Output)Each map worker outputs the file in its local disk.
+        7. (Reduce Fetch)Each reduce worker fetches the data from the map workers.
+        8. (Reduce)Each reducer worker does the "Reduce" job on their machine.
+        9. (Reduce Output)Reduce workers output the final output data.
     Scale:
         When a map worker or reduce worker is down while processing, master will get a worker from the worker pool and reassign the task
         Input and output will be stored in GFS, and GFS will be responsible for data replication
@@ -80,4 +80,4 @@ Design a MapReduce system:
         Map and reduce is normally separated on different workers, so initialization can be performed in parallel
         How to solve the issue when data for a specific key is too large:
             This would make reduce worker handling this key to be very slow.
-            The trick is to add a random postfix to this key only, so the work can be distributed to different reduce workers instead of going to a single worker.
+            The trick is to add a random postfix to this key only, so the work can be distributed to different reduce workers instead of going to one single worker.
