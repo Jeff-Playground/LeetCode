@@ -93,3 +93,53 @@ Design Bigtable
         Zookeeper
         Consistent hashing info can be moved to lock server from master
 
+Design WhatsApp
+    Each user will be associated with a thread, where it contains info on: (SQL)
+        thread_id
+        owner_id
+        nickname
+        is_muted
+        participants_id
+        created_at
+        updated_at
+    Messages will be stored in NoSQL:
+        message_id
+        thread_id
+        from_user_id
+        to_user_id: used to identify @user in a group chat
+        content
+        created_at
+    Active users will be assigned a socket connection to avoid delivery delays
+
+Design a ratelimiter
+    Implement with cache(Memcached/Redis)
+        Key: event+feature+timestamp
+            Key can be stored in different levels(seconds, minutes, hours, days, ...)
+        Value: request counts
+    For querying, it can be aggregated based upon a bunch of requests:
+        For the time range, the closer it's to now, the lower level the query is
+        An example for a request at 23:30:33, it will need to query for:
+            23:30:00 ~ 23:30:33 on seconds(34 records)
+            23:00:00 ~ 23:29:59 on minutes(30 records)
+            00:00:00 ~ 22:59:59 on hours(23 records)
+            23:31:00 ~ 23:59:59 on minutes(29 records)
+            23:30:34 ~ 23:30:59 on seconds(26 records)
+            So 34+30+23+29+26=142 in total
+    Another possible solution is with Redis, two types of data type required:
+        Hash:
+            Key: event+feature+unixTimestamp
+            Value: request counts
+        SortedSet:
+            Key: sorted_ratelimiter_keys
+            Member: event+feature+unixTimestamp
+            Score: unix timestamp
+
+Design a datadog
+    Implement log with SQL/NoSQL
+    Implement organized request data with NoSQL/Cache
+        Key: event+feature
+        Value: a list of key value pairs(similar to how data is stored for ratelimiter):
+            Key: timestamp
+            Value: request counts
+    To handle high QPS, instead of log every request, requests can be aggregated in memory for a certain period of time(15s for example) before writing to DB
+

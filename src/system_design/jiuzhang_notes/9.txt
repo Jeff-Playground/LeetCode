@@ -36,20 +36,20 @@ Design WhatsApp:
             is_muted:
             nickname:
         Steps for a user to send a message:
-            1. user send the message and receiver info to server
-            2. server create a thread for each and every user involved in the conversation(sender included)
+            1. user sends the message and receiver info to server
+            2. server creates a thread for each and every user involved in the conversation(sender included)
             3. server create a message with thread_id
         Steps for a user to receive a message:
             1. user make a request to server every 10 seconds
-            2. to server the request, server will query the thread table first to check updates and then query message table accordingly
+            2. to serve the request, server will query the thread table first to check updates and then query message table accordingly
     Scale:
         How to scale the system if data is too much:
             message table is NoSQL and comes with scaling
             thread table will need to do data sharding based on owner_id
-        How to optimized the receiving 10s pull mechanism:
+        How to optimize the receiving 10s pull mechanism:
             Socket with push service:
                 Note:
-                    heartbeat is not enforced for socket, but here heartbeat should be used for ensure user active
+                    heartbeat is not enforced for socket, but here heartbeat should be used for ensuring user active
                     socket on server side will use single listening port and distinguish connections by client side ip/port
                     socket on client side will occupy one port and can't share it
                 For each and every user, there'll be a socket connection
