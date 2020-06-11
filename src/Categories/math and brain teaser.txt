@@ -109,6 +109,7 @@ LQFlipGame
 - 300 -
 *Remove Invalid Parentheses
 Additive Number
+LQSparseMatrixMultiplication
 *Bulb Switcher
 *Wiggle Sort II
 *Increasing Triplet Subsequence
