@@ -1,4 +1,4 @@
-package com.wen.SeventeenthFifty;
+package com.wen.SeventhFifty;
 
 /*
 An image is represented by a binary matrix with 0 as a white pixel and 1 as a black pixel. The black pixels are
