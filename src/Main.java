@@ -782,5 +782,7 @@ public class Main {
 //        CoinChange.coinChange(new int[]{1,2}, 2);
 
 //        LQSmallestRectangleEnclosingBlackPixels.minArea(new char[][]{"0010".toCharArray(),"0110".toCharArray(),"0100".toCharArray()}, 0, 2);
+
+//        LQShortestDistanceFromAllBuildings.shortestDistance(new int[][]{{1,1,1,1,1,0},{0,0,0,0,0,1},{0,1,1,0,0,1},{1,0,0,1,0,1},{1,0,1,0,0,1},{1,0,0,0,0,1},{0,1,1,1,1,0}});
     }
 }

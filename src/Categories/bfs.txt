@@ -13,6 +13,7 @@ LQWallsAndGates
 - 300 -
 *Remove Invalid Parentheses
 *Minimum Height Trees
+*LQShortestDistanceFromAllBuildings
 - 350 -
 - 400 -
 - 450 -
