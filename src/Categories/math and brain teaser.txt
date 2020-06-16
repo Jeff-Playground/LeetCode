@@ -111,6 +111,7 @@ LQFlipGame
 Additive Number
 LQSparseMatrixMultiplication
 *Bulb Switcher
+*LQGeneralizedAbbreviation
 *Wiggle Sort II
 *Increasing Triplet Subsequence
 Palindrome Pairs
