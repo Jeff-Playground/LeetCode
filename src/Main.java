@@ -786,5 +786,9 @@ public class Main {
 //        LQShortestDistanceFromAllBuildings.shortestDistance(new int[][]{{1,1,1,1,1,0},{0,0,0,0,0,1},{0,1,1,0,0,1},{1,0,0,1,0,1},{1,0,1,0,0,1},{1,0,0,0,0,1},{0,1,1,1,1,0}});
 
 //        LQGeneralizedAbbreviation.generateAbbreviations("word");
+
+        CreateMaximumNumber.maxNumber(new int[]{3,4,6,5},
+                new int[]{9,1,2,5,8,3},
+                5);
     }
 }

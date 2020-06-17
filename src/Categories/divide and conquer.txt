@@ -10,6 +10,7 @@ Basic Calculator II
 *LQVerifyPreorderSequenceInBinarySearchTree
 - 300 -
 *Count of Smaller Numbers After Self
+*Create Maximum Number
 - 350 -
 - 400 -
 *Path Sum III
