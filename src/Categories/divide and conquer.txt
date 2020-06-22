@@ -11,6 +11,7 @@ Basic Calculator II
 - 300 -
 *Count of Smaller Numbers After Self
 *Create Maximum Number
+*Count of Range Sum
 - 350 -
 - 400 -
 *Path Sum III

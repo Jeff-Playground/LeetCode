@@ -4,6 +4,7 @@ Binary Tree Preorder Traversal
 *Serialize and Deserialize Binary Tree
 *LQBinaryTreeLongestConsecutiveSequence
 - 300 -
+*Verify Preorder Serialization of a Binary Tree
 House Robber III
 - 350 -
 - 400 -

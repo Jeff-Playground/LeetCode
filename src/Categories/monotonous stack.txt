@@ -1,6 +1,7 @@
 *Longest Valid Parentheses
 *LQVerifyPreorderSequenceInBinarySearchTree
 - 300 -
+Verify Preorder Serialization of a Binary Tree
 - 350 -
 - 400 -
 - 450 -

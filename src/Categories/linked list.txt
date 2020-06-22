@@ -21,6 +21,7 @@ Palindrome Linked List
 *Delete Node in a Linked List
 *Find the Duplicate Number
 - 300 -
+Odd Even Linked List
 - 350 -
 - 400 -
 - 450 -

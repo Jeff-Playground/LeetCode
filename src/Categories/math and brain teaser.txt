@@ -113,12 +113,18 @@ LQSparseMatrixMultiplication
 *Bulb Switcher
 *LQGeneralizedAbbreviation
 *Wiggle Sort II
+LQMaximumSizeSubarraySumEqualsK
+Power of Three
+*Patching Array
 *Increasing Triplet Subsequence
+*Self Crossing
 Palindrome Pairs
+Counting Bits
 Top K Frequent Elements
 Intersection of Two Arrays
 Intersection of Two Arrays II
 - 350 -
+*LQNestedListWeightSumII
 *Water and Jug Problem
 First Unique Character in a String
 Rotate Function

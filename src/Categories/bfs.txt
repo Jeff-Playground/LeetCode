@@ -14,7 +14,9 @@ LQWallsAndGates
 *Remove Invalid Parentheses
 *Minimum Height Trees
 *LQShortestDistanceFromAllBuildings
+LQNestedListWeightSum
 - 350 -
+LQNestedListWeightSumII
 - 400 -
 - 450 -
 LQTheMaze

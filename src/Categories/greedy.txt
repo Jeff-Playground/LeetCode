@@ -5,6 +5,7 @@ Best Time to Buy and Sell Stock II
 *Candy
 - 300 -
 *Remove Duplicate Letters
+*Patching Array
 - 350 -
 Is Subsequence
 - 400 -

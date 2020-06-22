@@ -57,8 +57,11 @@ LQWordPatternII
 *LQBinaryTreeLongestConsecutiveSequence
 - 300 -
 *Remove Invalid Parentheses
+Longest Increasing Path in a Matrix
 *Reconstruct Itinerary
+LQNestedListWeightSum
 - 350 -
+LQNestedListWeightSumII
 *Combination Sum IV
 *Decode String
 - 400 -

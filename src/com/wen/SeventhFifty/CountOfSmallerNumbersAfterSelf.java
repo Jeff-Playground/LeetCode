@@ -208,6 +208,7 @@ public class CountOfSmallerNumbersAfterSelf {
 //                }
 //            } else if(cur.val==val){
 //                cur.dupCount++;
+
 //                return cur.leftCount+result;
 //            }
 //        }

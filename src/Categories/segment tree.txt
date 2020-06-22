@@ -1,6 +1,11 @@
+// In a segment tree, if it's implemented by array, then the array length should be 4*l, and it should support below functions:
+// - update
+// - findSum
+// - findRange: findSum(i2)-findSum(i1)
 - 300 -
 *Range Sum Query - Mutable
 *Count of Smaller Numbers After Self
+*Count of Range Sum
 - 350 -
 - 400 -
 - 450 -
