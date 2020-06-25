@@ -3,160 +3,148 @@ package com.wen.SeventhFifty;
 import java.util.*;
 
 public class CountOfSmallerNumbersAfterSelf {
-    // Divide and conquer with merge sort
-    public static List<Integer> countSmaller(int[] nums) {
+//    // Divide and conquer with merge sort
+//    public List<Integer> countSmaller(int[] nums) {
+//        List<Integer> result=new ArrayList<>();
+//        int l=nums.length;
+//        int[] count=new int[l], index=new int[l];
+//        for(int i=0; i<l; i++){
+//            index[i]=i;
+//        }
+//        csHelper(nums, count, index, 0, l-1);
+//        for(int c: count){
+//            result.add(c);
+//        }
+//        return result;
+//    }
+//
+//    // This function would make sure for range left to right, index would store the sorted index for the numbers in this
+//    // range, and count would store the count of numbers originally located on the right but moved to the left due to
+//    // sorting
+//    private void csHelper(int[] nums, int[] count, int[] index, int start, int end){
+//        if(start>=end){
+//            return;
+//        }
+//        int mid=start+(end-start)/2;
+//        csHelper(nums, count, index, start, mid);
+//        csHelper(nums, count, index, mid+1, end);
+//        int[] indexNew=new int[end-start+1];
+//        int firstIdx=start, secondIdx=mid+1, moved=0;
+//        for(int i=start; i<=end; i++){
+//            int num1=firstIdx<=mid?nums[index[firstIdx]]:Integer.MAX_VALUE;
+//            int num2=secondIdx<=end?nums[index[secondIdx]]:Integer.MAX_VALUE;
+//            if(num1<=num2){
+//                indexNew[i-start]=index[firstIdx];
+//                count[index[firstIdx]]+=moved;
+//                firstIdx++;
+//            } else{
+//                indexNew[i-start]=index[secondIdx];
+//                moved++;
+//                secondIdx++;
+//            }
+//        }
+//        for(int i=start; i<=end; i++){
+//            index[i]=indexNew[i-start];
+//        }
+//    }
+
+//    // Segment tree
+//    private class SegmentTree{
+//        private SegmentTree left, right;
+//        int low, up;
+//        int count;
+//
+//        public SegmentTree(int low, int up){
+//            this.low=low;
+//            this.up=up;
+//            this.count=0;
+//        }
+//
+//        public void update(int num){
+//            if(low<=num && up>=num){
+//                count++;
+//                if(low!=up){
+//                    getLeft().update(num);
+//                    getRight().update(num);
+//                }
+//            }
+//        }
+//
+//        public int query(int num){
+//            if(num>up){
+//                return count;
+//            } else if(num>low && num<=up){
+//                return getLeft().query(num)+getRight().query(num);
+//            } else{
+//                return 0;
+//            }
+//        }
+//
+//        private SegmentTree getLeft(){
+//            if(left==null){
+//                left=new SegmentTree(low, getMid());
+//            }
+//            return left;
+//        }
+//
+//        private SegmentTree getRight(){
+//            if(right==null){
+//                right=new SegmentTree(getMid()+1, up);
+//            }
+//            return right;
+//        }
+//
+//        private int getMid(){
+//            return low+(up-low)/2;
+//        }
+//    }
+//
+//    public List<Integer> countSmaller(int[] nums) {
+//        List<Integer> result=new ArrayList<>();
+//        int min=Integer.MAX_VALUE, max=Integer.MIN_VALUE;
+//        for(int num: nums){
+//            min=Math.min(min, num);
+//            max=Math.max(max, num);
+//        }
+//        SegmentTree root=new SegmentTree(min, max);
+//        for(int i=nums.length-1; i>=0; i--){
+//            result.add(0, root.query(nums[i]));
+//            root.update(nums[i]);
+//        }
+//        return result;
+//    }
+
+    // Binary indexed tree
+    public List<Integer> countSmaller(int[] nums) {
         List<Integer> result=new ArrayList<>();
-        if(nums==null || nums.length==0){
-            return result;
+        Set<Integer> sorted=new TreeSet<>();
+        for(int num: nums){
+            sorted.add(num);
         }
-        int l=nums.length;
-        int[] count=new int[l];
-        int[] index=new int[l];
-        for(int i=0; i<l; i++){
-            index[i]=i;
-        }
-        countSmallerHelper(nums, 0, l-1, count, index);
-        for(int c: count){
-            result.add(c);
+        List<Integer> sortedList=new ArrayList<>(sorted);
+        int[] count=new int[sorted.size()+1];
+        for(int i=nums.length-1; i>=0; i--){
+            result.add(0, query(count, sortedList, nums[i]));
+            update(count, sortedList, nums[i]);
         }
         return result;
     }
 
-    // This function would make sure for range left to right, index would store the sorted index for the numbers in this
-    // range, and count would store the count of numbers originally located on the right but moved to the left due to
-    // sorting
-    public static void countSmallerHelper(int[] nums, int left, int right, int[] count, int[] index){
-        if(left>=right){
-            return;
+    private int query(int[] count, List<Integer> sortedList, int num){
+        int idx=Collections.binarySearch(sortedList, num)+1;
+        int result=0;
+        for(int i=idx-1; i>0; i-=i&(-i)){
+            result+=count[i];
         }
-        int mid=left+(right-left)/2;
-        countSmallerHelper(nums, left, mid, count, index);
-        countSmallerHelper(nums, mid+1, right, count, index);
-        int i=left, j=mid+1;
-        int rightCount=0;
-        int[] sortedIndex=new int[nums.length];
-        int k=left;
-        while(i<=mid && j<=right){
-            if(nums[index[i]]>nums[index[j]]){
-                rightCount++;
-                sortedIndex[k++]=index[j++];
-            } else{
-                count[index[i]]+=rightCount;
-                sortedIndex[k++]=index[i++];
-            }
-        }
-        while(i<=mid){
-            count[index[i]]+=rightCount;
-            sortedIndex[k++]=index[i++];
-        }
-        while(j<=right){
-            sortedIndex[k++]=index[j++];
-        }
-        for(i=left; i<=right; i++){
-            index[i]=sortedIndex[i];
-        }
+        return result;
     }
 
-//    // Segment tree
-//    public List<Integer> countSmaller(int[] nums) {
-//        List<Integer> result=new ArrayList<>();
-//        if(nums==null || nums.length==0){
-//            return result;
-//        }
-//        int[] numsCopy=Arrays.copyOf(nums, nums.length);
-//        Arrays.sort(numsCopy);
-//        Map<Integer, Integer> ranks=new HashMap<>();
-//        int rank=0;
-//        for(int i=0; i<numsCopy.length; i++){
-//            if(i>0 && numsCopy[i]==numsCopy[i-1]){
-//                continue;
-//            } else{
-//                ranks.put(numsCopy[i], rank++);
-//            }
-//        }
-//        // freq stores the counts of ranks of nums present at each iteration
-//        int[] freq=new int[ranks.size()*4];
-//        for(int i=nums.length-1; i>=0; i--){
-//            update(freq, 0, 0, ranks.size()-1, ranks.get(nums[i]), 1);
-//            result.add(0, querySum(freq, 0, 0, ranks.size()-1, ranks.get(nums[i])-1));
-//        }
-//        return result;
-//    }
-//
-//    public void update(int[] freq, int index, int left, int right, int valIndex, int diff){
-//        if(valIndex<left || valIndex>right){
-//            return;
-//        } else{
-//            if(left==right){
-//                freq[index]+=diff;
-//                return;
-//            }
-//            int mid=left+(right-left)/2;
-//            if(valIndex<=mid){
-//                update(freq, index*2+1, left, mid, valIndex, diff);
-//            } else{
-//                update(freq, index*2+2, mid+1, right, valIndex, diff);
-//            }
-//            freq[index]=freq[index*2+1]+freq[index*2+2];
-//        }
-//    }
-//
-//    public int querySum(int[] freq, int index, int left, int right, int rangeIndex){
-//        if(rangeIndex<left) {
-//            return 0;
-//        } else if(rangeIndex>=right){
-//            return freq[index];
-//        } else{
-//            int mid=left+(right-left)/2;
-//            if(mid>=rangeIndex){
-//                return querySum(freq, index*2+1, left, mid, rangeIndex);
-//            } else{
-//                return querySum(freq, index*2+1, left, mid, rangeIndex)+querySum(freq, index*2+2, mid+1, right, rangeIndex);
-//            }
-//        }
-//    }
-
-//    // Binary indexed tree
-//    public static List<Integer> countSmaller(int[] nums) {
-//        List<Integer> result=new ArrayList<>();
-//        if(nums==null || nums.length==0){
-//            return result;
-//        }
-//        int[] numsCopy=Arrays.copyOf(nums, nums.length);
-//        Arrays.sort(numsCopy);
-//        Map<Integer, Integer> ranks=new HashMap<>();
-//        // Note here rank starts at 1 to accommodate with binary index tree starting index
-//        int rank=1;
-//        for(int i=0; i<numsCopy.length; i++){
-//            if(i>0 && numsCopy[i]==numsCopy[i-1]){
-//                continue;
-//            } else{
-//                ranks.put(numsCopy[i], rank++);
-//            }
-//        }
-//        // freq stores the counts of ranks of nums present at each iteration
-//        // Note binary indexed tree starts at 1, so length is ranks.length+1
-//        int[] freq=new int[ranks.size()+1];
-//        for(int i=nums.length-1; i>=0; i--){
-//            update(freq, ranks.get(nums[i]), 1);
-//            result.add(0, getSum(freq, ranks.get(nums[i])-1));
-//        }
-//        return result;
-//    }
-//
-//    public static void update(int[] freq, int index, int diff){
-//        for(int i=index; i<freq.length; i+=i&(-i)){
-//            freq[i]+=diff;
-//        }
-//    }
-//
-//    public static int getSum(int[] freq, int index){
-//        int result=0;
-//        for(int i=index; i>=1; i-=i&(-i)){
-//            result+=freq[i];
-//        }
-//        return result;
-//    }
+    private void update(int[] count, List<Integer> sortedList, int num){
+        int idx=Collections.binarySearch(sortedList, num)+1;
+        for(int i=idx; i<count.length; i+=i&(-i)){
+            count[i]+=1;
+        }
+    }
 
 //    // Binary search tree
 //    public class MyTreeNode{
