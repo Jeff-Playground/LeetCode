@@ -22,6 +22,7 @@ import com.wen.SeventhFifty.*;
 import com.wen.SixteenthFifty.*;
 import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
 import com.wen.TenthFifty.LQMaxConsecutiveOnesII;
+import com.wen.TenthFifty.ReversePairs;
 import com.wen.ThirdFifty.LRUCache;
 import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
@@ -794,5 +795,7 @@ public class Main {
 //        CountOfRangeSum.countRangeSum(new int[]{2147483647,-2147483648,-1,0},
 //        -1,
 //        0);
+
+        ReversePairs.reversePairs(new int[]{2147483647,2147483647,-2147483647,-2147483647,-2147483647,2147483647});
     }
 }
