@@ -15,6 +15,7 @@ LQUniqueWordAbbreviation
 - 300 -
 *Flatten Nested List Iterator
 LQMovingAverageFromDataStream
+LQDesignTicTacToe
 - 350 -
 *LQDesignSnakeGame
 Design Twitter
