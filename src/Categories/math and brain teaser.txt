@@ -114,12 +114,14 @@ LQSparseMatrixMultiplication
 *LQGeneralizedAbbreviation
 *Wiggle Sort II
 LQMaximumSizeSubarraySumEqualsK
-Power of Three
+*Power of Three
 *Patching Array
 *Increasing Triplet Subsequence
 *Self Crossing
 Palindrome Pairs
 Counting Bits
+*Power of Four
+Integer break
 Top K Frequent Elements
 Intersection of Two Arrays
 Intersection of Two Arrays II

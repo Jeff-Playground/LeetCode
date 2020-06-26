@@ -4,27 +4,55 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LQLongestSubstringWithAtMostKDistinctCharacters {
-    public static int lengthOfLongestSubstringKDistinct(String s, int k) {
+    // Map stores the count of chars
+    public int lengthOfLongestSubstringKDistinct(String s, int k) {
         if(s==null || s.isEmpty() || k<=0){
             return 0;
         }
-        int result=1, l=s.length(), left=0, right=0;
-        Map<Character, Integer> idx=new HashMap<>();
-        idx.put(s.charAt(right), right);
-        while(l-left>result && right<l){
-            if(idx.size()<=k){
-                result=Math.max(result, right-left+1);
+        int left=0, right=0;
+        int result=0;
+        Map<Character, Integer> map=new HashMap<>();
+        while(right<s.length() && left<=right){
+            if(map.size()<k || map.containsKey(s.charAt(right))){
+                map.put(s.charAt(right), map.getOrDefault(s.charAt(right), 0)+1);
                 right++;
-                if(right<l){
-                    idx.put(s.charAt(right), right);
-                }
             } else{
-                while(idx.get(s.charAt(left))!=left){
+                while(map.size()==k){
+                    if(map.get(s.charAt(left))==1){
+                        map.remove(s.charAt(left));
+                    } else{
+                        map.put(s.charAt(left), map.get(s.charAt(left))-1);
+                    }
                     left++;
                 }
-                idx.remove(s.charAt(left++));
             }
+            result=Math.max(result,right-left);
         }
         return result;
     }
+
+//    // Map stores the latest index of chars
+//    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+//        if(s==null || s.isEmpty() || k<=0){
+//            return 0;
+//        }
+//        int left=0, right=0;
+//        int result=0;
+//        Map<Character, Integer> map=new HashMap<>();
+//        while(right<s.length() && left<=right){
+//            if(map.size()<k || map.containsKey(s.charAt(right))){
+//                map.put(s.charAt(right), right);
+//                right++;
+//            } else{
+//                while(map.size()==k){
+//                    if(map.get(s.charAt(left))==left){
+//                        map.remove(s.charAt(left));
+//                    }
+//                    left++;
+//                }
+//            }
+//            result=Math.max(result,right-left);
+//        }
+//        return result;
+//    }
 }

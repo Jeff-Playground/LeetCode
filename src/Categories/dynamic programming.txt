@@ -35,6 +35,7 @@ Range Sum Query - Immutable
 Range Sum Query 2D - Immutable
 *Best Time to Buy and Sell Stock with Cooldown
 *Burst Balloons
+*Integer Break
 - 350 -
 LQBombEnemy
 *Combination Sum IV
