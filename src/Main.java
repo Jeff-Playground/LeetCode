@@ -798,11 +798,13 @@ public class Main {
 
 //        LQAndroidUnlockPatterns.numberOfPatterns(1,3);
 
-        DataStreamAsDisjointIntervals.SummaryRanges obj = new DataStreamAsDisjointIntervals.SummaryRanges();
-        obj.addNum(1);
-        obj.addNum(3);
-        obj.addNum(7);
-        obj.addNum(2);
-        obj.addNum(6);
+//        DataStreamAsDisjointIntervals.SummaryRanges obj = new DataStreamAsDisjointIntervals.SummaryRanges();
+//        obj.addNum(1);
+//        obj.addNum(3);
+//        obj.addNum(7);
+//        obj.addNum(2);
+//        obj.addNum(6);
+
+        RussianDollEnvelopes.maxEnvelopes(new int[][]{{46,89},{50,53},{52,68},{72,45},{77,81}});
     }
 }
