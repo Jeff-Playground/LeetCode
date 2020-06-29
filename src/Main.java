@@ -1,10 +1,7 @@
 import com.wen.EighteenthFifty.MinimumNumberOfRefuelingStops;
 import com.wen.EighteenthFifty.ReachableNodesInSubdividedGraph;
 import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
-import com.wen.EighthFifty.CombinationSumIV;
-import com.wen.EighthFifty.LQAndroidUnlockPatterns;
-import com.wen.EighthFifty.LQFindLeavesOfBinaryTree;
-import com.wen.EighthFifty.LQRearrangeStringKDistanceApart;
+import com.wen.EighthFifty.*;
 import com.wen.EleventhFifty.FindModeInBinarySearchTree;
 import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.FifteenthFifty.*;
@@ -799,6 +796,13 @@ public class Main {
 
 //        ReversePairs.reversePairs(new int[]{2147483647,2147483647,-2147483647,-2147483647,-2147483647,2147483647});
 
-        LQAndroidUnlockPatterns.numberOfPatterns(1,3);
+//        LQAndroidUnlockPatterns.numberOfPatterns(1,3);
+
+        DataStreamAsDisjointIntervals.SummaryRanges obj = new DataStreamAsDisjointIntervals.SummaryRanges();
+        obj.addNum(1);
+        obj.addNum(3);
+        obj.addNum(7);
+        obj.addNum(2);
+        obj.addNum(6);
     }
 }

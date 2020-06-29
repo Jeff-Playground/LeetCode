@@ -17,6 +17,7 @@ First Bad Version
 *LQSmallestRectangleEnclosingBlackPixels
 *Count of Smaller Numbers After Self
 - 350 -
+Data Stream as Disjoint Intervals
 *Kth Smallest Element in a Sorted Matrix
 *Is Subsequence
 - 400 -
