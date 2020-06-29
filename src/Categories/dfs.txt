@@ -61,6 +61,7 @@ Longest Increasing Path in a Matrix
 *Reconstruct Itinerary
 LQNestedListWeightSum
 - 350 -
+*LQAndroidUnlockPatterns
 LQNestedListWeightSumII
 *Combination Sum IV
 *Decode String

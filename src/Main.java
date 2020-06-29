@@ -2,6 +2,7 @@ import com.wen.EighteenthFifty.MinimumNumberOfRefuelingStops;
 import com.wen.EighteenthFifty.ReachableNodesInSubdividedGraph;
 import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
 import com.wen.EighthFifty.CombinationSumIV;
+import com.wen.EighthFifty.LQAndroidUnlockPatterns;
 import com.wen.EighthFifty.LQFindLeavesOfBinaryTree;
 import com.wen.EighthFifty.LQRearrangeStringKDistanceApart;
 import com.wen.EleventhFifty.FindModeInBinarySearchTree;
@@ -797,5 +798,7 @@ public class Main {
 //        0);
 
 //        ReversePairs.reversePairs(new int[]{2147483647,2147483647,-2147483647,-2147483647,-2147483647,2147483647});
+
+        LQAndroidUnlockPatterns.numberOfPatterns(1,3);
     }
 }
