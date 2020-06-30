@@ -806,5 +806,7 @@ public class Main {
 //        obj.addNum(6);
 
 //        RussianDollEnvelopes.maxEnvelopes(new int[][]{{46,89},{50,53},{52,68},{72,45},{77,81}});
+
+        LQLineReflection.isReflected(new int[][]{{1,1}, {-1,1}});
     }
 }

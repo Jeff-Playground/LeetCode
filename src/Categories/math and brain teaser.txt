@@ -126,6 +126,8 @@ Top K Frequent Elements
 Intersection of Two Arrays
 Intersection of Two Arrays II
 - 350 -
+LQLineReflection
+Count Numbers with Unique Digits
 *LQNestedListWeightSumII
 *Water and Jug Problem
 First Unique Character in a String
