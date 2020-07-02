@@ -19,6 +19,8 @@ First Bad Version
 - 350 -
 Data Stream as Disjoint Intervals
 *Russian Doll Envelopes
+Valid Perfect Square
+Guess Number Higher or Lower
 *Kth Smallest Element in a Sorted Matrix
 *Is Subsequence
 - 400 -

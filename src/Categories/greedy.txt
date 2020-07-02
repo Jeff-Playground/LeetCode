@@ -7,6 +7,7 @@ Best Time to Buy and Sell Stock II
 *Remove Duplicate Letters
 *Patching Array
 - 350 -
+*Wiggle Subsequence
 Is Subsequence
 - 400 -
 - 450 -

@@ -39,6 +39,10 @@ Range Sum Query 2D - Immutable
 - 350 -
 *Russian Doll Envelopes
 LQBombEnemy
+*Max Sum of Rectangle No Larger Than K
+*Largest Divisible Subset
+*Guess Number Higher or Lower II
+*Wiggle Subsequence
 *Combination Sum IV
 Is Subsequence
 - 400 -

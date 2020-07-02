@@ -808,5 +808,13 @@ public class Main {
 //        RussianDollEnvelopes.maxEnvelopes(new int[][]{{46,89},{50,53},{52,68},{72,45},{77,81}});
 
 //        LQLineReflection.isReflected(new int[][]{{1,1}, {-1,1}});
+
+//        ValidPerfectSquare.isPerfectSquare(2147483647);
+
+//        MaxSumOfRectangleNoLargerThanK.maxSumSubmatrix(new int[][]{{2,2,-1}}, 3);
+
+//        GuessNumberHigherOrLowerII.getMoneyAmount(20);
+
+//        WiggleSubsequence.wiggleMaxLength(new int[]{1,7,4,9,2,5});
     }
 }

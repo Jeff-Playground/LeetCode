@@ -128,8 +128,12 @@ Intersection of Two Arrays II
 - 350 -
 LQLineReflection
 Count Numbers with Unique Digits
+*LQSortTransformedArray
 *LQNestedListWeightSumII
 *Water and Jug Problem
+*LQRangeAddition
+*Super Pow
+Ransom Note
 First Unique Character in a String
 Rotate Function
 - 400 -
@@ -159,6 +163,7 @@ Optimal Division
 Next Greater Element III
 *Subarray Sum Equals K
 Shortest Unsorted Continuous Subarray
+Range Addition II
 - 600 -
 Task Scheduler
 Solve the Equation

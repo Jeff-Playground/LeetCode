@@ -1,6 +1,7 @@
 *LQFlipGameII
 - 300 -
 - 350 -
+*Guess Number Higher or Lower II
 - 400 -
 - 450 -
 *Predict the Winner

@@ -5,7 +5,8 @@ Given a nested list of integers, return the sum of all integers in the list weig
 
 Each element is either an integer, or a list -- whose elements may also be integers or other lists.
 
-Different from the previous question where weight is increasing from root to leaf, now the weight is defined from bottom up. i.e., the leaf level integers have weight 1, and the root level integers have the largest weight.
+Different from the previous question where weight is increasing from root to leaf, now the weight is defined from bottom
+up. i.e., the leaf level integers have weight 1, and the root level integers have the largest weight.
 
 Example 1:
 Input: [[1,1],2,[1,1]]
