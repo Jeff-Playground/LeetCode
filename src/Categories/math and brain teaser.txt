@@ -134,8 +134,14 @@ Count Numbers with Unique Digits
 *LQRangeAddition
 *Super Pow
 Ransom Note
+*Lexicographical Numbers
 First Unique Character in a String
+Longest Absolute File Path
+Find the Difference
+*Perfect Rectangle
 Rotate Function
+Integer Replacement
+Nth Digit
 - 400 -
 Third Maximum Number
 *LQSentenceScreenFitting

@@ -13,6 +13,7 @@ Basic Calculator II
 *Create Maximum Number
 *Count of Range Sum
 - 350 -
+Longest Substring with At Least K Repeating Characters
 - 400 -
 *Path Sum III
 - 450 -

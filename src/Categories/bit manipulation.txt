@@ -12,6 +12,9 @@ Number of 1 Bits
 MaximumProductOfWordLengths
 - 350 -
 *Sum of Two Integers
+*Find the Difference
+UTF-8 Validation
+Integer Replacement
 - 400 -
 - 450 -
 - 500 -

@@ -816,5 +816,13 @@ public class Main {
 //        GuessNumberHigherOrLowerII.getMoneyAmount(20);
 
 //        WiggleSubsequence.wiggleMaxLength(new int[]{1,7,4,9,2,5});
+
+//        LongestAbsoluteFilePath.lengthLongestPath("dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext");
+
+//        UTFEightValidation.validUtf8(new int[]{197,130,1});
+
+//        IntegerReplacement.integerReplacement(Integer.MAX_VALUE);
+
+//        NthDigit.findNthDigit(100);
     }
 }

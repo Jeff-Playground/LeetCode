@@ -44,6 +44,7 @@ LQBombEnemy
 *Guess Number Higher or Lower II
 *Wiggle Subsequence
 *Combination Sum IV
+*Elimination Game
 Is Subsequence
 - 400 -
 - 450 -
