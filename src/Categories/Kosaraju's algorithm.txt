@@ -1,0 +1,4 @@
+Used to identify whether a directed graph is strongly connected. The idea is to start from one vertex, and do DFS to check
+if it can reach all other vertices; then start from the same vertex but reverse all edges and do DFS again to see if it can
+reach all other vertices. The logic is this checks whether a vertex can reach all other vertices, and whether all other
+vertices can reach this vertex.

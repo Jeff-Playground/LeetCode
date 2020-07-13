@@ -29,6 +29,7 @@ import com.wen.TwelfthFifty.PermutationInString;
 import com.wen.TwentiethFifty.FindTheTownJudge;
 import com.wen.TwentiethFifty.LongestTurbulentSubarray;
 import com.wen.TwentiethFifty.PrisonCellsAfterNDays;
+import com.wen.TwentySecondFifty.CriticalConnectionsInANetwork;
 import com.wen.TwentySecondFifty.LQAllPathsFromSourceLeadToDestination;
 
 import java.util.ArrayList;
@@ -824,5 +825,7 @@ public class Main {
 //        IntegerReplacement.integerReplacement(Integer.MAX_VALUE);
 
 //        NthDigit.findNthDigit(100);
+
+//        CriticalConnectionsInANetwork.criticalConnections(4, Arrays.asList(Arrays.asList(0,1), Arrays.asList(1,2), Arrays.asList(2,0), Arrays.asList(1,3)));
     }
 }
