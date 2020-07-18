@@ -16,20 +16,20 @@ public class CriticalConnectionsInANetwork {
             graph.put(v2, nb2);
         }
         int[] ids=new int[n], low=new int[n];
-        int[] cur=new int[]{0};
+        int[] id=new int[]{0};
         Arrays.fill(ids, -1);
         Arrays.fill(low, -1);
-        tarjan(0, 0, graph, ids, low, cur, result);
+        tarjan(0, 0, graph, ids, low, id, result);
         return result;
     }
 
-    private static void tarjan(int node, int parent, Map<Integer, Set<Integer>> graph, int[] ids, int[] low, int[] cur, List<List<Integer>> result){
-        ids[node]=cur[0]++;
+    private static void tarjan(int node, int parent, Map<Integer, Set<Integer>> graph, int[] ids, int[] low, int[] id, List<List<Integer>> result){
+        ids[node]=id[0]++;
         low[node]=ids[node];
         for(int nb: graph.get(node)){
             if(nb!=parent){
                 if(ids[nb]==-1){
-                    tarjan(nb, node, graph, ids, low, cur, result);
+                    tarjan(nb, node, graph, ids, low, id, result);
                     if(ids[node]<low[nb]){
                         result.add(Arrays.asList(node, nb));
                     }
