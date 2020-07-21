@@ -12,8 +12,10 @@ import com.wen.FourteenthFifty.CutOffTreesForGolfEvent;
 import com.wen.FourteenthFifty.FallingSquares;
 import com.wen.FourteenthFifty.FindKClosestElements;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
+import com.wen.NinthFifty.BinaryWatch;
 import com.wen.NinthFifty.LQSequenceReconstruction;
 import com.wen.NinthFifty.LongestRepeatingCharacterReplacement;
+import com.wen.NinthFifty.RemoveKDigits;
 import com.wen.SecondFifty.TextJustification;
 import com.wen.SeventeenthFifty.*;
 import com.wen.SeventhFifty.*;
@@ -827,5 +829,9 @@ public class Main {
 //        NthDigit.findNthDigit(100);
 
 //        CriticalConnectionsInANetwork.criticalConnections(4, Arrays.asList(Arrays.asList(0,1), Arrays.asList(1,2), Arrays.asList(2,0), Arrays.asList(1,3)));
+
+//        BinaryWatch.readBinaryWatch(1);
+
+        RemoveKDigits.removeKdigits("112", 1);
     }
 }

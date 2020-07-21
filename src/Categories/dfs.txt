@@ -67,6 +67,7 @@ LQNestedListWeightSumII
 *Combination Sum IV
 *Decode String
 - 400 -
+*Binary Watch
 *Path Sum III
 - 450 -
 LQTheMaze
