@@ -1,5 +1,12 @@
 When sampling k items, first get the first k items, then for the n-th item, the possibility for including it is k/n, and
-if included, randomly replace one of the chosen k items.
+if included, randomly replace one of the chosen k items:
+Random r=new Random();
+int idx=r.nextInt(n);
+if(idx<k){
+    int temp=nums[idx];
+    nums[idx]=nums[n-1];
+    nums[n-1]=temp;
+}
 
 - 300 -
 - 350 -

@@ -1,3 +1,6 @@
+int[] line1=new int[]{y1, OPEN, x1, x2};
+int[] line2=new int[]{y2, CLOSE, x1, x2};
+
 - 300 -
 - 350 -
 - 400 -

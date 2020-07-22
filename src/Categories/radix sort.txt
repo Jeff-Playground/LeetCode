@@ -1,3 +1,10 @@
+Maintain a radix=10, and exp starts from 1 and increase by *10, keep looping when max/exp>0:
+    Inside each loop, maintain a int[10] count to store the count of numbers for each radix, and iterate over the nums
+    array once to get the count
+    Then do count[i]+=count[i-1], so now count[i] is the index of the corresponding radix i in the sorted array
+    Iterate over the nums array again to put each number into a sorted array, and after the iteration copy the sorted
+    array to original nums array
+
 *Maximum Gap
 - 300 -
 - 350 -

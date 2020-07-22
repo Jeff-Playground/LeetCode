@@ -835,6 +835,6 @@ public class Main {
 
 //        RemoveKDigits.removeKdigits("112", 1);
 
-        MaximumGap.maximumGap(new int[]{1,10000000});
+//        MaximumGap.maximumGap(new int[]{1,10000000});
     }
 }

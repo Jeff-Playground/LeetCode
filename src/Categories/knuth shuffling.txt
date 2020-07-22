@@ -1,3 +1,9 @@
+Do a iteration for each index, where in each iteration generate a random index within [i, l-1], then so a swap if
+randomIdx!=i.
+For random number generation, use Random API:
+Random r=new Random();
+int randomIdx=r.nextInt(l-i)+i;
+
 - 300 -
 - 350 -
 *Shuffle an Array

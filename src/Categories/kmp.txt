@@ -1,3 +1,6 @@
+Generate and maintain a int[] next for the needle to store the next index for comparing when mismatch, then use it during
+the search.
+
 *Implement strStr()
 *Shortest Palindrome
 - 300 -

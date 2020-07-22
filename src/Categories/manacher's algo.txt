@@ -1,3 +1,8 @@
+First enrich the given string to be like $# # # #, so now the length of the new string is 2*l+2;
+Then maintain an array int[] r=new int[2*l+2], where it stores the r at each index of the new string;
+Next maintain maxReachIdx(index which palindrome can reach the max index), maxReach, maxIdx(index which has the maximum
+r, in other words the center of the longest palindrome), maxR; and do iteration over the string
+
 *Longest Palindromic Substring
 - 300 -
 - 350 -

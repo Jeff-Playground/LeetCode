@@ -3,10 +3,11 @@ package com.wen.SeventeenthFifty;
 import java.util.*;
 
 public class RectangleAreaII {
+    private final static int OPEN=1, CLOSE=-1;
+
 //    // Segment tree with coordinates compression
 //    public static int rectangleArea(int[][] rectangles) {
 //        int l=rectangles.length;
-//        int OPEN=1, CLOSE=-1;
 //        Set<Integer> xVals=new TreeSet<>();
 //        int[][] events=new int[2*l][];
 //        int t=0;
@@ -92,7 +93,6 @@ public class RectangleAreaII {
 //    // Line sweep
 //    public static int rectangleArea(int[][] rectangles) {
 //        int l=rectangles.length;
-//        int OPEN=0, CLOSE=1;
 //        int[][] events=new int[2*l][];
 //        int t=0;
 //        for(int[] rec: rectangles){

@@ -1,3 +1,8 @@
+The idea is maintain counts for numbers, and when encounter the number do count++, otherwise do count--, when count==0,
+update the current maintained numbers.
+This only works for when there's a solution exists, or in other words, this can find the possible solution, but
+verifications need to be done.
+
 Majority Element
 *Majority Element II
 - 300 -

@@ -1,3 +1,15 @@
+Done in recursions, in each recursion:
+    Get the first element(index 0) and store it in a separate variable temp;
+    Maintain two pointers lesser and greater, lesser starts from 0 and greater starts from the end;
+    Start with greater and keep doing greater-- until there's an element lesser than (note NO OR EQUAL TO) temp, put it
+    in position lesser
+    Start with lesser and keep doing lesser++ until there's an element greater than (note NO OR EQUAL TO) temp, put it
+    in position greater
+    Keep doing this until lesser==greater, now put temp in position lesser
+    Now everything before lesser is less than OR EQUAL TO temp, and everything after lesser is greater than OR EQUAL TO
+    temp
+    Start two new recursions for the part before lesser and the other after lesser
+
 *Kth Largest Element in an Array
 - 300 -
 - 350 -

@@ -42,25 +42,25 @@ public class LongestPalindromicSubstring {
             }
             int[] r=new int[2*l+2];
             r[0]=1;
-            int cur=0, center=0, maxR=1, maxIdx=0;
+            int maxReachIdx=0, maxReach=0, maxIdx=0, maxR=1;
             for(int i=1; i<2*l+2 && 2*l+1-i+1>maxR; i++){
                 r[i]=1;
-                if(i<=maxIdx){
-                    r[i]=Math.min(r[2*cur-i], maxIdx-i+1);
+                if(i<=maxReach){
+                    r[i]=Math.min(r[2*maxReachIdx-i], maxReach-i+1);
                 }
                 while(i-r[i]>=0 && i+r[i]<2*l+2 && sb.charAt(i+r[i])==sb.charAt(i-r[i])){
                     r[i]++;
                 }
-                if(i+r[i]-1>maxIdx){
-                    cur=i;
-                    maxIdx=i+r[i]-1;
+                if(i+r[i]-1>maxReach){
+                    maxReachIdx=i;
+                    maxReach=i+r[i]-1;
                 }
                 if(r[i]>maxR){
-                    center=i;
+                    maxIdx=i;
                     maxR=r[i];
                 }
             }
-            return s.substring((center-maxR+1)/2, (center+maxR-1)/2);
+            return s.substring((maxIdx-maxR+1)/2, (maxIdx+maxR-1)/2);
         }
     }
 }
