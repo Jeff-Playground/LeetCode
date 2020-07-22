@@ -12,6 +12,7 @@ import com.wen.FourteenthFifty.CutOffTreesForGolfEvent;
 import com.wen.FourteenthFifty.FallingSquares;
 import com.wen.FourteenthFifty.FindKClosestElements;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
+import com.wen.FourthFifty.MaximumGap;
 import com.wen.NinthFifty.BinaryWatch;
 import com.wen.NinthFifty.LQSequenceReconstruction;
 import com.wen.NinthFifty.LongestRepeatingCharacterReplacement;
@@ -832,6 +833,8 @@ public class Main {
 
 //        BinaryWatch.readBinaryWatch(1);
 
-        RemoveKDigits.removeKdigits("112", 1);
+//        RemoveKDigits.removeKdigits("112", 1);
+
+        MaximumGap.maximumGap(new int[]{1,10000000});
     }
 }

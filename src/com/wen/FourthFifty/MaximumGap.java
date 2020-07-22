@@ -4,7 +4,7 @@ import java.util.*;
 
 public class MaximumGap {
     // Bucket sort
-    public int maximumGap(int[] nums) {
+    public static int maximumGap(int[] nums) {
         if(nums==null || nums.length<2) {
             return 0;
         }
@@ -14,8 +14,9 @@ public class MaximumGap {
             max=Math.max(max, num);
             min=Math.min(min, num);
         }
-        // Ensures gap between buckets are bigger than within a bucket
-        int bucketSize=(max-min)/n+1;
+        // Here bucketSize is less than (max-min)/(n-1), which is the average gap between the n numbers, so this ensures
+        // gap between buckets are bigger than within a bucket
+        int bucketSize=(max-min)/n!=0?(max-min)/n:1;
         int bucketCount=(max-min)/bucketSize+1;
         int[] bucketMax=new int[bucketCount];
         Arrays.fill(bucketMax, Integer.MIN_VALUE);
@@ -30,7 +31,7 @@ public class MaximumGap {
         }
         // Here pre==0 must be in the set because for min the index is 0
         int pre=0;
-        for(int i=1; i<n; i++) {
+        for(int i=1; i<bucketCount; i++) {
             if(!existingIdx.contains(i)) {
                 continue;
             }
