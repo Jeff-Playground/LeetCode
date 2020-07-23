@@ -30,7 +30,7 @@ public class RepeatedDNASequences {
         }
         Set<String> result=new HashSet<>();
         // Magic number 10^9+7 or 10^9+9
-        long base=256, mod=1000000007, highestPower=mod1(base, 9, mod);
+        long base=256, mod=1_000_000_007, highestPower=mod1(base, 9, mod);
         long hash=0;
         for(int i=0; i<10; i++){
             hash=(hash*base+s.charAt(i))%mod;
