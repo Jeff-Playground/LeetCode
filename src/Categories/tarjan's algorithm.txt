@@ -6,9 +6,11 @@ Used to find the strongly connected components in a DIRECTED graph. If the numbe
 then the directed graph itself is strongly connected. Note this is better than Kosaraju's algorithm because it only requires
 1 time DFS of the graph.
 It can be further used in below cases:
-Find bridges(undirected graph): the trick here is to find the edges for which the child vertex can't reach vertices with
-                                smaller ids than parent without the (parent, child) edge
-Find articulation points(undirected graph): the trick here is to find two kinds of vertices:
+Find bridges(undirected graph): (An edge in an undirected connected graph is a bridge iff removing it disconnects the graph)
+    the trick here is to find the edges for which the child vertex can't reach vertices with smaller ids than parent
+    without the (parent, child) edge
+Find articulation points(undirected graph): the trick here is to find two kinds of vertices: (A vertex in an undirected
+connected graph is an articulation point iff removing it and edges through it disconnects the graph)
                                             1. root with multiple children
                                             2. non-root with children which can't reach vertices with smaller ids than parent
 Verify bi-connected graph(undirected graph): the trick here is to ensure the graph is connected, and:

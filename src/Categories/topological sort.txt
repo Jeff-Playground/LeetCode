@@ -1,3 +1,10 @@
+Can be implemented using Queue(BFS) or Stack(DFS), both ways are similar:
+1. Calculate the inDegree for each node
+2. Add the nodes with 0 inDegree values to the Queue/Stack
+3. Iterate over all nodes in Queue/Stack, and update the inDegree array accordingly(add nodes with updated inDegree to
+    be 0)
+4. Check if eventually all nodes are reached
+
 Course Schedule
 Course Schedule II
 - 300 -

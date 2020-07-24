@@ -1,3 +1,7 @@
+public int gcd(int x, int y){
+    return y==0?x:gcd(y, x%y);
+}
+
 *Max Points on a Line
 - 300 -
 - 350 -

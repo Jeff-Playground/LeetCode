@@ -3,6 +3,7 @@ package com.wen.TwentySecondFifty;
 import java.util.*;
 
 public class CriticalConnectionsInANetwork {
+    // Tarjan's algorithm
     public static List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
         List<List<Integer>> result=new ArrayList<>();
         Map<Integer, Set<Integer>> graph=new HashMap<>();

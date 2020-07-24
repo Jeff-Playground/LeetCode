@@ -1,3 +1,4 @@
+Magic numbers for mod: 1_000_000_007 or 1_000_000_009
 hash=(((hash-highestPower*s.charAt(i-1))*base+s.charAt(i+9))%mod+mod)%mod;
 
 *Repeated DNA Sequences
