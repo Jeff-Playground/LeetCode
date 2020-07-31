@@ -16,6 +16,7 @@ MaximumProductOfWordLengths
 UTF-8 Validation
 Integer Replacement
 - 400 -
+Convert a Number to Hexadecimal
 - 450 -
 - 500 -
 - 550 -

@@ -47,6 +47,9 @@ LQBombEnemy
 *Elimination Game
 Is Subsequence
 - 400 -
+Frog Jump
+Split Array Largest Sum
+Arithmetic Slices
 - 450 -
 *Predict the Winner
 - 500 -

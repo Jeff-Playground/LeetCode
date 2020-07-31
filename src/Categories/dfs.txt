@@ -68,6 +68,8 @@ LQNestedListWeightSumII
 *Decode String
 - 400 -
 *Binary Watch
+Frog Jump
+LQMinimumUniqueWordAbbreviation
 *Path Sum III
 - 450 -
 LQTheMaze

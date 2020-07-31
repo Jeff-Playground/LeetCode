@@ -13,10 +13,7 @@ import com.wen.FourteenthFifty.FallingSquares;
 import com.wen.FourteenthFifty.FindKClosestElements;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.FourthFifty.MaximumGap;
-import com.wen.NinthFifty.BinaryWatch;
-import com.wen.NinthFifty.LQSequenceReconstruction;
-import com.wen.NinthFifty.LongestRepeatingCharacterReplacement;
-import com.wen.NinthFifty.RemoveKDigits;
+import com.wen.NinthFifty.*;
 import com.wen.SecondFifty.TextJustification;
 import com.wen.SeventeenthFifty.*;
 import com.wen.SeventhFifty.*;
@@ -836,5 +833,19 @@ public class Main {
 //        RemoveKDigits.removeKdigits("112", 1);
 
 //        MaximumGap.maximumGap(new int[]{1,10000000});
+
+//        FrogJump.canCross(new int[]{0,1,3,5,6,8,12,17});
+
+//        ConvertANumberToHexadecimal.toHex(-1);
+
+//        LongestPalindrome.longestPalindrome("aabbccd");
+
+//        SplitArrayLargestSum.splitArray(new int[]{7,2,5,10,8}, 2);
+
+//        LQMinimumUniqueWordAbbreviation.minAbbreviation("tesjwh", new String[]{"blade"});
+
+//        AddStrings.addStrings("9", "1");
+
+
     }
 }

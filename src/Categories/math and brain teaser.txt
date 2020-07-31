@@ -143,6 +143,11 @@ Rotate Function
 Integer Replacement
 Nth Digit
 - 400 -
+Convert a Number to Hexadecimal
+LQValidWordAbbreviation
+Longest Palindrome
+Fizz Buzz
+Add Strings
 Third Maximum Number
 *LQSentenceScreenFitting
 Battleships in a Board
