@@ -147,10 +147,11 @@ Convert a Number to Hexadecimal
 LQValidWordAbbreviation
 Longest Palindrome
 Fizz Buzz
-Add Strings
 Third Maximum Number
+Add Strings
 *LQSentenceScreenFitting
 Battleships in a Board
+LQStrongPasswordChecker
 - 450 -
 Sort Characters By Frequency
 132 Pattern
