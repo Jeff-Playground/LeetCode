@@ -151,7 +151,7 @@ Third Maximum Number
 Add Strings
 *LQSentenceScreenFitting
 Battleships in a Board
-LQStrongPasswordChecker
+Strong Password Checker
 - 450 -
 Sort Characters By Frequency
 132 Pattern

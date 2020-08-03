@@ -846,6 +846,8 @@ public class Main {
 
 //        AddStrings.addStrings("9", "1");
 
-//        LQStrongPasswordChecker.strongPasswordChecker("");
+//        StrongPasswordChecker.strongPasswordChecker("1234567890123456Baaaa");
+
+
     }
 }

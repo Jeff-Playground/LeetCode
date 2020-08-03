@@ -3,7 +3,7 @@ package com.wen.NinthFifty;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LQStrongPasswordChecker {
+public class StrongPasswordChecker {
     public static int strongPasswordChecker(String s) {
         int upper=1, lower=1, digit=1;
         Map<Integer, Integer> repeatIdx=new HashMap<>();
@@ -45,7 +45,7 @@ public class LQStrongPasswordChecker {
                         break;
                     }
                     int repeatLength=repeatIdx.get(idx);
-                    if(repeatLength%3==k-1){
+                    if(repeatLength%3==k-1 && remove>=k){
                         repeatIdx.put(idx, repeatLength-=k);
                         remove-=k;
                     }
