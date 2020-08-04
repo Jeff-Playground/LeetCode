@@ -17,6 +17,7 @@ UTF-8 Validation
 Integer Replacement
 - 400 -
 Convert a Number to Hexadecimal
+*Maximum XOR of Two Numbers in an Array
 - 450 -
 - 500 -
 - 550 -

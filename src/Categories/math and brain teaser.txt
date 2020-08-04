@@ -152,6 +152,7 @@ Add Strings
 *LQSentenceScreenFitting
 Battleships in a Board
 Strong Password Checker
+LQValidWordSquare
 - 450 -
 Sort Characters By Frequency
 132 Pattern

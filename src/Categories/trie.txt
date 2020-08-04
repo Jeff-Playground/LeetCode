@@ -7,6 +7,7 @@ Map of word and corresponding count to store history.
 - 300 -
 - 350 -
 - 400 -
+*Maximum XOR of Two Numbers in an Array
 - 450 -
 - 500 -
 - 550 -
