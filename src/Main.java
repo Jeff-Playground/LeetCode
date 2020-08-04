@@ -848,6 +848,6 @@ public class Main {
 
 //        StrongPasswordChecker.strongPasswordChecker("1234567890123456Baaaa");
 
-
+//        LQWordSquares.wordSquares(new String[]{"area","lead","wall","lady","ball"});
     }
 }
