@@ -153,6 +153,7 @@ Add Strings
 Battleships in a Board
 Strong Password Checker
 LQValidWordSquare
+Construct Quad Tree
 - 450 -
 Sort Characters By Frequency
 132 Pattern
