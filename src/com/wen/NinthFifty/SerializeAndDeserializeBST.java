@@ -5,48 +5,48 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class SerializeAndDeserializeBST {
-    public class TreeNode {
+    public static class TreeNode {
         int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
+        public TreeNode left;
+        public TreeNode right;
+        public TreeNode(int x) { val = x; }
     }
 
     // Level order traversal
     // Encodes a tree to a single string.
-    public String serialize(TreeNode root) {
+    public static String serialize(TreeNode root) {
         if(root==null){
             return "";
         }
         StringBuilder result=new StringBuilder();
         Queue<TreeNode> queue=new LinkedList<>();
         queue.offer(root);
-        int curLevelNotNull=1, nextLevelNotNull=0;
+        int notNull=1;
         while(!queue.isEmpty()){
             TreeNode cur=queue.poll();
             if(cur==null){
                 result.append(",null");
             } else{
                 result.append(","+cur.val);
-                curLevelNotNull--;
+                notNull--;
                 queue.offer(cur.left);
                 if(cur.left!=null){
-                    nextLevelNotNull++;
+                    notNull++;
                 }
                 queue.offer(cur.right);
                 if(cur.right!=null){
-                    nextLevelNotNull++;
+                    notNull++;
                 }
-                if(curLevelNotNull==0 && nextLevelNotNull==0){
+                if(notNull==0){
                     break;
                 }
             }
         }
-        return result.substring(1).toString();
+        return result.substring(1);
     }
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public static TreeNode deserialize(String data) {
         if(data.isEmpty()){
             return null;
         }

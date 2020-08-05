@@ -860,5 +860,20 @@ public class Main {
 //        root.left=n1;
 //        root.right=n2;
 //        LQConvertBinarySearchTreeToSortedDoublyLinkedList.treeToDoublyList(root);
+
+//        SerializeAndDeserializeBST.TreeNode n1=new SerializeAndDeserializeBST.TreeNode(1);
+//        SerializeAndDeserializeBST.TreeNode n2=new SerializeAndDeserializeBST.TreeNode(2);
+//        SerializeAndDeserializeBST.TreeNode n3=new SerializeAndDeserializeBST.TreeNode(3);
+//        SerializeAndDeserializeBST.TreeNode n4=new SerializeAndDeserializeBST.TreeNode(4);
+//        SerializeAndDeserializeBST.TreeNode n5=new SerializeAndDeserializeBST.TreeNode(5);
+//        SerializeAndDeserializeBST.TreeNode n6=new SerializeAndDeserializeBST.TreeNode(6);
+//        SerializeAndDeserializeBST.TreeNode n7=new SerializeAndDeserializeBST.TreeNode(7);
+//        n4.left=n2;
+//        n4.right=n6;
+//        n2.left=n1;
+////        n2.right=n3;
+////        n6.left=n5;
+//        n6.right=n7;
+//        SerializeAndDeserializeBST.deserialize(SerializeAndDeserializeBST.serialize(n4));
     }
 }

@@ -12,7 +12,8 @@ public class SerializeAndDeserializeBinaryTree {
         TreeNode(int x) { val = x; }
     }
 
-    // Levelorder traversal (Iterative)
+    // Levelorder traversal (Iterative), note here it doesn't have to be level by level, and notNullCountCur can be merged
+    // with notNullCountNext as notNullCount, details available in SerializeAndDeserializeBST
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         if(root==null){
