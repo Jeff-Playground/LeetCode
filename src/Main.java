@@ -849,5 +849,16 @@ public class Main {
 //        StrongPasswordChecker.strongPasswordChecker("1234567890123456Baaaa");
 
 //        LQWordSquares.wordSquares(new String[]{"area","lead","wall","lady","ball"});
+
+        LQConvertBinarySearchTreeToSortedDoublyLinkedList.TreeNode root=new LQConvertBinarySearchTreeToSortedDoublyLinkedList.TreeNode(4);
+        LQConvertBinarySearchTreeToSortedDoublyLinkedList.TreeNode n1=new LQConvertBinarySearchTreeToSortedDoublyLinkedList.TreeNode(2);
+        LQConvertBinarySearchTreeToSortedDoublyLinkedList.TreeNode n2=new LQConvertBinarySearchTreeToSortedDoublyLinkedList.TreeNode(5);
+        LQConvertBinarySearchTreeToSortedDoublyLinkedList.TreeNode n3=new LQConvertBinarySearchTreeToSortedDoublyLinkedList.TreeNode(1);
+        LQConvertBinarySearchTreeToSortedDoublyLinkedList.TreeNode n4=new LQConvertBinarySearchTreeToSortedDoublyLinkedList.TreeNode(3);
+        n1.left=n3;
+        n1.right=n4;
+        root.left=n1;
+        root.right=n2;
+        LQConvertBinarySearchTreeToSortedDoublyLinkedList.treeToDoublyList(root);
     }
 }
