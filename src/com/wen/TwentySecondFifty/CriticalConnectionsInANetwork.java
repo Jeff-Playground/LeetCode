@@ -38,7 +38,7 @@ public class CriticalConnectionsInANetwork {
                 } else{
                     low[node]=Math.min(low[node], ids[nb]);
                 }
-                // Note here it could simply be like below, only low[nb] at this point is not necessarily computed, but it doesn't affect the final result
+//                // Note here it could simply be like below, only low[nb] at this point is not necessarily final, but it doesn't affect the final result
 //                if(ids[nb]==-1){
 //                    tarjan(nb, node, graph, ids, low, cur, result);
 //                    if(ids[node]<low[nb]){

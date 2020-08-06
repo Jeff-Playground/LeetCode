@@ -1,5 +1,34 @@
 Generate and maintain a int[] next for the needle to store the next index for comparing when mismatch, then use it during
 the search.
+        int[] next=new int[needle.length()];
+        next[0]=-1;
+        int i=-1, j=0;
+        while(j<needle.length()-1){
+            if(i==-1 || needle.charAt(i)==needle.charAt(j)){
+                i++;
+                j++;
+                if(needle.charAt(i)!=needle.charAt(j)){
+                    next[j]=i;
+                } else{
+                    next[j]=next[i];
+                }
+            } else{
+                i=next[i];
+            }
+        }
+        i=0; j=0;
+        while(i<haystack.length() && j<needle.length()){
+            if(j==-1 || haystack.charAt(i)==needle.charAt(j)){
+                i++;
+                j++;
+                if(j==needle.length()){
+                    return i-needle.length();
+                }
+            } else{
+                j=next[j];
+            }
+        }
+        return -1;
 
 *Implement strStr()
 *Shortest Palindrome
