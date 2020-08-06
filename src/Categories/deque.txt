@@ -1,3 +1,8 @@
+// Deque<Integer> dq=new LinkedList<>();
+// dq.offerLast();
+// dq.pollFirst();
+// dq.pollLast();
+
 Sliding Window Maximum
 - 300 -
 - 350 -
