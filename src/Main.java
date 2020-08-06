@@ -874,6 +874,40 @@ public class Main {
 ////        n2.right=n3;
 ////        n6.left=n5;
 //        n6.right=n7;
-//        SerializeAndDeserializeBST.deserialize(SerializeAndDeserializeBST.serialize(n4));
+//
+
+//        NaryTreeLevelOrderTraversal.Node n1=new NaryTreeLevelOrderTraversal.Node(1);
+//        NaryTreeLevelOrderTraversal.Node n2=new NaryTreeLevelOrderTraversal.Node(2);
+//        NaryTreeLevelOrderTraversal.Node n3=new NaryTreeLevelOrderTraversal.Node(3);
+//        NaryTreeLevelOrderTraversal.Node n4=new NaryTreeLevelOrderTraversal.Node(4);
+//        NaryTreeLevelOrderTraversal.Node n5=new NaryTreeLevelOrderTraversal.Node(5);
+//        NaryTreeLevelOrderTraversal.Node n6=new NaryTreeLevelOrderTraversal.Node(6);
+//        NaryTreeLevelOrderTraversal.Node n7=new NaryTreeLevelOrderTraversal.Node(7);
+//        NaryTreeLevelOrderTraversal.Node n8=new NaryTreeLevelOrderTraversal.Node(8);
+//        NaryTreeLevelOrderTraversal.Node n9=new NaryTreeLevelOrderTraversal.Node(9);
+//        NaryTreeLevelOrderTraversal.Node n10=new NaryTreeLevelOrderTraversal.Node(10);
+//        NaryTreeLevelOrderTraversal.Node n11=new NaryTreeLevelOrderTraversal.Node(11);
+//        NaryTreeLevelOrderTraversal.Node n12=new NaryTreeLevelOrderTraversal.Node(12);
+//        n1.next=n2;
+//        n2.prev=n1;
+//        n2.next=n3;
+//        n3.prev=n2;
+//        n3.next=n4;
+//        n4.prev=n3;
+//        n4.next=n5;
+//        n5.prev=n4;
+//        n5.next=n6;
+//        n6.prev=n5;
+//        n3.child=n7;
+//        n7.next=n8;
+//        n8.prev=n7;
+//        n8.next=n9;
+//        n9.prev=n8;
+//        n9.next=n10;
+//        n10.prev=n9;
+//        n8.child=n11;
+//        n11.next=n12;
+//        n12.prev=n11;
+//        NaryTreeLevelOrderTraversal.flatten(n1);
     }
 }

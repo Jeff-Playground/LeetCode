@@ -25,6 +25,7 @@ LQDesignPhoneDirectory
 Insert Delete GetRandom O(1)
 Insert Delete GetRandom O(1) - Duplicates allowed
 - 400 -
+LQEncodeNaryTreeToBinaryTree
 - 450 -
 *LFU Cache
 - 500 -
