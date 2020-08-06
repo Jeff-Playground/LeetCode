@@ -6,7 +6,7 @@ Note when optimizing to 1 dimensional array, the loop condition for j is reverse
 dp[j] is dependent on dp[j] and dp[j-nums[i-1]], which means dp[j-nums[i-1]] need to be available, so doing in 0->S
 order would overwrite this value.
 
-For bounded knapsack, it's similar to 0-1 knapsack except there'a a max for each item, so there's an additional loop
+For bounded knapsack, it's similar to 0-1 knapsack except there's a max for each item, so there's an additional loop
 for k in 0->max, and dp[i][j]+=dp[i-1][j-k*nums[i-1]].
 When optimizing to 1 dimensional array, the j loop is also reversed, but note it becomes k in max->1 instead of max->0
 because dp[j] already included the value for k=0.

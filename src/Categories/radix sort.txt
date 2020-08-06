@@ -3,7 +3,7 @@ Maintain a radix=10, and exp starts from 1 and increase by *10, keep looping whe
     array once to get the count
     Then do count[i]+=count[i-1], so now count[i] is the index of the corresponding radix i in the sorted array
     Iterate over the nums array again to put each number into a sorted array, and after the iteration copy the sorted
-    array to original nums array
+    array to original nums array: sorted[--count[nums[i]/exp%10]]=nums[i];
 
 *Maximum Gap
 - 300 -

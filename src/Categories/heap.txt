@@ -1,3 +1,5 @@
+// PriorityQueue<String> pq=new PriorityQueue<>((a, b)->a.compareTo(b));
+
 *Merge k Sorted Lists
 Ugly Number II
 - 300 -
