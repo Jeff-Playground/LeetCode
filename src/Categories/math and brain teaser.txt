@@ -154,6 +154,7 @@ Battleships in a Board
 Strong Password Checker
 LQValidWordSquare
 Construct Quad Tree
+Number of Segments in a String
 - 450 -
 Sort Characters By Frequency
 132 Pattern
