@@ -19,6 +19,7 @@ LQNestedListWeightSum
 LQNestedListWeightSumII
 - 400 -
 Pacific Atlantic Water Flow
+Minimum Genetic Mutation
 - 450 -
 LQTheMaze
 LQTheMazeIII

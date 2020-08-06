@@ -72,6 +72,7 @@ Frog Jump
 LQMinimumUniqueWordAbbreviation
 Pacific Atlantic Water Flow
 *LQWordSquares
+Minimum Genetic Mutation
 *Path Sum III
 - 450 -
 LQTheMaze

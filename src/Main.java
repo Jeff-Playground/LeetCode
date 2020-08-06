@@ -909,5 +909,7 @@ public class Main {
 //        n11.next=n12;
 //        n12.prev=n11;
 //        NaryTreeLevelOrderTraversal.flatten(n1);
+
+//        MinimumGeneticMutation.minMutation("AAAACCCC","CCCCCCCC",new String[]{"AAAACCCA","AAACCCCA","AACCCCCA","AACCCCCC","ACCCCCCC","CCCCCCCC","AAACCCCC","AACCCCCC"});
     }
 }
