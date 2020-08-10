@@ -912,13 +912,15 @@ public class Main {
 
 //        MinimumGeneticMutation.minMutation("AAAACCCC","CCCCCCCC",new String[]{"AAAACCCA","AAACCCCA","AACCCCCA","AACCCCCC","ACCCCCCC","CCCCCCCC","AAACCCCC","AACCCCCC"});
 
-        AllOOneDataStructure.AllOne test=new AllOOneDataStructure.AllOne();
-        test.inc("hello");
-        test.inc("hello");
-        test.getMaxKey();
-        test.getMinKey();
-        test.inc("leet");
-        test.getMaxKey();
-        test.getMinKey();
+//        AllOOneDataStructure.AllOne test=new AllOOneDataStructure.AllOne();
+//        test.inc("hello");
+//        test.inc("hello");
+//        test.getMaxKey();
+//        test.getMinKey();
+//        test.inc("leet");
+//        test.getMaxKey();
+//        test.getMinKey();
+
+        FindRightInterval.findRightInterval(new int[][]{{-100,-92},{-99,-49},{-98,-24},{-97,-38},{-96,-65},{-95,-22},{-94,-49},{-93,-14},{-92,-68},{-91,-81}});
     }
 }
