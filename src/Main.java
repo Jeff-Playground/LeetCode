@@ -911,5 +911,14 @@ public class Main {
 //        NaryTreeLevelOrderTraversal.flatten(n1);
 
 //        MinimumGeneticMutation.minMutation("AAAACCCC","CCCCCCCC",new String[]{"AAAACCCA","AAACCCCA","AACCCCCA","AACCCCCC","ACCCCCCC","CCCCCCCC","AAACCCCC","AACCCCCC"});
+
+        AllOOneDataStructure.AllOne test=new AllOOneDataStructure.AllOne();
+        test.inc("hello");
+        test.inc("hello");
+        test.getMaxKey();
+        test.getMinKey();
+        test.inc("leet");
+        test.getMaxKey();
+        test.getMinKey();
     }
 }

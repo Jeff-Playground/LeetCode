@@ -20,7 +20,7 @@ Design Tiny URL:
         For reads, add cache, and set up distributed services based on user geographic locations(note only cache and related services need to be distributed)
         For writes, add more DB nodes and do consistent sharding
     To implement consistent sharding:
-        sharding_key can be computed with a hash on long_url, like Hash(long_url)&%62
+        sharding_key can be computed with a hash on long_url, like Hash(long_url)%62
         the short_url will include the sharding key, so it becomes sharding_key+short_url
 
 Design distributed files system:
@@ -64,7 +64,7 @@ Design a MapReduce system
     Map -> Shuffle -> Reduce
         Shuffle is done by both map and reduce workers
         Shuffle is sort and partition on map workers and merge sort and fetch on reduce workers
-    When data for a specific key is too large, a trick of adding postfix to the key and partition is to different reducer workers can be implemented
+    When data for a specific key is too large, a trick of adding postfix to the key and partition it to different reducer workers can be implemented
 
 Design Uber
     Server deployed in master-slave model as replications

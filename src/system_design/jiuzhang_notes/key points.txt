@@ -42,7 +42,7 @@ Consistent hashing
     Micro shards/Virtual nodes:
         each machine can be mapped to a lot of(for example 1000) micro shards on the ring
         each micro shard is a node/value on the ring
-        When computing the machine location of a value, just has it to map to a node on the ring, and find the first existing node on the ring clock-wise
+        When computing the machine location of a value, just hash it to map to a node on the ring, and find the first existing node on the ring clock-wise
             e.g. Hash(value)=location, lookup location in TreeMap(RBTree) to find the corresponding machine
         When adding a new machine, each new node would get part of the data from the first existing node clock-wise on the ring
 
@@ -112,7 +112,7 @@ Step 4 and 5 together is also called shuffle:
     Done on the map machines
     Here sort is external sorting as data is too large to be completely read into memory
     Here partition is basically a hash function which takes key as input and outputs partition id
-5. Merge sort and fetch, merge sort is similar to merge k sorted list
+5. Merge and fetch, merge sort is similar to merge k sorted list
     Done on the reduce machines
 6. Reduce
     The maximum number of reduce machines is the number of keys
