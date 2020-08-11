@@ -65,10 +65,10 @@ public class LQSequenceReconstruction {
         if(org==null || seqs==null || seqs.length==0 || seqs[0].length==0) {
             return false;
         }
-        int n=org.length;
+        int l=org.length;
         Map<Integer, Integer> orgIndex=new HashMap<>();
         Map<Integer, Integer> pre=new HashMap<>();
-        for(int i=0; i<n; i++) {
+        for(int i=0; i<l; i++) {
             orgIndex.put(org[i], i);
         }
         for(int[] seq: seqs) {
@@ -76,7 +76,7 @@ public class LQSequenceReconstruction {
                 if(!orgIndex.containsKey(seq[i])) {
                     return false;
                 }
-                if(i>0 && orgIndex.get(seq[i-1])>=orgIndex.get(seq[i])) {
+                if(i>0 && orgIndex.get(seq[i-1])>orgIndex.get(seq[i])) {
                     return false;
                 }
                 if(i>0) {
@@ -90,7 +90,7 @@ public class LQSequenceReconstruction {
                 }
             }
         }
-        for(int i=1; i<n; i++) {
+        for(int i=1; i<l; i++) {
             if(!pre.containsKey(org[i]) || (i>0 && pre.get(org[i])!=org[i-1])) {
                 return false;
             }
