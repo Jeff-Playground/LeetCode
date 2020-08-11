@@ -155,6 +155,7 @@ Strong Password Checker
 LQValidWordSquare
 Construct Quad Tree
 Number of Segments in a String
+*K-th Smallest in Lexicographical Order
 - 450 -
 Sort Characters By Frequency
 132 Pattern

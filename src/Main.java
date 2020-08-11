@@ -921,6 +921,8 @@ public class Main {
 //        test.getMaxKey();
 //        test.getMinKey();
 
-        FindRightInterval.findRightInterval(new int[][]{{-100,-92},{-99,-49},{-98,-24},{-97,-38},{-96,-65},{-95,-22},{-94,-49},{-93,-14},{-92,-68},{-91,-81}});
+//        FindRightInterval.findRightInterval(new int[][]{{-100,-92},{-99,-49},{-98,-24},{-97,-38},{-96,-65},{-95,-22},{-94,-49},{-93,-14},{-92,-68},{-91,-81}});
+
+//        KthSmallestInLexicographicalOrder.findKthNumber(100, 99);
     }
 }

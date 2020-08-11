@@ -74,6 +74,7 @@ Pacific Atlantic Water Flow
 *LQWordSquares
 Minimum Genetic Mutation
 *Path Sum III
+LQTernaryExpressionParser
 - 450 -
 LQTheMaze
 Target Sum
