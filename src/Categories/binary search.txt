@@ -25,6 +25,7 @@ Guess Number Higher or Lower
 *Is Subsequence
 - 400 -
 *Split Array Largest Sum
+Arranging Coins
 - 450 -
 - 500 -
 *Single Element in a Sorted Array
