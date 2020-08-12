@@ -50,6 +50,7 @@ Is Subsequence
 Frog Jump
 Split Array Largest Sum
 Arithmetic Slices
+*Arithmetic Slices II - Subsequence
 - 450 -
 *Predict the Winner
 - 500 -
