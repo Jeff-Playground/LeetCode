@@ -22,7 +22,7 @@ public class FindAllDuplicatesInAnArray {
         return result;
     }
 
-//    // Sort and put numbers in there corresponding index, then check mismatches
+//    // Sort and put numbers in their corresponding index, then check mismatches
 //    public List<Integer> findDuplicates(int[] nums) {
 //        List<Integer> result=new ArrayList<>();
 //        if(nums==null || nums.length<=1){

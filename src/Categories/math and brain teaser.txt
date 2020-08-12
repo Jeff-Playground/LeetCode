@@ -158,6 +158,8 @@ Number of Segments in a String
 *K-th Smallest in Lexicographical Order
 Arranging Coins
 *Find All Duplicates in an Array
+*Find All Numbers Disappeared in an Array
+Number of Boomerangs
 - 450 -
 Sort Characters By Frequency
 132 Pattern
