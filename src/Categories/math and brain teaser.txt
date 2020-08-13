@@ -162,6 +162,7 @@ Arranging Coins
 Number of Boomerangs
 - 450 -
 Sort Characters By Frequency
+*Minimum Moves to Equal Array Elements
 132 Pattern
 Circular Array Loop
 *Poor Pigs
