@@ -7,6 +7,7 @@ import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.FifteenthFifty.*;
 import com.wen.FifthFifty.MinimumSizeSubarraySum;
 import com.wen.FifthFifty.SearchA2DMatrixII;
+import com.wen.FifthFifty.WordSearchII;
 import com.wen.FirstFifty.*;
 import com.wen.FourteenthFifty.CutOffTreesForGolfEvent;
 import com.wen.FourteenthFifty.FallingSquares;
@@ -459,7 +460,7 @@ public class Main {
 
 //        MajorityElementII.majorityElement(new int[]{1,2,2,3,2,1,1,3});
 
-//        WordSearchII.findWords(new char[][]{{'a','a'}}, new String[]{"aaa"});
+        WordSearchII.findWords(new char[][]{{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}}, new String[]{"oath","pea","eat","rain"});
 
 //        TheSkylineProblem.getSkyline(new int[][]{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}});
 
