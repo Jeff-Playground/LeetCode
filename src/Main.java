@@ -20,6 +20,7 @@ import com.wen.SeventeenthFifty.*;
 import com.wen.SeventhFifty.*;
 import com.wen.SixteenthFifty.*;
 import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
+import com.wen.TenthFifty.FourSumII;
 import com.wen.TenthFifty.LQMaxConsecutiveOnesII;
 import com.wen.TenthFifty.MinimumNumberOfArrowsToBurstBalloons;
 import com.wen.TenthFifty.ReversePairs;
@@ -460,7 +461,7 @@ public class Main {
 
 //        MajorityElementII.majorityElement(new int[]{1,2,2,3,2,1,1,3});
 
-        WordSearchII.findWords(new char[][]{{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}}, new String[]{"oath","pea","eat","rain"});
+//        WordSearchII.findWords(new char[][]{{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}}, new String[]{"oath","pea","eat","rain"});
 
 //        TheSkylineProblem.getSkyline(new int[][]{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}});
 
@@ -930,5 +931,7 @@ public class Main {
 //        ArithmeticSlicesIISubsequence.numberOfArithmeticSlices(new int[]{2,2,3,4});
 
 //        MinimumNumberOfArrowsToBurstBalloons.findMinArrowShots(new int[][]{{10,16},{2,8},{1,6},{7,12}});
+
+//        FourSumII.fourSumCount(new int[]{1,2}, new int[]{-2,-1}, new int[]{-1,2}, new int[]{0,2});
     }
 }
