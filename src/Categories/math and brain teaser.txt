@@ -167,6 +167,7 @@ Sort Characters By Frequency
 132 Pattern
 Circular Array Loop
 *Poor Pigs
+*Minimum Moves to Equal Array Elements II
 *LQOptimalAccountBalancing
 Max Consecutive Ones
 - 500 -

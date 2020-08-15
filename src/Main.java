@@ -20,10 +20,7 @@ import com.wen.SeventeenthFifty.*;
 import com.wen.SeventhFifty.*;
 import com.wen.SixteenthFifty.*;
 import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
-import com.wen.TenthFifty.FourSumII;
-import com.wen.TenthFifty.LQMaxConsecutiveOnesII;
-import com.wen.TenthFifty.MinimumNumberOfArrowsToBurstBalloons;
-import com.wen.TenthFifty.ReversePairs;
+import com.wen.TenthFifty.*;
 import com.wen.ThirdFifty.LRUCache;
 import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
@@ -933,5 +930,7 @@ public class Main {
 //        MinimumNumberOfArrowsToBurstBalloons.findMinArrowShots(new int[][]{{10,16},{2,8},{1,6},{7,12}});
 
 //        FourSumII.fourSumCount(new int[]{1,2}, new int[]{-2,-1}, new int[]{-1,2}, new int[]{0,2});
+
+        MinimumMovesToEqualArrayElementsII.minMoves2(new int[]{203125577,-349566234,230332704,48321315,66379082,386516853,50986744,-250908656,-425653504,-212123143});
     }
 }
