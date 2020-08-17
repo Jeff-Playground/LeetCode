@@ -168,6 +168,7 @@ Sort Characters By Frequency
 Circular Array Loop
 *Poor Pigs
 *Minimum Moves to Equal Array Elements II
+Island Perimeter
 *LQOptimalAccountBalancing
 Max Consecutive Ones
 - 500 -

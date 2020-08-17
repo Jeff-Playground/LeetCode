@@ -931,6 +931,8 @@ public class Main {
 
 //        FourSumII.fourSumCount(new int[]{1,2}, new int[]{-2,-1}, new int[]{-1,2}, new int[]{0,2});
 
-        MinimumMovesToEqualArrayElementsII.minMoves2(new int[]{203125577,-349566234,230332704,48321315,66379082,386516853,50986744,-250908656,-425653504,-212123143});
+//        MinimumMovesToEqualArrayElementsII.minMoves2(new int[]{203125577,-349566234,230332704,48321315,66379082,386516853,50986744,-250908656,-425653504,-212123143});
+
+//        CanIWin.canIWin(4, 6);
     }
 }

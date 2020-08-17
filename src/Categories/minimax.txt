@@ -4,6 +4,7 @@
 *Guess Number Higher or Lower II
 - 400 -
 - 450 -
+*Can I Win
 *Predict the Winner
 - 500 -
 - 550 -
