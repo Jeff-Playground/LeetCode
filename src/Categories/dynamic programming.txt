@@ -52,6 +52,7 @@ Split Array Largest Sum
 Arithmetic Slices
 *Arithmetic Slices II - Subsequence
 - 450 -
+*Count The Repetitions
 *Predict the Winner
 - 500 -
 *Longest Palindromic Subsequence
