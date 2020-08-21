@@ -171,6 +171,7 @@ Circular Array Loop
 Island Perimeter
 *LQOptimalAccountBalancing
 Validate IP Address
+*LQConvexPolygon
 Max Consecutive Ones
 - 500 -
 Most Frequent Subtree Sum

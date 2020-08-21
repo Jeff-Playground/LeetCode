@@ -1,0 +1,17 @@
+When sampling x items in (x+y) items, if got anything in y, discard and redo sampling, the result for sampling the x items
+still have same probability.
+
+- 300 -
+- 350 -
+- 400 -
+- 450 -
+*Implement Rand10() Using Rand7()
+- 500 -
+- 550 -
+- 600 -
+- 650 -
+- 700 -
+- 750 -
+- 800 -
+- 850 -
+- 900 -
