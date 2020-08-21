@@ -65,6 +65,7 @@ Maximum Length of Pair Chain
 - 650 -
 Number of Longest Increasing Subsequence
 - 700 -
+Best Time to Buy and Sell Stock with Transaction Fee
 *LQMinimumWindowSubsequence
 Min Cost Climbing Stairs
 - 750 -
