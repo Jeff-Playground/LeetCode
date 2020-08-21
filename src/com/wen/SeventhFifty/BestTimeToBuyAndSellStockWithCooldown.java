@@ -36,22 +36,22 @@ public class BestTimeToBuyAndSellStockWithCooldown {
 //    }
 
     // DP, with detailed logic
-    // buy[i] stands for the maxProfit where last buy is on or before day i, sell[i] stands for the maxProfit where last
-    // sell is on or before day i, rest[i] stands for the maxProfit where last cooldown is on or before day i
+    // buy[i] stands for the maxProfit where last buy is on day i, sell[i] stands for the maxProfit where last sell is on
+    // day i, coolDown[i] stands for the maxProfit where last cooldown is on day i
     public int maxProfit(int[] prices) {
-        if(prices==null || prices.length<2){
+        if(prices==null || prices.length<=1){
             return 0;
         }
         int l=prices.length;
-        int[] buy=new int[l], sell=new int[l], rest=new int[l];
+        int[] buy=new int[l], sell=new int[l], coolDown=new int[l];
         buy[0]=-prices[0];
-        sell[0]=0;
-        rest[0]=0;
+        int maxBuy=buy[0];
         for(int i=1; i<l; i++){
-            buy[i]=Math.max(rest[i-1]-prices[i], buy[i-1]);
-            sell[i]=Math.max(buy[i-1]+prices[i], sell[i-1]);
-            rest[i]=Math.max(sell[i-1], rest[i-1]);
+            buy[i]=coolDown[i-1]-prices[i];
+            sell[i]=maxBuy+prices[i];
+            coolDown[i]=Math.max(sell[i-1], coolDown[i-1]);
+            maxBuy=Math.max(maxBuy, buy[i]);
         }
-        return sell[l-1];
+        return Math.max(sell[l-1], coolDown[l-1]);
     }
 }
