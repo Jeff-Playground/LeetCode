@@ -54,6 +54,7 @@ Arithmetic Slices
 - 450 -
 *Count The Repetitions
 Unique Substrings in Wraparound String
+*LQEncodeStringWithShortestLength
 *Predict the Winner
 - 500 -
 *Longest Palindromic Subsequence

@@ -6,6 +6,7 @@ still have same probability.
 - 400 -
 - 450 -
 *Implement Rand10() Using Rand7()
+*Generate Random Point in a Circle
 - 500 -
 - 550 -
 - 600 -
