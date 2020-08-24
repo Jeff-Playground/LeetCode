@@ -77,6 +77,7 @@ Minimum Genetic Mutation
 LQTernaryExpressionParser
 - 450 -
 Concatenated Words
+Matchsticks to Square
 LQTheMaze
 Target Sum
 LQTheMazeIII
