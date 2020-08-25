@@ -27,6 +27,7 @@ Convert a Number to Hexadecimal
 *Maximum XOR of Two Numbers in an Array
 - 450 -
 Hamming Distance
+Number Complement
 - 500 -
 - 550 -
 - 600 -
