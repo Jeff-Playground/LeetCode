@@ -30,6 +30,7 @@ Minesweeper
 - 600 -
 - 650 -
 Cut Off Trees for Golf Event
+*Redundant Connection
 *LQNumberOfDistinctIslands
 - 700 -
 *Accounts Merge

@@ -93,6 +93,7 @@ Construct String from Binary Tree
 Find Duplicate Subtrees
 *Maximum Width of Binary Tree
 *LQEqualTreePartition
+*Redundant Connection
 *Number of Distinct Islands
 Partition to K Equal Sum Subsets
 - 700 -
