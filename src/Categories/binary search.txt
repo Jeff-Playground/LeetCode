@@ -28,6 +28,7 @@ Guess Number Higher or Lower
 Arranging Coins
 - 450 -
 - 500 -
+Random Pick with Weight
 *Single Element in a Sorted Array
 - 550 -
 - 600 -
