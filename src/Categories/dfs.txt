@@ -111,6 +111,7 @@ Keys and Rooms
 - 850 -
 *K-Similar Strings
 - 900 -
+*Most Stones Removed with Same Row or Column
 - 950 -
 - 1000 -
 Flower Planting With No Adjacent

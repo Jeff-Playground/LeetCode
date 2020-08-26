@@ -29,3 +29,12 @@ Linked List Components
 Similar String Groups
 - 850 -
 - 900 -
+*Most Stones Removed with Same Row or Column
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+- 1250 -
+- 1300 -
