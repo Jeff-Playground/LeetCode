@@ -19,3 +19,14 @@ Hand of Straights
 - 850 -
 Car Fleet
 - 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+- 1250 -
+- 1300 -
+- 1350 -
+How Many Numbers Are Smaller Than the Current Number
+- 1400 -
