@@ -4,6 +4,7 @@ import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
 import com.wen.EighthFifty.*;
 import com.wen.EleventhFifty.FindModeInBinarySearchTree;
 import com.wen.EleventhFifty.LongestPalindromicSubsequence;
+import com.wen.EleventhFifty.RandomPickWithWeight;
 import com.wen.FifteenthFifty.*;
 import com.wen.FifthFifty.MinimumSizeSubarraySum;
 import com.wen.FifthFifty.SearchA2DMatrixII;
@@ -944,5 +945,10 @@ public class Main {
 //        MatchsticksToSquare.makesquare(new int[]{1,1,2,2,2});
 
 //        MinimumFallingPathSumII.minFallingPathSum(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
+
+//        RandomPickWithWeight.Solution s=new RandomPickWithWeight.Solution(new int[]{1,3});
+//        s.pickIndex();
+//        s.pickIndex();
+//        s.pickIndex();
     }
 }
