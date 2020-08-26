@@ -3,144 +3,172 @@ package com.wen.ThirdFifty;
 import java.util.HashMap;
 import java.util.Map;
 
-//// Double-linked list
-//public class LRUCache {
-//    class CacheEntry{
-//        int key;
-//        int value;
-//        CacheEntry pre;
-//        CacheEntry next;
-//
-//        public CacheEntry(int key, int value){
-//            this.key=key;
-//            this.value=value;
-//        }
-//    }
-//
-//    private int capacity;
-//    private Map<Integer, CacheEntry> map=new HashMap<>();
-//    private CacheEntry head, tail;
-//
-//    public LRUCache(int capacity) {
-//        this.capacity=capacity;
-//        head=new CacheEntry(-1, -1);
-//        tail=new CacheEntry(-1, -1);
-//        head.next=tail;
-//        tail.pre=head;
-//    }
-//
-//    public int get(int key) {
-//        if(map.containsKey(key)){
-//            CacheEntry entry=map.get(key);
-//            moveToHead(entry);
-//            return entry.value;
-//        }
-//        return -1;
-//    }
-//
-//    public void put(int key, int value) {
-//        if(map.containsKey(key)){
-//            CacheEntry existing=map.get(key);
-//            existing.value=value;
-//            moveToHead(existing);
-//        } else {
-//            CacheEntry newEntry=new CacheEntry(key, value);
-//            moveToHead(newEntry);
-//            if(map.size()==capacity){
-//                int tailKey=removeTail();
-//                map.remove(tailKey);
-//            }
-//            map.put(key, newEntry);
-//        }
-//    }
-//
-//    private int removeTail() {
-//        CacheEntry preTail=tail.pre;
-//        preTail.pre.next=tail;
-//        tail.pre=preTail.pre;
-//        preTail.pre=null;
-//        preTail.next=null;
-//        return preTail.key;
-//    }
-//
-//    private void moveToHead(CacheEntry entry) {
-//        if(entry.pre!=null && entry.next!=null){
-//            entry.pre.next=entry.next;
-//            entry.next.pre=entry.pre;
-//        }
-//        entry.pre=head;
-//        entry.next=head.next;
-//        head.next.pre=entry;
-//        head.next=entry;
-//    }
-//}
-
 public class LRUCache {
-    private class CacheEntry {
-        CacheEntry next;
-        int key, val;
+    // Double linked list
+    class LRUcache {
+        private class CacheEntry{
+            public CacheEntry pre, next;
+            public int key, value;
 
-        public CacheEntry(int key, int val){
-            this.key=key;
-            this.val=val;
-        }
-    }
-
-    private int capacity, size;
-    private CacheEntry head, tail, last;
-    Map<Integer, CacheEntry> map;
-
-    public LRUCache(int capacity) {
-        this.capacity=capacity;
-        size=0;
-        head=new CacheEntry(-1, -1);
-        tail=new CacheEntry(-1, -1);
-        head.next=tail;
-        last=head;
-        map=new HashMap<>();
-    }
-
-    public int get(int key) {
-        CacheEntry pre=map.getOrDefault(key, null);
-        if(pre==null){
-            return -1;
-        } else{
-            CacheEntry cur=pre.next;
-            if(cur.next!=tail){
-                map.put(cur.next.key, pre);
-                pre.next=cur.next;
-                cur.next=tail;
-                map.put(key, last);
-                last.next=cur;
-                last=cur;
+            public CacheEntry(int key, int value){
+                this.key=key;
+                this.value=value;
             }
-            return cur.val;
         }
-    }
 
-    public void put(int key, int value) {
-        CacheEntry pre=map.getOrDefault(key, null);
-        if(pre==null){
-            CacheEntry cur=new CacheEntry(key, value);
-            if(++size>capacity){
-                CacheEntry remove=head.next;
-                if(remove==last){
-                    last=head;
-                    head.next=tail;
-                } else{
-                    head.next=remove.next;
-                    map.put(remove.next.key, head);
+        private int capacity;
+        private CacheEntry head, tail, last;
+        private Map<Integer, CacheEntry> map;
+
+        public LRUcache(int capacity) {
+            this.capacity=capacity;
+            head=new CacheEntry(-1,-1);
+            tail=new CacheEntry(-1,-1);
+            last=head;
+            head.next=tail;
+            tail.pre=head;
+            map=new HashMap<>();
+        }
+
+        public int get(int key) {
+            CacheEntry cur=map.get(key);
+            if(cur!=null){
+                if(cur.pre!=head){
+                    if(cur==last){
+                        last=cur.pre;
+                    }
+                    cur.pre.next=cur.next;
+                    cur.next.pre=cur.pre;
+                    cur.next=head.next;
+                    cur.pre=head;
+                    head.next=cur;
+                    cur.next.pre=cur;
                 }
-                map.remove(remove.key);
+                return cur.value;
+            } else{
+                return -1;
             }
-            cur.next=tail;
-            map.put(key, last);
-            last.next=cur;
-            last=cur;
-        } else{
-            CacheEntry cur=pre.next;
-            cur.val=value;
-            get(key);
+        }
+
+        public void put(int key, int value) {
+            CacheEntry cur=map.get(key);
+            if(cur!=null){
+                cur.value=value;
+                if(cur.pre!=head){
+                    if(cur==last){
+                        last=cur.pre;
+                    }
+                    cur.pre.next=cur.next;
+                    cur.next.pre=cur.pre;
+                    cur.next=head.next;
+                    cur.pre=head;
+                    head.next=cur;
+                    cur.next.pre=cur;
+                }
+            } else{
+                cur=new CacheEntry(key, value);
+                if(head==last){
+                    last=cur;
+                }
+                cur.next=head.next;
+                cur.pre=head;
+                head.next=cur;
+                cur.next.pre=cur;
+                map.put(key, cur);
+                if(map.size()>capacity){
+                    CacheEntry lastPre=last.pre;
+                    lastPre.next=last.next;
+                    last.next.pre=lastPre;
+                    map.remove(last.key);
+                    last=lastPre;
+                }
+            }
         }
     }
+
+//    // Single linked list
+//    class LRUcache {
+//        private class CacheEntry{
+//            public CacheEntry next;
+//            public int key;
+//            public int value;
+//
+//            public CacheEntry(int key, int value){
+//                this.key=key;
+//                this.value=value;
+//            }
+//        }
+//
+//        private int capacity;
+//        private Map<Integer, CacheEntry> map;
+//        private CacheEntry head, tail, last;
+//
+//        public LRUcache(int capacity) {
+//            this.capacity=capacity;
+//            head=new CacheEntry(-1, -1);
+//            tail=new CacheEntry(-1, -1);
+//            head.next=tail;
+//            last=head;
+//            map=new HashMap<>();
+//        }
+//
+//        public int get(int key) {
+//            CacheEntry pre=map.get(key);
+//            if(pre!=null){
+//                CacheEntry cur=pre.next;
+//                if(pre!=head){
+//                    pre.next=cur.next;
+//                    if(cur!=last){
+//                        map.put(cur.next.key, pre);
+//                    } else{
+//                        last=pre;
+//                    }
+//                    cur.next=head.next;
+//                    map.put(head.next.key, cur);
+//                    head.next=cur;
+//                    map.put(cur.key, head);
+//                }
+//                return cur.value;
+//            } else{
+//                return -1;
+//            }
+//        }
+//
+//        public void put(int key, int value) {
+//            CacheEntry pre=map.get(key);
+//            if(pre!=null){
+//                CacheEntry cur=pre.next;
+//                cur.value=value;
+//                if(pre!=head){
+//                    pre.next=cur.next;
+//                    if(cur!=last){
+//                        map.put(cur.next.key, pre);
+//                    } else{
+//                        last=pre;
+//                    }
+//                    cur.next=head.next;
+//                    map.put(head.next.key, cur);
+//                    head.next=cur;
+//                    map.put(cur.key, head);
+//                }
+//            } else{
+//                CacheEntry cur=new CacheEntry(key, value);
+//                CacheEntry next=head.next;
+//                cur.next=next;
+//                if(next!=tail){
+//                    map.put(next.key, cur);
+//                } else{
+//                    last=cur;
+//                }
+//                head.next=cur;
+//                map.put(cur.key, head);
+//                if(map.size()>capacity){
+//                    CacheEntry lastPre=map.get(last.key);
+//                    lastPre.next=tail;
+//                    map.remove(last.key);
+//                    last=lastPre;
+//                }
+//            }
+//        }
+//    }
 }
