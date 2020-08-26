@@ -16,6 +16,8 @@ LQNumberOfConnectedComponentsInAnUndirectedGraph
 - 550 -
 - 600 -
 - 650 -
+*Redundant Connection
+*Redundant Connection II
 - 700 -
 *Accounts Merge
 - 750 -
