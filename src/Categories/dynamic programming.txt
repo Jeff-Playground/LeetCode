@@ -77,3 +77,14 @@ Pyramid Transition Matrix
 - 850 -
 *Minimum Number of Refueling Stops
 - 900 -
+Minimum Falling Path Sum
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+- 1250 -
+Minimum Falling Path Sum II
+- 1300 -
+- 1350 -

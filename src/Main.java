@@ -31,6 +31,7 @@ import com.wen.TwentiethFifty.LongestTurbulentSubarray;
 import com.wen.TwentiethFifty.PrisonCellsAfterNDays;
 import com.wen.TwentySecondFifty.CriticalConnectionsInANetwork;
 import com.wen.TwentySecondFifty.LQAllPathsFromSourceLeadToDestination;
+import com.wen.TwentySixthFifty.MinimumFallingPathSumII;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -941,5 +942,7 @@ public class Main {
 //        LQConvexPolygon.isConvex(new int[][]{{0,0},{10,0},{15,10},{10,20},{0,20},{-5,10}});
 
 //        MatchsticksToSquare.makesquare(new int[]{1,1,2,2,2});
+
+//        MinimumFallingPathSumII.minFallingPathSum(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
     }
 }
