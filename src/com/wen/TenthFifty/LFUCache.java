@@ -5,68 +5,70 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 
 public class LFUCache {
-    private int capacity;
-    private int minFreq;
-    Map<Integer, Integer> map;
-    Map<Integer, Integer> freq;
-    Map<Integer, LinkedHashSet<Integer>> occur;
+    class LFUcache {
+        private int capacity, minFreq;
+        private Map<Integer, Integer> cache, freq;
+        private Map<Integer, LinkedHashSet<Integer>> count;
 
-    public LFUCache(int capacity) {
-        this.capacity=capacity;
-        this.minFreq=0;
-        this.map=new HashMap<>();
-        this.freq=new HashMap<>();
-        this.occur=new HashMap<>();
-    }
-
-    public int get(int key) {
-        if(map.containsKey(key)){
-            int keyFreq=freq.get(key);
-            freq.put(key, keyFreq+1);
-            occur.get(keyFreq).remove(key);
-            if(keyFreq==minFreq && occur.get(keyFreq).isEmpty()){
-                minFreq++;
-            }
-            if(!occur.containsKey(keyFreq+1)){
-                occur.put(keyFreq+1, new LinkedHashSet<Integer>());
-            }
-            occur.get(keyFreq+1).add(key);
-            return map.get(key);
-        } else{
-            return -1;
+        public LFUcache(int capacity) {
+            this.capacity=capacity;
+            minFreq=Integer.MAX_VALUE;
+            cache=new HashMap<>();
+            freq=new HashMap<>();
+            count=new HashMap<>();
         }
-    }
 
-    public void put(int key, int value) {
-        if(capacity<=0){
-            return;
+        public int get(int key) {
+            if(cache.containsKey(key)){
+                int curFreq=freq.get(key);
+                freq.put(key, curFreq+1);
+                count.get(curFreq).remove(key);
+                if(count.get(curFreq).size()==0){
+                    count.remove(curFreq);
+                    if(curFreq==minFreq){
+                        minFreq++;
+                    }
+                }
+                count.putIfAbsent(curFreq+1, new LinkedHashSet<>());
+                count.get(curFreq+1).add(key);
+                return cache.get(key);
+            } else{
+                return -1;
+            }
         }
-        if(map.containsKey(key)){
-            int keyFreq=freq.get(key);
-            freq.put(key, keyFreq+1);
-            occur.get(keyFreq).remove(key);
-            if(keyFreq==minFreq && occur.get(keyFreq).isEmpty()){
-                minFreq++;
+
+        public void put(int key, int value) {
+            if(capacity==0){
+                return;
             }
-            if(!occur.containsKey(keyFreq+1)){
-                occur.put(keyFreq+1, new LinkedHashSet<Integer>());
+            if(cache.containsKey(key)){
+                int curFreq=freq.get(key);
+                freq.put(key, curFreq+1);
+                count.get(curFreq).remove(key);
+                if(count.get(curFreq).size()==0){
+                    count.remove(curFreq);
+                    if(curFreq==minFreq){
+                        minFreq++;
+                    }
+                }
+                count.putIfAbsent(curFreq+1, new LinkedHashSet<>());
+                count.get(curFreq+1).add(key);
+            } else{
+                if(cache.size()==capacity){
+                    int delete=count.get(minFreq).iterator().next();
+                    count.get(minFreq).remove(delete);
+                    cache.remove(delete);
+                    freq.remove(delete);
+                    if(count.get(minFreq).size()==0){
+                        count.remove(minFreq);
+                    }
+                }
+                freq.put(key, 1);
+                minFreq=1;
+                count.putIfAbsent(1, new LinkedHashSet<>());
+                count.get(1).add(key);
             }
-            occur.get(keyFreq+1).add(key);
-            map.put(key, value);
-        } else{
-            if(map.size()==capacity){
-                int delete=occur.get(minFreq).iterator().next();
-                occur.get(minFreq).remove(delete);
-                map.remove(delete);
-                freq.remove(delete);
-            }
-            freq.put(key, 1);
-            minFreq=1;
-            if(!occur.containsKey(1)){
-                occur.put(1, new LinkedHashSet<Integer>());
-            }
-            occur.get(1).add(key);
-            map.put(key, value);
+            cache.put(key, value);
         }
     }
 }

@@ -51,6 +51,9 @@ public class LRUCache {
         }
 
         public void put(int key, int value) {
+            if(capacity<=0){
+                return;
+            }
             CacheEntry cur=map.get(key);
             if(cur!=null){
                 cur.value=value;
@@ -135,6 +138,9 @@ public class LRUCache {
 //        }
 //
 //        public void put(int key, int value) {
+//            if(capacity<=0){
+//                return;
+//            }
 //            CacheEntry pre=map.get(key);
 //            if(pre!=null){
 //                CacheEntry cur=pre.next;
