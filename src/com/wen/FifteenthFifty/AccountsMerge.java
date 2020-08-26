@@ -47,39 +47,40 @@ public class AccountsMerge {
 //    }
 
     // Union find
-    public static List<List<String>> accountsMerge(List<List<String>> accounts) {
+    public List<List<String>> accountsMerge(List<List<String>> accounts) {
         Map<String, String> root=new HashMap<>();
         Map<String, String> owner=new HashMap<>();
-        Map<String, TreeSet<String>> union=new HashMap<>();
-        for (List<String> account : accounts) {
-            for (int i = 1; i < account.size(); i++) {
+        for(List<String> account: accounts){
+            String name=account.get(0);
+            for(int i=1; i<account.size(); i++){
+                owner.put(account.get(i), name);
                 if(root.containsKey(account.get(i))){
-                    // This is the union, note for the find a new element would find itself, which is fine
-                    root.put(findRoot(root, account.get(i)), findRoot(root,account.get(1)));
+                    // union
+                    root.put(findRoot(root, account.get(1)), findRoot(root, account.get(i)));
                 } else{
                     root.put(account.get(i), account.get(1));
                 }
-                owner.putIfAbsent(account.get(i), account.get(0));
             }
         }
+        Map<String, TreeSet<String>> sortedGroup=new HashMap<>();
         for(List<String> account: accounts){
-            String fr=findRoot(root, account.get(1));
-            union.putIfAbsent(fr, new TreeSet<>());
             for(int i=1; i<account.size(); i++){
-                union.get(fr).add(account.get(i));
+                String r=findRoot(root, account.get(i));
+                sortedGroup.putIfAbsent(r, new TreeSet<>());
+                sortedGroup.get(r).add(account.get(i));
             }
         }
         List<List<String>> result=new ArrayList<>();
-        for(String r: union.keySet()){
-            List<String> emails=new ArrayList<>(union.get(r));
-            emails.add(0, owner.get(r));
-            result.add(emails);
+        for(TreeSet<String> emails: sortedGroup.values()){
+            List<String> sorted=new ArrayList<>(emails);
+            sorted.add(0, owner.get(sorted.get(0)));
+            result.add(sorted);
         }
         return result;
     }
 
-    // This is the find
-    private static String findRoot(Map<String, String> root, String cur) {
+    // find
+    private String findRoot(Map<String, String> root, String cur){
         while(!root.get(cur).equals(cur)){
             root.put(root.get(cur), root.get(root.get(cur)));
             cur=root.get(cur);
