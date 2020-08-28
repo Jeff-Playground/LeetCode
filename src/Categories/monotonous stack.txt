@@ -21,3 +21,7 @@ Daily Temperatures
 - 800 -
 - 850 -
 - 900 -
+- 950 -
+- 1000 -
+*Next Greater Node In Linked List
+- 1050 -

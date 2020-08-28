@@ -3,39 +3,24 @@ package com.wen.TenthFifty;
 import java.util.*;
 
 public class SortCharactersByFrequency {
-    class Pair{
-        public char c;
-        public int v;
-
-        public Pair(char c, int v) {
-            this.c=c;
-            this.v=v;
-        }
-    }
-
     public String frequencySort(String s) {
         if(s==null || s.length()<3){
             return s;
         }
-        Map<Character, Integer> map=new LinkedHashMap<>();
+        Map<Character, Integer> count=new HashMap<>();
         for(char c: s.toCharArray()){
-            if(map.containsKey(c)){
-                map.put(c, map.get(c)+1);
-            } else{
-                map.put(c, 1);
-            }
+            count.put(c, count.getOrDefault(c, 0)+1);
         }
-        Queue<Pair> pq=new PriorityQueue<>((a,b)->(b.v-a.v));
-        for(char c: map.keySet()) {
-            pq.offer(new Pair(c, map.get(c)));
+        PriorityQueue<Character> pq=new PriorityQueue<>((a, b)->count.get(b)-count.get(a));
+        for(char c: count.keySet()){
+            pq.offer(c);
         }
-        StringBuilder sb = new StringBuilder();
-        while(!pq.isEmpty()) {
-            Pair p=pq.poll();
-            int count=p.v;
-            while(count>0) {
-                sb.append(p.c);
-                count--;
+        StringBuilder sb=new StringBuilder();
+        while(!pq.isEmpty()){
+            char c=pq.poll();
+            int times=count.get(c);
+            while(times-->0){
+                sb.append(c);
             }
         }
         return sb.toString();

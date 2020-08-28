@@ -5,6 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 
 public class LFUCache {
+    // Note use LinkedHashSet here to maintain the order of the keys hitting a certain count
     class LFUcache {
         private int capacity, minFreq;
         private Map<Integer, Integer> cache, freq;
