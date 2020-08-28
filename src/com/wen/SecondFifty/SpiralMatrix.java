@@ -5,54 +5,37 @@ import java.util.List;
 
 public class SpiralMatrix {
     public List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> result=new ArrayList<Integer>();
+        List<Integer> result=new ArrayList<>();
         if(matrix==null || matrix.length==0){
             return result;
         }
-        int firstRow=0, lastRow=matrix.length-1;
-        int firstColumn=0, lastColumn=matrix[0].length-1;
-        while(firstRow<=lastRow && firstColumn<=lastColumn){
-            int i=firstRow, j=firstColumn;
-            while(j<=lastColumn){
-                result.add(matrix[i][j]);
-                j++;
+        int up=0, down=matrix.length-1, left=0, right=matrix[0].length-1;
+        while(up<=down && left<=right){
+            for(int i=left; i<=right; i++){
+                result.add(matrix[up][i]);
             }
-            j=lastColumn;
-            i++;
-            lastColumn--;
-            if(i>lastRow){
+            up++;
+            if(up>down){
                 break;
             }
-            while(i<=lastRow){
-                result.add(matrix[i][j]);
-                i++;
+            for(int i=up; i<=down; i++){
+                result.add(matrix[i][right]);
             }
-            i=lastRow;
-            j--;
-            lastRow--;
-            if(j<firstColumn){
+            right--;
+            if(left>right){
                 break;
             }
-            while(j>=firstColumn){
-                result.add(matrix[i][j]);
-                j--;
+            for(int i=right; i>=left; i--){
+                result.add(matrix[down][i]);
             }
-            j=firstColumn;
-            i--;
-            firstColumn++;
-            if(i<firstRow){
+            down--;
+            if(up>down){
                 break;
             }
-            while(i>firstRow){
-                result.add(matrix[i][j]);
-                i--;
+            for(int i=down; i>=up; i--){
+                result.add(matrix[i][left]);
             }
-            i=firstRow;
-            j++;
-            firstRow++;
-            if(j>lastColumn){
-                break;
-            }
+            left++;
         }
         return result;
     }
