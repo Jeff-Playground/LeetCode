@@ -951,6 +951,6 @@ public class Main {
 //        s.pickIndex();
 //        s.pickIndex();
 
-        ValidTicTacToeState.validTicTacToe(new String[]{"XXO","XOX","OXO"});
+//        ValidTicTacToeState.validTicTacToe(new String[]{"XXO","XOX","OXO"});
     }
 }
