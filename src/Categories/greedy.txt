@@ -23,6 +23,7 @@ Assign Cookies
 IPO
 - 550 -
 - 600 -
+*Course Schedule III
 *Maximum Length of Pair Chain
 - 650 -
 *Split Array into Consecutive Subsequences
