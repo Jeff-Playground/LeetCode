@@ -68,48 +68,43 @@ public class MinimumWindowSubstring {
 //        return res;
 //    }
 
-    // Map only contains character from t
-    public String minWindow(String s, String t) {
-        String res="";
+    // Slinding window, Map only contains character from t
+    public static String minWindow(String s, String t) {
+        String result="";
         if(t.length()>s.length()) {
-            return res;
+            return result;
         }
-        Map<Character, Integer> tMap=new HashMap<Character, Integer>();
-        int left=0, count=0, minLen=s.length()+1;
+        Map<Character, Integer> tMap=new HashMap<>();
         for(char c: t.toCharArray()) {
             tMap.put(c, tMap.getOrDefault(c, 0)+1);
         }
-        for(int i=0; i<s.length(); i++) {
-            char c=s.charAt(i);
-            if(tMap.containsKey(c)) {
-                if(tMap.get(c)>0) {
+        int left=0, right=0, count=0, minLen=s.length()+1;
+        while(right<=s.length()){
+            char c=right<s.length()?s.charAt(right):'$';
+            if(tMap.containsKey(c)){
+                tMap.put(c, tMap.get(c)-1);
+                if(tMap.get(c)>=0) {
                     count++;
                 }
-                tMap.put(c, tMap.get(c)-1);
             }
-            while(count==t.length()) {
-                if(minLen>i-left+1) {
-                    minLen=i-left+1;
-                    res=s.substring(left, i+1);
+            right++;
+            while(count==t.length()){
+                c=s.charAt(left);
+                while(!tMap.containsKey(c) || tMap.get(c)<0){
+                    if(tMap.containsKey(c)){
+                        tMap.put(c, tMap.get(c)+1);
+                    }
+                    c=s.charAt(++left);
                 }
-                char leftChar=s.charAt(left);
-                if(tMap.containsKey(leftChar)) {
-                    tMap.put(leftChar, tMap.get(leftChar)+1);
-                    if(tMap.get(leftChar)>0){
-                        count--;
-                    }
-                    left++;
-                    while(left<s.length() && !tMap.containsKey(s.charAt(left))) {
-                        left++;
-                    }
-                    if(left>=s.length()) {
-                        return res;
-                    }
-                } else {
-                    left++;
+                if(minLen>right-left){
+                    minLen=right-left;
+                    result=s.substring(left, right);
                 }
+                tMap.put(c, tMap.get(c)+1);
+                count--;
+                left++;
             }
         }
-        return res;
+        return result;
     }
 }

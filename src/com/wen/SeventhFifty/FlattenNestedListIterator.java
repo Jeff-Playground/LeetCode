@@ -16,68 +16,68 @@ public class FlattenNestedListIterator {
         public List<NestedInteger> getList();
     }
 
-    // Flatten into Queue in constructor
-    public class NestedIterator implements Iterator<Integer> {
-        Queue<Integer> q;
-
-        public NestedIterator(List<NestedInteger> nestedList) {
-            q=new LinkedList<>();
-            flattenIntoQueue(nestedList, q);
-        }
-
-        private void flattenIntoQueue(List<NestedInteger> l, Queue<Integer> q){
-            for(int i=0; i<l.size(); i++){
-                if(l.get(i).isInteger()){
-                    q.offer(l.get(i).getInteger());
-                } else{
-                    flattenIntoQueue(l.get(i).getList(), q);
-                }
-            }
-        }
-
-        @Override
-        public Integer next() {
-            return q.poll();
-        }
-
-        @Override
-        public boolean hasNext() {
-            return !q.isEmpty();
-        }
-    }
-
-//    // Deque
+//    // Flatten into Queue in constructor
 //    public class NestedIterator implements Iterator<Integer> {
-//        Deque<NestedInteger> dq;
+//        Queue<Integer> q;
 //
 //        public NestedIterator(List<NestedInteger> nestedList) {
-//            dq=new LinkedList<>();
-//            for(int i=0; i<nestedList.size(); i++){
-//                dq.offerLast(nestedList.get(i));
+//            q=new LinkedList<>();
+//            flattenIntoQueue(nestedList, q);
+//        }
+//
+//        private void flattenIntoQueue(List<NestedInteger> l, Queue<Integer> q){
+//            for(int i=0; i<l.size(); i++){
+//                if(l.get(i).isInteger()){
+//                    q.offer(l.get(i).getInteger());
+//                } else{
+//                    flattenIntoQueue(l.get(i).getList(), q);
+//                }
 //            }
 //        }
 //
 //        @Override
 //        public Integer next() {
-//            NestedInteger cur=dq.pollFirst();
-//            return cur.getInteger();
+//            return q.poll();
 //        }
 //
 //        @Override
 //        public boolean hasNext() {
-//            while(!dq.isEmpty()){
-//                NestedInteger cur=dq.peekFirst();
-//                if(cur.isInteger()){
-//                    return true;
-//                }
-//                dq.pollFirst();
-//                for(int i=cur.getList().size()-1; i>=0; i--){
-//                    dq.offerFirst(cur.getList().get(i));
-//                }
-//            }
-//            return false;
+//            return !q.isEmpty();
 //        }
 //    }
+
+    // Deque
+    public class NestedIterator implements Iterator<Integer> {
+        Deque<NestedInteger> dq;
+
+        public NestedIterator(List<NestedInteger> nestedList) {
+            dq=new LinkedList<>();
+            for(int i=0; i<nestedList.size(); i++){
+                dq.offerLast(nestedList.get(i));
+            }
+        }
+
+        @Override
+        public Integer next() {
+            NestedInteger cur=dq.pollFirst();
+            return cur.getInteger();
+        }
+
+        @Override
+        public boolean hasNext() {
+            while(!dq.isEmpty()){
+                NestedInteger cur=dq.peekFirst();
+                if(cur.isInteger()){
+                    return true;
+                }
+                dq.pollFirst();
+                for(int i=cur.getList().size()-1; i>=0; i--){
+                    dq.offerFirst(cur.getList().get(i));
+                }
+            }
+            return false;
+        }
+    }
 
 //    //  Stack
 //    public class NestedIterator implements Iterator<Integer> {
