@@ -15,6 +15,7 @@ import com.wen.FourteenthFifty.FallingSquares;
 import com.wen.FourteenthFifty.FindKClosestElements;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.FourthFifty.MaximumGap;
+import com.wen.NineteenthFifty.SnakesAndLadders;
 import com.wen.NinthFifty.*;
 import com.wen.SecondFifty.TextJustification;
 import com.wen.SeventeenthFifty.*;
@@ -952,5 +953,7 @@ public class Main {
 //        s.pickIndex();
 
 //        ValidTicTacToeState.validTicTacToe(new String[]{"XXO","XOX","OXO"});
+
+//        SnakesAndLadders.snakesAndLadders(new int[][]{{-1,-1,27,13,-1,25,-1},{-1,-1,-1,-1,-1,-1,-1},{44,-1,8,-1,-1,2,-1},{-1,30,-1,-1,-1,-1,-1},{3,-1,20,-1,46,6,-1},{-1,-1,-1,-1,-1,-1,29},{-1,29,21,33,-1,-1,-1}});
     }
 }

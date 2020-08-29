@@ -41,34 +41,85 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class LQDesignHitCounter {
+    // With ReadWriteLock
     class HitCounter{
+        ReentrantReadWriteLock lock;
+        Lock rLock;
+        Lock wLock;
+
         int[] times, hits;
 
         public HitCounter(){
             times=new int[300];
             hits=new int[300];
+            lock=new ReentrantReadWriteLock();
+            rLock=lock.readLock();
+            wLock=lock.writeLock();
         }
 
         public void hit(int timestamp){
-            int idx=timestamp%300;
-            if(times[idx]!=timestamp){
-                times[idx]=timestamp;
-                hits[idx]=1;
-            } else{
-                hits[idx]++;
+            wLock.lock();
+            try {
+                int idx = timestamp % 300;
+                if (times[idx] == timestamp) {
+                    hits[idx]++;
+                } else {
+                    times[idx] = timestamp;
+                    hits[idx] = 1;
+                }
+            } finally {
+                wLock.unlock();
             }
         }
 
         public int getHits(int timestamp){
-            int result=0;
-            for(int i=0; i<300; i++){
-                result+=hits[i];
+            rLock.lock();
+            try{
+                int result=0;
+                for(int i=0; i<300; i++){
+                    if(timestamp-times[i]<300) {
+                        result += hits[i];
+                    }
+                }
+                return result;
+            } finally{
+                rLock.unlock();
             }
-            return result;
         }
     }
+
+//    class HitCounter{
+//        int[] times, hits;
+//
+//        public HitCounter(){
+//            times=new int[300];
+//            hits=new int[300];
+//        }
+//
+//        public void hit(int timestamp){
+//            int idx=timestamp%300;
+//            if(times[idx]!=timestamp){
+//                times[idx]=timestamp;
+//                hits[idx]=1;
+//            } else{
+//                hits[idx]++;
+//            }
+//        }
+//
+//        public int getHits(int timestamp){
+//            int result=0;
+//            for(int i=0; i<300; i++){
+//                if(timestamp-times[i]<300) {
+//                    result += hits[i];
+//                }
+//            }
+//            return result;
+//        }
+//    }
 
 //    class HitCounter{
 //        Queue<Integer> q;
