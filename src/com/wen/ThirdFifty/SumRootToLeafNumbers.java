@@ -10,7 +10,7 @@ public class SumRootToLeafNumbers {
         public TreeNode(int x) { val = x; }
     }
 
-    // Preorder traversal
+    // Preorder traversal, add root value to children's valus
     public static int sumNumbers(TreeNode root) {
         int result=0;
         TreeNode cur=root;
