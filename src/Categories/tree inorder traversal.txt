@@ -31,3 +31,11 @@ Two Sum IV - Input is a BST
 - 850 -
 *Increasing Order Search Tree
 - 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+Two Sum BSTs
+- 1250 -
