@@ -1,4 +1,5 @@
 Magic numbers for mod: 1_000_000_007 or 1_000_000_009
+base use 256 becuase ASCII has 256 chars
 hash=(((hash-highestPower*s.charAt(i-1))*base+s.charAt(i+9))%mod+mod)%mod;
 
 *Repeated DNA Sequences

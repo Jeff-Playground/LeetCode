@@ -36,59 +36,25 @@ public class NetworkDelayTime {
 //        return -1;
 //    }
 
-    // Bellman-ford
-    public int networkDelayTime(int[][] times, int N, int K) {
-        int[] cost=new int[N+1];
-        Arrays.fill(cost, Integer.MAX_VALUE);
-        cost[K]=0;
-        for(int i=1; i<=N-1; i++) {
-            int[] last=Arrays.copyOf(cost, N+1);
-            for(int[] time: times) {
-                if(last[time[0]]<Integer.MAX_VALUE && last[time[0]]+time[2]<last[time[1]]) {
-                    cost[time[1]]=last[time[0]]+time[2];
-                }
-            }
-        }
-        // Logic to determine whether there's a negative loop
-        // for(int[] time: times) {
-        // 	if(cost[time[0]]<Integer.MAX_VALUE && cost[time[0]]+time[2]<cost[time[1]]) {
-        // 		return -1;
-        // 	}
-        // }
-        int result=0;
-        for(int i=1; i<=N; i++) {
-            if(cost[i]==Integer.MAX_VALUE) {
-                return -1;
-            } else{
-                result=Math.max(result, cost[i]);
-            }
-        }
-        return result;
-    }
-
-//    // SPFA
+//    // Bellman-ford
 //    public int networkDelayTime(int[][] times, int N, int K) {
 //        int[] cost=new int[N+1];
-////        int[] count=new int[N+1];
 //        Arrays.fill(cost, Integer.MAX_VALUE);
 //        cost[K]=0;
-//        Queue<Integer> q=new LinkedList<>();
-//        q.offer(K);
-////        count[K]++;
-//        while(!q.isEmpty()) {
-//            int reached=q.poll();
+//        for(int i=1; i<=N-1; i++) {
+//            int[] last=Arrays.copyOf(cost, N+1);
 //            for(int[] time: times) {
-//                if(time[0]==reached && cost[time[0]]+time[2]<cost[time[1]]) {
-//                    cost[time[1]]=cost[time[0]]+time[2];
-//                    q.offer(time[1]);
-//                    // Logic to determine whether there's a negative loop
-//                    // Note here normally should be >N-1, but to handle the case when N==1, give N
-//                    // if(++count[time[1]]>N) {
-//                    // 	return -1;
-//                    // }
+//                if(last[time[0]]<Integer.MAX_VALUE && last[time[0]]+time[2]<last[time[1]]) {
+//                    cost[time[1]]=last[time[0]]+time[2];
 //                }
 //            }
 //        }
+//        // Logic to determine whether there's a negative loop
+//        // for(int[] time: times) {
+//        // 	if(cost[time[0]]<Integer.MAX_VALUE && cost[time[0]]+time[2]<cost[time[1]]) {
+//        // 		return -1;
+//        // 	}
+//        // }
 //        int result=0;
 //        for(int i=1; i<=N; i++) {
 //            if(cost[i]==Integer.MAX_VALUE) {
@@ -99,6 +65,40 @@ public class NetworkDelayTime {
 //        }
 //        return result;
 //    }
+
+    // SPFA
+    public int networkDelayTime(int[][] times, int N, int K) {
+        int[] cost=new int[N+1];
+//        int[] count=new int[N+1];
+        Arrays.fill(cost, Integer.MAX_VALUE);
+        cost[K]=0;
+        Queue<Integer> q=new LinkedList<>();
+        q.offer(K);
+//        count[K]++;
+        while(!q.isEmpty()) {
+            int reached=q.poll();
+            for(int[] time: times) {
+                if(time[0]==reached && cost[time[0]]+time[2]<cost[time[1]]) {
+                    cost[time[1]]=cost[time[0]]+time[2];
+                    q.offer(time[1]);
+                    // Logic to determine whether there's a negative loop
+                    // Note here normally should be >N-1, but to handle the case when N==1, give N
+                    // if(++count[time[1]]>N) {
+                    // 	return -1;
+                    // }
+                }
+            }
+        }
+        int result=0;
+        for(int i=1; i<=N; i++) {
+            if(cost[i]==Integer.MAX_VALUE) {
+                return -1;
+            } else{
+                result=Math.max(result, cost[i]);
+            }
+        }
+        return result;
+    }
 
 //    // Floyd
 //    public int networkDelayTime(int[][] times, int N, int K) {

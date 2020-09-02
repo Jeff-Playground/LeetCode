@@ -1,3 +1,5 @@
+AtomicInteger: get, incrementAndGet, getAndIncrement, decrementAndGet, getAndDecrement
+
 - 300 -
 - 350 -
 - 400 -
@@ -18,5 +20,5 @@
 - 1050 -
 - 1100 -
 - 1150 -
-*Fizz Buzz Multithreaded
+*Fizz Buzz Multithreaded(AtomicInteger)
 - 1200 -
