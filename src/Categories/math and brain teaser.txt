@@ -173,6 +173,7 @@ Island Perimeter
 Validate IP Address
 *LQConvexPolygon
 Total Hamming Distance
+License Key Formatting
 Max Consecutive Ones
 - 500 -
 Most Frequent Subtree Sum
