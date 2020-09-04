@@ -962,5 +962,7 @@ public class Main {
 //        FindKPairsWithSmallestSums.kSmallestPairs(new int[]{1,1,2}, new int[]{1,2,3}, 4);
 
 //        LicenseKeyFormatting.licenseKeyFormatting("5F3Z-2e-9-w", 4);
+
+        MagicalString.magicalString(4);
     }
 }
