@@ -176,6 +176,7 @@ Total Hamming Distance
 *Largest Palindrome Product
 Magical String
 License Key Formatting
+*Smallest Good Base
 Max Consecutive Ones
 - 500 -
 Most Frequent Subtree Sum

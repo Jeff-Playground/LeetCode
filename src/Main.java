@@ -963,6 +963,10 @@ public class Main {
 
 //        LicenseKeyFormatting.licenseKeyFormatting("5F3Z-2e-9-w", 4);
 
-        MagicalString.magicalString(4);
+//        MagicalString.magicalString(4);
+
+//        SmallestGoodBase.smallestGoodBase("13");
+
+//        LQFindPermutation.findPermutation("DIDIDID");
     }
 }

@@ -19,6 +19,7 @@ Find Right Interval
 - 450 -
 Minimum Number of Arrows to Burst Balloons
 Assign Cookies
+*LQFindPermutation
 - 500 -
 IPO
 - 550 -
