@@ -78,6 +78,7 @@ LQTernaryExpressionParser
 - 450 -
 Concatenated Words
 Matchsticks to Square
+*Zuma Game
 LQTheMaze
 Target Sum
 LQTheMazeIII

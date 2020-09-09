@@ -968,5 +968,7 @@ public class Main {
 //        SmallestGoodBase.smallestGoodBase("13");
 
 //        LQFindPermutation.findPermutation("DIDIDID");
+
+        ZumaGame.findMinStep("WRRBBW", "RB");
     }
 }
