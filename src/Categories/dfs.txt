@@ -79,6 +79,7 @@ LQTernaryExpressionParser
 Concatenated Words
 Matchsticks to Square
 *Zuma Game
+*LQRobotRoomCleaner
 LQTheMaze
 Target Sum
 LQTheMazeIII
