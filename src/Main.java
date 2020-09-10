@@ -969,6 +969,8 @@ public class Main {
 
 //        LQFindPermutation.findPermutation("DIDIDID");
 
-        ZumaGame.findMinStep("WRRBBW", "RB");
+//        ZumaGame.findMinStep("WRRBBW", "RB");
+
+//        KeyboardRow.findWords(new String[]{"Hello","Alaska","Dad","Peace"});
     }
 }

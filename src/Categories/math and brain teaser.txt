@@ -181,6 +181,7 @@ Max Consecutive Ones
 Construct the Rectangle
 Teemo Attacking
 Diagonal Traverse
+Keyboard Row
 - 500 -
 Most Frequent Subtree Sum
 Super Washing Machines
