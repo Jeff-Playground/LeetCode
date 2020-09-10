@@ -22,6 +22,7 @@ Pacific Atlantic Water Flow
 Minimum Genetic Mutation
 - 450 -
 LQTheMaze
+Increasing Subsequences
 LQTheMazeIII
 - 500 -
 LQTheMazeII

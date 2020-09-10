@@ -178,6 +178,7 @@ Magical String
 License Key Formatting
 *Smallest Good Base
 Max Consecutive Ones
+Construct the Rectangle
 - 500 -
 Most Frequent Subtree Sum
 Super Washing Machines

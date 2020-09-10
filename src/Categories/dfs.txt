@@ -81,6 +81,7 @@ Matchsticks to Square
 *Zuma Game
 *LQRobotRoomCleaner
 LQTheMaze
+Increasing Subsequences
 Target Sum
 LQTheMazeIII
 - 500 -
