@@ -180,6 +180,7 @@ License Key Formatting
 Max Consecutive Ones
 Construct the Rectangle
 Teemo Attacking
+Diagonal Traverse
 - 500 -
 Most Frequent Subtree Sum
 Super Washing Machines
