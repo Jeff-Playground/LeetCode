@@ -27,6 +27,7 @@ Guess Number Higher or Lower
 *Split Array Largest Sum
 Arranging Coins
 - 450 -
+*Random Point in Non-overlapping Rectangles
 - 500 -
 Random Pick with Weight
 *Single Element in a Sorted Array
