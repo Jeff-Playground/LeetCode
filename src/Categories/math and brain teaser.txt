@@ -171,7 +171,6 @@ Circular Array Loop
 Island Perimeter
 *LQOptimalAccountBalancing
 Validate IP Address
-*LQConvexPolygon
 Total Hamming Distance
 *Largest Palindrome Product
 Magical String

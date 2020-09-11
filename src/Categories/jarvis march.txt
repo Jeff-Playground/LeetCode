@@ -1,0 +1,18 @@
+Two vectors' cross product computes a third vector which is perpendicular to the two vectors. The value of the new vector
+is a*b*sinθ, if this value is positive, then θ is less than 180º, otherwise it's larger than 180º.
+One of the common use cases is to determine whether a polygon is convex.
+
+- 300 -
+- 350 -
+- 400 -
+- 450 -
+- 500 -
+- 550 -
+*Erect the Fence
+- 600 -
+- 650 -
+- 700 -
+- 750 -
+- 800 -
+- 850 -
+- 900 -
