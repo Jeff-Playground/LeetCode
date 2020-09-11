@@ -184,6 +184,7 @@ Diagonal Traverse
 Keyboard Row
 - 500 -
 Base 7
+Perfect Number
 Most Frequent Subtree Sum
 Super Washing Machines
 Longest Uncommon Subsequence I
