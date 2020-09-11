@@ -183,6 +183,7 @@ Teemo Attacking
 Diagonal Traverse
 Keyboard Row
 - 500 -
+Base 7
 Most Frequent Subtree Sum
 Super Washing Machines
 Longest Uncommon Subsequence I
