@@ -258,6 +258,7 @@ LQAnalyzeUserWebsiteVisitPattern
 - 1250 -
 Find Winner on a Tic Tac Toe Game
 - 1300 -
+Filter Restaurants by Vegan-Friendly, Price and Distance
 - 1350 -
 - 1400 -
 - 1450 -
