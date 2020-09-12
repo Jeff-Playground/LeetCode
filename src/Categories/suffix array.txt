@@ -1,0 +1,2 @@
+This is a data structure implemented as an array, it contains the sorted index of a given string, where each index stands
+for a suffix starting from that index in the given string. The sorting is in lexicographical order.

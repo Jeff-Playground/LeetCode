@@ -59,7 +59,7 @@ public class Sortings {
 //        // Worst time O(k*n) - k is the maximum digits of nums
 //        // Space O(base*n+base) - Extra space for buckets and bucketCount
 //        // Stable
-//        radixSort(nums);
+        radixSort(nums);
 
         Arrays.asList(nums).stream().forEach(num->{
             System.out.println(num);

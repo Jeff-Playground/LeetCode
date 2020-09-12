@@ -1,0 +1,32 @@
+This is a data structure built upon the suffix array. It is a special suffix array, where it not only stores the sorted
+indices, but also stores the longest common prefix at each location(the first value is defaulted to 0 and doesn't mean
+anything).
+
+This data structure is useful for below cases:
+Find all unique substrings:
+    https://www.youtube.com/watch?v=m2lZRmMjebw&list=PLDV1Zeh2NRsCQ_Educ7GCNs3mvzpXhHW5&index=3
+Find the longest repeated substring:
+    https://www.youtube.com/watch?v=OptoHwC3D-Y&list=PLDV1Zeh2NRsCQ_Educ7GCNs3mvzpXhHW5&index=6
+Find the longest common substrings(it could be appearing in k strings, where 2<=k<=n):
+    https://www.youtube.com/watch?v=Ic80xQFWevc&list=PLDV1Zeh2NRsCQ_Educ7GCNs3mvzpXhHW5&index=4
+
+- 300 -
+- 350 -
+- 400 -
+- 450 -
+- 500 -
+- 550 -
+- 600 -
+- 650 -
+- 700 -
+- 750 -
+- 800 -
+- 850 -
+- 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+*Last Substring in Lexicographical Order
+- 1200 -
