@@ -17,3 +17,18 @@ Sliding Window Maximum
 - 800 -
 - 850 -
 - 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+- 1250 -
+- 1300 -
+- 1350 -
+- 1400 -
+- 1450 -
+- 1500 -
+- 1550 -
+*Check If String Is Transformable With Substring Sort Operations
+- 1600 -
