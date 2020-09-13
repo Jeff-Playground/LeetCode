@@ -4,6 +4,9 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class CheckIfStringIsTransformableWithSubstringSortOperations {
+    // The idea is for a digit, it can only move to left when it's smaller than the digits on its left, so here the method
+    // is essentially  for each digit in t find the first occurrence in s, and try to move it to the front by checking if
+    // there is any smaller one in front of it. If there is, then that's not possible
     public boolean isTransformable(String s, String t) {
         if(s==null || t==null || s.length()!=t.length()){
             return false;
