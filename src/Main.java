@@ -28,6 +28,7 @@ import com.wen.ThirdFifty.LRUCache;
 import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
+import com.wen.ThirtySecondFifty.CountUnhappyFriends;
 import com.wen.TwelfthFifty.PermutationInString;
 import com.wen.TwentiethFifty.FindTheTownJudge;
 import com.wen.TwentiethFifty.LongestTurbulentSubarray;
@@ -975,5 +976,7 @@ public class Main {
 //        KeyboardRow.findWords(new String[]{"Hello","Alaska","Dad","Peace"});
 
 //        LastSubstringInLexicographicalOrder.lastSubstring("abab");
+
+//        CountUnhappyFriends.unhappyFriends(6, new int[][]{{1,4,3,2,5},{0,5,4,3,2},{3,0,1,5,4},{2,1,4,0,5},{2,1,0,3,5},{3,4,2,0,1}}, new int[][]{{3,1},{2,0},{5,4}});
     }
 }

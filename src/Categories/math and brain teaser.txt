@@ -266,4 +266,5 @@ Path Crossing
 - 1500 -
 - 1550 -
 Special Positions in a Binary Matrix
+Count Unhappy Friends
 - 1600 -
