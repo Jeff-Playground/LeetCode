@@ -79,6 +79,7 @@ Pyramid Transition Matrix
 - 900 -
 Minimum Falling Path Sum
 - 950 -
+*Delete Columns to Make Sorted III
 - 1000 -
 - 1050 -
 - 1100 -

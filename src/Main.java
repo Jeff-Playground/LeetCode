@@ -30,6 +30,7 @@ import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
 import com.wen.ThirtySecondFifty.CountUnhappyFriends;
 import com.wen.TwelfthFifty.PermutationInString;
+import com.wen.TwentiethFifty.DeleteColumnsToMakeSortedII;
 import com.wen.TwentiethFifty.FindTheTownJudge;
 import com.wen.TwentiethFifty.LongestTurbulentSubarray;
 import com.wen.TwentiethFifty.PrisonCellsAfterNDays;
@@ -981,5 +982,7 @@ public class Main {
 //        CountUnhappyFriends.unhappyFriends(6, new int[][]{{1,4,3,2,5},{0,5,4,3,2},{3,0,1,5,4},{2,1,4,0,5},{2,1,0,3,5},{3,4,2,0,1}}, new int[][]{{3,1},{2,0},{5,4}});
 
 //        LongestChunkedPalindromeDecomposition.longestDecomposition("vwsuvmbwknmnvwsuvmbwk");
+
+//        DeleteColumnsToMakeSortedII.minDeletionSize(new String[]{"xga","xfb","yfa"});
     }
 }

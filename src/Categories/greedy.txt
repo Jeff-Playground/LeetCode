@@ -41,7 +41,9 @@ Monotone Increasing Digits
 *Minimum Cost to Hire K Workers
 - 900 -
 Minimum Add to Make Parentheses Valid
+Delete Columns to Make Sorted
 - 950 -
+*Delete Columns to Make Sorted II
 - 1000 -
 Last Stone Weight
 - 1050 -
