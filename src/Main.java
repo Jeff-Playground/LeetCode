@@ -37,6 +37,7 @@ import com.wen.TwentyFourthFifty.LastSubstringInLexicographicalOrder;
 import com.wen.TwentySecondFifty.CriticalConnectionsInANetwork;
 import com.wen.TwentySecondFifty.LQAllPathsFromSourceLeadToDestination;
 import com.wen.TwentySixthFifty.MinimumFallingPathSumII;
+import com.wen.TwentyThirdFifty.LongestChunkedPalindromeDecomposition;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -978,5 +979,7 @@ public class Main {
 //        LastSubstringInLexicographicalOrder.lastSubstring("abab");
 
 //        CountUnhappyFriends.unhappyFriends(6, new int[][]{{1,4,3,2,5},{0,5,4,3,2},{3,0,1,5,4},{2,1,4,0,5},{2,1,0,3,5},{3,4,2,0,1}}, new int[][]{{3,1},{2,0},{5,4}});
+
+//        LongestChunkedPalindromeDecomposition.longestDecomposition("vwsuvmbwknmnvwsuvmbwk");
     }
 }

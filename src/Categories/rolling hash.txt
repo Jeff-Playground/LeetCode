@@ -16,3 +16,9 @@ hash=(((hash-highestPower*s.charAt(i-1))*base+s.charAt(i+9))%mod+mod)%mod;
 - 800 -
 - 850 -
 - 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+Longest Chunked Palindrome Decomposition
+- 1150 -
