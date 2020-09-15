@@ -237,6 +237,7 @@ Unique Morse Code Words
 Number of Lines To Write String
 Max Increase to Keep City Skyline
 Expressive Words
+Card Flipping Game
 Find And Replace in String
 *Image Overlap
 Maximize Distance to Closest Person
