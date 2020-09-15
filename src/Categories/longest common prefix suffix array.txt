@@ -5,9 +5,9 @@ anything).
 This data structure is useful for below cases:
 Find all unique substrings:
     https://www.youtube.com/watch?v=m2lZRmMjebw&list=PLDV1Zeh2NRsCQ_Educ7GCNs3mvzpXhHW5&index=3
-Find the longest repeated substring:
+Find the longest repeated substring within one string:
     https://www.youtube.com/watch?v=OptoHwC3D-Y&list=PLDV1Zeh2NRsCQ_Educ7GCNs3mvzpXhHW5&index=6
-Find the longest common substrings(it could be appearing in k strings, where 2<=k<=n):
+Find the longest common substrings among multiple strings(it could be appearing in k strings, where 2<=k<=n):
     https://www.youtube.com/watch?v=Ic80xQFWevc&list=PLDV1Zeh2NRsCQ_Educ7GCNs3mvzpXhHW5&index=4
 
 - 300 -

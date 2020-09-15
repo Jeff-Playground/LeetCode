@@ -37,14 +37,15 @@ public class DesignTwitter {
             follow(userId, userId);
         }
 
-        /** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
+        /** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by
+         * users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
         public List<Integer> getNewsFeed(int userId) {
             Set<Integer> followed=followedMap.get(userId);
             if(followed==null){
                 return new ArrayList<>();
             }
             List<Integer> result=new ArrayList<>();
-            PriorityQueue<Twit> pq=new PriorityQueue<Twit>(10, (a, b)->b.time-a.time);
+            PriorityQueue<Twit> pq=new PriorityQueue<>(10, (a, b)->b.time-a.time);
             for(int uId: followed){
                 if(tweetMap.get(uId)!=null && tweetMap.get(uId).size()>0){
                     for(Twit t: tweetMap.get(uId)){
