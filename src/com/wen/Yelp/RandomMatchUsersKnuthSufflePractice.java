@@ -2,7 +2,7 @@ package com.wen.Yelp;
 
 import java.util.*;
 
-public class RandomMatchUsers {
+public class RandomMatchUsersKnuthSufflePractice {
     public static void main(String[] args){
         List<String> input= Arrays.asList("Alan", "Da", "Jen", "Kevin", "Neha", "Rachel");
         List<List<String>> result=matchUsers(input);
