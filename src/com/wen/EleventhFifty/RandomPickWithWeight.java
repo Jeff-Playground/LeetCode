@@ -28,6 +28,7 @@ public class RandomPickWithWeight {
             }
         }
 
+        // Get the sum of all numbers before idx inclusively
         private int getSum(int idx){
             int result=0;
             for(int i=idx+1; i>0; i-=(i&(-i))){

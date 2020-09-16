@@ -106,6 +106,7 @@ Flood Fill
 *Cracking the Safe
 Pyramid Transition Matrix
 *Swim in Rising Water
+Letter Case Permutation
 *Is Graph Bipartite?
 - 800 -
 *Find Eventual Safe States
