@@ -1,5 +1,5 @@
-Used for one to many minimum path.
-Optimized bellman-ford, iterate over the all the give edges to search and relax the minimum length to reach each node.
+Used for one to many minimum path, note this can also handle graph with negative edges.
+Optimized bellman-ford, iterate over the all the given edges to search and relax the minimum length to reach each node.
 The difference is it uses a Queue to store current reached nodes, so the edge iteration can be more targeted.
 Use one dimensional array: int[] last, to track the last node of the shortest path, because there's only one source, not
 necessary to use two dimensional array.

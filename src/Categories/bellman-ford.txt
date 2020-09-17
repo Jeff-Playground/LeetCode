@@ -1,4 +1,5 @@
-Used for one to many minimum path.
+Used for one to many minimum path, note not like Dijkstra, this algorithm can handle graph with negative edges.
+
 Iterate over the all the give edges to search and relax the minimum length to reach each node.
 Use one dimensional array: int[] last, to track the last node of the shortest path, because there's only one source, not
 necessary to use two dimensional array.

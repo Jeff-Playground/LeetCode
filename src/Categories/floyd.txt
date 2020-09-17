@@ -1,6 +1,7 @@
-Used for many to many minimum path.
+Used for many to many minimum path, can handle graph with negative edges.
 Use two dimensional array: int[][] last, to track the last node of the shortest path.
-This is similar to bellman-ford and SPFA, except the relaxation is three dimensional.
+This is similar to bellman-ford and SPFA, except the relaxation is three dimensional. The underlying idea is to find a
+third node k between two given nodes i, j, if dist[i][k]+dist[k][j]<dist[i][j], relax this path.
 
 - 300 -
 - 350 -
