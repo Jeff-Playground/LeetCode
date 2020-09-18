@@ -10,6 +10,8 @@ V={A,B,C} ; E = {(A,C,2), (A,B,5), (B,C,-10)}
 Here use A as source, it will find AC and mark C as visited, but later BC makes ABC -5, less than original 2 which will
 be missed in the result.
 
+This can also be used for finding the minimum spanning tree.
+
 Implementation uses a PriorityQueue to do BFS like search, where PriorityQueue can be used to store all usable edges, and
 it's sorted based on the length to the next reachable point. In other words, the idea is to add a node which is closest
 to the reached nodes group one at a time to a visited Set. Here using a HashMap to maintain visited nodes as well as the
@@ -34,3 +36,18 @@ LQTheMazeII
 - 850 -
 *Reachable Nodes In Subdivided Graph
 - 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+- 1250 -
+- 1300 -
+- 1350 -
+- 1400 -
+- 1450 -
+- 1500 -
+- 1550 -
+*Min Cost to Connect All Points
+- 1600 -
