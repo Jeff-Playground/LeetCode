@@ -188,6 +188,7 @@ Most Frequent Subtree Sum
 Fibonacci Number
 Super Washing Machines
 *Random Flip Matrix
+Detect Capital
 Longest Uncommon Subsequence I
 *Longest Uncommon Subsequence II
 *LQWordAbbreviation
