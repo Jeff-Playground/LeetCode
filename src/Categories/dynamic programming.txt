@@ -58,6 +58,7 @@ Unique Substrings in Wraparound String
 *Ones and Zeroes
 *Predict the Winner
 - 500 -
+*Freedom Trail
 *Longest Palindromic Subsequence
 - 550 -
 *Student Attendance Record II

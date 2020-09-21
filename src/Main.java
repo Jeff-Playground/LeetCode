@@ -3,6 +3,7 @@ import com.wen.EighteenthFifty.ReachableNodesInSubdividedGraph;
 import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
 import com.wen.EighthFifty.*;
 import com.wen.EleventhFifty.FindModeInBinarySearchTree;
+import com.wen.EleventhFifty.FreedomTrail;
 import com.wen.EleventhFifty.LongestPalindromicSubsequence;
 import com.wen.EleventhFifty.RandomPickWithWeight;
 import com.wen.FifteenthFifty.*;
@@ -986,5 +987,7 @@ public class Main {
 //        DeleteColumnsToMakeSortedII.minDeletionSize(new String[]{"xga","xfb","yfa"});
 
 //        KthSmallestElementInASortedMatrix.kthSmallest(new int[][]{{1,5,9},{10,11,13},{12,13,15}}, 8);
+
+//        FreedomTrail.findRotateSteps("ababcab","acbaacba");
     }
 }

@@ -86,6 +86,7 @@ Target Sum
 LQTheMazeIII
 - 500 -
 LQTheMazeII
+*Freedom Trail
 Minesweeper
 *LQBinaryTreeLongestConsecutiveSequenceII
 - 550 -
