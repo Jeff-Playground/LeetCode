@@ -191,6 +191,7 @@ Super Washing Machines
 Detect Capital
 Longest Uncommon Subsequence I
 *Longest Uncommon Subsequence II
+Continuous Subarray Sum
 *LQWordAbbreviation
 LQConstructBinaryTreeFromString
 Complex Number Multiplication
