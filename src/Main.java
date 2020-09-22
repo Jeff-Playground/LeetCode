@@ -2,10 +2,7 @@ import com.wen.EighteenthFifty.MinimumNumberOfRefuelingStops;
 import com.wen.EighteenthFifty.ReachableNodesInSubdividedGraph;
 import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
 import com.wen.EighthFifty.*;
-import com.wen.EleventhFifty.FindModeInBinarySearchTree;
-import com.wen.EleventhFifty.FreedomTrail;
-import com.wen.EleventhFifty.LongestPalindromicSubsequence;
-import com.wen.EleventhFifty.RandomPickWithWeight;
+import com.wen.EleventhFifty.*;
 import com.wen.FifteenthFifty.*;
 import com.wen.FifthFifty.MinimumSizeSubarraySum;
 import com.wen.FifthFifty.SearchA2DMatrixII;
@@ -989,5 +986,7 @@ public class Main {
 //        KthSmallestElementInASortedMatrix.kthSmallest(new int[][]{{1,5,9},{10,11,13},{12,13,15}}, 8);
 
 //        FreedomTrail.findRotateSteps("ababcab","acbaacba");
+
+        BeautifulArrangement.countArrangement(6);
     }
 }
