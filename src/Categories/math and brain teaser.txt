@@ -195,6 +195,8 @@ Continuous Subarray Sum
 Longest Word in Dictionary through Deleting
 Contiguous Array
 *LQWordAbbreviation
+LQLonelyPixelI
+*LQLonelyPixelII
 LQConstructBinaryTreeFromString
 Complex Number Multiplication
 Convert BST to Greater Tree
