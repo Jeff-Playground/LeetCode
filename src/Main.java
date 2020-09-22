@@ -987,6 +987,6 @@ public class Main {
 
 //        FreedomTrail.findRotateSteps("ababcab","acbaacba");
 
-        BeautifulArrangement.countArrangement(6);
+//        BeautifulArrangement.countArrangement(6);
     }
 }

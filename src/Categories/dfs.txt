@@ -87,6 +87,7 @@ LQTheMazeIII
 - 500 -
 LQTheMazeII
 *Freedom Trail
+*Beautiful Arrangement
 Minesweeper
 *LQBinaryTreeLongestConsecutiveSequenceII
 - 550 -
