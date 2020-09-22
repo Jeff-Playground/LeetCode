@@ -192,6 +192,7 @@ Detect Capital
 Longest Uncommon Subsequence I
 *Longest Uncommon Subsequence II
 Continuous Subarray Sum
+Longest Word in Dictionary through Deleting
 *LQWordAbbreviation
 LQConstructBinaryTreeFromString
 Complex Number Multiplication
