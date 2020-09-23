@@ -1,6 +1,20 @@
-Two vectors' cross product computes a third vector which is perpendicular to the two vectors. The value of the new vector
-is a*b*sinθ, if this value is positive, then θ is less than 180º, otherwise it's larger than 180º.
-One of the common use cases is to determine whether a polygon is convex.
+This is depends on the vector cross product:
+int cur=dy2*dx1-dy1*dx2;
+
+It can be completed in below steps:
+1. find the vertex located on the left of all other nodes, if there're multiple, then randomly pick one(this is just take
+   the vertex with minimum x)
+2. iterate over all other vertices, basically pick one node as next, then use a third node to compute the cross product,
+   make sure the result are all positive(clock-wise) or negative(anti-clock-wise), this will eventually find the most
+   outside vertex
+        if(nextIdx==curIdx || cp>0 || (cp==0 && dist(points, i, curIdx)>dist(points, nextIdx, curIdx))){
+            nextIdx=i;
+        }
+   this is basically just find a vertex different with the starting vertex, and it's clock-wise most outside one, when
+   the calculated cross product is 0, that means they're on the same line, so get the one further to the starting vertex.
+   When next vertex is found, use another loop to find all vertex on the same line. This can be done by find all vertex
+   which can produce a 0 cross product.
+3. repeat 2 until next is the first vertex, now a fence is found.
 
 - 300 -
 - 350 -

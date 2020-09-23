@@ -1,6 +1,7 @@
 Two vectors' cross product computes a third vector which is perpendicular to the two vectors. The value of the new vector
 is a*b*sinθ, if this value is positive, then θ is less than 180º, otherwise it's larger than 180º.
 One of the common use cases is to determine whether a polygon is convex.
+int cur=dy2*dx1-dy1*dx2;
 
 - 300 -
 - 350 -

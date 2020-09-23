@@ -25,6 +25,7 @@ public class ErectTheFence {
                     }
                 }
             }
+            // This is to add all the vertices in same line with cur vertex and next vertex
             for(int i=0; i<l; i++){
                 if(i!=curIdx){
                     int cp=crossProduct(points, curIdx, nextIdx, i);
