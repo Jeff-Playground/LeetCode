@@ -40,33 +40,33 @@ All worker and bike locations are distinct.
  */
 
 public class CampusBikesII {
-    // DFS backtracking with memorization
-    // Time complexity is O(2^bl), because there're totally 2^bl states that need to be calculated
-    // Space complexity is O(2^bl), because calculated takes this much space
-    public int assignBikes(int[][] workers, int[][] bikes) {
-        // Here can use a state because bikes.length <= 10, meaning we only need 10 bits to identify all bike states
-        // If bike counts is very large, here we can ues a Map to replace calculated, and the keys can be strings(0,3,...,99)
-        return abHelper(workers, bikes, 0, 0, new int[1<<bikes.length]);
-    }
-
-    // Here a state uniquely identifies a situation where we are calculating for a cur and bikes in certain indices are
-    // taken, for example, 1-2- and 2-1- will share same child calculations
-    private int abHelper(int[][] workers, int[][] bikes, int cur, int state, int[] calculated){
-        if(cur==workers.length){
-            return 0;
-        }
-        if(calculated[state]>0){
-            return calculated[state];
-        } else{
-            int result=Integer.MAX_VALUE;
-            for(int j=0; j<bikes.length; j++){
-                if((state&(1<<j))==0){
-                    result=Math.min(result,  Math.abs(workers[cur][0]-bikes[j][0])+Math.abs(workers[cur][1]-bikes[j][1])
-                            +abHelper(workers, bikes, cur+1, state|(1<<j), calculated));
-                }
-            }
-            calculated[state]=result;
-            return result;
-        }
-    }
+//    // DFS backtracking with memorization
+//    // Time complexity is O(2^bl), because there're totally 2^bl states that need to be calculated
+//    // Space complexity is O(2^bl), because calculated takes this much space
+//    public int assignBikes(int[][] workers, int[][] bikes) {
+//        // Here can use a state because bikes.length <= 10, meaning we only need 10 bits to identify all bike states
+//        // If bike counts is very large, here we can ues a Map to replace calculated, and the keys can be strings(0,3,...,99)
+//        return abHelper(workers, bikes, 0, 0, new int[1<<bikes.length]);
+//    }
+//
+//    // Here a state uniquely identifies a situation where we are calculating for a cur and bikes in certain indices are
+//    // taken, for example, 1-2- and 2-1- will share same child calculations
+//    private int abHelper(int[][] workers, int[][] bikes, int cur, int state, int[] calculated){
+//        if(cur==workers.length){
+//            return 0;
+//        }
+//        if(calculated[state]>0){
+//            return calculated[state];
+//        } else{
+//            int result=Integer.MAX_VALUE;
+//            for(int j=0; j<bikes.length; j++){
+//                if((state&(1<<j))==0){
+//                    result=Math.min(result,  Math.abs(workers[cur][0]-bikes[j][0])+Math.abs(workers[cur][1]-bikes[j][1])
+//                            +abHelper(workers, bikes, cur+1, state|(1<<j), calculated));
+//                }
+//            }
+//            calculated[state]=result;
+//            return result;
+//        }
+//    }
 }
