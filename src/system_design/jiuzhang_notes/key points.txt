@@ -70,7 +70,7 @@ What happens when opening a URL in browser?
 Communication between servers:
     Peer-to-peer:
         Advantages:
-            No single point of failure
+            No single point of failure, better availability than master-slave
         Disadvantages:
             Hard to keep consistency of data
     Master-slave:
