@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GenerateParentheses {
+    // The result will have catalan(n) entries, so the time/space complexity is O(catalan(n)*n)
     public List<String> generateParenthesis(int n) {
         List<String> res=new ArrayList<String>();
         helper(n, n, "", res);

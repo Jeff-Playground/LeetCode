@@ -1,0 +1,39 @@
+Catalan number is:
+catalan(n)=catalan(0)*catalan(n-1)+catalan(1)*catalan(n-1-1)+...+catalan(n-2)*catalan(1)+catalan(n-1)*catalan(0),
+so it can be calculated like:
+        int[] dp=new int[n+1];
+        dp[0]=1;
+        dp[1]=1;
+        for(int i=2; i<=n; i++){
+            for(int j=0; j<i; j++){
+                dp[i]+=dp[j]*dp[i-j-1];
+            }
+        }
+        return dp[n];
+
+Another representation is:
+catalan(n)=C(2n,n)-C(2n,n-1)=1/(n+1)*C(2n,n), this can be proved by geometry: https://blog.csdn.net/zlingyun/article/details/82292198
+
+It can solve problems like:
+Generate parentheses:
+    For first representation, it basically is get a parentheses, then make a valid string by adding i parentheses inside and (n-1-i) parentheses on the right
+    For second representation, it basically is for all n parentheses, make sure the left part "(" is not less than the right part ")"
+UniqueBinary Search Trees:
+    For first representation, it basically is holding a number as root, and make left/right child tree basing on different nodes counts
+
+Generate Parentheses
+*Unique Binary Search Trees II
+Unique Binary Search Trees
+- 300 -
+- 350 -
+- 400 -
+- 450 -
+- 500 -
+- 550 -
+- 600 -
+- 650 -
+- 700 -
+- 750 -
+- 800 -
+- 850 -
+- 900 -

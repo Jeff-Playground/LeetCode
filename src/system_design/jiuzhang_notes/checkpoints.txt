@@ -6,7 +6,7 @@ Design Twitter:
     Combined model(distinguish normal users and celebrities)
 
 Design user system:
-    Session: used for authenticatiom, a token/session_key will be sent back and forth for all requests
+    Session: used for authentication, a token/session_key will be sent back and forth for all requests
     Use cache to serve high QPS
     Do horizontal data sharding the avoid single point failure and increase performance
     Friendship can be stored either one-way or two-way

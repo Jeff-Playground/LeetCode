@@ -19,5 +19,5 @@ First, if data(key, value) we store is such that value is just a single column, 
 if two servers have different view of a key, in the resolve step we can update the server with the stale with the new data and therefore become consistent.
 The other way is to store augmented data for each row indicating all the coordinating nodes for the row till now. Now, to detect and understand conflict we
 can compare the augmented data. If one is a subset of the other(all the writes seen by one of the row has been seen by the other row) we can safely ignore
-the one with smaller augmented data. Otherwise, we have a conflit for our row and need application level logic to resolve it. This way is usually required
+the one with smaller augmented data. Otherwise, we have a conflict for our row and need application level logic to resolve it. This way is usually required
 when our value if composed of more than one independent column.
