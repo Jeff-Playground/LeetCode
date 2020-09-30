@@ -27,6 +27,7 @@ LQTheMazeIII
 - 500 -
 LQTheMazeII
 Minesweeper
+*Zero One Matrix
 - 550 -
 - 600 -
 - 650 -

@@ -89,6 +89,7 @@ LQTheMazeII
 *Freedom Trail
 *Beautiful Arrangement
 Minesweeper
+Diameter of Binary Tree
 *LQBinaryTreeLongestConsecutiveSequenceII
 - 550 -
 Binary Tree Tilt
