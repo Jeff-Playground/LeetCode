@@ -28,6 +28,7 @@ LQTheMazeIII
 LQTheMazeII
 Minesweeper
 *Zero One Matrix
+Friend Circles
 - 550 -
 - 600 -
 - 650 -

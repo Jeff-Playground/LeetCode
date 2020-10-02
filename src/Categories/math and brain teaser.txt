@@ -204,6 +204,7 @@ Minimum Time Difference
 *Single Element in a Sorted Array
 Reverse String II
 LQOutputContestMatches
+*LQSplitArrayWithEqualSum
 - 550 -
 Student Attendance Record I
 Optimal Division

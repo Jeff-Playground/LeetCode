@@ -90,6 +90,7 @@ LQTheMazeII
 *Beautiful Arrangement
 Minesweeper
 Diameter of Binary Tree
+Friend Circles
 *LQBinaryTreeLongestConsecutiveSequenceII
 - 550 -
 Binary Tree Tilt
