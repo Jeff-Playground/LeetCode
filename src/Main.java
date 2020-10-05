@@ -27,6 +27,7 @@ import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
 import com.wen.ThirtySecondFifty.CountUnhappyFriends;
+import com.wen.TwelfthFifty.BrickWall;
 import com.wen.TwelfthFifty.PermutationInString;
 import com.wen.TwentiethFifty.DeleteColumnsToMakeSortedII;
 import com.wen.TwentiethFifty.FindTheTownJudge;
@@ -992,6 +993,8 @@ public class Main {
 
 //        CampusBikes.assignBikes(new int[][]{{0,0},{2,1}}, new int[][]{{1,2},{3,3}});
 
-        ReverseStringII.reverseStr("a",2);
+//        ReverseStringII.reverseStr("a",2);
+
+//        BrickWall.leastBricks(Arrays.asList(Arrays.asList(1,2,2,1),Arrays.asList(3,1,2),Arrays.asList(1,3,2),Arrays.asList(2,4),Arrays.asList(3,1,2),Arrays.asList(1,3,1,1)));
     }
 }

@@ -208,6 +208,7 @@ LQOutputContestMatches
 - 550 -
 Student Attendance Record I
 Optimal Division
+Brick Wall
 Next Greater Element III
 *Subarray Sum Equals K
 *Find the Closest Palindrome
