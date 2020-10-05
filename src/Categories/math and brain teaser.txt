@@ -209,6 +209,7 @@ LQOutputContestMatches
 Student Attendance Record I
 Optimal Division
 Brick Wall
+*LQSplitConcatenatedStrings
 Next Greater Element III
 *Subarray Sum Equals K
 *Find the Closest Palindrome
