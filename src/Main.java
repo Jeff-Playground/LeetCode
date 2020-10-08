@@ -1000,6 +1000,6 @@ public class Main {
 
 //        DiagonalTraverse.findDiagonalOrder(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
 
-        LQDigitCountInRange.digitsCount(3, 100, 250);
+//        LQDigitCountInRange.digitsCount(3, 100, 250);
     }
 }

@@ -38,7 +38,7 @@ public class FrogJump {
         }
     }
 
-//    // DP
+//    // DP with BFS, slower than DFS generally because it needs to traverse almost every possible path
 //    public boolean canCross(int[] stones) {
 //        int l=stones.length;
 //        Map<Integer, Integer> index=new HashMap<>();
