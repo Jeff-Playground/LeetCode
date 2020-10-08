@@ -46,7 +46,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class CampusBikes {
+public class LQCampusBikes {
     // PriorityQueue
     public static int[] assignBikes(int[][] workers, int[][] bikes) {
         int wl=workers.length, bl=bikes.length;

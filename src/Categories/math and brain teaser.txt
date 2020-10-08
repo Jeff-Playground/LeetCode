@@ -269,7 +269,8 @@ Longest Turbulent Subarray
 Find the Town Judge
 - 1000 -
 - 1050 -
-*Campus Bikes
+*LQCampusBikes
+*LQDigitCountInRange
 - 1100 -
 - 1150 -
 LQAnalyzeUserWebsiteVisitPattern

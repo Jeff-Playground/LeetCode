@@ -37,6 +37,7 @@ import com.wen.TwentyFourthFifty.LastSubstringInLexicographicalOrder;
 import com.wen.TwentySecondFifty.CampusBikes;
 import com.wen.TwentySecondFifty.CriticalConnectionsInANetwork;
 import com.wen.TwentySecondFifty.LQAllPathsFromSourceLeadToDestination;
+import com.wen.TwentySecondFifty.LQDigitCountInRange;
 import com.wen.TwentySixthFifty.MinimumFallingPathSumII;
 import com.wen.TwentyThirdFifty.LongestChunkedPalindromeDecomposition;
 
@@ -998,5 +999,7 @@ public class Main {
 //        BrickWall.leastBricks(Arrays.asList(Arrays.asList(1,2,2,1),Arrays.asList(3,1,2),Arrays.asList(1,3,2),Arrays.asList(2,4),Arrays.asList(3,1,2),Arrays.asList(1,3,1,1)));
 
 //        DiagonalTraverse.findDiagonalOrder(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
+
+        LQDigitCountInRange.digitsCount(3, 100, 250);
     }
 }
