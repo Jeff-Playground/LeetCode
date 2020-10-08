@@ -58,7 +58,7 @@ public class LQDigitCountInRange {
                             preCount++;
                         }
                     }
-                    result-=preCount*(9-num%10)*(9-num%10);
+                    result-=preCount*(9-num%10);
                 }
             }
             cache.put(num, result);

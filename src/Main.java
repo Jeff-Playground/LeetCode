@@ -34,7 +34,7 @@ import com.wen.TwentiethFifty.FindTheTownJudge;
 import com.wen.TwentiethFifty.LongestTurbulentSubarray;
 import com.wen.TwentiethFifty.PrisonCellsAfterNDays;
 import com.wen.TwentyFourthFifty.LastSubstringInLexicographicalOrder;
-import com.wen.TwentySecondFifty.CampusBikes;
+import com.wen.TwentySecondFifty.LQCampusBikes;
 import com.wen.TwentySecondFifty.CriticalConnectionsInANetwork;
 import com.wen.TwentySecondFifty.LQAllPathsFromSourceLeadToDestination;
 import com.wen.TwentySecondFifty.LQDigitCountInRange;
