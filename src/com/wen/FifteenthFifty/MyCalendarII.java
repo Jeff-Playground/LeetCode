@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.TreeMap;
 
 public class MyCalendarII {
+//    // Use a TreeMap to store all time points, for start +1, for end -1, and after inserting check the sum at all points,
+//    // if at any point sum>=2, the latest insert is invalid and should be removed
 //    public static class MyCalendarTwo {
 //        TreeMap<Integer, Integer> cal;
 //
@@ -13,16 +15,8 @@ public class MyCalendarII {
 //        }
 //
 //        public boolean book(int start, int end) {
-//            if(cal.containsKey(start)){
-//                cal.put(start, cal.get(start)+1);
-//            } else{
-//                cal.put(start, 1);
-//            }
-//            if(cal.containsKey(end)){
-//                cal.put(end, cal.get(end)-1);
-//            } else{
-//                cal.put(end, -1);
-//            }
+//            cal.put(start, cal.getOrDefault(start, 0)+1);
+//            cal.put(end, cal.getOrDefault(end, 0)-1);
 //            int cur=0;
 //            for(int val: cal.values()){
 //                cur+=val;
@@ -37,8 +31,7 @@ public class MyCalendarII {
 //    }
 
     public static class MyCalendarTwo {
-        List<int[]> cal;
-        List<int[]> overlap;
+        List<int[]> cal, overlap;
 
         public MyCalendarTwo() {
             cal=new ArrayList<>();
@@ -46,66 +39,52 @@ public class MyCalendarII {
         }
 
         public boolean book(int start, int end) {
-            int idx=findIdx(cal, start);
-            int left=idx-1, right=idx;
-            List<int[]> possibleOverlap=new ArrayList<>();
+            int oIdx=findIdx(overlap, start);
+            int left=oIdx-1, right=oIdx;
+            int min=left>=0?overlap.get(left)[1]:Integer.MIN_VALUE;
+            int max=right<overlap.size()?overlap.get(right)[0]:Integer.MAX_VALUE;
+            if(start<min || end>max){
+                return false;
+            }
+            int cIdx=findIdx(cal, start);
+            left=cIdx-1;
+            right=cIdx;
+            // Note here it doesn't necessarily only have overlap with the closest gaps
             for(int i=left; i>=0; i--){
-                if(cal.get(i)[1]>start){
-                    if(!validOverlap(start, Math.min(cal.get(i)[1], end))){
-                        return false;
-                    } else{
-                        possibleOverlap.add(new int[]{start, Math.min(cal.get(i)[1], end)});
-                    }
-                }
+                insertOverlap(overlap, cal, i, start, end);
             }
             for(int i=right; i<cal.size(); i++){
-                if(cal.get(i)[0]<end){
-                    if(!validOverlap(Math.max(cal.get(i)[0], start), end)){
-                        return false;
-                    } else{
-                        possibleOverlap.add(new int[]{Math.max(cal.get(i)[0], start), end});
-                    }
-                }
+                insertOverlap(overlap, cal, i, start, end);
             }
-            for(int[] overlap: possibleOverlap){
-                insertOverlap(overlap[0], overlap[1]);
-            }
-            cal.add(idx, new int[]{start, end});
+            cal.add(cIdx, new int[]{start, end});
             return true;
         }
 
-        private void insertOverlap(int start, int end) {
-            int idx=findIdx(overlap, start);
-            overlap.add(idx, new int[]{start, end});
-        }
-
-        public boolean validOverlap(int start, int end){
-            int idx=findIdx(overlap, start);
-            int left=idx-1, right=idx;
-            int min=left>=0?overlap.get(left)[1]:Integer.MIN_VALUE, max=right<overlap.size()?overlap.get(right)[0]:Integer.MAX_VALUE;
-            if(start>=min && end<=max){
-                return true;
-            } else{
-                return false;
+        private void insertOverlap(List<int[]> overlap, List<int[]> cal, int idx, int start, int end){
+            int[] cur=cal.get(idx);
+            int max=Math.max(cur[0], start), min=Math.min(cur[1], end);
+            if(max<min){
+                int oIdx=findIdx(overlap, max);
+                overlap.add(oIdx, new int[]{max, min});
             }
         }
 
-        private int findIdx(List<int[]> list, int val){
-            if(list.size()==0){
+        private int findIdx(List<int[]> a, int t){
+            if(a.size()==0 || a.get(0)[0]>=t){
                 return 0;
-            } else if(list.size()==1){
-                return list.get(0)[0]>val?0:1;
+            } else if(a.get(a.size()-1)[0]<t){
+                return a.size();
             } else{
-                int left=0, right=list.size()-1;
+                int left=0, right=a.size()-1;
                 while(left<right){
                     int mid=left+(right-left)/2;
-                    if(list.get(mid)[0]<=val){
+                    if(a.get(mid)[0]<t){
                         left=mid+1;
                     } else{
                         right=mid;
                     }
                 }
-                return list.get(left)[0]>val?left:left+1;
+                return left;
             }
         }
     }
