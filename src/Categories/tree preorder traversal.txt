@@ -26,6 +26,7 @@ Two Sum IV - Input is a BST
 Leaf-Similar Trees
 - 900 -
 - 950 -
+Vertical Order Traversal of a Binary Tree
 - 1000 -
 - 1050 -
 - 1100 -
