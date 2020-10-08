@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyCalendarI {
+    // The idea is to insert new bookings into an array by finding the idx it should fall at with the start time using
+    // binary search, then check if the previous and next one has conflict with it
     public static class MyCalendar {
         List<int[]> cal;
 
@@ -23,6 +25,7 @@ public class MyCalendarI {
             }
         }
 
+        // findIdx finds the idx the new start should be inserted to
         private int findIdx(int val){
             if(cal.size()==0){
                 return 0;
