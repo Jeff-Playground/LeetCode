@@ -3,7 +3,8 @@ package com.wen.FourthFifty;
 import java.util.Stack;
 
 public class MinStack {
-    // One stack and one int, the previous minimum value is pushed into stack before the actual value, so the previous minimum value is not lost
+    // One stack and one int, the previous minimum value is pushed into stack before the actual value, so the previous
+    // minimum value is not lost
     private Stack<Integer> stack=new Stack<>();
     private int min=Integer.MAX_VALUE;
 

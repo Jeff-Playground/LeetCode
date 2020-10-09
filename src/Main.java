@@ -13,6 +13,7 @@ import com.wen.FourteenthFifty.FallingSquares;
 import com.wen.FourteenthFifty.FindKClosestElements;
 import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
 import com.wen.FourthFifty.MaximumGap;
+import com.wen.FourthFifty.MinStack;
 import com.wen.NineteenthFifty.SnakesAndLadders;
 import com.wen.NinthFifty.*;
 import com.wen.SecondFifty.MinimumWindowSubstring;
