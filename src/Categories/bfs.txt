@@ -30,6 +30,7 @@ Minesweeper
 *Zero One Matrix
 Friend Circles
 - 550 -
+Maximum Depth of N-ary Tree
 - 600 -
 - 650 -
 Cut Off Trees for Golf Event

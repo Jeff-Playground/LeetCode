@@ -93,6 +93,7 @@ Diameter of Binary Tree
 Friend Circles
 *LQBinaryTreeLongestConsecutiveSequenceII
 - 550 -
+Maximum Depth of N-ary Tree
 Binary Tree Tilt
 - 600 -
 Construct String from Binary Tree
