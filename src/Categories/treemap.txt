@@ -1,0 +1,21 @@
+TreeMap<Integer, Integer> tm=new TreeMap<>();
+Integer floorKey=tm.floorKey(val);  // Inclusive
+Integer lowerKey=tm.lowerKey(val);  // Exclusive
+Integer ceilingKey=tm.ceilingKey(val);  // Inclusive
+Integer higherKey=tm.higherKey(val);    // Exclusive
+Map<Integer, Integer> subMap=tm.subMap(left, true, right, true);    // boolean is inclusive/exclusive
+
+- 300 -
+- 350 -
+- 400 -
+- 450 -
+- 500 -
+- 550 -
+- 600 -
+- 650 -
+- 700 -
+*Range Module
+- 750 -
+- 800 -
+- 850 -
+- 900 -
