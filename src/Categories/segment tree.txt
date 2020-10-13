@@ -18,6 +18,7 @@
 *Number of Longest Increasing Subsequence
 *Falling Squares
 - 700 -
+*Range Module
 - 750 -
 - 800 -
 *Rectangle Area II
