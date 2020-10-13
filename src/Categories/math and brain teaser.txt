@@ -216,6 +216,7 @@ Logical OR of Two Binary Grids Represented as Quad-Trees
 *Subarray Sum Equals K
 *Find the Closest Palindrome
 Array Nesting
+Reshape the Matrix
 Shortest Unsorted Continuous Subarray
 Range Addition II
 Minimum Index Sum of Two Lists
