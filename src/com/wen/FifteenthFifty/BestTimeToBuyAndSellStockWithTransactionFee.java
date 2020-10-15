@@ -1,6 +1,8 @@
 package com.wen.FifteenthFifty;
 
 public class BestTimeToBuyAndSellStockWithTransactionFee {
+    // buy[i] is the max to buy on day i; sell[i] is the max to sell on day i, which is dependent on maxBuy so far;
+    // pass[i] is the max to do nothing when last action is sell or pass(so buy won't be after another buy)
     public int maxProfit(int[] prices, int fee) {
         if(prices==null || prices.length<2){
             return 0;
