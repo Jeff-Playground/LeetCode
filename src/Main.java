@@ -29,6 +29,7 @@ import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
 import com.wen.ThirtySecondFifty.CountUnhappyFriends;
 import com.wen.TwelfthFifty.BrickWall;
+import com.wen.TwelfthFifty.OutOfBoundaryPaths;
 import com.wen.TwelfthFifty.PermutationInString;
 import com.wen.TwentiethFifty.DeleteColumnsToMakeSortedII;
 import com.wen.TwentiethFifty.FindTheTownJudge;
@@ -1032,5 +1033,7 @@ public class Main {
 //        DiagonalTraverse.findDiagonalOrder(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
 
 //        LQDigitCountInRange.digitsCount(3, 100, 250);
+
+//        OutOfBoundaryPaths.findPaths(8,7, 16, 1, 5);
     }
 }

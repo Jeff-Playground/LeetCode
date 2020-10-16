@@ -65,6 +65,7 @@ Unique Substrings in Wraparound String
 *Student Attendance Record II
 LQLongestLineOfConsecutiveOneInMatrix
 LQMaximumVacationDays
+*Out of Boundary Paths
 - 600 -
 Maximum Length of Pair Chain
 - 650 -
