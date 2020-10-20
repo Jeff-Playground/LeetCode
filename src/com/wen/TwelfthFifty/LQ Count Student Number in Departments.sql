@@ -59,13 +59,7 @@ The Output should be:
 
 */
 
-SELECT
-    d.dept_name
-    ,COUNT(s.student_id) student_number
-FROM
-    student s RIGHT JOIN department d ON
-    s.dept_id = d.dept_id
-GROUP BY
-    d.dept_name
-ORDER BY
-    2 DESC, 1
+SELECT dept_name, COUNT(student_id) AS student_number FROM
+department AS d LEFT JOIN student AS s ON d.dept_id = s.dept_id
+GROUP BY dept_name
+ORDER BY student_number DESC, dept_name;
