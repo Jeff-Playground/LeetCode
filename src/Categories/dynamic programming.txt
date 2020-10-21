@@ -66,6 +66,7 @@ Unique Substrings in Wraparound String
 LQLongestLineOfConsecutiveOneInMatrix
 LQMaximumVacationDays
 *Out of Boundary Paths
+Delete Operation for Two Strings
 - 600 -
 Maximum Length of Pair Chain
 - 650 -
