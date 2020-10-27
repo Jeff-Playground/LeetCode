@@ -1037,6 +1037,6 @@ public class Main {
 
 //        OutOfBoundaryPaths.findPaths(8,7, 16, 1, 5);
 
-        TagValidator.isValid("<DIV>This is the first line <![CDATA[<div>]]></DIV>");
+//        TagValidator.isValid("<DIV>This is the first line <![CDATA[<div>]]></DIV>");
     }
 }
