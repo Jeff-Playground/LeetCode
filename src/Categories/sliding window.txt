@@ -15,6 +15,7 @@ Find All Anagrams in a String
 - 500 -
 - 550 -
 *Permutation in String
+Longest Harmonious Subsequence
 - 600 -
 - 650 -
 - 700 -
