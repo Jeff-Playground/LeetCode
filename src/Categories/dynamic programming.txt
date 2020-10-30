@@ -67,6 +67,7 @@ LQLongestLineOfConsecutiveOneInMatrix
 LQMaximumVacationDays
 *Out of Boundary Paths
 Delete Operation for Two Strings
+*Non-negative Integers without Consecutive Ones
 - 600 -
 Maximum Length of Pair Chain
 - 650 -
