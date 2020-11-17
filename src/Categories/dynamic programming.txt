@@ -89,9 +89,12 @@ Minimum Falling Path Sum
 - 1000 -
 - 1050 -
 - 1100 -
+Longest Common Subsequence
 - 1150 -
 - 1200 -
 - 1250 -
 Minimum Falling Path Sum II
 - 1300 -
 - 1350 -
+- 1400 -
+- 1450 -
