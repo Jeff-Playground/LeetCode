@@ -33,6 +33,7 @@ Random Pick with Weight
 *Single Element in a Sorted Array
 - 550 -
 - 600 -
+Valid Triangle Number
 - 650 -
 *Find K Closest Elements
 *Kth Smallest Number in Multiplication Table

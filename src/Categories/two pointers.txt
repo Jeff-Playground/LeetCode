@@ -24,6 +24,7 @@ K-diff Pairs in an Array
 - 550 -
 *Shortest Unsorted Continuous Subarray
 - 600 -
+*Valid Triangle Number
 - 650 -
 *Find K Closest Elements
 - 700 -
