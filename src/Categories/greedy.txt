@@ -24,15 +24,16 @@ Assign Cookies
 IPO
 - 550 -
 - 600 -
+Can Place Flowers
+LQAddBoldTagInString
 *Course Schedule III
 *Maximum Length of Pair Chain
 - 650 -
-Can Place Flowers
 *Split Array into Consecutive Subsequences
 - 700 -
 *LQMinimumWindowSubsequence
 Monotone Increasing Digits
-*LQNumberOfCornerRectangles
+*LQNumberOfCornerRectangles
 - 750 -
 *Couples Holding Hands
 *Reorganize String
