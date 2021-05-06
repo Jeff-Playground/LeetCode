@@ -22,6 +22,7 @@ Find Bottom Left Tree Value
 Find Largest Value in Each Tree Row
 - 550 -
 - 600 -
+Add One Row to Tree
 - 650 -
 Two Sum IV - Input is a BST
 Maximum Width of Binary Tree
