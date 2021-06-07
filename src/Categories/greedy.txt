@@ -26,6 +26,8 @@ IPO
 - 600 -
 Can Place Flowers
 LQAddBoldTagInString
+LQMaximumDistanceInArrays
+*LQMinimumFactorization
 *Course Schedule III
 *Maximum Length of Pair Chain
 - 650 -
