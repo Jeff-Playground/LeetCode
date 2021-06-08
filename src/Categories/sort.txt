@@ -11,6 +11,7 @@ Relative Ranks
 - 550 -
 Array Partition I
 - 600 -
+*Maximum Product of Three Numbers
 - 650 -
 - 700 -
 - 750 -
