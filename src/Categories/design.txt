@@ -36,6 +36,7 @@ LQDesignInMemoryFileSystem
 - 600 -
 LQDesignCompressedStringIterator
 Design Circular Queue
+LQDesignExcelSumFormula
 - 650 -
 *LQDesignSearchAutocompleteSystem
 - 700 -
