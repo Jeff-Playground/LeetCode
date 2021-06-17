@@ -29,6 +29,7 @@ import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
 import com.wen.ThirteenthFifty.FindDuplicateFileInSystem;
 import com.wen.ThirteenthFifty.LQAddBoldTagInString;
+import com.wen.ThirteenthFifty.SmallestRangeCoveringElementsFromKLists;
 import com.wen.ThirtySecondFifty.CountUnhappyFriends;
 import com.wen.TwelfthFifty.*;
 import com.wen.TwentiethFifty.DeleteColumnsToMakeSortedII;
@@ -1043,5 +1044,7 @@ public class Main {
 //        FindDuplicateFileInSystem.findDuplicate(new String[]{"root/a 1.txt(abcd) 2.txt(efgh)","root/c 3.txt(abcd)","root/c/d 4.txt(efgh)","root 4.txt(efgh)"});
 
 //        LQAddBoldTagInString.addBoldTag("abcxyz123", new String[]{"abc","123"});
+
+//        SmallestRangeCoveringElementsFromKLists.smallestRange(Arrays.asList(Arrays.asList(1,3,5,7,9,10), Arrays.asList(2,4,6,8,10)));
     }
 }
