@@ -229,6 +229,7 @@ Minimum Index Sum of Two Lists
 Find Duplicate File in System
 Task Scheduler
 Add One Row to Tree
+Sum of Square Numbers
 Solve the Equation
 *Set Mismatch
 - 650 -
