@@ -35,8 +35,9 @@ Encode and Decode TinyURL
 LQDesignInMemoryFileSystem
 - 600 -
 LQDesignCompressedStringIterator
-LQDesignExcelSumFormula
 Design Circular Queue
+LQDesignExcelSumFormula
+LQDesignLogStorageSystem
 - 650 -
 *LQDesignSearchAutocompleteSystem
 - 700 -
