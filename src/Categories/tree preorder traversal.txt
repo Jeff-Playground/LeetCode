@@ -19,6 +19,7 @@ Subtree of Another Tree
 N-ary Tree Preorder Traversal
 - 600 -
 *Merge Two Binary Trees
+Average of Levels in Binary Tree
 - 650 -
 Two Sum IV - Input is a BST
 - 700 -

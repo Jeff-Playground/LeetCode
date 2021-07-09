@@ -12,6 +12,7 @@ Next Greater Element I
 *Next Greater Element II
 - 550 -
 - 600 -
+Exclusive Time of Functions
 - 650 -
 - 700 -
 Asteroid Collision
