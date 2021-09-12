@@ -27,10 +27,7 @@ import com.wen.ThirdFifty.LRUCache;
 import com.wen.ThirdFifty.SumRootToLeafNumbers;
 import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
-import com.wen.ThirteenthFifty.ExclusiveTimeOfFunctions;
-import com.wen.ThirteenthFifty.FindDuplicateFileInSystem;
-import com.wen.ThirteenthFifty.LQAddBoldTagInString;
-import com.wen.ThirteenthFifty.SmallestRangeCoveringElementsFromKLists;
+import com.wen.ThirteenthFifty.*;
 import com.wen.ThirtySecondFifty.CountUnhappyFriends;
 import com.wen.TwelfthFifty.*;
 import com.wen.TwentiethFifty.DeleteColumnsToMakeSortedII;
@@ -1049,5 +1046,9 @@ public class Main {
 //        SmallestRangeCoveringElementsFromKLists.smallestRange(Arrays.asList(Arrays.asList(1,3,5,7,9,10), Arrays.asList(2,4,6,8,10)));
 
 //        ExclusiveTimeOfFunctions.exclusiveTime(2, Arrays.asList("0:start:0","0:start:2","0:end:5","1:start:7","1:end:7","0:end:8"));
+
+//        ShoppingOffers.shoppingOffers(Arrays.asList(2, 5), Arrays.asList(Arrays.asList(3,0,5), Arrays.asList(1,2,10)), Arrays.asList(3,2));
+
+//        DecodeWaysII.numDecodings("1*6*7*1*9*6*2*9*2*3*3*6*3*2*2*4*7*2*9*6*0*6*4*4*1*6*9*0*5*9*2*5*7*7*0*6*9*7*1*5*5*9*3*0*4*9*2*6*2*5*7*6*1*9*4*5*8*4*7*4*2*7*1*2*1*9*1*3*0*6*");
     }
 }

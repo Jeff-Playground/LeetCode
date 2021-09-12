@@ -71,6 +71,7 @@ Delete Operation for Two Strings
 - 600 -
 *K Inverse Pairs Array
 *LQFindTheDerangementOfAnArray
+*Decode Ways II
 Maximum Length of Pair Chain
 - 650 -
 Number of Longest Increasing Subsequence
