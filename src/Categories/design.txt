@@ -38,6 +38,7 @@ LQDesignCompressedStringIterator
 Design Circular Queue
 LQDesignExcelSumFormula
 LQDesignLogStorageSystem
+Design Circular Deque
 - 650 -
 *LQDesignSearchAutocompleteSystem
 - 700 -
