@@ -231,6 +231,7 @@ Task Scheduler
 Add One Row to Tree
 Sum of Square Numbers
 Solve the Equation
+Maximum Average Subarray I
 *Set Mismatch
 - 650 -
 *Split Array into Consecutive Subsequences

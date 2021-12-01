@@ -34,6 +34,7 @@ Random Pick with Weight
 - 550 -
 - 600 -
 Valid Triangle Number
+*LQMaximumAverageSubarrayII
 - 650 -
 *Find K Closest Elements
 *Kth Smallest Number in Multiplication Table

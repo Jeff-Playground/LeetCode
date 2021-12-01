@@ -18,6 +18,7 @@ Find All Anagrams in a String
 Longest Harmonious Subsequence
 - 600 -
 *Smallest Range Covering Elements from K Lists
+Maximum Average Subarray I
 - 650 -
 - 700 -
 Subarray Product Less Than K
