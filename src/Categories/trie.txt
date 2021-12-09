@@ -13,6 +13,7 @@ Map of word and corresponding count to store history.
 - 500 -
 - 550 -
 - 600 -
+Replace Words
 - 650 -
 *LQDesignSearchAutocompleteSystem
 - 700 -

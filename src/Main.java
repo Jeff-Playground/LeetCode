@@ -1054,5 +1054,8 @@ public class Main {
 //        LQMaximumAverageSubarrayII.maxAverage(new int[]{5, -10,4}, 2);
 
 //        PalindromicSubstrings.countSubstrings("aaa");
+
+//        ReplaceWords rw=new ReplaceWords();
+//        rw.replaceWords(Arrays.asList("a", "aa", "aaa", "aaaa"), "a aa a aaaa aaa aaa aaa aaaaaa bbb baba ababa");
     }
 }
