@@ -1,0 +1,96 @@
+Search in a graph:
+    bfs
+    dfs
+    Kosaraju's algorithm
+
+Calculate minimum distances in graph:
+    bellman-ford
+    dijkstra
+    floyd
+    spfa
+
+Storing info for intervals:
+    binary indexed tree
+    segment tree
+
+Data structure:
+    binary search tree
+    deque
+    heap
+    linked list
+    lru
+    treemap
+    trie
+    union find
+    design
+    longest common prefix suffix array
+    suffix array
+    monotonous stack
+    multi threading
+
+Special algo:
+    binary search
+    bit manipulation
+    coordinates compression
+    divide and conquer
+    greedy
+    line sweep
+    minimax
+    moore voting method
+    jarvis march
+    tarjan's algorithm
+
+String sort:
+    bucket sort
+    insertion sort
+    merge sort
+    quick sort
+    radix sort
+    sort
+
+Math:
+    catalan number
+    math and brain teaser
+    truth table
+    vector cross product
+
+DP:
+    dynamic programming
+    knapsack
+
+Calculate GCD(greatest common divisor):
+    euclid's method
+    stein's method
+
+Calculate square root:
+    newton's method
+
+Graph traversal:
+    euler path
+    topological sort
+
+Iterate over array:
+    fast and slow pointers
+    two pointers
+    sliding window
+
+Substring compare:
+    kmp
+    rolling hash
+
+Randomize:
+    knuth shuffling
+
+Longest palindrome:
+    manacher's algo
+
+Tree traversal:
+    morris traversal
+    tree inorder traversal
+    tree level order traversal
+    tree postorder traversal
+    tree preorder traversal
+
+Sampling:
+    rejection sampling
+    resevoir sampling
