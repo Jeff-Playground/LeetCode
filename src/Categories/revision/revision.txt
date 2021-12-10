@@ -1,17 +1,9 @@
-Search in a graph:
-    bfs
-    dfs
-    Kosaraju's algorithm
-
-Calculate minimum distances in graph:
-    bellman-ford
-    dijkstra
-    floyd
-    spfa
-
-Storing info for intervals:
-    binary indexed tree
-    segment tree
+Tree traversal:
+    morris traversal
+    tree inorder traversal
+    tree level order traversal
+    tree postorder traversal
+    tree preorder traversal
 
 Data structure:
     binary search tree
@@ -27,6 +19,21 @@ Data structure:
     suffix array
     monotonous stack
     multi threading
+
+Search in a graph:
+    bfs
+    dfs
+    Kosaraju's algorithm
+
+Calculate minimum distances in graph:
+    bellman-ford
+    dijkstra
+    floyd
+    spfa
+
+Storing info for intervals:
+    binary indexed tree
+    segment tree
 
 Special algo:
     binary search
@@ -83,13 +90,6 @@ Randomize:
 
 Longest palindrome:
     manacher's algo
-
-Tree traversal:
-    morris traversal
-    tree inorder traversal
-    tree level order traversal
-    tree postorder traversal
-    tree preorder traversal
 
 Sampling:
     rejection sampling

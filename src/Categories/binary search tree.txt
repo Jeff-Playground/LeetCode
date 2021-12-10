@@ -19,6 +19,7 @@ LQClosestBinarySearchTreeValue
 - 550 -
 - 600 -
 - 650 -
+Trim a Binary Search Tree
 - 700 -
 - 750 -
 *LQSplitBST
