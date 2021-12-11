@@ -1,4 +1,5 @@
 // Deque<Integer> dq=new LinkedList<>();
+// dq.offerFirst();
 // dq.offerLast();
 // dq.pollFirst();
 // dq.pollLast();

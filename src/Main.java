@@ -6,6 +6,7 @@ import com.wen.EleventhFifty.*;
 import com.wen.FifteenthFifty.*;
 import com.wen.FifthFifty.MinimumSizeSubarraySum;
 import com.wen.FifthFifty.SearchA2DMatrixII;
+import com.wen.FifthFifty.SlidingWindowMaximum;
 import com.wen.FifthFifty.WordSearchII;
 import com.wen.FirstFifty.*;
 import com.wen.FourteenthFifty.CutOffTreesForGolfEvent;
@@ -1057,5 +1058,8 @@ public class Main {
 
 //        ReplaceWords rw=new ReplaceWords();
 //        rw.replaceWords(Arrays.asList("a", "aa", "aaa", "aaaa"), "a aa a aaaa aaa aaa aaa aaaaaa bbb baba ababa");
+
+//        SlidingWindowMaximum swm=new SlidingWindowMaximum();
+//        swm.maxSlidingWindow(new int[]{1,3,-1,-3,5,3,6,7}, 3);
     }
 }
