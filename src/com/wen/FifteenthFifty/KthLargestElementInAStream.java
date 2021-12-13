@@ -5,29 +5,25 @@ import java.util.PriorityQueue;
 
 public class KthLargestElementInAStream {
     class KthLargest {
-        int size=-1;
-        PriorityQueue<Integer> pq=null;
+        PriorityQueue<Integer> pq;
+        int size;
 
         public KthLargest(int k, int[] nums) {
+            pq=new PriorityQueue<>((a, b)->a-b);
             size=k;
-            pq=new PriorityQueue<Integer>(new Comparator<Integer>(){
-                @Override
-                public int compare(Integer a, Integer b){
-                    return a-b;
-                }
-            });
             for(int num: nums){
-                pq.offer(num);
-            }
-            while(pq.size()>k){
-                pq.poll();
+                add(num);
             }
         }
 
         public int add(int val) {
-            pq.offer(val);
-            if(pq.size()>size){
-                pq.poll();
+            if(pq.size()<size){
+                pq.offer(val);
+            } else{
+                if(val>pq.peek()){
+                    pq.poll();
+                    pq.offer(val);
+                }
             }
             return pq.peek();
         }
