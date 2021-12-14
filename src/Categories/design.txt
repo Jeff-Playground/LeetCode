@@ -43,6 +43,7 @@ Design Circular Deque
 *LQDesignSearchAutocompleteSystem
 - 700 -
 *Design HashMap
+Design Linked List
 - 750 -
 - 800 -
 - 850 -
