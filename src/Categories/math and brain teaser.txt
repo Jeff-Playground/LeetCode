@@ -237,6 +237,7 @@ Maximum Average Subarray I
 *Split Array into Consecutive Subsequences
 Image Smoother
 Non-decreasing Array
+Implement Magic Dictionary
 LQNextClosestTime
 Baseball Game
 *LQKEmptySlots

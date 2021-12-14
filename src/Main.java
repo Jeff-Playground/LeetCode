@@ -9,10 +9,7 @@ import com.wen.FifthFifty.SearchA2DMatrixII;
 import com.wen.FifthFifty.SlidingWindowMaximum;
 import com.wen.FifthFifty.WordSearchII;
 import com.wen.FirstFifty.*;
-import com.wen.FourteenthFifty.CutOffTreesForGolfEvent;
-import com.wen.FourteenthFifty.FallingSquares;
-import com.wen.FourteenthFifty.FindKClosestElements;
-import com.wen.FourteenthFifty.SplitArrayIntoConsecutiveSubsequences;
+import com.wen.FourteenthFifty.*;
 import com.wen.FourthFifty.MaximumGap;
 import com.wen.FourthFifty.MinStack;
 import com.wen.NineteenthFifty.SnakesAndLadders;
@@ -1165,5 +1162,9 @@ public class Main {
 //        mll.addAtTail(78);
 //        mll.get(54);
 //        mll.addAtIndex(42,86);
+
+//        ImplementMagicDictionary.MagicDictionary md=new ImplementMagicDictionary.MagicDictionary();
+//        md.buildDict(new String[]{"hello","leetcode"});
+//        md.search("hhllo");
     }
 }

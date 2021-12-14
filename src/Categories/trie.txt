@@ -13,9 +13,10 @@ Map of word and corresponding count to store history.
 - 500 -
 - 550 -
 - 600 -
+*LQDesignSearchAutocompleteSystem
 Replace Words
 - 650 -
-*LQDesignSearchAutocompleteSystem
+Implement Magic Dictionary
 - 700 -
 - 750 -
 - 800 -
