@@ -106,6 +106,7 @@ Find Duplicate Subtrees
 *LQEqualTreePartition
 *Redundant Connection
 *Number of Distinct Islands
+Max Area of Island
 Partition to K Equal Sum Subsets
 - 700 -
 *LQNumberOfDistinctIslandsII

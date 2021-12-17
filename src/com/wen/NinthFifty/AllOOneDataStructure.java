@@ -1,131 +1,171 @@
 package com.wen.NinthFifty;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class AllOOneDataStructure {
+//    // Use TreeMap
+//    public static class AllOne {
+//        TreeMap<Integer, Set<String>> sorted;
+//        HashMap<String, Integer> count;
+//
+//        public AllOne() {
+//            sorted=new TreeMap<>();
+//            count=new HashMap<>();
+//        }
+//
+//        public void inc(String key) {
+//            int keyCount=count.getOrDefault(key, 0);
+//            count.put(key, keyCount+1);
+//            sorted.getOrDefault(keyCount, new HashSet<>()).remove(key);
+//            sorted.putIfAbsent(keyCount+1, new HashSet<>());
+//            sorted.get(keyCount+1).add(key);
+//            if(sorted.containsKey(keyCount)){
+//                sorted.get(keyCount).remove(key);
+//                if(sorted.get(keyCount).size()==0){
+//                    sorted.remove(keyCount);
+//                }
+//            }
+//        }
+//
+//        public void dec(String key) {
+//            if(count.containsKey(key)){
+//                int keyCount=count.get(key);
+//                if(keyCount==1){
+//                    count.remove(key);
+//                } else{
+//                    count.put(key, keyCount-1);
+//                    sorted.putIfAbsent(keyCount-1, new HashSet<>());
+//                    sorted.get(keyCount-1).add(key);
+//                }
+//                sorted.get(keyCount).remove(key);
+//                if(sorted.get(keyCount).size()==0){
+//                    sorted.remove(keyCount);
+//                }
+//            }
+//        }
+//
+//        public String getMaxKey() {
+//            if(count.size()>0){
+//                int maxCount=sorted.lastKey();
+//                return sorted.get(maxCount).iterator().next();
+//            } else{
+//                return "";
+//            }
+//        }
+//
+//        public String getMinKey() {
+//            if(count.size()>0){
+//                int minCount=sorted.firstKey();
+//                return sorted.get(minCount).iterator().next();
+//            } else{
+//                return "";
+//            }
+//        }
+//    }
+
+    // Use Linked List
     public static class AllOne {
+        class LinkedBucketNode{
+            LinkedBucketNode prev, next;
+            Set<String> keys;
+            int val;
 
-        class Bucket{
-            public int val;
-            public Set<String> keys;
-            public Bucket pre, next;
-            public Bucket(int val){
+            public LinkedBucketNode(int val){
                 this.val=val;
-                this.keys=new HashSet<>();
+                keys=new HashSet<>();
             }
         }
 
-        private Bucket high, low;
-        private Map<String, Integer> keyValues;
-        private Map<Integer, Bucket> valueBuckets;
+        LinkedBucketNode head, tail;
+        Map<String, Integer> count;
+        Map<Integer, LinkedBucketNode> buckets;
 
-        /** Initialize your data structure here. */
+        private void removeBucket(LinkedBucketNode node){
+            node.prev.next=node.next;
+            node.next.prev=node.prev;
+            buckets.remove(node.val);
+        }
+
+        private LinkedBucketNode createBucket(int val){
+            LinkedBucketNode newBucket=new LinkedBucketNode(val);
+            buckets.put(val, newBucket);
+            LinkedBucketNode cur=head;
+            while(cur.next!=tail && cur.next.val<val){
+                cur=cur.next;
+            }
+            newBucket.next=cur.next;
+            cur.next=newBucket;
+            newBucket.prev=cur;
+            newBucket.next.prev=newBucket;
+            return newBucket;
+        }
+
         public AllOne() {
-            keyValues=new HashMap<>();
-            valueBuckets=new HashMap<>();
-            high=low=new Bucket(0);
-            valueBuckets.put(0, low);
+            head=new LinkedBucketNode(-1);
+            tail=new LinkedBucketNode(-1);
+            head.next=tail;
+            tail.prev=head;
+            count=new HashMap<>();
+            buckets=new HashMap<>();
         }
 
-        /** Inserts a new key <Key> with value 1. Or increments an existing key by 1. */
         public void inc(String key) {
-            int curVal=keyValues.getOrDefault(key, 0);
-            Bucket cur=valueBuckets.get(curVal);
-            createHigherIfNotExists(curVal);
-            Bucket higher=valueBuckets.get(curVal+1);
-            higher.keys.add(key);
-            cur.keys.remove(key);
-            if(cur.keys.size()==0 && cur.val!=0){
-                deleteBucket(cur);
-                valueBuckets.remove(cur.val);
+            int keyCount=count.getOrDefault(key, 0);
+            count.remove(key);
+            count.put(key, keyCount+1);
+            if(buckets.containsKey(keyCount)){
+                LinkedBucketNode keyBucket=buckets.get(keyCount);
+                keyBucket.keys.remove(key);
+                if(keyBucket.keys.size()==0){
+                    removeBucket(keyBucket);
+                }
             }
-            keyValues.put(key, curVal+1);
+            if(buckets.containsKey(keyCount+1)){
+                LinkedBucketNode newBucket=buckets.get(keyCount+1);
+                newBucket.keys.add(key);
+            } else{
+                LinkedBucketNode newBucket=createBucket(keyCount+1);
+                newBucket.keys.add(key);
+            }
         }
 
-        /** Decrements an existing key by 1. If Key's value is 1, remove it from the data structure. */
         public void dec(String key) {
-            if(keyValues.containsKey(key)){
-                int curVal=keyValues.get(key);
-                Bucket cur=valueBuckets.get(curVal);
-                if(curVal!=1){
-                    createLowerIfNotExists(curVal);
-                    Bucket lower=valueBuckets.get(curVal-1);
-                    lower.keys.add(key);
-                    keyValues.put(key, curVal-1);
-                } else{
-                    keyValues.remove(key);
+            if(count.containsKey(key)){
+                int keyCount=count.get(key);
+                LinkedBucketNode keyBucket=buckets.get(keyCount);
+                keyBucket.keys.remove(key);
+                if(keyBucket.keys.size()==0){
+                    removeBucket(keyBucket);
                 }
-                cur.keys.remove(key);
-                if(cur.keys.size()==0 && cur.val!=0){
-                    deleteBucket(cur);
-                    valueBuckets.remove(cur.val);
+                count.remove(key);
+                if(keyCount>1){
+                    count.put(key, keyCount-1);
+                    if(buckets.containsKey(keyCount-1)){
+                        LinkedBucketNode newBucket=buckets.get(keyCount-1);
+                        newBucket.keys.add(key);
+                    } else{
+                        LinkedBucketNode newBucket=createBucket(keyCount-1);
+                        newBucket.keys.add(key);
+                    }
                 }
             }
         }
 
-        /** Returns one of the keys with maximal value. */
         public String getMaxKey() {
-            if(high==low){
-                return "";
+            if(head.next!=tail){
+                LinkedBucketNode maxBucket=tail.prev;
+                return maxBucket.keys.iterator().next();
             } else{
-                return high.keys.iterator().next();
+                return "";
             }
         }
 
-        /** Returns one of the keys with Minimal value. */
         public String getMinKey() {
-            if(high==low){
-                return "";
+            if(head.next!=tail){
+                LinkedBucketNode minBucket=head.next;
+                return minBucket.keys.iterator().next();
             } else{
-                return low.pre.keys.iterator().next();
-            }
-        }
-
-        private void createHigherIfNotExists(int val){
-            if(!valueBuckets.containsKey(val+1)){
-                Bucket cur=valueBuckets.get(val);
-                Bucket higher=new Bucket(val+1);
-                if(cur==high){
-                    high=higher;
-                }
-                higher.next=cur;
-                if(cur.pre!=null){
-                    cur.pre.next=higher;
-                    higher.pre=cur.pre;
-                }
-                cur.pre=higher;
-                valueBuckets.put(val+1, higher);
-            }
-        }
-
-        private void createLowerIfNotExists(int val){
-            if(!valueBuckets.containsKey(val-1)){
-                Bucket cur=valueBuckets.get(val);
-                Bucket lower=new Bucket(val-1);
-                lower.pre=cur;
-                if(cur.next!=null){
-                    lower.next=cur.next;
-                    cur.next.pre=lower;
-                }
-                cur.next=lower;
-                valueBuckets.put(val-1, lower);
-            }
-        }
-
-        private void deleteBucket(Bucket cur){
-            Bucket pre=cur.pre, next=cur.next;
-            if(pre!=null && next!=null){
-                pre.next=next;
-                next.pre=pre;
-            } else if(pre==null){
-                if(cur==high){
-                    high=cur.next;
-                    cur.next.pre=null;
-                    cur.next=null;
-                }
+                return "";
             }
         }
     }

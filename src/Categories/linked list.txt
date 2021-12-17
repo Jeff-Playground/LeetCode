@@ -26,6 +26,7 @@ Odd Even Linked List
 *LQPlusOneLinkedList
 - 400 -
 Flatten a Multilevel Doubly Linked List
+All O`one Data Structure
 Add Two Numbers II
 - 450 -
 - 500 -

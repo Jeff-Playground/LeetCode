@@ -38,6 +38,7 @@ LQKillProcess
 Cut Off Trees for Golf Event
 *Redundant Connection
 *LQNumberOfDistinctIslands
+Max Area of Island
 - 700 -
 *Accounts Merge
 Flood Fill

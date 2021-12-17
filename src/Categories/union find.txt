@@ -19,6 +19,7 @@ Friend Circles
 - 650 -
 *Redundant Connection
 *Redundant Connection II
+Max Area of Island
 - 700 -
 *Accounts Merge
 - 750 -
