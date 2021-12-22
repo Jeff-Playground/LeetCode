@@ -10,7 +10,7 @@ public class BuildingH2O {
         private AtomicInteger hCount;
 
         public H2O() {
-            hSemaphore = new Semaphore(0);
+            hSemaphore = new Semaphore(1);
             oSemaphore = new Semaphore(1);
             hCount=new AtomicInteger(0);
         }
