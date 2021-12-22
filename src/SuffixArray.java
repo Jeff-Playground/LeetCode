@@ -14,11 +14,19 @@ public class SuffixArray {
             System.out.println(e[1]+" - "+input.substring(e[0]));
         }
 
-        // Calculate number of unique substrings: (1+n)*n/2-(1...n-1)lcpArray[i][1]
+        // Calculate number of unique substrings:
+        //      number of all substrings - number of repeated substrings
+        //      (1+n)*n/2-(1...n-1)lcpArray[i][1]
+        // (1...n-1)lcpArray[i][1] is equal to the number of repeated substrings because each entry denotes the length of
+        // longest prefix for the give 2 suffixes, note because the iteration will cover all possible suffixes, for each
+        // comparison, the length of longest prefix is equal to the number of repeated substrings starting from the first
+        // character of both suffixes
 
         // Find the longest repeated substring:
         //      max=(1...n-1)max(lcpArray[i][1]), i
         //      result=input.substring(i+max)
+        // this will compute repeated substring starting from the first character of both suffixes, and the iteration will
+        // finally find the longest one
 
         // Find the longest common substrings among multiple strings(appearing in k different strings):
         // Note this is just a simple example to show the idea, when we have too many strings in the input, a few sentinels

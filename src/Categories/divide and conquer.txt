@@ -23,6 +23,7 @@ Longest Substring with At Least K Repeating Characters
 - 550 -
 - 600 -
 - 650 -
+Maximum Binary Tree
 - 700 -
 - 750 -
 - 800 -

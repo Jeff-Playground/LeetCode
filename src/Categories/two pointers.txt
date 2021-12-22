@@ -32,3 +32,10 @@ K-diff Pairs in an Array
 - 800 -
 - 850 -
 - 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+*Last Substring in Lexicographical Order
+- 1200 -

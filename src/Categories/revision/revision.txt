@@ -15,10 +15,18 @@ Data structure:
     trie
     union find
     design
-    longest common prefix suffix array
-    suffix array
+    $longest common prefix suffix array
+    $suffix array
     monotonous stack
     multi threading
+
+String sort:
+    bucket sort
+    insertion sort
+    merge sort
+    quick sort
+    radix sort
+    sort
 
 Search in a graph:
     bfs
@@ -46,14 +54,6 @@ Special algo:
     moore voting method
     jarvis march
     tarjan's algorithm
-
-String sort:
-    bucket sort
-    insertion sort
-    merge sort
-    quick sort
-    radix sort
-    sort
 
 Math:
     catalan number

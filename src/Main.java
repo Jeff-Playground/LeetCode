@@ -32,6 +32,7 @@ import com.wen.TwentiethFifty.DeleteColumnsToMakeSortedII;
 import com.wen.TwentiethFifty.FindTheTownJudge;
 import com.wen.TwentiethFifty.LongestTurbulentSubarray;
 import com.wen.TwentiethFifty.PrisonCellsAfterNDays;
+import com.wen.TwentyFirstFifty.LongestDuplicateSubstring;
 import com.wen.TwentyFourthFifty.LastSubstringInLexicographicalOrder;
 import com.wen.TwentySecondFifty.LQCampusBikes;
 import com.wen.TwentySecondFifty.CriticalConnectionsInANetwork;
@@ -950,20 +951,20 @@ public class Main {
 
 //        MinimumGeneticMutation.minMutation("AAAACCCC","CCCCCCCC",new String[]{"AAAACCCA","AAACCCCA","AACCCCCA","AACCCCCC","ACCCCCCC","CCCCCCCC","AAACCCCC","AACCCCCC"});
 
-        AllOOneDataStructure.AllOne test=new AllOOneDataStructure.AllOne();
-        test.inc("hello");
-        test.inc("goodbye");
-        test.inc("hello");
-        test.inc("hello");
-        test.getMaxKey();
-        test.inc("leet");
-        test.inc("code");
-        test.inc("leet");
-        test.dec("hello");
-        test.inc("leet");
-        test.inc("code");
-        test.inc("code");
-        test.getMaxKey();
+//        AllOOneDataStructure.AllOne test=new AllOOneDataStructure.AllOne();
+//        test.inc("hello");
+//        test.inc("goodbye");
+//        test.inc("hello");
+//        test.inc("hello");
+//        test.getMaxKey();
+//        test.inc("leet");
+//        test.inc("code");
+//        test.inc("leet");
+//        test.dec("hello");
+//        test.inc("leet");
+//        test.inc("code");
+//        test.inc("code");
+//        test.getMaxKey();
 
 //        FindRightInterval.findRightInterval(new int[][]{{-100,-92},{-99,-49},{-98,-24},{-97,-38},{-96,-65},{-95,-22},{-94,-49},{-93,-14},{-92,-68},{-91,-81}});
 
