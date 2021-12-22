@@ -3,7 +3,7 @@ package com.wen.NinthFifty;
 import java.util.Stack;
 
 public class RemoveKDigits {
-    // Monotonous stack
+    // Monotonic stack
     public static String removeKdigits(String num, int k) {
         if(k>=num.length()){
             return "0";

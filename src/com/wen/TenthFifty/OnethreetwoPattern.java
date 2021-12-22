@@ -21,7 +21,7 @@ public class OnethreetwoPattern {
         return false;
     }
 
-//    // Monotonous stack
+//    // Monotonic stack
 //    public boolean find132pattern(int[] nums) {
 //        if(nums==null || nums.length<3){
 //            return false;

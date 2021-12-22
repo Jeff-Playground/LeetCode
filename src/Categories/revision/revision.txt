@@ -17,7 +17,7 @@ Data structure:
     design
     $longest common prefix suffix array
     $suffix array
-    monotonous stack
+    monotonic stack
     multi threading
 
 String sort:

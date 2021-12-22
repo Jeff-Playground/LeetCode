@@ -37,7 +37,7 @@ public class MaximumBinaryTree {
 //        }
 //    }
 
-    // Monotonous stack
+    // Monotonic stack
     public TreeNode constructMaximumBinaryTree(int[] nums) {
         Stack<TreeNode> stack=new Stack<>();
         for(int num: nums){
