@@ -88,7 +88,7 @@ public class FizzBuzzMultithreaded {
 //        }
 //
 //        // printBuzz.run() outputs "buzz".
-//        public void buzz(Runnable printBuzz) throws InterruptedException {
+//        public synchronized void buzz(Runnable printBuzz) throws InterruptedException {
 //            while(curNum<=n){
 //                if(curNum%3!=0 && curNum%5==0){
 //                    printBuzz.run();
@@ -98,7 +98,7 @@ public class FizzBuzzMultithreaded {
 //        }
 //
 //        // printFizzBuzz.run() outputs "fizzbuzz".
-//        public void fizzbuzz(Runnable printFizzBuzz) throws InterruptedException {
+//        public synchronized void fizzbuzz(Runnable printFizzBuzz) throws InterruptedException {
 //            while(curNum<=n){
 //                if(curNum%3==0 && curNum%5==0){
 //                    printFizzBuzz.run();
@@ -108,7 +108,7 @@ public class FizzBuzzMultithreaded {
 //        }
 //
 //        // printNumber.accept(x) outputs "x", where x is an integer.
-//        public void number(IntConsumer printNumber) throws InterruptedException {
+//        public synchronized void number(IntConsumer printNumber) throws InterruptedException {
 //            while(curNum<=n){
 //                if(curNum%3!=0 && curNum%5!=0){
 //                    printNumber.accept(curNum);
