@@ -20,7 +20,7 @@ Data structure:
     monotonic stack
     multi threading
 
-String sort:
+Sorting:
     bucket sort
     insertion sort
     merge sort

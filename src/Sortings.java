@@ -55,9 +55,9 @@ public class Sortings {
 //        // Stable
 //        mergingSort(nums);
 
-//        // Best time O(k*n) - k is the maximum digits of nums
-//        // Worst time O(k*n) - k is the maximum digits of nums
-//        // Space O(base*n+base) - Extra space for buckets and bucketCount
+//        // Best time O(k*n) - k is the maximum digits of nums(max/radix)
+//        // Worst time O(k*n) - k is the maximum digits of nums(max/radix)
+//        // Space O(n+base) - Extra space for sorted and bucketCount
 //        // Stable
         radixSort(nums);
 
@@ -67,30 +67,29 @@ public class Sortings {
     }
 
     private static void radixSort(Integer[] nums) {
-        int max=Integer.MIN_VALUE, base=10, exp=1, digits=1;
-        for(int i=0; i<nums.length; i++){
-            max=Math.max(max, nums[i]);
+        int max=Integer.MIN_VALUE, radix=10, exp=1, l=nums.length;
+        for(int num: nums){
+            max=Math.max(num, max);
         }
-
-        while(max/base>0){
-            max=max/base;
-            digits++;
+        Integer[] lastSorted=Arrays.copyOf(nums, l);
+        while(max/exp>0){
+            int[] count=new int[radix];
+            for(int num: lastSorted){
+                count[num/exp%radix]++;
+            }
+            for(int i=1; i<radix; i++){
+                count[i]+=count[i-1];
+            }
+            Integer[] sorted=new Integer[l];
+            // Note here put in bigger numbers first
+            for(int i=l-1; i>=0; i--){
+                sorted[--count[lastSorted[i]/exp%radix]]=lastSorted[i];
+            }
+            lastSorted=Arrays.copyOf(sorted, l);
+            exp*=radix;
         }
-
-        for(int i=1; i<=digits; i++){
-            int[][] buckets=new int[base][nums.length];
-            int[] bucketCount=new int[base];
-            for(int j=0; j<nums.length; j++){
-                int index=nums[j]/exp%base;
-                buckets[index][bucketCount[index]++]=nums[j];
-            }
-            int k=0;
-            for(int l=0; l<base; l++){
-                for(int m=0; m<bucketCount[l]; m++){
-                    nums[k++]=buckets[l][m];
-                }
-            }
-            exp*=10;
+        for(int i=0; i<l; i++){
+            nums[i]=lastSorted[i];
         }
     }
 

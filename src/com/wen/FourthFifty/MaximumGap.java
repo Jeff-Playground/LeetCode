@@ -14,8 +14,8 @@ public class MaximumGap {
 //            max=Math.max(max, num);
 //            min=Math.min(min, num);
 //        }
-//        // Here bucketSize is less than (max-min)/(n-1), which is the average gap between the n numbers, so this ensures
-//        // gap between buckets are bigger than within a bucket
+//        // Here bucketSize of (max-min)/n is ensured to be less than (max-min)/(n-1), which is the average gap between
+//        // the n numbers, so this ensures the gaps between buckets are bigger than the gaps within a bucket
 //        int bucketSize=(max-min)/n!=0?(max-min)/n:1;
 //        int bucketCount=(max-min)/bucketSize+1;
 //        int[] bucketMax=new int[bucketCount];
@@ -29,7 +29,7 @@ public class MaximumGap {
 //            bucketMin[idx]=Math.min(bucketMin[idx], num);
 //            existingIdx.add(idx);
 //        }
-//        // Here pre==0 must be in the set because for min the index is 0
+//        // Here pre==0 exists for sure because for min the index is 0
 //        int pre=0;
 //        for(int i=1; i<bucketCount; i++) {
 //            if(!existingIdx.contains(i)) {
@@ -55,7 +55,7 @@ public class MaximumGap {
         while(max/exp>0) {
             int[] count=new int[radix];
             for(int num: nums) {
-                count[num/exp%10]++;
+                count[num/exp%radix]++;
             }
             for(int i=1; i<radix; i++) {
                 count[i]+=count[i-1];
