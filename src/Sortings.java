@@ -47,7 +47,7 @@ public class Sortings {
 //        // Worst space O(n) - The depth of the recursion tree
 //        // Un-stable
 //        recursionQuickSort(nums, 0, nums.length-1);
-//        iterationQuickSort(nums);
+        iterationQuickSort(nums);
 
 //        // Best time O(nlogn) - Because there're logn levels in the recursion tree, and each level takes n to solve
 //        // Worst time O(nlogn)
@@ -59,7 +59,7 @@ public class Sortings {
 //        // Worst time O(k*n) - k is the maximum digits of nums(max/radix)
 //        // Space O(n+base) - Extra space for sorted and bucketCount
 //        // Stable
-        radixSort(nums);
+//        radixSort(nums);
 
         Arrays.asList(nums).stream().forEach(num->{
             System.out.println(num);

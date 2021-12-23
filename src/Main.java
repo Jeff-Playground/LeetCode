@@ -13,6 +13,7 @@ import com.wen.FourteenthFifty.*;
 import com.wen.FourthFifty.MaximumGap;
 import com.wen.FourthFifty.MinStack;
 import com.wen.NineteenthFifty.SnakesAndLadders;
+import com.wen.NineteenthFifty.SortAnArray;
 import com.wen.NinthFifty.*;
 import com.wen.SecondFifty.MinimumWindowSubstring;
 import com.wen.SecondFifty.TextJustification;
@@ -1173,5 +1174,7 @@ public class Main {
 //        ImplementMagicDictionary.MagicDictionary md=new ImplementMagicDictionary.MagicDictionary();
 //        md.buildDict(new String[]{"hello","leetcode"});
 //        md.search("hhllo");
+
+//        SortAnArray.sortArray(new int[]{5,2,3,1});
     }
 }

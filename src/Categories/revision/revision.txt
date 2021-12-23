@@ -22,6 +22,7 @@ Data structure:
 
 Sorting:
     bucket sort
+    count sort
     insertion sort
     merge sort
     quick sort
