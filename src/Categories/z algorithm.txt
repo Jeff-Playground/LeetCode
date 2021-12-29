@@ -1,0 +1,39 @@
+Z algorithm is essentially an array, where z[i] stands for the length of the longest common prefix for z.substring(i)
+and z. The idea for populating values to this array is very similar to the Manacher's algorithm, where the time complexity
+is O(n) instead of O(n^2) if using brute force way.
+A good reference: https://cp-algorithms.com/string/z-function.html
+
+This special array is useful when solving below problems:
+    Search needle in haystack:
+        This can be implemented by generating a new String needle+'#'+haystack, where '#' should be a special character
+        that doesn't appear in either needle or haystack. Then the problem becomes finding prefix of length equal to
+        needle.length(), which can be solved by z algorithm easily. The time complexity is O(n).
+    Find distinct substrings in a string:
+        This can be implemented by starting from the end of the string with the last character, than add one character
+        in the front each time; during each iteration, build the z algorithm array and find out the maximum length of
+        the longest common prefix. Assume the longest common prefix length is n, and the current iteration string length
+        is l, than by adding the character in the front, it will produce (l-n) of new distinct substrings which starts
+        from the added character. The time complexity is O(n^2).
+
+To build the z algorithm array:
+    String s="example";
+    int l=s.length();
+    int[] z=new int[l];
+    // Here [left, right] is used to capture the window of the RIGHTMOST previous common prefixes, which is the most
+    // useful one for following calculations
+    // In other words, s.substring(0, right-left+1) is identical to s.substring(left, right+1)
+    int left=0, right=0;
+    for(int i=1; i<l; i++){     // Starts from 1 because z[0] technically will be l which is not useful
+        if(i<right){
+            // i falls into the window, so s.substring(i, right+1) is identical to s.substring(i-left, right-left)
+            // Here gets the smaller of z[i-left] and right-i+1, because we have no info on what's the string like beyond right
+            z[i]=Math.min(right-i+1, z[i-left]);
+        }
+        while(i+z[i]<l && s.charAt(i+z[i])==s.charAt(z[i])){
+            z[i]++;
+        }
+        if(i+z[i]-1>right){
+            right=i+z[i]-1;
+            left=i;
+        }
+    }

@@ -2,7 +2,7 @@ package com.wen.FirstFifty;
 
 public class ImplementStrStr {
     // KMP
-    public int strStr(String haystack, String needle) {
+    public static int strStr(String haystack, String needle) {
         if(needle.length()==0){
             return 0;
         }

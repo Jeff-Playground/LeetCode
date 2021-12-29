@@ -1,7 +1,7 @@
 package com.wen.TwentyThirdFifty;
 
 public class LongestChunkedPalindromeDecomposition {
-    // Use rolling hash for comparing prefix and suffix
+    // Use Rabin Karp for comparing prefix and suffix
     public static int longestDecomposition(String text) {
         return ldHelper(text, 0, text.length()-1);
     }

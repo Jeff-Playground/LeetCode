@@ -23,7 +23,7 @@ public class RepeatedDNASequences {
 //        return result;
 //    }
 
-    // Rolling hash
+    // Rabin Karp
     public static List<String> findRepeatedDnaSequences(String s) {
         if(s==null || s.length()<=10){
             return new ArrayList<>();

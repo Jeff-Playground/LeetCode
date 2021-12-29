@@ -29,6 +29,10 @@ Sorting:
     radix sort
     sort
 
+Substring compare:
+    kmp
+    rolling hash
+
 Search in a graph:
     bfs
     dfs
@@ -81,10 +85,6 @@ Iterate over array:
     fast and slow pointers
     two pointers
     sliding window
-
-Substring compare:
-    kmp
-    rolling hash
 
 Randomize:
     knuth shuffling
