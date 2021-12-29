@@ -29,9 +29,11 @@ Sorting:
     radix sort
     sort
 
-Substring compare:
+String compare:
+    boyer moore string compare algorithm
     kmp
     rolling hash
+    z algorithm
 
 Search in a graph:
     bfs

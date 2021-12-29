@@ -14,7 +14,7 @@ public class SuffixArray {
             System.out.println(e[1]+" - "+input.substring(e[0]));
         }
 
-        // Calculate number of unique substrings:
+        // Calculate number of distinct substrings:
         //      number of all substrings - number of repeated substrings
         //      (1+n)*n/2-(1...n-1)lcpArray[i][1]
         // (1...n-1)lcpArray[i][1] is equal to the number of repeated substrings because each entry denotes the length of

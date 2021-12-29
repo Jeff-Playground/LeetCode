@@ -3,7 +3,7 @@ indices, but also stores the longest common prefix at each location(the first va
 anything).
 
 This data structure is useful for below cases:
-Find all unique substrings:
+Find all distinct substrings:
     https://www.youtube.com/watch?v=m2lZRmMjebw&list=PLDV1Zeh2NRsCQ_Educ7GCNs3mvzpXhHW5&index=3
 Find the longest repeated substring within one string:
     https://www.youtube.com/watch?v=OptoHwC3D-Y&list=PLDV1Zeh2NRsCQ_Educ7GCNs3mvzpXhHW5&index=6
