@@ -78,3 +78,6 @@ For goodSuffixDist:
             goodSuffixDist[nl-1-longestCommonSuffixLength]=nl-1-i+longestCommonSuffixLength;
         }
     }
+
+*Implement strStr()
+- 300 -

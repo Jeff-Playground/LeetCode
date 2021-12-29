@@ -9,21 +9,21 @@ public class SearchPattern {
 
 //        // Time complexity: O(m+n)
 //        // Space complexity: O(m)
-//        // Comparing to zSearch, this is a streaming search
+//        // Comparing to zSearch, this is better in regards to it can be used to search against a stream
 //        List<Integer> loc=kmpSearch(s, p);
 
 //        // Time complexity: worst O(m+(n-m+1)*m), expected O(m+n)
 //        // Space complexity: in-place
 //        List<Integer> loc=rabinKarpSearch(s, p);
 
-//        // Time complexity: worst O(m*n) when no match, best O(n/m) when s: b^n  p: a^(m-1)b
-//        // Space complexity: O(m+k), k is the size of the char set
-//        // A good reference: https://writings.sh/post/algorithm-string-searching-boyer-moore
-//        List<Integer> loc=boyerMooreSearch(s, p);
+        // Time complexity: worst O(m*n) when no match, best O(n/m) when s: b^n  p: a^(m-1)b
+        // Space complexity: O(m+k), k is the size of the char set
+        // A good reference: https://writings.sh/post/algorithm-string-searching-boyer-moore
+        List<Integer> loc=boyerMooreSearch(s, p);
 
-        // Time complexity: O(m+n)
-        // Space complexity: O(m)
-        List<Integer> loc=zSearch(s, p);
+//        // Time complexity: O(m+n)
+//        // Space complexity: O(m)
+//        List<Integer> loc=zSearch(s, p);
 
         System.out.println(loc);
     }

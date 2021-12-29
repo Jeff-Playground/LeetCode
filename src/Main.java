@@ -1177,6 +1177,6 @@ public class Main {
 
 //        SortAnArray.sortArray(new int[]{5,2,3,1});
 
-//        ImplementStrStr.strStr("aabbccd", "aabbccd");
+//        ImplementStrStr.strStr("aaaaa","bba");
     }
 }

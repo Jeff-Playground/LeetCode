@@ -30,9 +30,9 @@ Sorting:
     sort
 
 String compare:
-    boyer moore string compare algorithm
+    boyer moore string search algorithm
     kmp
-    rolling hash
+    rabin karp
     z algorithm
 
 Search in a graph:
