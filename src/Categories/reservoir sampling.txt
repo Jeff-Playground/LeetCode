@@ -1,0 +1,38 @@
+When sampling k items, first get the first k items, then for the m-th item, the possibility for including it is k/m, and
+if included, randomly replace one of the chosen k items:
+    Random r=new Random();
+    int idx=r.nextInt(m);
+    if(idx<k){
+        int temp=nums[idx];
+        nums[idx]=nums[m-1];
+        nums[m-1]=temp;
+    }
+
+Pick the first m elements from the given list, then for the coming elements, swap it into the sampled m elements with a
+probability of m/(i+1), where i is the index of the element.
+To prove this:
+    For the kth element after the first m elements, the probability of it being in the final result is:
+        m/k		*		(1-m/(k+1)+m/(k+1)*(m-1)/m)		*...*	(1-m/n+m/n*(m-1)/m)		=	m/n
+        k chosen	*	k+1 (not chosen)+(chosen but replace non k item)		*...*	n (not chosen)+(chosen but replace non k item)
+    For any one of the first m elements, the probability of it being in the final result(not replaced) is:
+        (1-m/(m+1)+m/(m+1)*(m-1)/m)		*...*	(1-m/n+m/n*(m-1)/m)		=	m/n
+        m+1 (not chosen)+(chosen but replace another item)		*...*	n (not chosen)+(chosen but replace another item)
+    So the probability for choosing every element is all m/n
+This works well for large list or infinite list
+
+- 300 -
+- 350 -
+*Linked List Random Node
+*Random Pick Index
+- 400 -
+- 450 -
+*Random Point in Non-overlapping Rectangles
+- 500 -
+- 550 -
+- 600 -
+- 650 -
+- 700 -
+- 750 -
+- 800 -
+- 850 -
+- 900 -

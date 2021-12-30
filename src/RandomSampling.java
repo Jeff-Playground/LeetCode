@@ -11,6 +11,7 @@ public class RandomSampling {
         for(int i=0; i<10000; i++) {
             nums.add(i);
         }
+        // Sampling m items from a total of n items
 //		List<Integer> result=randomSampling(10, 10000, nums);
 //		List<Integer> result=resovoirRandomSampling(10, 10000, nums);
 //      List<Integer> result=selectionRandomSampling(10, 10000, nums);
@@ -42,10 +43,10 @@ public class RandomSampling {
     // To prove this:
     // 		For the kth element after the first m elements, the probability of it being in the final result is:
     // 			m/k		*		(1-m/(k+1)+m/(k+1)*(m-1)/m)		*...*	(1-m/n+m/n*(m-1)/m)		=	m/n
-    // 			k chosen	*	k+1 (not chosen)+(chosen but replace other)		*...*	n (not chosen)+(chosen but replace other)
+    // 			k chosen	*	k+1 (not chosen)+(chosen but replace non k item)		*...*	n (not chosen)+(chosen but replace non k item)
     // 		For any one of the first m elements, the probability of it being in the final result(not replaced) is:
     // 			(1-m/(m+1)+m/(m+1)*(m-1)/m)		*...*	(1-m/n+m/n*(m-1)/m)		=	m/n
-    // 			m+1 (not chosen)+(chosen but replace other)		*...*	n (not chosen)+(chosen but replace other)
+    // 			m+1 (not chosen)+(chosen but replace another item)		*...*	n (not chosen)+(chosen but replace another item)
     // 		So the probability for choosing every element is all m/n
     // This works well for large list or infinite list, and is more efficient than the naive way
     private static List<Integer> reservoirRandomSampling(int m, int n, List<Integer> nums) {

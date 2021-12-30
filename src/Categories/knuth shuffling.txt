@@ -1,8 +1,16 @@
-Do a iteration for each index, where in each iteration generate a random index within [i, l-1], then so a swap if
+Do a iteration for each index, where in each iteration generate a random index within [i, l-1], then do a swap if
 randomIdx!=i.
 For random number generation, use Random API:
 Random r=new Random();
 int randomIdx=r.nextInt(l-i)+i;
+
+To prove the shuffle is really random(each element can appear at each position with same possibility, and in the
+final result each position can have each element with same possibility):
+For the 1st position, each element appear at possibility: n/n * 1/n = 1/n
+For the 2nd position, the remaining (n-1) elements appear at possibility: (n-1)/n * 1/(n-1) = 1/n
+For the 3rd position, the remaining (n-2) elements appear at possibility: (n-2)/n * 1/(n-2) = 1/n
+...
+So in the final result each position can have each element with same possibility
 
 - 300 -
 - 350 -

@@ -15,13 +15,14 @@ public class GenerateRandomPointInACircle {
     }
 
     public double[] randPoint() {
-        double[] result=new double[2];
         Random r=new Random();
-        double x=2*radius*r.nextDouble(), y=2*radius*r.nextDouble();
-        while((x-radius)*(x-radius)+(y-radius)*(y-radius)>radius*radius){
-            x=2*radius*r.nextDouble();
-            y=2*radius*r.nextDouble();
+        // Here use 2*radius*(a random double in [0.0,1.0])-radius to find the point in the circle, x and y stands for
+        // the distance to center on x-axis and y-axis respectively
+        double x=2*radius*r.nextDouble()-radius, y=2*radius*r.nextDouble()-radius;
+        while(x*x+y*y>radius*radius){
+            x=2*radius*r.nextDouble()-radius;
+            y=2*radius*r.nextDouble()-radius;
         }
-        return new double[]{x+(x_center-radius), y+(y_center-radius)};
+        return new double[]{x+x_center, y+y_center};
     }
 }

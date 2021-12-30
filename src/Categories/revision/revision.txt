@@ -40,6 +40,19 @@ Search in a graph:
     dfs
     Kosaraju's algorithm
 
+Special algo:
+    binary search
+    bit manipulation
+    coordinates compression
+    divide and conquer
+    greedy
+    line sweep
+    manacher's algo
+    minimax
+    moore voting method
+    jarvis march
+    tarjan's algorithm
+
 Calculate minimum distances in graph:
     bellman-ford
     dijkstra
@@ -49,18 +62,6 @@ Calculate minimum distances in graph:
 Storing info for intervals:
     binary indexed tree
     segment tree
-
-Special algo:
-    binary search
-    bit manipulation
-    coordinates compression
-    divide and conquer
-    greedy
-    line sweep
-    minimax
-    moore voting method
-    jarvis march
-    tarjan's algorithm
 
 Math:
     catalan number
@@ -91,9 +92,6 @@ Iterate over array:
 Randomize:
     knuth shuffling
 
-Longest palindrome:
-    manacher's algo
-
 Sampling:
     rejection sampling
-    resevoir sampling
+    reservoir sampling

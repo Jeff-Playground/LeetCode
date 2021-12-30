@@ -33,9 +33,8 @@ public class RandomPickIndex {
 //        public Solution(int[] nums) {
 //            map=new HashMap<>();
 //            for(int i=0; i<nums.length; i++){
-//                List<Integer> index=map.getOrDefault(nums[i], new ArrayList<>());
-//                index.add(i);
-//                map.put(nums[i], index);
+//                map.putIfAbsent(nums[i], new ArrayList<>());
+//                map.get(nums[i]).add(i);
 //            }
 //        }
 //
