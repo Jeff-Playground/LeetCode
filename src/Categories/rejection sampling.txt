@@ -12,6 +12,7 @@ still have same probability.
 - 600 -
 - 650 -
 - 700 -
+Random Pick with Blacklist
 - 750 -
 - 800 -
 - 850 -

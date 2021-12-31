@@ -1178,5 +1178,8 @@ public class Main {
 //        SortAnArray.sortArray(new int[]{5,2,3,1});
 
 //        ImplementStrStr.strStr("aaaaa","bba");
+
+//        RandomPickWithBlacklist.Solution t=new RandomPickWithBlacklist.Solution(2, new int[]{});
+//        t.pick();
     }
 }
