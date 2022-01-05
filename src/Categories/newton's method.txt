@@ -1,7 +1,13 @@
-long result=x;
-while(result*result>x){
-    result=(result+x/result)/2;
-}
+Note this can only be used to calculate the sqrt for numbers not smaller than 1.
+The general idea is start from (x0, x0^2-number), draw a straight line that intersect with x-axis at (x1, 0), then x1 is
+closer to the result. Keep doing this until find result.
+The original curve is y=x^2-number, and the slope of the straight line at (x0, x0^2-number) is 2*x0, so the straight line
+will be y=2*x0*x-x0^2-number, so x1=(x0^2+number)/2*x0.
+Therefore, the itaration will be like:
+    long result=x;
+    while(result*result>x){
+        result=(result+x/result)/2;
+    }
 
 Sqrt(x)
 - 300 -

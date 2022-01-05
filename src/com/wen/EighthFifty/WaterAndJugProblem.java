@@ -1,6 +1,9 @@
 package com.wen.EighthFifty;
 
 public class WaterAndJugProblem {
+    // To produce z from x and y, basically we have z=a*x+b*y, where both a and b need to be integers. Note a and b can
+    // be either positive or negative, when positive it means fill with water certain times, and when negative it means
+    // pour out water certain times. So eventually, this becomes a problem where we need to determine whether z%gcd(x, y)==0
     public boolean canMeasureWater(int x, int y, int z) {
         if(z>x+y){
             return false;

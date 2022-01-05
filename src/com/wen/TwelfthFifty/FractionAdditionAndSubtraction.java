@@ -7,28 +7,28 @@ public class FractionAdditionAndSubtraction {
         }
         expression+="+";
         int numerator=0, denominator=1;
-        int last=0, cur=1, pos=1;
+        int n=0, d=1, sign=1;
         boolean den=false;
         for(char c: expression.toCharArray()){
             if(c=='+' || c=='-'){
                 den=false;
-                if(denominator==cur){
-                    numerator+=pos*last;
+                if(denominator==d){
+                    numerator+=sign*n;
                 } else{
-                    numerator=numerator*cur+pos*last*denominator;
-                    denominator*=cur;
+                    numerator=numerator*d+sign*n*denominator;
+                    denominator*=d;
                 }
                 int gcd=gcd(Math.abs(numerator), Math.abs(denominator));
                 numerator/=gcd;
                 denominator/=gcd;
-                pos=c=='+'?1:-1;
-                last=0;
-                cur=0;
+                sign=c=='+'?1:-1;
+                n=0;
+                d=0;
             } else if(c>='0' && c<='9'){
                 if(den){
-                    cur=cur*10+(c-'0');
+                    d=d*10+(c-'0');
                 } else{
-                    last=last*10+(c-'0');
+                    n=n*10+(c-'0');
                 }
             } else if(c=='/'){
                 den=true;

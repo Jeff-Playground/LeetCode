@@ -12,19 +12,19 @@ public class SqrtX {
 
     // Binary search
     public int mySqrt(int x) {
-        if(x<1){
-            return 0;
-        }
-        int left=1, right=x;
-        while(left<right-1){
-            int mid=left+(right-left)/2;
-            // Note use x/mid<mid instead of mid*mid>x to avoid int overflow
-            if(x/mid<mid){
-                right=mid-1;
-            } else{
-                left=mid;
+        if(x<=1){
+            return x;
+        } else{
+            int left=2, right=x;
+            while(left<right){
+                int mid=left+(right-left)/2;
+                if(x/mid>mid){
+                    left=mid+1;
+                } else{
+                    right=mid;
+                }
             }
+            return x/left<left?left-1:left;
         }
-        return x/right>=right?right:left;
     }
 }
