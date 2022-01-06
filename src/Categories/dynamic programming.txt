@@ -85,6 +85,7 @@ Min Cost Climbing Stairs
 Pyramid Transition Matrix
 - 800 -
 *Race Car
+*New 21 Game
 - 850 -
 *Minimum Number of Refueling Stops
 - 900 -
