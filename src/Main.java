@@ -1182,6 +1182,6 @@ public class Main {
 //        RandomPickWithBlacklist.Solution t=new RandomPickWithBlacklist.Solution(2, new int[]{});
 //        t.pick();
 
-        New21Game.new21Game(21, 17, 10);
+//        New21Game.new21Game(21, 17, 10);
     }
 }

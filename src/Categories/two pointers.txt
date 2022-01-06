@@ -27,6 +27,8 @@ K-diff Pairs in an Array
 *Valid Triangle Number
 - 650 -
 *Find K Closest Elements
+Valid Palindrome II
+Count Binary Substrings
 - 700 -
 - 750 -
 - 800 -
