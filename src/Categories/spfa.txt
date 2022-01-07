@@ -4,7 +4,9 @@ The difference is it uses a Queue to store current reached nodes, so the edge it
 Use one dimensional array: int[] last, to track the last node of the shortest path, because there's only one source, not
 necessary to use two dimensional array.
 Use one dimensional array: int[] count to store the times that each node is relaxed, if it's >N, then there's a negative
-loop.
+loop. Because a node can be relaxed by any other nodes in the graph, and there are N-1 nodes apart from the node being
+relaxed. So if a node is relaxed more than (N-1) times, it means there has to be at least one other node used more than
+once, so there is a negative loop. Also note use N instead of (N-1) to handle the case when there's only one node(N==1)
 
 - 300 -
 - 350 -

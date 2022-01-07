@@ -759,7 +759,9 @@ public class Main {
 
 //        ShortestPathToGetAllKeys.shortestPathAllKeys(new String[]{"@...a",".###A","b.BCc"});
 
+//        ReachableNodesInSubdividedGraph.reachableNodes(new int[][]{{0,1,10},{0,2,1},{1,2,2}},6,3);
 //        ReachableNodesInSubdividedGraph.reachableNodes(new int[][]{{1,2,5},{0,3,3},{1,3,2},{2,3,4},{0,4,1}},7,5);
+        ReachableNodesInSubdividedGraph.reachableNodes(new int[][]{{0,3,8},{0,1,4},{2,4,3},{1,2,0},{1,3,9},{0,4,7},{3,4,9},{1,4,4},{0,2,7},{2,3,1}},8,5);
 
 //        MinimumNumberOfRefuelingStops.minRefuelStops(1000000,70768,new int[][]{{12575,171159},{81909,101253},{163732,164401},{190025,65493},{442889,31147},{481202,166081},{586028,206379},{591952,52748},{595013,9163},{611883,217156}});
 

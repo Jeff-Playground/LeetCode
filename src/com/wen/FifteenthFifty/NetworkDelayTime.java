@@ -3,7 +3,7 @@ package com.wen.FifteenthFifty;
 import java.util.*;
 
 public class NetworkDelayTime {
-//    // Dijkstra
+//    // Dijkstra, can't handle negative loop
 //    public int networkDelayTime(int[][] times, int N, int K) {
 //        int[][] edges=new int[N+1][N+1];
 //        for(int i=0; i<N+1; i++) {
