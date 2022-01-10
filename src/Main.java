@@ -1185,5 +1185,7 @@ public class Main {
 //        t.pick();
 
 //        New21Game.new21Game(21, 17, 10);
+
+//        BulbSwitcherII.flipLights(4,100);
     }
 }
