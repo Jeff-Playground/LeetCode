@@ -1,3 +1,4 @@
+import com.wen.EighteenthFifty.ConstructBinaryTreeFromPreorderAndPostorderTraversal;
 import com.wen.EighteenthFifty.MinimumNumberOfRefuelingStops;
 import com.wen.EighteenthFifty.ReachableNodesInSubdividedGraph;
 import com.wen.EighteenthFifty.ShortestPathToGetAllKeys;
@@ -1187,5 +1188,8 @@ public class Main {
 //        New21Game.new21Game(21, 17, 10);
 
 //        BulbSwitcherII.flipLights(4,100);
+
+//        ConstructBinaryTreeFromPreorderAndPostorderTraversal test=new ConstructBinaryTreeFromPreorderAndPostorderTraversal();
+//        test.constructFromPrePost(new int[]{2,1,3}, new int[]{3,1,2});
     }
 }
