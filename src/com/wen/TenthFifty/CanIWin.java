@@ -5,6 +5,8 @@ import java.util.Map;
 
 public class CanIWin {
     // Use a Map to cache intermediate results to avoid TLE
+    // Because maxChoosableInteger<=20, we can use a integer to denote whether a number has been taken or not, with each
+    // bit of the integer to represent a number's presence
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
         if(maxChoosableInteger>=desiredTotal){
             return true;
