@@ -13,6 +13,7 @@
 - 700 -
 - 750 -
 - 800 -
+*Chalkboard XOR Game(can be implemented but will TLE)
 *Guess the Word
 - 850 -
 - 900 -

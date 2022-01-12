@@ -3,7 +3,7 @@ package com.wen.TenthFifty;
 import java.util.Arrays;
 
 public class PredictTheWinner {
-    // DP2
+    // DP
     // dp[i][j] stands for the beatByScore for nums in [i, j]
     // Further optimized space complexity to O(n^2), as it's got rid of the running stack
     public boolean PredictTheWinner(int[] nums) {
@@ -20,7 +20,7 @@ public class PredictTheWinner {
         return dp[0][l-1]>=0;
     }
 
-//    // DP1, use dp to cache the intermediate result get by earlier calculation
+//    // DP, use dp to cache the intermediate result get by earlier calculation
 //    // dp[i][j] stands for the beatByScore for nums in [i, j]
 //    // Optimized time complexity to O(n^2), because there're n^2 values need to be calculated in total(size of dp)
 //    // Space complexity: O(n^2+n), dp is n^2, running stack is n
