@@ -27,3 +27,7 @@ Trim a Binary Search Tree
 - 850 -
 Construct Binary Tree from Preorder and Postorder Traversal
 - 900 -
+- 950 -
+- 1000 -
+LQCheckIfANumberIsMajorityElementInASortedArray
+- 1050 -
