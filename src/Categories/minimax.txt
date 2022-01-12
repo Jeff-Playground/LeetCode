@@ -16,4 +16,5 @@
 *Chalkboard XOR Game(can be implemented but will TLE)
 *Guess the Word
 - 850 -
+Stone Game
 - 900 -
