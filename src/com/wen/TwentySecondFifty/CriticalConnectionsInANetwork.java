@@ -24,11 +24,11 @@ public class CriticalConnectionsInANetwork {
         return result;
     }
 
-    private static void tarjan(int node, int parent, Map<Integer, Set<Integer>> graph, int[] ids, int[] low, int[] id, List<List<Integer>> result){
+    private static void tarjan(int node, int lastNode, Map<Integer, Set<Integer>> graph, int[] ids, int[] low, int[] id, List<List<Integer>> result){
         ids[node]=id[0]++;
         low[node]=ids[node];
         for(int nb: graph.get(node)){
-            if(nb!=parent){
+            if(nb!=lastNode){
                 if(ids[nb]==-1){
                     tarjan(nb, node, graph, ids, low, id, result);
                     if(ids[node]<low[nb]){
@@ -36,18 +36,12 @@ public class CriticalConnectionsInANetwork {
                     }
                     low[node]=Math.min(low[node], low[nb]);
                 } else{
-                    // use ids[nb] instead of low[nb] because low[nb] might still being calculated
+                    // use ids[nb] instead of low[nb] because nb is already visited in an upper level, which might be
+                    // from a different route, so being able to reach nb doesn't necessarily mean being able to reach
+                    // low[nb] WITHOUT going through nb. If reaching low[nb] from node has to go through nb, then using
+                    // low[nb] here would wrongly exclude a bridge of (nb, node)
                     low[node]=Math.min(low[node], ids[nb]);
                 }
-//                // Note here it could simply be like below, only low[nb] at this point is not necessarily final, but it
-//                // doesn't affect the final result because low[node] was initialized when ids[node] was assigned
-//                if(ids[nb]==-1){
-//                    tarjan(nb, node, graph, ids, low, cur, result);
-//                    if(ids[node]<low[nb]){
-//                        result.add(Arrays.asList(node, nb));
-//                    }
-//                }
-//                low[node]=Math.min(low[node], low[nb]);
             }
         }
     }

@@ -1,25 +1,29 @@
-This is depends on the vector cross product:
-int cur=dy2*dx1-dy1*dx2;
+a.k.a. gift wrapping
+
+This depends on the vector cross product:
+int cur=dx1*dy2-dy1*dx2;
+
+The cross product can be positive, negative or 0, which identifies the location of the 2 vectors. The underlying logic
+for cross product is trying to multiply the 2 smaller dx and dy and the 2 bigger dx and dy, than subtract one by another,
+if the result is 0, then the 2 vectors are on the same line.
 
 It can be completed in below steps:
-1. find the vertex located on the left of all other nodes, if there're multiple, then randomly pick one(this is just take
-   the vertex with minimum x)
-2. iterate over all other vertices, basically pick one node as next, then use a third node to compute the cross product,
+1. Find the vertex located in the lower left corner, this ensures the found point is a vertex instead of some other points
+   on the line
+2. Iterate over all other points, basically pick one point as next, then use a third point to compute the cross product,
    make sure the result are all positive(clock-wise) or negative(anti-clock-wise), this will eventually find the most
-   outside vertex
-        if(nextIdx==curIdx || cp>0 || (cp==0 && dist(points, i, curIdx)>dist(points, nextIdx, curIdx))){
-            nextIdx=i;
-        }
-   this is basically just find a vertex different with the starting vertex, and it's clock-wise most outside one, when
-   the calculated cross product is 0, that means they're on the same line, so get the one further to the starting vertex.
-   When next vertex is found, use another loop to find all vertex on the same line. This can be done by find all vertex
-   which can produce a 0 cross product.
-3. repeat 2 until next is the first vertex, now a fence is found.
+   outside vertex.
+   Use a PriorityQueue to store all the collinear points, the comparator of the pq should ensure we can get the point
+   closest to the starting point first later when we retrieve the points. Note the size of the pq will be at least 1 when
+   the iteration is done. If it's 1, it just means the found edge has no other points on it.
+   In the end, put all the points found in the pq into the result fence, and use the furthest point as next starting point.
+3. Repeat 2 until next starting point is the first vertex, now a fence is found.
 
 - 300 -
 - 350 -
 - 400 -
 - 450 -
+LQConvexPolygon
 - 500 -
 - 550 -
 *Erect the Fence

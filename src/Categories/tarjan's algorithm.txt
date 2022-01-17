@@ -1,20 +1,27 @@
+There are some good references:
+    https://zhuanlan.zhihu.com/p/101923309
+    https://codeforces.com/blog/entry/71146
+
 Implemented by maintaining two arrays of int[] ids and lows, where ids stores the id of the nodes when it's being DFS
 traversed for the first time, and lows stores the smallest id which can be reached from the nodes. For DFS, use a int[] id
 to maintain the current id iterated to.
 
-When lows[i]==i, this node is the start node of a strongly connected component, and the number of cases when lows[i]==i
-is the number of strongly connected components in the graph.
+When lows[node]==ids[node], this node is the start node of a strongly connected component, and the number of cases when
+lows[node]==ids[node] is the number of strongly connected components in the graph.
+
 Used to find the strongly connected components in a DIRECTED graph. If the number of strongly connected components is 1,
 then the directed graph itself is strongly connected. Note this is better than Kosaraju's algorithm because it only requires
 1 time DFS of the graph.
+
 It can be further used in below cases:
 Find bridges(undirected graph): (An edge in an undirected connected graph is a bridge iff removing it disconnects the graph)
     the trick here is to find the edges for which the child vertex can't reach vertices with smaller ids than parent
     without the (parent, child) edge
-Find articulation points(undirected graph): the trick here is to find two kinds of vertices: (A vertex in an undirected
-connected graph is an articulation point iff removing it and edges through it disconnects the graph)
-                                            1. root with multiple children
-                                            2. non-root with children which can't reach vertices with smaller ids than parent
+Find articulation points(undirected graph): (A vertex in an undirected connected graph is an articulation point iff
+                                            removing it and edges through it disconnects the graph)
+    the trick here is to find two kinds of vertices
+        1. root with at least two children sub-graphs that are disconnected from each other
+        2. non-root nodes with children which can't reach vertices with smaller ids than parent(current node)
 Verify bi-connected graph(undirected graph): the trick here is to ensure the graph is connected, and:
                                                 there's no articulation points in the graph
                                                 or

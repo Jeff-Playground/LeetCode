@@ -1,59 +1,68 @@
 package com.wen.TwelfthFifty;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class ErectTheFence {
     // Jarvis march
-    public int[][] outerTrees(int[][] points) {
-        Set<Integer> idx=new HashSet<>();
-        int l=points.length, firstIdx=0;
+    public static int[][] outerTrees(int[][] trees) {
+        int l=trees.length;
+        // Note here we can also use a fence with type LinkedHashSet to replace both fence and visited
+        List<Integer> fence=new ArrayList<>();
+        Set<Integer> visited=new HashSet<>();
+        // Find the point in the left lower corner to be the starting point, this is to avoid from starting from a point
+        // on a edge
+        int x=trees[0][0], y=trees[0][1], startIdx=0;
         for(int i=1; i<l; i++){
-            if(points[i][0]<points[firstIdx][0]){
-                firstIdx=i;
+            if(trees[i][0]<x ||(trees[i][0]==x && trees[i][1]<y)){
+                x=trees[i][0];
+                y=trees[i][1];
+                startIdx=i;
             }
         }
-        idx.add(firstIdx);
-        int curIdx=firstIdx;
-        do{
-            int nextIdx=0;
-            for(int i=1; i<l; i++){
-                if(i!=curIdx){
-                    int cp=crossProduct(points, curIdx, nextIdx, i);
-                    if(nextIdx==curIdx || cp>0 || (cp==0 && dist(points, i, curIdx)>dist(points, nextIdx, curIdx))){
-                        nextIdx=i;
-                    }
-                }
-            }
-            // This is to add all the vertices in same line with cur vertex and next vertex
+        fence.add(startIdx);
+        visited.add(startIdx);
+        // This can also handle when there's only one point
+        int lastIdx=startIdx, curIdx=(startIdx+1)%l;
+        while(curIdx!=startIdx){
+            // Note here we have to define a effectively final temp variable which is required for the PriorityQueue
+            // comparator function
+            int finalLastIdx = lastIdx;
+            // The PriorityQueue is to store all the collinear points on the current edge, the minimum size here will be 1
+            PriorityQueue<Integer> collinearPoints=new PriorityQueue<>((a, b)-> Math.abs(trees[a][1]-trees[finalLastIdx][1])-Math.abs(trees[b][1]-trees[finalLastIdx][1]));
             for(int i=0; i<l; i++){
-                if(i!=curIdx){
-                    int cp=crossProduct(points, curIdx, nextIdx, i);
-                    if(cp==0){
-                        idx.add(i);
+                if(i!=lastIdx){
+                    int dx1=trees[curIdx][0]-trees[lastIdx][0], dy1=trees[curIdx][1]-trees[lastIdx][1];
+                    int dx2=trees[i][0]-trees[lastIdx][0], dy2=trees[i][1]-trees[lastIdx][1];
+                    if(curIdx==lastIdx || dx1*dy2==dy1*dx2){
+                        collinearPoints.add(i);
+                        // This is to ensure we end up with the point NOT in the line(vertex）, note we compare both dx
+                        // and dy to handle cases when the line is parallel with the x-axis or y-axis
+                        if(Math.abs(dy2)>Math.abs(dy1) || Math.abs(dx2)>Math.abs(dx1)){
+                            curIdx=i;
+                        }
+                    } else if(dx1*dy2<dy1*dx2){
+                        collinearPoints.clear();
+                        collinearPoints.add(i);
+                        curIdx=i;
                     }
                 }
             }
-            curIdx=nextIdx;
-        } while(curIdx!=firstIdx);
-        int size=idx.size();
+            while(!collinearPoints.isEmpty()){
+                int cur=collinearPoints.poll();
+                if(!visited.contains(cur)){
+                    visited.add(cur);
+                    fence.add(cur);
+                }
+            }
+            lastIdx=curIdx;
+        }
+        int size=fence.size();
         int[][] result=new int[size][2];
-        int i=0;
-        for(int id: idx){
-            result[i++]=points[id];
+        for(int i=0; i<size; i++){
+            int idx=fence.get(i);
+            result[i][0]=trees[idx][0];
+            result[i][1]=trees[idx][1];
         }
         return result;
-    }
-
-    private int crossProduct(int[][] points, int ai, int bi, int ci){
-        int[] a=points[ai], b=points[bi], c=points[ci];
-        int dx1=b[0]-a[0], dx2=c[0]-a[0];
-        int dy1=b[1]-a[1], dy2=c[1]-a[1];
-        return dx1*dy2-dy1*dx2;
-    }
-
-    private int dist(int[][] points, int ai, int bi){
-        int[] a=points[ai], b=points[bi];
-        return (a[0]-b[0])*(a[0]-b[0])+(a[1]-b[1])*(a[1]-b[1]);
     }
 }
