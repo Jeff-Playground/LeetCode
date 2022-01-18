@@ -138,3 +138,6 @@ LQAllPathsFromSourceLeadToDestination
 - 1200 -
 - 1250 -
 - 1300 -
+- 1350 -
+Time Needed to Inform All Employees
+- 1400 -
