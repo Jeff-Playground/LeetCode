@@ -3,63 +3,63 @@ package com.wen.FifthFifty;
 import java.util.*;
 
 public class WordSearchII {
-    // DFS
-    public static List<String> findWords(char[][] board, String[] words) {
-        if(board==null || board.length==0 || board[0].length==0 || words==null){
-            throw new IllegalArgumentException("Invalid input!");
-        }
-        Set<String> visited=new HashSet<>();
-        int m=board.length, n=board[0].length;
-        Map<Character, Set<String>> wordsMap=new HashMap<>();
-        for(String word: words){
-            char c=word.charAt(0);
-            wordsMap.putIfAbsent(c, new HashSet<>());
-            wordsMap.get(c).add(word);
-        }
-        for(int i=0; i<m; i++){
-            for(int j=0; j<n; j++){
-                char c=board[i][j];
-                if(wordsMap.containsKey(c)){
-                    for(String word: wordsMap.get(c)){
-                        if(!visited.contains(word) & findWord(board, i, j, word)){
-                            visited.add(word);
-                        }
-                    }
-                }
-            }
-        }
-        List<String> result=new ArrayList<>();
-        visited.stream().forEach(e->result.add(e));
-        return result;
-    }
-
-    private static boolean findWord(char[][] board, int x, int y, String word){
-        int m=board.length, n=board[0].length;
-        int[][] visited=new int[m][n];
-        int[][] dirs=new int[][]{{-1,0},{1,0},{0,-1},{0,1}};
-        return findWordDFS(board, x, y, word, 0, visited, dirs);
-    }
-
-    private static boolean findWordDFS(char[][] board, int x, int y, String word, int cur, int[][] visited, int[][] dirs){
-        if(cur==word.length()-1){
-            return true;
-        } else{
-            int m=board.length, n=board[0].length;
-            visited[x][y]=1;
-            boolean result=false;
-            for(int[] dir: dirs){
-                int newX=x+dir[0], newY=y+dir[1];
-                if(newX>=0 && newX<m && newY>=0 && newY<n && visited[newX][newY]==0 && board[newX][newY]==word.charAt(cur+1)){
-                    if(findWordDFS(board, newX, newY, word, cur+1, visited, dirs)){
-                        result=true;
-                        break;
-                    }
-                }
-            }
-            visited[x][y]=0;
-            return result;
-        }
-    }
+//    // DFS
+//    public static List<String> findWords(char[][] board, String[] words) {
+//        if(board==null || board.length==0 || board[0].length==0 || words==null){
+//            throw new IllegalArgumentException("Invalid input!");
+//        }
+//        Set<String> visited=new HashSet<>();
+//        int m=board.length, n=board[0].length;
+//        Map<Character, Set<String>> wordsMap=new HashMap<>();
+//        for(String word: words){
+//            char c=word.charAt(0);
+//            wordsMap.putIfAbsent(c, new HashSet<>());
+//            wordsMap.get(c).add(word);
+//        }
+//        for(int i=0; i<m; i++){
+//            for(int j=0; j<n; j++){
+//                char c=board[i][j];
+//                if(wordsMap.containsKey(c)){
+//                    for(String word: wordsMap.get(c)){
+//                        if(!visited.contains(word) & findWord(board, i, j, word)){
+//                            visited.add(word);
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        List<String> result=new ArrayList<>();
+//        visited.stream().forEach(e->result.add(e));
+//        return result;
+//    }
+//
+//    private static boolean findWord(char[][] board, int x, int y, String word){
+//        int m=board.length, n=board[0].length;
+//        int[][] visited=new int[m][n];
+//        int[][] dirs=new int[][]{{-1,0},{1,0},{0,-1},{0,1}};
+//        return findWordDFS(board, x, y, word, 0, visited, dirs);
+//    }
+//
+//    private static boolean findWordDFS(char[][] board, int x, int y, String word, int cur, int[][] visited, int[][] dirs){
+//        if(cur==word.length()-1){
+//            return true;
+//        } else{
+//            int m=board.length, n=board[0].length;
+//            visited[x][y]=1;
+//            boolean result=false;
+//            for(int[] dir: dirs){
+//                int newX=x+dir[0], newY=y+dir[1];
+//                if(newX>=0 && newX<m && newY>=0 && newY<n && visited[newX][newY]==0 && board[newX][newY]==word.charAt(cur+1)){
+//                    if(findWordDFS(board, newX, newY, word, cur+1, visited, dirs)){
+//                        result=true;
+//                        break;
+//                    }
+//                }
+//            }
+//            visited[x][y]=0;
+//            return result;
+//        }
+//    }
 
 //    // Trie with DFS
 //    public static class Trie{
@@ -129,4 +129,64 @@ public class WordSearchII {
 //        }
 //        visited[x][y]=0;
 //    }
+
+    // Trie and DFS without visited
+    private class TrieNode{
+        TrieNode[] children;
+        String word;
+
+        public TrieNode(){
+            children=new TrieNode[26];
+        }
+
+        public void addWord(String word){
+            TrieNode cur=this;
+            for(char c: word.toCharArray()){
+                if(cur.children[c-'a']==null){
+                    cur.children[c-'a']=new TrieNode();
+                }
+                cur=cur.children[c-'a'];
+            }
+            cur.word=word;
+        }
+    }
+
+    public List<String> findWords(char[][] board, String[] words) {
+        TrieNode root=new TrieNode();
+        for(String word: words){
+            root.addWord(word);
+        }
+        List<String> result=new ArrayList<>();
+        int m=board.length, n=board[0].length;
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(root.children[board[i][j]-'a']!=null){
+                    char c=board[i][j];
+                    board[i][j]='#';
+                    findWordInTrie(board, root.children[c-'a'], i, j, result);
+                    board[i][j]=c;
+                }
+            }
+        }
+        return result;
+    }
+
+    private void findWordInTrie(char[][] board, TrieNode cur, int x, int y, List<String> result){
+        if(cur.word!=null){
+            result.add(cur.word);
+            cur.word=null;
+        }
+        int[][] dirs=new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        for(int[] dir: dirs){
+            int nextX=x+dir[0], nextY=y+dir[1];
+            if(nextX>=0 && nextX<board.length && nextY>=0 && nextY<board[0].length){
+                char c=board[nextX][nextY];
+                if(c-'a'>=0 && c-'a'<26 && cur.children[c-'a']!=null){
+                    board[nextX][nextY]='#';
+                    findWordInTrie(board, cur.children[c-'a'], nextX, nextY, result);
+                }
+                board[nextX][nextY]=c;
+            }
+        }
+    }
 }
