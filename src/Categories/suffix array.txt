@@ -1,2 +1,23 @@
 This is a data structure implemented as an array, it contains the sorted index of a given string, where each index stands
 for a suffix starting from that index in the given string. The sorting is in lexicographical order.
+
+- 300 -
+- 350 -
+- 400 -
+- 450 -
+- 500 -
+- 550 -
+- 600 -
+- 650 -
+- 700 -
+- 750 -
+- 800 -
+- 850 -
+- 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+*Last Substring in Lexicographical Order(can be implemented but will TLE)
+- 1200 -

@@ -28,5 +28,4 @@ Find the longest common substrings among multiple strings(it could be appearing 
 - 1050 -
 - 1100 -
 - 1150 -
-*Last Substring in Lexicographical Order
 - 1200 -

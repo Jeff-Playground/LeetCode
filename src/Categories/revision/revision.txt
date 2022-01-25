@@ -15,8 +15,8 @@ Data structure:
     trie
     union find
     design
-    $longest common prefix suffix array
-    $suffix array
+    longest common prefix suffix array
+    suffix array
     monotonic stack
     multi threading
 
