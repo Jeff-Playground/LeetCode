@@ -24,4 +24,50 @@ public class LastSubstringInLexicographicalOrder {
         }
         return s.substring(i);
     }
+
+//    // Idea similar to suffix tree/array, but will TLE
+//    public static String lastSubstring(String s) {
+//        TrieNode root=new TrieNode();
+//        for(int i=0; i<s.length(); i++){
+//            root.addSuffix(s.substring(i), i);
+//        }
+//        TrieNode cur=root;
+//        while(cur.childrenCount!=0){
+//            for(int i=25; i>=0; i--){
+//                if(cur.children[i]!=null){
+//                    cur=cur.children[i];
+//                    break;
+//                }
+//            }
+//        }
+//        return s.substring(cur.startIdx);
+//    }
+//
+//    private static class TrieNode{
+//        TrieNode[] children;
+//        int startIdx, childrenCount;
+//
+//        public TrieNode(){
+//            children=new TrieNode[26];
+//            startIdx=-1;
+//            childrenCount=0;
+//        }
+//
+//        public void addSuffix(String suffix, int suffixStartIdx){
+//            TrieNode cur=this;
+//            for(char c: suffix.toCharArray()){
+//                for(int i=25; i>c-'a'; i--){
+//                    if(cur.children[i]!=null){
+//                        return;
+//                    }
+//                }
+//                if(cur.children[c-'a']==null){
+//                    cur.children[c-'a']=new TrieNode();
+//                    cur.childrenCount++;
+//                }
+//                cur=cur.children[c-'a'];
+//            }
+//            cur.startIdx=suffixStartIdx;
+//        }
+//    }
 }
