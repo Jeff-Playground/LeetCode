@@ -21,6 +21,7 @@ NOTE hash and target need to be long to avoid overflow during *base
 - 900 -
 - 950 -
 - 1000 -
+*Longest Duplicate Substring
 - 1050 -
 - 1100 -
 Longest Chunked Palindrome Decomposition

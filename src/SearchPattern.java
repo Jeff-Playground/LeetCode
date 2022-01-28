@@ -112,6 +112,7 @@ public class SearchPattern {
     }
 
     // Note % has the same priority with * /
+    // Also note Integer.MAX_VALUE/mod=2.xxx, so need to use long for avoiding overflow
     private static List<Integer> rabinKarpSearch(String s, String p) {
         List<Integer> result=new ArrayList<>();
         int pl=p.length(), sl=s.length();
