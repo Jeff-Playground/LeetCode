@@ -1,6 +1,5 @@
-This is a data structure built upon the suffix array. It is a special suffix array, where it not only stores the sorted
-indices, but also stores the longest common prefix at each location(the first value is defaulted to 0 and doesn't mean
-anything).
+This is a data structure derived from the suffix array. It stores the longest common prefix at each location(the first
+value is defaulted to 0 and doesn't mean anything), for which the locations are from the suffix array.
 
 This data structure is useful for below cases:
 Find all distinct substrings:
