@@ -111,6 +111,7 @@ public class SearchPattern {
         return result;
     }
 
+    // Note % has the same priority with * /
     private static List<Integer> rabinKarpSearch(String s, String p) {
         List<Integer> result=new ArrayList<>();
         int pl=p.length(), sl=s.length();
@@ -132,7 +133,7 @@ public class SearchPattern {
                 }
             }
             if(i<sl) {
-                sHash=(((sHash-s.charAt(i-pl)*h)%mod+mod)%mod*d%mod+s.charAt(i))%mod;
+                sHash=(((sHash-s.charAt(i-pl)*h%mod)%mod+mod)%mod*d%mod+s.charAt(i))%mod;
             }
         }
         return result;
