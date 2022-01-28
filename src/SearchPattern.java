@@ -12,14 +12,14 @@ public class SearchPattern {
 //        // Comparing to zSearch, this is better in regards to it can be used to search against a stream
 //        List<Integer> loc=kmpSearch(s, p);
 
-//        // Time complexity: worst O(m+(n-m+1)*m), expected O(m+n)
-//        // Space complexity: in-place
-//        List<Integer> loc=rabinKarpSearch(s, p);
+        // Time complexity: worst O(m+(n-m+1)*m), expected O(m+n)
+        // Space complexity: in-place
+        List<Integer> loc=rabinKarpSearch(s, p);
 
-        // Time complexity: worst O(m*n) when no match, best O(n/m) when s: b^n  p: a^(m-1)b
-        // Space complexity: O(m+k), k is the size of the char set
-        // A good reference: https://writings.sh/post/algorithm-string-searching-boyer-moore
-        List<Integer> loc=boyerMooreSearch(s, p);
+//        // Time complexity: worst O(m*n) when no match, best O(n/m) when s: b^n  p: a^(m-1)b
+//        // Space complexity: O(m+k), k is the size of the char set
+//        // A good reference: https://writings.sh/post/algorithm-string-searching-boyer-moore
+//        List<Integer> loc=boyerMooreSearch(s, p);
 
 //        // Time complexity: O(m+n)
 //        // Space complexity: O(m)
@@ -117,7 +117,7 @@ public class SearchPattern {
         int d=256, mod=1_000_000_009;
         long h=1;
         for(int i=0; i<pl-1; i++) {
-            h=(h*d)%mod;
+            h=h*d%mod;
         }
         long pHash=0, sHash=0;
         for(int i=0; i<pl; i++) {
@@ -132,7 +132,7 @@ public class SearchPattern {
                 }
             }
             if(i<sl) {
-                sHash=(((sHash-s.charAt(i-pl)*h)*d+s.charAt(i))%mod+mod)%mod;
+                sHash=(((sHash-s.charAt(i-pl)*h)%mod+mod)%mod*d%mod+s.charAt(i))%mod;
             }
         }
         return result;
