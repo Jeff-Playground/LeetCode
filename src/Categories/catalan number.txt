@@ -12,9 +12,14 @@ so it can be calculated like:
         return dp[n];
 
 Another representation is:
-catalan(n)=C(2n,n)-C(2n,n-1)=1/(n+1)*C(2n,n), this can be proved by geometry: https://blog.csdn.net/zlingyun/article/details/82292198
+catalan(n)=C(2n,n)-C(2n,n-1)=1/(n+1)*C(2n,n), this can be proved by geometry: https://blog.csdn.net/zlingyun/article/details/82292198,
+which is essentially the number of the combination of all operations minus the number of combination of all operations invalid
 
-It can solve problems like:
+This algorithm is useful for solving problems where it's doing 2 operations: a, b, and the number of operation a done at
+any time should be no less than the number of operation b. For example, the number of ways to push and pop n elements into
+a stack.
+
+For below problems:
 Generate parentheses:
     For first representation, it basically is get a parentheses, then make a valid string by adding i parentheses inside and (n-1-i) parentheses on the right
     For second representation, it basically is for all n parentheses, make sure the left part "(" is not less than the right part ")"
