@@ -81,7 +81,7 @@ Calculate square root:
     newton's method
 
 Graph traversal:
-    euler path
+    eulerian path
     topological sort
 
 Iterate over array:

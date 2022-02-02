@@ -1,8 +1,11 @@
-// In a binary indexed tree, length is l+1, indexes starts from 1, parentIndex=childIndex+lowbit(childIndex), lowbit can
-// be calculated by x&(-x), and it should support below functions:
-// - update
-// - findSum(get Sum of numbers before idx inclusively)
-// - findRange: findSum(i2)-findSum(i1)
+In a binary indexed tree, length is l+1, indexes starts from 1, parentIndex=childIndex+lowbit(childIndex), lowbit can
+be calculated by x&(-x), and it should support below functions:
+- update
+- findSum(get Sum of numbers before idx inclusively)
+- findRange: findSum(i2)-findSum(i1)
+
+A good reference: https://halfrost.com/binary_indexed_tree
+
 - 300 -
 *Range Sum Query - Mutable
 *LQRangeSumQuery2DMutable

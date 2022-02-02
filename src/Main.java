@@ -10,6 +10,7 @@ import com.wen.FifthFifty.SearchA2DMatrixII;
 import com.wen.FifthFifty.SlidingWindowMaximum;
 import com.wen.FifthFifty.WordSearchII;
 import com.wen.FirstFifty.*;
+import com.wen.FortySecondFifty.ValidArrangementOfPairs;
 import com.wen.FourteenthFifty.*;
 import com.wen.FourthFifty.MaximumGap;
 import com.wen.FourthFifty.MinStack;
@@ -1197,7 +1198,9 @@ public class Main {
 
 //        LastSubstringInLexicographicalOrder.lastSubstring("abab");
 
-        LongestDuplicateSubstring test=new LongestDuplicateSubstring();
-        test.longestDupSubstring("aeeebaabdcedcbbcaeeebaabd");
+//        LongestDuplicateSubstring test=new LongestDuplicateSubstring();
+//        test.longestDupSubstring("aeeebaabdcedcbbcaeeebaabd");
+
+//        ValidArrangementOfPairs.validArrangement(new int[][]{{1,3},{3,2},{2,1}});
     }
 }

@@ -1,3 +1,5 @@
+For all knapsack approaches, dp[i][j] stands for the total when included item i and the total capacity is j:
+
 For 0-1 knapsack, for i in 1->N and j in 0->S it's dp[i][j]=dp[i-1][j]+dp[i-1][j-nums[i-1]], which in other words, is
 the sum of two cases:
 1. the case when nums[i-1] is excluded
@@ -12,7 +14,7 @@ When optimizing to 1 dimensional array, the j loop is also reversed, but note it
 because dp[j] already included the value for k=0.
 
 For unbounded knapsack, it's similar to 0-1 knapsack except dp[i][j]=dp[i-1][j]+dp[i][j-nums[i-1]], where the second
-case becomes the last value when nums[i-1] is included.
+case becomes the last value when nums[i-1] is considered(not necessarily included).
 When optimizing to 1 dimensional array, it's not like the above and j is not reversed, because this time dp[i][j] is
 dependent on dp[i][j-nums[i-1]] which is from previous value in the same loop.
 

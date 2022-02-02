@@ -3,6 +3,7 @@ package com.wen.SeventhFifty;
 import java.util.*;
 
 public class ReconstructItinerary {
+    // DFS to find eulerian path with a Stack
     public List<String> findItinerary(List<List<String>> tickets) {
         String dept="JFK";
         List<String> result=new ArrayList<>();
@@ -29,7 +30,7 @@ public class ReconstructItinerary {
         return result;
     }
 
-//    // DFS to find euler path
+//    // DFS to find eulerian path
 //    public List<String> findItinerary(List<List<String>> tickets) {
 //        String dept="JFK";
 //        List<String> result=new ArrayList<>();

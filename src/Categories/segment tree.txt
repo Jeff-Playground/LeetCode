@@ -1,7 +1,9 @@
-// In a segment tree, if it's implemented by array, then the array length should be 4*l, and it should support below functions:
-// - update
-// - findSum
-// - findRange: findSum(i2)-findSum(i1)
+In a segment tree, if it's implemented by array, then the array length should be 4*l, and it should support below functions:
+- update
+- findSum
+- findRange: findSum(i2)-findSum(i1)
+
+A good reference: https://halfrost.com/segment_tree/
 
 - 300 -
 *Range Sum Query - Mutable

@@ -1,0 +1,48 @@
+An eulerian path is a path that uses every edge of a graph exactly once.
+An eulerian path both starts with and ends with a node which has odd number of in plus out degrees.
+To find an eulerian path, just iterate over all out edges for a starting node, and after the loop note down the node, beware
+the final path generated is in reversed order.
+
+Note here we normally use a Queue or a PriorotyQueue(when there's a requirement on the ordering of the nodes), the point
+is this can make removing a visited edge much easier.
+
+- 300 -
+*Reconstruct Itinerary  (Eulerian path with nodes)
+- 350 -
+- 400 -
+- 450 -
+- 500 -
+- 550 -
+- 600 -
+- 650 -
+- 700 -
+- 750 -
+*Cracking the Safe
+- 800 -
+- 850 -
+- 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+- 1250 -
+- 1300 -
+- 1350 -
+- 1400 -
+- 1450 -
+- 1500 -
+- 1550 -
+- 1600 -
+- 1650 -
+- 1700 -
+- 1750 -
+- 1800 -
+- 1850 -
+- 1900 -
+- 1950 -
+- 2000 -
+- 2050 -
+*Valid Arrangement of Pairs (Eulerian path with edges)
+- 2100 -

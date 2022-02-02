@@ -50,7 +50,7 @@ public class CrackingTheSafe {
 //        return result.toString();
 //    }
 
-    // Convert the problem to finding euler path in a graph
+    // Convert the problem to finding eulerian path in a graph
     public String crackSafe(int n, int k) {
         if(n==1 && k==1){
             return "0";

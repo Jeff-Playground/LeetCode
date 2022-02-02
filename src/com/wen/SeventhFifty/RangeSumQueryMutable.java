@@ -1,51 +1,51 @@
 package com.wen.SeventhFifty;
 
 public class RangeSumQueryMutable {
-    // Blocks
-    class NumArray {
-        int[] blocks;
-        int l;
-        int[] nums;
-
-        public NumArray(int[] nums) {
-            l=(int)Math.ceil(Math.sqrt(nums.length));
-            blocks=new int[l];
-            this.nums=nums;
-            for(int i=0; i<nums.length; i++){
-                blocks[i/l]+=nums[i];
-            }
-        }
-
-        public void update(int i, int val) {
-            blocks[i/l]=blocks[i/l]-nums[i]+val;
-            nums[i]=val;
-        }
-
-        public int sumRange(int i, int j) {
-            int result=0;
-            if(i>=0 && j<nums.length && i<=j){
-                int index1=i/l, index2=j/l;
-                if(index1==index2){
-                    for(int x=i; x<=j; x++){
-                        result+=nums[x];
-                    }
-                } else{
-                    for(int x=i; x/l==index1; x++){
-                        result+=nums[x];
-                    }
-                    for(int x=index1+1; x<index2; x++){
-                        result+=blocks[x];
-                    }
-                    for(int x=index2*l; x<=j; x++){
-                        result+=nums[x];
-                    }
-                }
-                return result;
-            } else{
-                throw new IllegalArgumentException("Invalid inputs!");
-            }
-        }
-    }
+//    // Blocks
+//    class NumArray {
+//        int[] blocks;
+//        int l;
+//        int[] nums;
+//
+//        public NumArray(int[] nums) {
+//            l=(int)Math.ceil(Math.sqrt(nums.length));
+//            blocks=new int[l];
+//            this.nums=nums;
+//            for(int i=0; i<nums.length; i++){
+//                blocks[i/l]+=nums[i];
+//            }
+//        }
+//
+//        public void update(int i, int val) {
+//            blocks[i/l]=blocks[i/l]-nums[i]+val;
+//            nums[i]=val;
+//        }
+//
+//        public int sumRange(int i, int j) {
+//            int result=0;
+//            if(i>=0 && j<nums.length && i<=j){
+//                int index1=i/l, index2=j/l;
+//                if(index1==index2){
+//                    for(int x=i; x<=j; x++){
+//                        result+=nums[x];
+//                    }
+//                } else{
+//                    for(int x=i; x/l==index1; x++){
+//                        result+=nums[x];
+//                    }
+//                    for(int x=index1+1; x<index2; x++){
+//                        result+=blocks[x];
+//                    }
+//                    for(int x=index2*l; x<=j; x++){
+//                        result+=nums[x];
+//                    }
+//                }
+//                return result;
+//            } else{
+//                throw new IllegalArgumentException("Invalid inputs!");
+//            }
+//        }
+//    }
 
 //    // Segment Tree
 //    class NumArray {
@@ -117,43 +117,43 @@ public class RangeSumQueryMutable {
 //        }
 //    }
 
-//    // Binary indexed tree
-//    class NumArray {
-//        int[] nums=null;
-//        int[] biTree=null;
-//
-//        public NumArray(int[] nums) {
-//            this.nums=new int[nums.length];
-//            this.biTree=new int[nums.length+1];
-//            for(int i=0; i<nums.length; i++){
-//                update(i, nums[i]);
-//            }
-//        }
-//
-//        public void update(int i, int val) {
-//            if(i<0 || i>nums.length-1){
-//                return;
-//            }
-//            int diff=val-nums[i];
-//            nums[i]=val;
-//            for(int j=i+1; j<biTree.length; j+=(j&(-j))){
-//                biTree[j]+=diff;
-//            }
-//        }
-//
-//        public int getSum(int i){
-//            if(i+1>biTree.length-1){
-//                i=biTree.length-2;
-//            }
-//            int result=0;
-//            for(int j=i+1; j>0; j-=(j&(-j))){
-//                result+=biTree[j];
-//            }
-//            return result;
-//        }
-//
-//        public int sumRange(int i, int j) {
-//            return getSum(j)-getSum(i-1);
-//        }
-//    }
+    // Binary indexed tree
+    class NumArray {
+        int[] nums=null;
+        int[] biTree=null;
+
+        public NumArray(int[] nums) {
+            this.nums=new int[nums.length];
+            this.biTree=new int[nums.length+1];
+            for(int i=0; i<nums.length; i++){
+                update(i, nums[i]);
+            }
+        }
+
+        public void update(int i, int val) {
+            if(i<0 || i>nums.length-1){
+                return;
+            }
+            int diff=val-nums[i];
+            nums[i]=val;
+            for(int j=i+1; j<biTree.length; j+=(j&(-j))){
+                biTree[j]+=diff;
+            }
+        }
+
+        public int getSum(int i){
+            if(i+1>biTree.length-1){
+                i=biTree.length-2;
+            }
+            int result=0;
+            for(int j=i+1; j>0; j-=(j&(-j))){
+                result+=biTree[j];
+            }
+            return result;
+        }
+
+        public int sumRange(int i, int j) {
+            return getSum(j)-getSum(i-1);
+        }
+    }
 }
