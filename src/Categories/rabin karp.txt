@@ -1,8 +1,8 @@
 Magic numbers for mod: 1_000_000_007 or 1_000_000_009
 base use 256 because ASCII has 256 chars
-hash=(((hash-highestPower*s.charAt(i-1))*base+s.charAt(i+9))%mod+mod)%mod;
+hash=((hash-highestPower*s.charAt(i-1)%mod+mod)%mod*base%mod+s.charAt(i+9))%mod;
 
-NOTE hash and target need to be long to avoid overflow during *base
+NOTE hash, highestPower and target need to be long to avoid overflow during *base
 
 *Implement strStr()
 *Repeated DNA Sequences
