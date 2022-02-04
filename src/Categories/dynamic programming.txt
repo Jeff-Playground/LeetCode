@@ -74,6 +74,7 @@ Delete Operation for Two Strings
 *Decode Ways II
 Maximum Length of Pair Chain
 *Palindromic Substrings
+*2 Keys Keyboard
 - 650 -
 Number of Longest Increasing Subsequence
 - 700 -
