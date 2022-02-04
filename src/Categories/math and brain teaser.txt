@@ -233,6 +233,7 @@ Sum of Square Numbers
 Solve the Equation
 Maximum Average Subarray I
 *Set Mismatch
+*Dota2 Senate
 - 650 -
 *Split Array into Consecutive Subsequences
 Image Smoother
