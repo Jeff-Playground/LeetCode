@@ -39,6 +39,7 @@ Valid Triangle Number
 *Find K Closest Elements
 *Kth Smallest Number in Multiplication Table
 - 700 -
+Binary Search
 *Maximum Length of Repeated Subarray
 *Find K-th Smallest Pair Distance
 - 750 -
