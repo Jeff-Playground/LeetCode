@@ -35,6 +35,7 @@ Count Binary Substrings
 - 850 -
 - 900 -
 - 950 -
+*LQSquaresOfASortedArray
 - 1000 -
 - 1050 -
 - 1100 -
