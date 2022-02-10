@@ -22,6 +22,7 @@ LQClosestBinarySearchTreeValue
 Trim a Binary Search Tree
 Search in a Binary Search Tree
 - 700 -
+Insert into a Binary Search Tree
 - 750 -
 *LQSplitBST
 - 800 -
