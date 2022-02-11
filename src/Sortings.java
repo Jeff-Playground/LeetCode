@@ -24,14 +24,13 @@ public class Sortings {
 //        // Un-stable
 //        selectionSort(nums);
 
-//        // Best time O(n+n*3*logn)=O(nlogn)
-//        // Worst time O(n+n*3*logn)=O(nlogn) - Doing swap for putting the max to end n times takes O(n), then heapify
-//        //                                    takes O(n*3*logn) because doing around n/2 rounds as there are n/2
-//        //                                    parents and for each round doing 2 compares and 1 swap
+//        // Best time O(nlogn)
+//        // Worst time O(n+n*logn)=O(nlogn) - First heapify takes O(n) then it's basically delete the max item for n
+//        //                                   times, each deletion takes O(logn)
 //        // Space O(1) - In-place
 //        // Un-stable
 //        // Note for forming a heap, it only works with starting index as 0
-//        heapSort(nums);
+        heapSort(nums);
 
 //        // Best time O(n) - Only do the first time iteration and no exchange happens(Original array in order)
 //        // Worst time O(n^2) - Original array in reverse order
@@ -47,7 +46,7 @@ public class Sortings {
 //        // Worst space O(n) - The depth of the recursion tree
 //        // Un-stable
 //        recursionQuickSort(nums, 0, nums.length-1);
-        iterationQuickSort(nums);
+//        iterationQuickSort(nums);
 
 //        // Best time O(nlogn) - Because there're logn levels in the recursion tree, and each level takes n to solve
 //        // Worst time O(nlogn)
@@ -193,24 +192,44 @@ public class Sortings {
     }
 
     private static void heapSort(Integer[] nums) {
-        for(int i=nums.length-1; i>0; i--){
-            maxHeapify(nums, i);
-
-            int temp=nums[0];
-            nums[0]=nums[i];
-            nums[i]=temp;
+        maxHeapify(nums);
+        for(int last=nums.length-2; last>=0; last--){
+            moveMaximum(nums, last);
         }
     }
 
-    private static void maxHeapify(Integer[] nums, int last) {
-        if(nums.length<=0 || last==0 || last>nums.length-1){
+    // Note here last stands for the lastIdx in scope for the maxHeap, the moved item should be put at last+1
+    private static void moveMaximum(Integer[] nums, int last){
+        int curMax=nums[0];
+        nums[0]=nums[last+1];
+        nums[last+1]=curMax;
+        int parent=0;
+        while(true){
+            int left=parent*2+1, right=parent*2+2;
+            if(left>last){
+                break;
+            }
+            int maxChildIdx=right>last?left:nums[left]>nums[right]?left:right;
+            if(nums[parent]<nums[maxChildIdx]){
+                int tmp=nums[parent];
+                nums[parent]=nums[maxChildIdx];
+                nums[maxChildIdx]=tmp;
+                parent=maxChildIdx;
+            } else{
+                break;
+            }
+        }
+    }
+
+    private static void maxHeapify(Integer[] nums) {
+        if(nums.length<=0){
             return;
         }
-        for(int parent=(last-1)/2; parent>=0; parent--){
+        for(int parent=(nums.length-1-1)/2; parent>=0; parent--){
             int left=parent*2+1;
             int right=parent*2+2;
 
-            int childMaxIndex=right>last?left:(nums[left]>nums[right]?left:right);
+            int childMaxIndex=right>nums.length-1?left:(nums[left]>nums[right]?left:right);
             if(nums[childMaxIndex]>nums[parent]){
                 int temp=nums[childMaxIndex];
                 nums[childMaxIndex]=nums[parent];
