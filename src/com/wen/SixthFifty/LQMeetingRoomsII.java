@@ -59,6 +59,7 @@ public class LQMeetingRoomsII {
 //        return result;
 //    }
 
+//    // Heap
 //    public int minMeetingRooms(List<Interval> intervals) {
 //        Collections.sort(intervals, (a, b)->a.start-b.start);
 //        PriorityQueue<Interval> q=new PriorityQueue<>((a, b)->a.end-b.end);

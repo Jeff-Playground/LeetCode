@@ -6,6 +6,7 @@
 
 *Merge k Sorted Lists
 Sliding Window Maximum
+LQMeetingRoomsII
 Ugly Number II
 - 300 -
 Super Ugly Number
@@ -29,3 +30,11 @@ Kth Largest Element in a Stream
 - 950 -
 K Closest Points to Origin
 - 1000 -
+- 1050 -
+- 1100 -
+- 1050 -
+- 1200 -
+- 1250 -
+- 1300 -
+The K Weakest Rows in a Matrix
+- 1350 -
