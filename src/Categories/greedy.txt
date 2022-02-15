@@ -51,3 +51,16 @@ Delete Columns to Make Sorted
 - 1000 -
 Last Stone Weight
 - 1050 -
+- 1100 -
+- 1050 -
+- 1200 -
+- 1250 -
+- 1300 -
+- 1350 -
+- 1400 -
+- 1450 -
+- 1500 -
+- 1550 -
+- 1600 -
+Furthest Building You Can Reach
+- 1650 -
