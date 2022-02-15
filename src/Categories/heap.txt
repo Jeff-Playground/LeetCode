@@ -32,7 +32,8 @@ K Closest Points to Origin
 - 1000 -
 - 1050 -
 - 1100 -
-- 1050 -
+- 1150 -
+LQMinimumCostToConnectSticks
 - 1200 -
 - 1250 -
 - 1300 -

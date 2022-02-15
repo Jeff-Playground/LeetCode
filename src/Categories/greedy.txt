@@ -52,7 +52,8 @@ Delete Columns to Make Sorted
 Last Stone Weight
 - 1050 -
 - 1100 -
-- 1050 -
+- 1150 -
+LQMinimumCostToConnectSticks
 - 1200 -
 - 1250 -
 - 1300 -
