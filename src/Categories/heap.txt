@@ -38,3 +38,10 @@ K Closest Points to Origin
 - 1300 -
 The K Weakest Rows in a Matrix
 - 1350 -
+- 1400 -
+- 1450 -
+- 1500 -
+- 1550 -
+- 1600 -
+Furthest Building You Can Reach
+- 1650 -
