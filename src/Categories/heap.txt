@@ -1,8 +1,10 @@
-// Using PriorityQueue:
-// PriorityQueue<String> pq=new PriorityQueue<>((a, b)->a.compareTo(b));
-// Using array:
-// child1=parent*2+1, child2=parent*2+2
-// parent=(child-1)/2
+Used a lot with greedy.
+
+Using PriorityQueue in Java:
+PriorityQueue<String> pq=new PriorityQueue<>((a, b)->a.compareTo(b));
+Using array:
+child1=parent*2+1, child2=parent*2+2
+parent=(child-1)/2
 
 *Merge k Sorted Lists
 Sliding Window Maximum
