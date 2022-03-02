@@ -1,7 +1,11 @@
 Union find can be used to identify whether there are cycles in a graph.
-Use a int array group to store the group info for nodes, and another int array count to store the number of nodes in
-each group. Union find should support add, find and union. Note the union logic need to be written with care to avoid
+Use an int array group to store the group info for nodes, and another int array rank to store the level of nodes in
+the graph. Union find should support add, find and union. Note the union logic need to be written with care to avoid
 cycles.
+
+The related optimizations are:
+    - Path compression
+    - Union by rank to aim for a more balanced graph/tree
 
 *Longest Consecutive Sequence
 *LQGraphValidTree
@@ -37,6 +41,7 @@ Similar String Groups
 - 1000 -
 - 1050 -
 - 1100 -
+LQTheEarliestMomentWhenEveryoneBecomeFriends
 - 1150 -
 - 1200 -
 - 1250 -
