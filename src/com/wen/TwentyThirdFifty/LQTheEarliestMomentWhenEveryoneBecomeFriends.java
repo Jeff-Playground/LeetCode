@@ -76,11 +76,10 @@ public class LQTheEarliestMomentWhenEveryoneBecomeFriends {
         }
 
         public int find(int x){
-            while(root[x]!=x){
-                root[x]=root[root[x]];
-                x=root[x];
+            if(root[x]!=x){
+                root[x]=find(root[x]);
             }
-            return x;
+            return root[x];
         }
 
         public void union(int x, int y){
