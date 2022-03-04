@@ -136,6 +136,7 @@ LQAllPathsFromSourceLeadToDestination
 - 1100 -
 - 1150 -
 - 1200 -
+Smallest String With Swaps
 - 1250 -
 - 1300 -
 - 1350 -

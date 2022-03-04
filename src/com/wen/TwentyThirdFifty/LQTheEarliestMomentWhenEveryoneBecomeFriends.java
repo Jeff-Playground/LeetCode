@@ -41,6 +41,7 @@ Logs are not necessarily ordered by some criteria.
 import java.util.PriorityQueue;
 
 public class LQTheEarliestMomentWhenEveryoneBecomeFriends {
+    // Union find
     public int earliestAcq(int[][] logs, int N) {
         if(N==1){
             return logs[0][0];
