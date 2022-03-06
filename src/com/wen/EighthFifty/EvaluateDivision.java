@@ -4,46 +4,22 @@ import java.util.*;
 
 public class EvaluateDivision {
     // Union find
-    public static class Info{
-        public String node;
-        public double value;
-
-        public Info(String node, double value){
-            this.node=node;
-            this.value=value;
-        }
-    }
-
-    public static double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-        Map<String, Info> pre=new HashMap<>();
-        int l=values.length, m=queries.size();
+    public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+        int l=equations.size();
+        UnionFind uf=new UnionFind();
         for(int i=0; i<l; i++){
-            String x=equations.get(i).get(0);
-            String y=equations.get(i).get(1);
-            if(findPre(x, pre)==null && findPre(y, pre)==null){
-                pre.put(y, new Info(y, 1.0));
-                pre.put(x, new Info(y, values[i]));
-            } else if(findPre(x, pre)==null){
-                pre.put(x, new Info(y, values[i]));
-            } else if(findPre(y, pre)==null){
-                pre.put(y, new Info(x, 1/values[i]));
-            } else{
-                Info preX=findPre(x, pre);
-                Info preY=findPre(y, pre);
-                if(!preX.node.equals(preY.node)){
-                    preX.node=preY.node;
-                    preX.value=values[i]*preY.value;
-                }
-            }
+            List<String> e=equations.get(i);
+            double division=values[i];
+            uf.union(e.get(0), e.get(1), division);
         }
-        double[] result=new double[m];
-        for(int i=0; i<m; i++){
-            String x=queries.get(i).get(0);
-            String y=queries.get(i).get(1);
-            Info preX=findPre(x, pre);
-            Info preY=findPre(y, pre);
-            if(preX!=null && preY!=null && preX.node.equals(preY.node)){
-                result[i]=preX.value/preY.value;
+        int resultLength=queries.size();
+        double[] result=new double[resultLength];
+        for(int i=0; i<resultLength; i++){
+            List<String> q=queries.get(i);
+            String x=q.get(0), y=q.get(1);
+            Pair rx=uf.find(x), ry=uf.find(y);
+            if(rx!=null && ry!=null && rx.s.equals(ry.s)){
+                result[i]=rx.v/ry.v;
             } else{
                 result[i]=-1.0;
             }
@@ -51,17 +27,50 @@ public class EvaluateDivision {
         return result;
     }
 
-    public static Info findPre(String node, Map<String, Info> pre){
-        if(pre.containsKey(node)){
-            String cur=node;
-            while(!pre.get(cur).node.equals(cur)){
-                pre.get(cur).value*=pre.get(pre.get(cur).node).value;
-                pre.get(cur).node=pre.get(pre.get(cur).node).node;
-                cur=pre.get(cur).node;
+    private class Pair{
+        String s;
+        double v;
+
+        public Pair(String s, double v){
+            this.s=s;
+            this.v=v;
+        }
+    }
+
+    private class UnionFind{
+        Map<String, String> root;
+        Map<String, Double> value;
+
+        public UnionFind(){
+            root=new HashMap<>();
+            value=new HashMap<>();
+        }
+
+        public Pair find(String x){
+            if(!root.containsKey(x)){
+                return null;
             }
-            return pre.get(node);
-        } else{
-            return null;
+            if(root.get(x).equals(x)){
+                return new Pair(x, 1.0);
+            } else{
+                Pair result=find(root.get(x));
+                root.put(x, result.s);
+                result.v*=value.get(x);
+                value.put(x, result.v);
+                return result;
+            }
+        }
+
+        public void union(String x, String y, double division){
+            root.putIfAbsent(x, x);
+            value.putIfAbsent(x, 1.0);
+            root.putIfAbsent(y, y);
+            value.putIfAbsent(y, 1.0);
+            Pair rx=find(x), ry=find(y);
+            if(!rx.s.equals(ry.s)){
+                root.put(rx.s, ry.s);
+                value.put(rx.s, division/rx.v*ry.v);
+            }
         }
     }
 
