@@ -86,6 +86,7 @@ Min Cost Climbing Stairs
 Pyramid Transition Matrix
 - 800 -
 *Race Car
+*Count Unique Characters of All Substrings of a Given String
 *New 21 Game
 - 850 -
 *Minimum Number of Refueling Stops
