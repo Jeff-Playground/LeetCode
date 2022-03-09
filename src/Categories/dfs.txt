@@ -117,6 +117,7 @@ Pyramid Transition Matrix
 *Swim in Rising Water
 Letter Case Permutation
 *Is Graph Bipartite?
+All Paths From Source to Target
 - 800 -
 *Find Eventual Safe States
 *Bricks Falling When Hit
@@ -142,3 +143,17 @@ Smallest String With Swaps
 - 1350 -
 Time Needed to Inform All Employees
 - 1400 -
+- 1450 -
+- 1500 -
+- 1550 -
+- 1600 -
+- 1650 -
+- 1700 -
+- 1750 -
+- 1800 -
+- 1850 -
+- 1900 -
+- 1950 -
+Find if Path Exists in Graph
+- 2000 -
+- 2050 -

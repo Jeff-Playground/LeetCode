@@ -47,75 +47,41 @@ edges[i].length == 2
 import java.util.*;
 
 public class LQAllPathsFromSourceLeadToDestination {
-    // BFS, use inDegree to detect cycles
+    // DFS
     public static boolean leadsToDestination(int n, int[][] edges, int source, int destination) {
         Map<Integer, Set<Integer>> graph=new HashMap<>();
-        int[] inDegree=new int[n];
         for(int[] edge: edges){
             graph.putIfAbsent(edge[0], new HashSet<>());
             graph.get(edge[0]).add(edge[1]);
-            inDegree[edge[1]]++;
         }
-        Queue<Integer> q=new LinkedList<>();
-        q.offer(source);
-        inDegree[source]++;
-        while(!q.isEmpty()){
-            int cur=q.poll();
-            if(--inDegree[cur]<0){
-                return false;
-            }
-            if(cur==destination){
-                if(graph.containsKey(cur)) {
-                    return false;
-                }
-            } else{
-                if(!graph.containsKey(cur)){
-                    return false;
-                } else{
-                    for(int next: graph.get(cur)){
-                        q.offer(next);
-                    }
-                }
-            }
-        }
-        return true;
+        int[] visited=new int[n];
+        return leadsToDestinationHelper(graph, source, destination, visited);
     }
 
-//    // DFS
-//    public static boolean leadsToDestination(int n, int[][] edges, int source, int destination) {
-//        Map<Integer, Set<Integer>> graph=new HashMap<>();
-//        for(int[] edge: edges){
-//            graph.putIfAbsent(edge[0], new HashSet<>());
-//            graph.get(edge[0]).add(edge[1]);
-//        }
-//        int[] visited=new int[n];
-//        return leadsToDestinationHelper(graph, source, destination, visited);
-//    }
-//
-//    private static boolean leadsToDestinationHelper(Map<Integer, Set<Integer>> graph, int cur, int destination, int[] visited) {
-//        if(visited[cur]==1){
-//            return false;
-//        } else{
-//            visited[cur]=1;
-//            if(cur==destination){
-//                visited[cur]=0;
-//                return !graph.containsKey(cur);
-//            } else{
-//                if(!graph.containsKey(cur)){
-//                    visited[cur]=0;
-//                    return false;
-//                } else{
-//                    boolean result=true;
-//                    for(int next: graph.get(cur)){
-//                        if(!leadsToDestinationHelper(graph, next, destination, visited)){
-//                            result=false;
-//                            break;
-//                        }
-//                    }
-//                    visited[cur]=0;
-//                    return result;
-//                }
-//            }
-//        }
-//    }
+    private static boolean leadsToDestinationHelper(Map<Integer, Set<Integer>> graph, int cur, int destination, int[] visited) {
+        if(visited[cur]==1){
+            return false;
+        } else{
+            visited[cur]=1;
+            if(cur==destination){
+                visited[cur]=0;
+                return !graph.containsKey(cur);
+            } else{
+                if(!graph.containsKey(cur)){
+                    visited[cur]=0;
+                    return false;
+                } else{
+                    boolean result=true;
+                    for(int next: graph.get(cur)){
+                        if(!leadsToDestinationHelper(graph, next, destination, visited)){
+                            result=false;
+                            break;
+                        }
+                    }
+                    visited[cur]=0;
+                    return result;
+                }
+            }
+        }
+    }
 }

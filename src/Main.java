@@ -775,6 +775,7 @@ public class Main {
 //        System.out.println(LQAllPathsFromSourceLeadToDestination.leadsToDestination(4, new int[][]{{0,1},{0,2},{1,3},{2,3}}, 0, 3));
 //        System.out.println(LQAllPathsFromSourceLeadToDestination.leadsToDestination(3, new int[][]{{0,1},{1,1},{1,2}}, 0, 2));
 //        System.out.println(LQAllPathsFromSourceLeadToDestination.leadsToDestination(2, new int[][]{{0,1},{1,1}}, 0, 1));
+//        System.out.println(LQAllPathsFromSourceLeadToDestination.leadsToDestination(5, new int[][]{{0,1},{0,2},{0,3},{1,2},{1,3},{1,4},{2,3},{2,4},{3,4}}, 0, 4));
 
 //        FindTheTownJudge.findJudge(4,new int[][]{{1,2},{1,3},{2,1},{2,3},{1,4},{4,3},{4,1}});
 
