@@ -45,6 +45,7 @@ Flood Fill
 - 750 -
 *Sliding Puzzle
 *Is Graph Bipartite?
+All Paths From Source to Target
 - 800 -
 Bus Routes
 *Race Car
@@ -58,6 +59,7 @@ Rotting Oranges
 - 1000 -
 Flower Planting With No Adjacent
 - 1050 -
+Shortest Path in Binary Matrix
 - 1100 -
 - 1150 -
 As Far from Land as Possible

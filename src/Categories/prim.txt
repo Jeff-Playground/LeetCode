@@ -1,0 +1,41 @@
+Used for finding the minimum spanning tree in a weighted undirected graph.
+
+The general idea is:
+1. maintain a Set of visited vertices, and a PriorityQueue of edges which connect the Set with nodes out of the Set
+2. start with adding any node to the Set, then put all the edges connected to this node to the PriorityQueue to sort the
+   edges
+3. pick the shortest edge from the PriorityQueue, and add a new node to the Set if this edge can connect the new node to
+   the Set
+4. Repeat 3 until the Set contains all the vertices in the graph
+
+The difference between Kruskal's algorithm and Prim's algorithm is that Kruskal's algo expands the MST by adding edges.
+Whereas Prim’s algorithm expands the MST by adding vertices.
+
+- 300 -
+- 350 -
+- 400 -
+- 450 -
+- 500 -
+- 550 -
+- 600 -
+- 650 -
+- 700 -
+- 750 -
+- 800 -
+- 850 -
+- 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+- 1250 -
+- 1300 -
+- 1350 -
+- 1400 -
+- 1450 -
+- 1500 -
+- 1550 -
+*Min Cost to Connect All Points
+- 1600 -

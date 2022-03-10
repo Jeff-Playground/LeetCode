@@ -3,60 +3,117 @@ package com.wen.ThirtySecondFifty;
 import java.util.*;
 
 public class MinCostToConnectAllPoints {
-    // Minimum spanning tree
+    // Prim's algorithm
     public int minCostConnectPoints(int[][] points) {
-        if(points==null || points.length==0){
-            throw new IllegalArgumentException("Invalid input!");
-        }
         int l=points.length;
         int[][] dist=new int[l][l];
         for(int i=0; i<l; i++){
-            for(int j=0; j<l; j++){
-                if(i!=j){
-                    if(i>j){
-                        dist[i][j]=dist[j][i];
-                    } else{
-                        dist[i][j]=getDist(points[i], points[j]);
-                    }
-                }
+            for(int j=i+1; j<l; j++){
+                dist[i][j]=getManhattanDist(points[i], points[j]);
             }
         }
-        List<PriorityQueue<Integer>> sort=new ArrayList<>();
-        for(int i=0; i<l; i++){
-            int cur=i;
-            PriorityQueue<Integer> pq=new PriorityQueue<>((a, b)->dist[cur][a]-dist[cur][b]);
-            for(int j=0; j<l; j++){
-                if(j!=i){
-                    pq.offer(j);
-                }
-            }
-            sort.add(pq);
+        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->a[2]-b[2]);
+        Set<Integer> visited=new HashSet<>();
+        visited.add(0);
+        for(int j=1; j<l; j++){
+            pq.offer(new int[]{0, j, dist[0][j]});
         }
         int result=0;
-        Set<Integer> reached=new HashSet<>();
-        reached.add(0);
-        while(reached.size()<l){
-            int min=Integer.MAX_VALUE, next=-1;
-            for(int n: reached){
-                PriorityQueue<Integer> pq=sort.get(n);
-                while(!pq.isEmpty() && reached.contains(pq.peek())){
-                    pq.poll();
+        while(!pq.isEmpty() && visited.size()<l){
+            int[] cur=pq.poll();
+            int x=cur[0], y=cur[1], d=cur[2];
+            if(!visited.contains(y)){
+                visited.add(y);
+                result+=d;
+                for(int i=0; i<y; i++){
+                    if(!visited.contains(i)){
+                        pq.offer(new int[]{y, i, dist[i][y]});
+                    }
                 }
-                if(!pq.isEmpty()){
-                    int temp=pq.peek();
-                    if(dist[n][temp]<min){
-                        next=temp;
-                        min=dist[n][temp];
+                for(int j=y+1; j<l; j++){
+                    if(!visited.contains(j)){
+                        pq.offer(new int[]{y, j, dist[y][j]});
                     }
                 }
             }
-            reached.add(next);
-            result+=min;
         }
         return result;
     }
 
-    private int getDist(int[] a, int[] b){
-        return Math.abs(a[0]-b[0])+Math.abs(a[1]-b[1]);
+    private int getManhattanDist(int[] p1, int[] p2){
+        return Math.abs(p1[0]-p2[0])+Math.abs(p1[1]-p2[1]);
     }
+
+//    // Kruskal's algorithm
+//    public int minCostConnectPoints(int[][] points) {
+//        int l=points.length;
+//        int[][] dist=new int[l][l];
+//        for(int i=0; i<l; i++){
+//            for(int j=0; j<=i; j++){
+//                if(i!=j){
+//                    dist[i][j]=getManhattanDist(points[i], points[j]);
+//                }
+//            }
+//        }
+//        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->a[2]-b[2]);
+//        for(int i=0; i<l; i++){
+//            for(int j=0; j<=i; j++){
+//                if(i!=j){
+//                    pq.offer(new int[]{i, j, dist[i][j]});
+//                }
+//            }
+//        }
+//        int result=0, foundCount=0;
+//        UnionFind uf=new UnionFind(l);
+//        while(!pq.isEmpty()){
+//            int[] cur=pq.poll();
+//            int x=cur[0], y=cur[1], d=cur[2];
+//            if(uf.find(x)!=uf.find(y)){
+//                uf.union(x, y);
+//                result+=d;
+//                if(++foundCount==l-1){
+//                    break;
+//                }
+//            }
+//        }
+//        return result;
+//    }
+//
+//    private class UnionFind{
+//        int[] root, rank;
+//
+//        public UnionFind(int l){
+//            root=new int[l];
+//            rank=new int[l];
+//            for(int i=0; i<l; i++){
+//                root[i]=i;
+//                rank[i]=1;
+//            }
+//        }
+//
+//        public int find(int x){
+//            if(root[x]!=x){
+//                root[x]=find(root[x]);
+//            }
+//            return root[x];
+//        }
+//
+//        public void union(int x, int y){
+//            int rx=find(x), ry=find(y);
+//            if(rx!=ry){
+//                if(rank[rx]>rank[ry]){
+//                    root[ry]=rx;
+//                } else if(rank[rx]<rank[ry]){
+//                    root[rx]=ry;
+//                } else{
+//                    root[rx]=ry;
+//                    rank[ry]++;
+//                }
+//            }
+//        }
+//    }
+//
+//    private int getManhattanDist(int[] p1, int[] p2){
+//        return Math.abs(p1[0]-p2[0])+Math.abs(p1[1]-p2[1]);
+//    }
 }
