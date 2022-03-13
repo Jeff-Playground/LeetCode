@@ -1,8 +1,14 @@
+
+
 Used for one to many minimum path, note this can also handle graph with negative edges.
-Optimized bellman-ford, iterate over the all the given edges to search and relax the minimum length to reach each node.
+
+SPFA stands for "the Shortest Path Faster Algorithm", it is an optimized version of bellman-ford, iterate over the all
+the given edges to search and relax the minimum length to reach each node.
 The difference is it uses a Queue to store current reached nodes, so the edge iteration can be more targeted.
+
 Use one dimensional array: int[] last, to track the last node of the shortest path, because there's only one source, not
-necessary to use two dimensional array.
+necessary to use two-dimensional array.
+
 Use one dimensional array: int[] count to store the times that each node is relaxed, if it's >N, then there's a negative
 loop. Because a node can be relaxed by any other nodes in the graph, and there are N-1 nodes apart from the node being
 relaxed. So if a node is relaxed more than (N-1) times, it means there has to be at least one other node used more than
@@ -23,3 +29,27 @@ once, so there is a negative loop. Also note use N instead of (N-1) to handle th
 - 800 -
 - 850 -
 - 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+- 1250 -
+- 1300 -
+- 1350 -
+- 1400 -
+- 1450 -
+- 1500 -
+- 1550 -
+- 1600 -
+*Path With Minimum Effort
+- 1650 -
+- 1700 -
+- 1750 -
+- 1800 -
+- 1850 -
+- 1900 -
+- 1950 -
+- 2000 -
+- 2050 -

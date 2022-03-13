@@ -13,11 +13,14 @@ be missed in the result.
 This can also be used for finding the minimum spanning tree.
 
 Implementation uses a PriorityQueue to do BFS like search, where PriorityQueue can be used to store all usable edges, and
-it's sorted based on the length to the next reachable point. In other words, the idea is to add a node which is closest
-to the reached nodes group one at a time to a visited Set. Here using a HashMap to maintain visited nodes as well as the
-corresponding distance is a good practice.
+it's sorted based on the length from the source to the next reachable point. Here we can use a HashMap to maintain visited
+nodes and their corresponding distances to the source.
 Use one dimensional array: int[] last, to track the last node of the shortest path, because there's only one source, not
-necessary to use two dimensional array.
+necessary to use two-dimensional array.
+
+Note this is different from Prim's algorithm:
+In Prim's algorithm, the PriorityQueue sort edges by distance to the set of the reached nodes.
+In Dijkstra's algorithm, the PriorityQueue sort edges by distance to the source node.
 
 - 300 -
 - 350 -
@@ -49,5 +52,14 @@ LQTheMazeII
 - 1450 -
 - 1500 -
 - 1550 -
-*Min Cost to Connect All Points
 - 1600 -
+*Path With Minimum Effort
+- 1650 -
+- 1700 -
+- 1750 -
+- 1800 -
+- 1850 -
+- 1900 -
+- 1950 -
+- 2000 -
+- 2050 -

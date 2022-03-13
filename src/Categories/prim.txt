@@ -11,6 +11,10 @@ The general idea is:
 The difference between Kruskal's algorithm and Prim's algorithm is that Kruskal's algo expands the MST by adding edges.
 Whereas Prim’s algorithm expands the MST by adding vertices.
 
+Note this is different from Dijkstra's algorithm:
+In Prim's algorithm, the PriorityQueue sort edges by distance to the set of the reached nodes.
+In Dijkstra's algorithm, the PriorityQueue sort edges by distance to the source node.
+
 - 300 -
 - 350 -
 - 400 -
@@ -29,6 +33,7 @@ Whereas Prim’s algorithm expands the MST by adding vertices.
 - 1050 -
 - 1100 -
 - 1150 -
+*LQOptimizeWaterDistributionInAVillage
 - 1200 -
 - 1250 -
 - 1300 -

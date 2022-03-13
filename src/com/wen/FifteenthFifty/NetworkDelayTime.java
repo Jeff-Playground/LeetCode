@@ -41,19 +41,29 @@ public class NetworkDelayTime {
 //        int[] cost=new int[N+1];
 //        Arrays.fill(cost, Integer.MAX_VALUE);
 //        cost[K]=0;
+//        boolean changed=false;
 //        for(int i=1; i<=N-1; i++) {
+//            changed=false;
 //            for(int[] time: times) {
 //                if(cost[time[0]]<Integer.MAX_VALUE && cost[time[0]]+time[2]<cost[time[1]]) {
 //                    cost[time[1]]=cost[time[0]]+time[2];
+//                    changed=true;
 //                }
 //            }
+//            // Note how we have this exit condition and are only maintaining one array cost in this solution, as here
+//            // number of relaxing times doesn't matter
+//            if(!changed){
+//                break;
+//            }
 //        }
-//        // Logic to determine whether there's a negative loop
-//        // for(int[] time: times) {
-//        // 	if(cost[time[0]]<Integer.MAX_VALUE && cost[time[0]]+time[2]<cost[time[1]]) {
-//        // 		return -1;
-//        // 	}
-//        // }
+////        // Logic to determine whether there's a negative loop
+////        if(changed){
+////            for(int[] time: times) {
+////                if(cost[time[0]]<Integer.MAX_VALUE && cost[time[0]]+time[2]<cost[time[1]]) {
+////                    return -1;
+////                }
+////            }
+////        }
 //        int result=0;
 //        for(int i=1; i<=N; i++) {
 //            if(cost[i]==Integer.MAX_VALUE) {
