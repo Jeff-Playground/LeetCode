@@ -4,8 +4,16 @@ the graph. Union find should support add, find and union. Note the union logic n
 cycles.
 
 The related optimizations are:
-    - Path compression
-    - Union by rank to aim for a more balanced graph/tree
+    - Path compression, where time complexity for Find, Union and Connected all becomes O(logN)
+    - Union by rank to aim for a more balanced graph/tree, where time complexity for Find, Union and Connected all becomes
+      O(logN)
+
+Note when the above 2 optimizations are combined, the time complexity for Find, Union and Connected all becomes O(α(N)),
+where α refers to the Inverse Ackermann function. In practice, we assume it's a constant. In other words, O(α(N)) is
+regarded as O(1) on average.
+
+
+Note Kruskal's algorithm use UnionFind to determine whether a new edge creates a cycle in the connected graph.
 
 *Longest Consecutive Sequence
 *LQGraphValidTree
