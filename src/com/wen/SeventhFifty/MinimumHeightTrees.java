@@ -6,46 +6,41 @@ public class MinimumHeightTrees {
     // Find the nodes with inDegree==1 level by level and remove them from the all nodes set, the result will have no
     // more than 2 nodes, because otherwise it can be further reduced.
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
-        if (n < 3) {
-            List<Integer> result = new ArrayList<>();
-            for (int i = 0; i < n; i++) {
-                result.add(i);
-            }
+        List<Integer> result=new ArrayList<>();
+        if(n==1){
+            result.add(0);
             return result;
         }
-        Map<Integer, Set<Integer>> tree = new HashMap<>();
-        for (int[] edge : edges) {
-            Set<Integer> s0 = tree.getOrDefault(edge[0], new HashSet<>());
-            s0.add(edge[1]);
-            tree.putIfAbsent(edge[0], s0);
-            Set<Integer> s1 = tree.getOrDefault(edge[1], new HashSet<>());
-            s1.add(edge[0]);
-            tree.putIfAbsent(edge[1], s1);
+        Map<Integer, Set<Integer>> tree=new HashMap<>();
+        for(int[] e:edges){
+            int x=e[0], y=e[1];
+            tree.putIfAbsent(x, new HashSet<>());
+            tree.putIfAbsent(y, new HashSet<>());
+            tree.get(x).add(y);
+            tree.get(y).add(x);
         }
-        Set<Integer> nodes = new HashSet<>();
-        for (int i = 0; i < n; i++) {
-            nodes.add(i);
-        }
-        Queue<Integer> q = new LinkedList<>();
-        for (int node : tree.keySet()) {
-            if (tree.get(node).size() == 1) {
-                q.offer(node);
-                nodes.remove(node);
+        Queue<Integer> q=new LinkedList<>();
+        for(int v: tree.keySet()){
+            if(tree.get(v).size()==1){
+                q.offer(v);
             }
         }
-        while (nodes.size() > 2 && !q.isEmpty()) {
-            int size = q.size();
-            for (int i = 0; i < size; i++) {
-                int cur = q.poll();
-                for (int nghbr : tree.get(cur)) {
-                    tree.get(nghbr).remove(cur);
-                    if (tree.get(nghbr).size() == 1) {
-                        q.offer(nghbr);
-                        nodes.remove(nghbr);
+        Set<Integer> level=new HashSet<>();
+        while(!q.isEmpty()){
+            int size=q.size();
+            level=new HashSet<>();
+            for(int i=0; i<size; i++){
+                int cur=q.poll();
+                level.add(cur);
+                for(int next: tree.get(cur)){
+                    tree.get(next).remove(cur);
+                    if(tree.get(next).size()==1){
+                        q.offer(next);
                     }
                 }
             }
         }
-        return new ArrayList(nodes);
+        result.addAll(level);
+        return result;
     }
 }

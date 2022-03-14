@@ -5,9 +5,17 @@ Can be implemented using Queue(BFS) or Stack(DFS), both ways are similar:
     be 0)
 4. Check if eventually all nodes are reached
 
+Limitation of the Algorithm:
+    “Topological sorting” only works with graphs that are directed and acyclic.
+    There must be at least one vertex in the “graph” with an “in-degree” of 0. If all vertices in the “graph” have a
+    non-zero “in-degree”, then all vertices need at least one vertex as a predecessor. In this case, no vertex can serve
+    as the starting vertex.
+
 Course Schedule
 Course Schedule II
+LQAlienDictionary
 - 300 -
+*Minimum Height Trees
 - 350 -
 *Evaluate Division
 - 400 -
@@ -22,3 +30,9 @@ Course Schedule II
 - 800 -
 - 850 -
 - 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+LQParallelCourses
+- 1150 -

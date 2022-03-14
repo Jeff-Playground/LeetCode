@@ -22,6 +22,7 @@ import com.wen.SecondFifty.TextJustification;
 import com.wen.SeventeenthFifty.*;
 import com.wen.SeventhFifty.*;
 import com.wen.SixteenthFifty.*;
+import com.wen.SixthFifty.LQAlienDictionary;
 import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
 import com.wen.TenthFifty.*;
 import com.wen.ThirdFifty.LRUCache;
@@ -476,7 +477,7 @@ public class Main {
 
 //        LQGroupShiftedStrings.groupStrings(new String[]{"abc","bcd","acef","xyz","cb","az","x","z"});
 
-//        LQAlienDictionary.alienOrder(new String[]{"wrt","wrf","er","ett","rftt"});
+//        LQAlienDictionary.alienOrder(new String[]{"ac","ab","zc","zb"});
 
 //        int[][] rooms=new int[][]{{Integer.MAX_VALUE,Integer.MAX_VALUE,0,Integer.MAX_VALUE},{Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE},{Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE},{Integer.MAX_VALUE,0,Integer.MAX_VALUE,Integer.MAX_VALUE}};
 //        LQWallsAndGates.wallsAndGates(rooms);
