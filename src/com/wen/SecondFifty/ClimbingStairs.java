@@ -1,17 +1,27 @@
 package com.wen.SecondFifty;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ClimbingStairs {
-    // Iterative
+    // DP top down
     public int climbStairs(int n) {
-        int cur=1, next=1;
-        while(n-->0){
-            next+=cur;
-            cur=next-cur;
-        }
-        return cur;
+        Map<Integer, Integer> cache=new HashMap<>();
+        cache.put(1, 1);
+        cache.put(2, 2);
+        return csHelper(n, cache);
     }
 
-//    // Dynamic programming
+    private int csHelper(int n, Map<Integer, Integer> cache){
+        if(!cache.containsKey(n)){
+            int climbOneLast=csHelper(n-1, cache);
+            int climbTwoLast=csHelper(n-2, cache);
+            cache.put(n, climbOneLast+climbTwoLast);
+        }
+        return cache.get(n);
+    }
+
+//    // DP bottom up
 //    // dp[i] stands for the number of ways to reach stair i+1
 //    public int climbStairs(int n) {
 //        if(n==1){
