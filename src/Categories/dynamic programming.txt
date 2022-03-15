@@ -81,6 +81,7 @@ Number of Longest Increasing Subsequence
 Best Time to Buy and Sell Stock with Transaction Fee
 *Maximum Length of Repeated Subarray
 *LQMinimumWindowSubsequence
+Delete and Earn
 Min Cost Climbing Stairs
 - 750 -
 Pyramid Transition Matrix
@@ -97,6 +98,7 @@ Minimum Falling Path Sum
 - 1000 -
 - 1050 -
 - 1100 -
+N-th Tribonacci Number
 Longest Common Subsequence
 - 1150 -
 - 1200 -
@@ -106,3 +108,12 @@ Minimum Falling Path Sum II
 - 1350 -
 - 1400 -
 - 1450 -
+- 1500 -
+- 1550 -
+- 1600 -
+- 1650 -
+- 1700 -
+- 1750 -
+Maximum Score from Performing Multiplication Operations
+- 1800 -
+- 1850 -
