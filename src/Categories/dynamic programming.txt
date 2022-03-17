@@ -105,6 +105,7 @@ Longest Common Subsequence
 - 1250 -
 Minimum Falling Path Sum II
 - 1300 -
+*Minimum Difficulty of a Job Schedule
 - 1350 -
 - 1400 -
 - 1450 -
