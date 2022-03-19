@@ -37,7 +37,7 @@ public class MinCostClimbingStairs {
 //        return min[cost.length];
 //    }
 
-//    // DP1, state reduction
+//    // DP1 optimized as no iteration along 1 dimension - the dimension of stair idx
 //    public int minCostClimbingStairs(int[] cost) {
 //        int l=cost.length;
 //        int first=cost[0], second=cost[1];
