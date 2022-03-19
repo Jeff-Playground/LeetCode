@@ -1,5 +1,7 @@
 package com.wen.EleventhFifty;
 
+import java.util.Arrays;
+
 public class CoinChange2 {
     // Here using unbounded knapsack is simpler and makes more sense, the bounded knapsack solutions are just for practice
 
@@ -45,7 +47,37 @@ public class CoinChange2 {
 //        return dp[l][amount];
 //    }
 
-//    // DP, unbounded knapsack optimized to one dimensional array
+//    // DP, bounded knapsack, top down
+//    public int change(int amount, int[] coins) {
+//        int l=coins.length;
+//        int[][] memo=new int[l][amount+1];
+//        for(int[] m: memo){
+//            Arrays.fill(m, -1);
+//        }
+//        return dp(coins, l-1, amount, memo);
+//    }
+//
+//    private int dp(int[] coins, int idx, int cur, int[][] memo){
+//        if(memo[idx][cur]==-1){
+//            if(cur==0){
+//                memo[idx][cur]=1;
+//            } else{
+//                if(idx==0){
+//                    memo[idx][cur]=cur%coins[0]==0?1:0;
+//                } else{
+//                    int max=cur/coins[idx];
+//                    memo[idx][cur]=0;
+//                    for(int i=0; i<=max; i++){
+//                        memo[idx][cur]+=dp(coins, idx-1, cur-i*coins[idx], memo);
+//                    }
+//                }
+//            }
+//        }
+//        return memo[idx][cur];
+//    }
+
+//    // DP, unbounded knapsack optimized to one dimensional array, as no iteration along 1 dimension - the dimension of
+//    // coins idx
 //    public int change(int amount, int[] coins) {
 //        int l=coins.length;
 //        int[] dp=new int[amount+1];
@@ -78,4 +110,33 @@ public class CoinChange2 {
         }
         return dp[l][amount];
     }
+
+//    // DP, unbounded knapsack, top down
+//    public int change(int amount, int[] coins) {
+//        int l=coins.length;
+//        int[][] memo=new int[l][amount+1];
+//        for(int[] m: memo){
+//            Arrays.fill(m, -1);
+//        }
+//        return dp(coins, l-1, amount, memo);
+//    }
+//
+//    private int dp(int[] coins, int idx, int cur, int[][] memo){
+//        if(memo[idx][cur]==-1){
+//            if(cur==0){
+//                memo[idx][cur]=1;
+//            } else{
+//                if(idx==0){
+//                    memo[idx][cur]=cur%coins[0]==0?1:0;
+//                } else{
+//                    if(coins[idx]<=cur){
+//                        memo[idx][cur]=dp(coins, idx-1, cur, memo)+dp(coins, idx, cur-coins[idx], memo);
+//                    } else{
+//                        memo[idx][cur]=dp(coins, idx-1, cur, memo);
+//                    }
+//                }
+//            }
+//        }
+//        return memo[idx][cur];
+//    }
 }
