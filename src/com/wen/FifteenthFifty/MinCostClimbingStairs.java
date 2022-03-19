@@ -36,4 +36,16 @@ public class MinCostClimbingStairs {
 //        }
 //        return min[cost.length];
 //    }
+
+//    // DP1, state reduction
+//    public int minCostClimbingStairs(int[] cost) {
+//        int l=cost.length;
+//        int first=cost[0], second=cost[1];
+//        for(int i=2; i<l; i++){
+//            int cur=Math.min(first, second)+cost[i];
+//            first=second;
+//            second=cur;
+//        }
+//        return Math.min(first, second);
+//    }
 }

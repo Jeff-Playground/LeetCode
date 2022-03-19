@@ -55,7 +55,7 @@ public class LongestIncreasingSubsequence {
 //        return index+1;
 //    }
 
-    // Dynamic programming
+    // DP, bottom up
     // dp[i] stands for the length of LIS before nums[i]
     public int lengthOfLIS(int[] nums) {
         int result=0;
@@ -72,4 +72,33 @@ public class LongestIncreasingSubsequence {
         }
         return result;
     }
+
+//    // DP, top down
+//    public int lengthOfLIS(int[] nums) {
+//        int l=nums.length;
+//        int[] memo=new int[l];
+//        int result=0;
+//        for(int i=0; i<l; i++){
+//            dp(nums, i, memo);
+//            result=Math.max(result, memo[i]);
+//        }
+//        return result;
+//    }
+//
+//    private int dp(int[] nums, int idx, int[] memo){
+//        if(memo[idx]==0){
+//            if(idx==0){
+//                memo[idx]=1;
+//            } else{
+//                int max=1;
+//                for(int i=0; i<idx; i++){
+//                    if(nums[idx]>nums[i]){
+//                        max=Math.max(dp(nums, i, memo)+1, max);
+//                    }
+//                }
+//                memo[idx]=max;
+//            }
+//        }
+//        return memo[idx];
+//    }
 }

@@ -22,7 +22,7 @@ public class MaximumScoreFromPerformingMultiplicationOperations {
 //        return dp(nums, multipliers, memo, 0, 0);
 //    }
 //
-//    private int dp(int[] nums, int[] multipliers, int[][] memo, int mIdx, int leftIdx){
+//    private int dp(int[] nums, int[] multipliers, int mIdx, int leftIdx, int[][] memo){
 //        int n=nums.length, m=multipliers.length;
 //        if(mIdx==m){
 //            return 0;

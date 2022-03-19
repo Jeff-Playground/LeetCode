@@ -1,0 +1,3 @@
+Note condition?a:b has lower priority than +/-, so (condition?a:b+c) and ((condition?a:b)+c) is different
+
+Set can be initialized with Set<A> s=new HashSet<>(List<A>);

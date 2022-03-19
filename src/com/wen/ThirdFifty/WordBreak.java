@@ -26,20 +26,43 @@ public class WordBreak {
 //        return false;
 //    }
 
-//    // Dynamic Programming
+//    // DP, top down
 //    public boolean wordBreak(String s, List<String> wordDict) {
+//        int l=s.length();
 //        Set<String> dict=new HashSet<>(wordDict);
-//        boolean[] dp=new boolean[s.length()+1];
-//        dp[0]=true;
-//        for(int i=0; i<s.length()+1; i++){
-//            for(int j=0; j<i; j++){
-//                if(dp[j] && dict.contains(s.substring(j, i))){
+//        int[] memo=new int[l];
+//        return dp(s, dict, l-1, memo);
+//    }
+//
+//    private boolean dp(String s, Set<String> dict, int idx, int[] memo){
+//        if(memo[idx]==0){
+//            for(int i=0; i<=idx; i++){
+//                if((i==0 || dp(s, dict, i-1, memo)) && dict.contains(s.substring(i, idx+1))){
+//                    memo[idx]=1;
+//                    break;
+//                }
+//            }
+//            if(memo[idx]==0){
+//                memo[idx]=-1;
+//            }
+//        }
+//        return memo[idx]==1;
+//    }
+
+//    // DP, bottom up, dp[i] stands for whether s.substring(0, i+1) can be broken properly
+//    public boolean wordBreak(String s, List<String> wordDict) {
+//        int l=s.length();
+//        boolean[] dp=new boolean[l];
+//        Set<String> dict=new HashSet<>(wordDict);
+//        for(int i=0; i<l; i++){
+//            for(int j=0; j<=i; j++){
+//                if((j==0 || dp[j-1]) && dict.contains(s.substring(j, i+1))){
 //                    dp[i]=true;
 //                    break;
 //                }
 //            }
 //        }
-//        return dp[s.length()];
+//        return dp[l-1];
 //    }
 
 //    // DFS, memo values 0 means not visited, 1 means matching, -1 means not matching

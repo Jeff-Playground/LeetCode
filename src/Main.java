@@ -1204,5 +1204,7 @@ public class Main {
 //        test.longestDupSubstring("aeeebaabdcedcbbcaeeebaabd");
 
 //        ValidArrangementOfPairs.validArrangement(new int[][]{{1,3},{3,2},{2,1}});
+
+//        CoinChange.coinChange(new int[]{1,2,5}, 11);
     }
 }

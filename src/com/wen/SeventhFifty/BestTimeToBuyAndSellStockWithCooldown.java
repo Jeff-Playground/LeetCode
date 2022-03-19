@@ -54,4 +54,44 @@ public class BestTimeToBuyAndSellStockWithCooldown {
         }
         return Math.max(sell[l-1], coolDown[l-1]);
     }
+
+//    // DP3, bottom up
+//    // dp[i][j] stands for the max profit for day i(0-indexed), where current holding(0/1) is j
+//    public int maxProfit(int[] prices) {
+//        int l=prices.length;
+//        int[][] dp=new int[l][2];
+//        for(int i=l-1; i>=0; i--){
+//            if(i==l-1){
+//                dp[i][0]=0;
+//                dp[i][1]=prices[i];
+//            } else{
+//                dp[i][0]=Math.max(dp[i+1][0], dp[i+1][1]-prices[i]);
+//                dp[i][1]=Math.max(dp[i+1][1], (i+2<l?dp[i+2][0]:0)+prices[i]);
+//            }
+//        }
+//        return dp[0][0];
+//    }
+
+//    // DP3, top down
+//    public int maxProfit(int[] prices) {
+//        int l=prices.length;
+//        int[][] memo=new int[l][2];
+//        return dp(prices, 0, 0, memo);
+//    }
+//
+//    private int dp(int[] prices, int day, int hold, int[][] memo){
+//        if(memo[day][hold]==0){
+//            int l=prices.length;
+//            if(day==l-1){
+//                memo[day][hold]=hold==0?0:prices[day];
+//            } else{
+//                if(hold==0){
+//                    memo[day][hold]=Math.max(dp(prices, day+1, 0, memo), dp(prices, day+1, 1, memo)-prices[day]);
+//                } else{
+//                    memo[day][hold]=Math.max(dp(prices, day+1, 1, memo), (day+2<l?dp(prices, day+2, 0, memo):0)+prices[day]);
+//                }
+//            }
+//        }
+//        return memo[day][hold];
+//    }
 }
