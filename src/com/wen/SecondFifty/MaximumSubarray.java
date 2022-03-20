@@ -20,10 +20,10 @@ public class MaximumSubarray {
     // As dp[i] only depends on dp[i-1], dp can be optimized as below
     public int maxSubArray(int[] nums) {
         int result=Integer.MIN_VALUE;
-        int sum=0;
+        int curSum=0;
         for(int num: nums) {
-            sum=Math.max(sum+num, num);
-            result=Math.max(result, sum);
+            curSum=Math.max(curSum+num, num);
+            result=Math.max(result, curSum);
         }
         return result;
     }
