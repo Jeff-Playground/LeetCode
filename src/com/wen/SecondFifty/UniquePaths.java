@@ -3,21 +3,21 @@ package com.wen.SecondFifty;
 import java.util.Arrays;
 
 public class UniquePaths {
-    // Dynamic Programming with one-dimensional array
-    public int uniquePaths(int m, int n) {
-        int dp[]=new int[n];
-        Arrays.fill(dp, 0);
-        for(int i=0; i<=m-1; i++) {
-            for(int j=0; j<=n-1; j++) {
-                if(j>0) {
-                    dp[j]+=dp[j-1];
-                } else {
-                    dp[j]=1;
-                }
-            }
-        }
-        return dp[n-1];
-    }
+//    // Dynamic Programming with one-dimensional array
+//    public int uniquePaths(int m, int n) {
+//        int dp[]=new int[n];
+//        Arrays.fill(dp, 0);
+//        for(int i=0; i<=m-1; i++) {
+//            for(int j=0; j<=n-1; j++) {
+//                if(j>0) {
+//                    dp[j]+=dp[j-1];
+//                } else {
+//                    dp[j]=1;
+//                }
+//            }
+//        }
+//        return dp[n-1];
+//    }
 
 //    // Dynamic Programming with two-dimensional array
 //    // dp[i][j] stands for the unique paths count to reach node (i,j)
@@ -47,4 +47,21 @@ public class UniquePaths {
 //        }
 //        return (int)(dividend/divisor);
 //    }
+
+    // DP, top down
+    public int uniquePaths(int m, int n) {
+        int[][] memo=new int[m][n];
+        return dp(m-1, n-1, memo);
+    }
+
+    private int dp(int i, int j, int[][] memo){
+        if(memo[i][j]==0){
+            if(i==0 || j==0){
+                memo[i][j]=1;
+            } else{
+                memo[i][j]=dp(i-1, j, memo)+dp(i, j-1, memo);
+            }
+        }
+        return memo[i][j];
+    }
 }

@@ -52,4 +52,28 @@ public class UniquePathsII {
 //        }
 //        return dp[m-1][n-1];
 //    }
+
+//    // DP, top down
+//    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+//        int m=obstacleGrid.length, n=obstacleGrid[0].length;
+//        int[][] memo=new int[m][n];
+//        return dp(obstacleGrid, m-1, n-1, memo);
+//    }
+//
+//    private int dp(int[][] grid, int i, int j, int[][] memo){
+//        if(memo[i][j]==0 && grid[i][j]==0){
+//            if(i==0 && j==0){
+//                memo[i][j]=1;
+//            } else{
+//                if(i==0){
+//                    memo[i][j]=dp(grid, i, j-1, memo);
+//                } else if(j==0){
+//                    memo[i][j]=dp(grid, i-1, j, memo);
+//                } else{
+//                    memo[i][j]=dp(grid, i-1, j, memo)+dp(grid, i, j-1, memo);
+//                }
+//            }
+//        }
+//        return memo[i][j];
+//    }
 }
