@@ -109,6 +109,7 @@ Minimum Falling Path Sum II
 - 1350 -
 - 1400 -
 - 1450 -
+*Paint House III
 - 1500 -
 - 1550 -
 - 1600 -

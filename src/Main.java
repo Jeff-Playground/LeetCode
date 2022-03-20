@@ -31,6 +31,7 @@ import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
 import com.wen.ThirteenthFifty.*;
 import com.wen.ThirtySecondFifty.CountUnhappyFriends;
+import com.wen.ThirtythFifty.PaintHouseIII;
 import com.wen.TwelfthFifty.*;
 import com.wen.TwentiethFifty.DeleteColumnsToMakeSortedII;
 import com.wen.TwentiethFifty.FindTheTownJudge;
@@ -1206,5 +1207,7 @@ public class Main {
 //        ValidArrangementOfPairs.validArrangement(new int[][]{{1,3},{3,2},{2,1}});
 
 //        CoinChange.coinChange(new int[]{1,2,5}, 11);
+
+        PaintHouseIII.minCost(new int[]{0,2,1,2,0}, new int[][]{{1,10},{10,1},{10,1},{1,10},{5,1}}, 5, 2, 3);
     }
 }

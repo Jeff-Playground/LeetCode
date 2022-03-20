@@ -57,38 +57,67 @@ public class LQPaintHouseII {
 //        return preMin1;
 //    }
 
-    // DP
-    // Note here only need to maintain two min colors from last round, and use those values instead of going over all
-    // colors
+//    // DP
+//    // Note here only need to maintain two min colors from last round, and use those values instead of going over all
+//    // colors
+//    public int minCostII(int[][] costs) {
+//        if(costs==null || costs.length==0 || costs[0].length==0){
+//            return 0;
+//        }
+//        int n=costs.length, k=costs[0].length;
+//        int[][] dp=new int[n][k];
+//        int preMinColor1=-1, preMinColor2=-1;
+//        for(int i=0; i<n; i++){
+//            int curMinColor1=-1, curMinColor2=-1;
+//            for(int j=0; j<k; j++){
+//                if(i==0){
+//                    dp[i][j]=costs[i][j];
+//                } else{
+//                    if(j==preMinColor1){
+//                        dp[i][j]=costs[i][j]+dp[i-1][preMinColor2];
+//                    } else{
+//                        dp[i][j]=costs[i][j]+dp[i-1][preMinColor1];
+//                    }
+//                }
+//                if(curMinColor1==-1 || dp[i][j]<dp[i][curMinColor1]){
+//                    curMinColor2=curMinColor1;
+//                    curMinColor1=j;
+//                } else if(curMinColor2==-1 || dp[i][j]<dp[i][curMinColor2]){
+//                    curMinColor2=j;
+//                }
+//            }
+//            preMinColor1=curMinColor1;
+//            preMinColor2=curMinColor2;
+//        }
+//        return dp[n-1][preMinColor1];
+//    }
+
+    // DP, top down
     public int minCostII(int[][] costs) {
-        if(costs==null || costs.length==0 || costs[0].length==0){
-            return 0;
+        int m=costs.length, n=costs[0].length;
+        int[][] memo=new int[m][n];
+        int result=Integer.MAX_VALUE;
+        for(int j=0; j<n; j++){
+            result=Math.min(result, dp(costs, m-1, j, memo));
         }
-        int n=costs.length, k=costs[0].length;
-        int[][] dp=new int[n][k];
-        int preMinColor1=-1, preMinColor2=-1;
-        for(int i=0; i<n; i++){
-            int curMinColor1=-1, curMinColor2=-1;
-            for(int j=0; j<k; j++){
-                if(i==0){
-                    dp[i][j]=costs[i][j];
-                } else{
-                    if(j==preMinColor1){
-                        dp[i][j]=costs[i][j]+dp[i-1][preMinColor2];
-                    } else{
-                        dp[i][j]=costs[i][j]+dp[i-1][preMinColor1];
+        return result;
+    }
+
+    private int dp(int[][] costs, int idx, int color, int[][] memo){
+        if(memo[idx][color]==0){
+            int m=costs.length, n=costs[0].length;
+            if(idx==0){
+                memo[idx][color]=costs[idx][color];
+            } else{
+                int lastMin=Integer.MAX_VALUE;
+                for(int j=0; j<n; j++){
+                    if(j!=color){
+                        lastMin=Math.min(lastMin, dp(costs, idx-1, j, memo));
                     }
                 }
-                if(curMinColor1==-1 || dp[i][j]<dp[i][curMinColor1]){
-                    curMinColor2=curMinColor1;
-                    curMinColor1=j;
-                } else if(curMinColor2==-1 || dp[i][j]<dp[i][curMinColor2]){
-                    curMinColor2=j;
-                }
+                memo[idx][color]=costs[idx][color]+lastMin;
             }
-            preMinColor1=curMinColor1;
-            preMinColor2=curMinColor2;
         }
-        return dp[n-1][preMinColor1];
+        return memo[idx][color];
     }
 }
