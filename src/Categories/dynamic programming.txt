@@ -96,6 +96,7 @@ Pyramid Transition Matrix
 Minimum Falling Path Sum
 - 950 -
 *Delete Columns to Make Sorted III
+*Minimum Cost For Tickets
 - 1000 -
 - 1050 -
 - 1100 -

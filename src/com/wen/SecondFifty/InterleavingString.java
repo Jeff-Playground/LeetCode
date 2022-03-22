@@ -69,7 +69,7 @@ public class InterleavingString {
 //        return false;
 //    }
 
-    // Dynamic Programming
+    // Dynamic Programming, bottom up
     // dp[i][j] stands for whether s3.substring(0, i+j+1) is the interleaving of s1.substring(0, i+1) and
     // s2.substring(0, j+1)
     public static boolean isInterleave(String s1, String s2, String s3) {
@@ -105,4 +105,33 @@ public class InterleavingString {
         }
         return dp[l1][l2];
     }
+
+//    // DP, top down
+//    public boolean isInterleave(String s1, String s2, String s3) {
+//        int l1=s1.length(), l2=s2.length(), l3=s3.length();
+//        if(l1+l2!=l3){
+//            return false;
+//        }
+//        int[][] memo=new int[l1+1][l2+1];
+//        return dp(s1, s2, s3, l1, l2, memo)==1;
+//    }
+//
+//    private int dp(String s1, String s2, String s3, int l1, int l2, int[][] memo){
+//        if(memo[l1][l2]==0){
+//            int l3=l1+l2;
+//            if(l1==0 && l2==0){
+//                memo[l1][l2]=1;
+//            } else if(l1==0){
+//                memo[l1][l2]=s2.substring(0, l2).equals(s3.substring(0,l3))?1:-1;
+//            } else if(l2==0){
+//                memo[l1][l2]=s1.substring(0, l1).equals(s3.substring(0,l3))?1:-1;
+//            } else{
+//                memo[l1][l2]=-1;
+//                if((s1.charAt(l1-1)==s3.charAt(l3-1) && dp(s1, s2, s3, l1-1, l2, memo)==1) || (s2.charAt(l2-1)==s3.charAt(l3-1) && dp(s1, s2, s3, l1, l2-1, memo)==1)){
+//                    memo[l1][l2]=1;
+//                }
+//            }
+//        }
+//        return memo[l1][l2];
+//    }
 }
