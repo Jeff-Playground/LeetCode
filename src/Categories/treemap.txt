@@ -1,6 +1,8 @@
 TreeMap<Integer, Integer> tm=new TreeMap<>();
+// key uses val as upper limit
 Integer floorKey=tm.floorKey(val);  // Inclusive
 Integer lowerKey=tm.lowerKey(val);  // Exclusive
+// key uses val as lower limit
 Integer ceilingKey=tm.ceilingKey(val);  // Inclusive
 Integer higherKey=tm.higherKey(val);    // Exclusive
 Map<Integer, Integer> subMap=tm.subMap(left, true, right, true);    // boolean is inclusive/exclusive

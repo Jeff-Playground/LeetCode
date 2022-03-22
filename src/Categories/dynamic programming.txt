@@ -85,6 +85,7 @@ Delete and Earn
 Min Cost Climbing Stairs
 - 750 -
 Pyramid Transition Matrix
+*Domino and Tromino Tiling
 - 800 -
 *Race Car
 *Count Unique Characters of All Substrings of a Given String
@@ -101,7 +102,9 @@ Minimum Falling Path Sum
 N-th Tribonacci Number
 Longest Common Subsequence
 - 1150 -
+Number of Dice Rolls With Target Sum
 - 1200 -
+Count Vowels Permutation
 - 1250 -
 Minimum Falling Path Sum II
 - 1300 -

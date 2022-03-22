@@ -1,3 +1,5 @@
 Note condition?a:b has lower priority than +/-, so (condition?a:b+c) and ((condition?a:b)+c) is different
 
-Set can be initialized with Set<A> s=new HashSet<>(List<A>);
+Set can be initialized with Set<A> s=new HashSet<>(List<A>)
+
+int mod=1_000_000_007, Integer.MAX_VALUE/mod=2.x

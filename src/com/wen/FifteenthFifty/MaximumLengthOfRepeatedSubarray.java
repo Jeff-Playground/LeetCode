@@ -1,11 +1,12 @@
 package com.wen.FifteenthFifty;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class MaximumLengthOfRepeatedSubarray {
-    // DP, dp[i][j] stands for the length of repeated subarray at the end of the arrays for nums1 ends at i and nums2
-    // ends at j
+    // DP, bottom up
+    // dp[i][j] stands for the length of repeated subarray at the end of the arrays for nums1 ends at i and nums2 ends at j
     public int findLength(int[] nums1, int[] nums2) {
         int l1=nums1.length, l2=nums2.length, result=0;
         int[][] dp=new int[l1][l2];
@@ -23,6 +24,36 @@ public class MaximumLengthOfRepeatedSubarray {
         }
         return result;
     }
+
+//    // DP, top down
+//    public int findLength(int[] nums1, int[] nums2) {
+//        int m=nums1.length, n=nums2.length;
+//        int[][] memo=new int[m][n];
+//        int[] result=new int[]{0};
+//        for(int[] v: memo){
+//            Arrays.fill(v, -1);
+//        }
+//        dp(nums1, nums2, m-1, n-1, memo, result);
+//        return result[0];
+//    }
+//
+//    private int dp(int[] nums1, int[] nums2, int i, int j, int[][] memo, int[] result){
+//        if(memo[i][j]==-1){
+//            if(i==0 || j==0){
+//                memo[i][j]=nums1[i]==nums2[j]?1:0;
+//            } else{
+//                if(nums1[i]==nums2[j]){
+//                    memo[i][j]=dp(nums1, nums2, i-1, j-1, memo, result)+1;
+//                } else{
+//                    memo[i][j]=0;
+//                }
+//                dp(nums1, nums2, i-1, j, memo, result);
+//                dp(nums1, nums2, i, j-1, memo, result);
+//            }
+//        }
+//        result[0]=Math.max(result[0], memo[i][j]);
+//        return memo[i][j];
+//    }
 
 //    // Binary search, note the [low, high] range here is the range for the number which is result+1, this is to avoid
 //    // low=mid which could end in a infinite loop

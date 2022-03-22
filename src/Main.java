@@ -33,10 +33,7 @@ import com.wen.ThirteenthFifty.*;
 import com.wen.ThirtySecondFifty.CountUnhappyFriends;
 import com.wen.ThirtythFifty.PaintHouseIII;
 import com.wen.TwelfthFifty.*;
-import com.wen.TwentiethFifty.DeleteColumnsToMakeSortedII;
-import com.wen.TwentiethFifty.FindTheTownJudge;
-import com.wen.TwentiethFifty.LongestTurbulentSubarray;
-import com.wen.TwentiethFifty.PrisonCellsAfterNDays;
+import com.wen.TwentiethFifty.*;
 import com.wen.TwentyFirstFifty.LongestDuplicateSubstring;
 import com.wen.TwentyFourthFifty.LastSubstringInLexicographicalOrder;
 import com.wen.TwentySecondFifty.LQCampusBikes;
@@ -1208,6 +1205,8 @@ public class Main {
 
 //        CoinChange.coinChange(new int[]{1,2,5}, 11);
 
-        PaintHouseIII.minCost(new int[]{0,2,1,2,0}, new int[][]{{1,10},{10,1},{10,1},{1,10},{5,1}}, 5, 2, 3);
+//        PaintHouseIII.minCost(new int[]{0,2,1,2,0}, new int[][]{{1,10},{10,1},{10,1},{1,10},{5,1}}, 5, 2, 3);
+
+//        MinimumCostForTickets.mincostTickets(new int[]{1,4,6,7,8,20}, new int[]{7,2,15});
     }
 }
