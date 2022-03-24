@@ -8,7 +8,7 @@ Design Twitter:
 Design user system:
     Session: used for authentication, a token/session_key will be sent back and forth for all requests
     Use cache to serve high QPS
-    Do horizontal data sharding the avoid single point failure and increase performance
+    Do horizontal data sharding to avoid single point failure and increase performance
     Friendship can be stored either one-way or two-way
 
 Design Tiny URL:
@@ -33,18 +33,18 @@ Design distributed files system:
             A chunk can be validated using checksum mechanism
             Slaves are selected by LRU/High-free-space strategy by master for writes
 
-Design a web crawler
+Design a web crawler:
     Producer-consumer pattern:
         Queue/buffer can be implemented using SQL DB
         Crawled results can be stored in NoSQL DB
     Handle update failure(website not updated):
-        Exponential back-off
+        Exponential back-off, similarly we can keep cutting the back-off time in half to keep up with the update frequency of websites
     Handle dead cycle(one website has too many web pages):
         Specify a quota and only crawl a certain percentage of all pages
     Handle websites in multiple regions:
         Set up the same system in every different region
 
-Design a type-ahead system
+Design a type-ahead system:
     Trie:
         Two services involved, one for querying and the other for building the trie based on log
         Is read-only and new version need to be built offline regularly
@@ -55,7 +55,7 @@ Design a type-ahead system
         Pre-fetch
     Reduce log size: probabilistic logging
 
-Design a MapReduce system
+Design a MapReduce system:
     Master-slave
         Master is coordinator, slaves are map workers and reduce workers depends on the assigned job
         Slaves are initialized and in a pool
@@ -66,7 +66,7 @@ Design a MapReduce system
         Shuffle is sort and partition on map workers and merge sort and fetch on reduce workers
     When data for a specific key is too large, a trick of adding postfix to the key and partition it to different reducer workers can be implemented
 
-Design Uber
+Design Uber:
     Server deployed in master-slave model as replications
     Both driver and user make requests to server
         Driver reports location within requests
@@ -75,7 +75,7 @@ Design Uber
         Response to user will have trip info and matched driver info
     Data can be sharded base on cities(Geo fence)
 
-Design Bigtable
+Design Bigtable:
     File based
         Write/update:
             Load latest file into memory and make sorted, when write/update, write to WAL first, then write in sorted list in memory. The list should be persisted to file regularly
@@ -93,7 +93,7 @@ Design Bigtable
         Zookeeper
         Consistent hashing info can be moved to lock server from master
 
-Design WhatsApp
+Design WhatsApp:
     Each user will be associated with a thread, where it contains info on: (SQL)
         thread_id
         owner_id
@@ -111,7 +111,7 @@ Design WhatsApp
         created_at
     Active users will be assigned a socket connection to avoid delivery delays
 
-Design a ratelimiter
+Design a ratelimiter:
     Implement with cache(Memcached/Redis)
         Key: event+feature+timestamp
             Key can be stored in different levels(seconds, minutes, hours, days, ...)
@@ -134,7 +134,7 @@ Design a ratelimiter
             Member: event+feature+unixTimestamp
             Score: unix timestamp
 
-Design a datadog
+Design a datadog:
     Implement log with SQL/NoSQL
     Implement organized request data with NoSQL/Cache
         Key: event+feature

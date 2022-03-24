@@ -43,7 +43,7 @@ Design a web crawler:
         How to handle slow select:
             Scale up the task DB horizontally, and implement sharding as needed
         How to handle update failure(content not updated for specific URLs):
-            Exponential back-off
+            Exponential back-off, similarly we can keep cutting the back-off time in half to keep up with the update frequency of websites
         How to handle dead cycle(too many web pages in one single website and crawler keeps working on it):
             Specify quota for certain websites, for example: 10%
         How to handle websites located in multiple regions:

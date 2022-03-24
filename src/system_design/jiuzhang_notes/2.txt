@@ -11,7 +11,8 @@ Design user system:
             For storing relationship:
                 both SQL and NoSQL are fine in this case
                 SQL vs NoSQL:
-                    SQL supports transactions better
+                    SQL supports transactions
+                    SQL supports sequential ID(This needs a lock on the master/write node)
                     SQL is more mature, while in NoSQL some things need to be taken care by user(serialization, secondary index)
                     NoSQL normally has better performance
                     NoSQL normally doesn't support multi-indexes

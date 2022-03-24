@@ -3,7 +3,7 @@ Consistent hashing: adding a new node wouldn't change much of the original nodes
     Micro shards/Virtual nodes: each machine can be mapped to a lot of(for example 1000) micro shards on the ring
                                 each micro shard is a node/value on the ring
         When computing the machine location of a value, just hash it to map to a node on the ring, and find the first existing node on the ring clock-wise
-            e.g. Hash(value)=location, lookup location in TreeMap(RBTree) to find the corresponding machine
+            e.g. Hash(value)=location, lookup location in TreeMap(RBTree) to find the corresponding machine, the tree would store info with key as shard number and value as machine location
         When adding a new machine, each new node would get part of the data from the first existing node clock-wise on the ring
 Backup vs. Replica:
     Backup: static, and is done on a regular basis at a scheduled time
@@ -52,7 +52,7 @@ Design Tiny URL:
         SQL vs. NoSQL
             NoSQL doesn't support transaction
             SQL has better query support
-            SQL has sequential ID
+            SQL has sequential ID(This needs a lock on the master/write node)
             NoSQL has better performance
             NoSQL is usually shipped with scalability
         short_url random generation:

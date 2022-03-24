@@ -11,7 +11,8 @@ Storage types:
     File system
 
 SQL vs NoSQL:
-    SQL suppots transactions better
+    SQL supports transactions
+    SQL supports sequential ID(This needs a lock on the master/write node)
     SQL is more mature, while in NoSQL some things need to be taken care by user(serialization, secondary index)
     NoSQL normally has better performance
     NoSQL normally doesn't support multi-indexes
@@ -36,7 +37,7 @@ Single point of failure:
     Replica: distributes reads to more nodes, and increase data safety
         Master-slave: master for writes and reads, slave for reads only
 
-Consistent hashing
+Consistent hashing(https://kefeng.wang/2018/08/10/consistent-hashing/)
     Adding a node wouldn't change much of the original nodes, so it's consistent
     Hashing ring range: 0 ~ 2^64-1(Java Long.MAX_VALUE)
     Micro shards/Virtual nodes:
@@ -92,7 +93,7 @@ File:
             Disk is separated into blocks:
                 Easy to check for errors
                 Fragmentation
-            Within metadata, there's a index on the block locations of the file chunks
+            Within metadata, there's an index on the block locations of the file chunks
                 Make a chunk big:
                     Advantages: reduce the size of metadata
                     Disadvantages: for small files it's wasting some disk space
