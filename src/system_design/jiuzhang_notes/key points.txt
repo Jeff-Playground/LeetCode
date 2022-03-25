@@ -141,6 +141,6 @@ Algorithms for location querying and matching:
 
 Socket:
     heartbeat is not enforced for socket, but here heartbeat should be used for ensuring user active
-    socket on server side will use single listening port and distinguish connections by client side ip/port
+    socket on server side can use single listening port and distinguish connections by client side ip/port
     socket on client side will occupy one port and can't share it
 

@@ -78,10 +78,10 @@ Design Uber:
 Design Bigtable:
     File based
         Write/update:
-            Load latest file into memory and make sorted, when write/update, write to WAL first, then write in sorted list in memory. The list should be persisted to file regularly
+            Load the latest file into memory and make sorted, when write/update, write to WAL first, then write in sorted list in memory. The list should be persisted to file regularly
         Read:
-            Add index to files, which can be implemented as B-tree
-            Add bloom filter to file
+            Add index for files, which can be implemented as B-tree
+            Add bloom filter for files
     Master-slave
         Master contains key location info, implemented with consistent hashing
         Slave stores the actual data files
@@ -129,7 +129,7 @@ Design a ratelimiter:
         Hash: (Redis Hashes are maps between string fields and string values, just like java HashMap)
             Key: event+feature+unixTimestamp
             Value: request counts
-        SortedSet: (Redis Sorted Sets are, similarly to Redis Sets, non repeating collections of Strings. The difference is that every member of a Sorted Set is associated with score, that is used in order to take the sorted set ordered, from the smallest to the greatest score.)
+        SortedSet: (Redis Sorted Sets are, similarly to Redis Sets, non repeating collections of Strings. The difference is that every member of a Sorted Set is associated with score, that is used in order to make the sorted set ordered, from the smallest to the greatest score.)
             Key: sorted_ratelimiter_keys
             Member: event+feature+unixTimestamp
             Score: unix timestamp

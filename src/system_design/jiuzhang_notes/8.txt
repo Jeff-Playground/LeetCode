@@ -8,6 +8,7 @@ Design Bigtable:
         Write/update:
             1. Call the interface for write/update
             2. Append the key+value to unsorted file
+            (Note there can be multiple entries with same key(s) across all files, each entry can be associated with a timestamp, and the latest entry would be the real entry)
             Optimization:
                 Read the unsorted file into memory in the first place, and make sorted when writing. This file can be serialized to disk regularly.
                 Use write-ahead-log to avoid data loss when memory fails.

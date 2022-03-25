@@ -28,13 +28,14 @@ Design WhatsApp:
             content:
             created_at:
         thread table:(SQL, has updates, note this will be created for every participants in a conversation, because it involves individual properties like is_muted and nickname)
-            owner_id: indexed
+            owner_id: indexed(owner does NOT mean the creator of the thread)
             thread_id: indexed
             participants_id:
             created_at:
             updated_at:
             is_muted:
             nickname:
+                Can also be indexed by owner_id and updated_at, and order desc by updated_at(clustered composite primary key)
         Steps for a user to send a message:
             1. user sends the message and receiver info to server
             2. server creates a thread for each and every user involved in the conversation(sender included)
@@ -47,7 +48,7 @@ Design WhatsApp:
             message table is NoSQL and comes with scaling
             thread table will need to do data sharding based on owner_id
         How to optimize the receiving 10s pull mechanism:
-            Socket with push service:
+            Socket with push service(TCP long connection):
                 Note:
                     heartbeat is not enforced for socket, but here heartbeat should be used for ensuring user active
                     socket on server side will use single listening port and distinguish connections by client side ip/port
@@ -78,7 +79,7 @@ Design a ratelimiter:
     Service:
         ratelimiter itself is a service, no need to divide further
     Storage:
-        Memcached:
+        Memcached:(memcached.increment is atomic and thread safe)
             reason:
                 log-like
                 has TTL
