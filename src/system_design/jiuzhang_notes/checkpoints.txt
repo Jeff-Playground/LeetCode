@@ -113,7 +113,7 @@ Design WhatsApp:
 
 Design a ratelimiter:
     Implement with cache(Memcached/Redis)
-        Key: event+feature+timestamp
+        Key: event+feature(identity)+timestamp
             Key can be stored in different levels(seconds, minutes, hours, days, ...)
         Value: request counts
     For querying, it can be aggregated based upon a bunch of requests:

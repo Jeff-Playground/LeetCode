@@ -86,7 +86,7 @@ Design a ratelimiter:
                 more efficient than DB
                 no persistence request
             key:
-                event+feature+timestamp
+                event+feature(identity)+timestamp
             value:
                 sum of request times
         To check if too many requests:
