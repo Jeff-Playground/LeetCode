@@ -4,10 +4,31 @@ The general idea is:
 1. sort all the available edges in a graph based on their length
 2. pick the current minimum edge and add it to the minimum spanning tree if adding this edge doesn't form a circle in the
    tree
-3. repeat 2 until there're n-1 edges added, where n is the number of vertices in the graph
+3. repeat 2 until there are n-1 edges added, where n is the number of vertices in the graph
 
 To check whether there's a circle in the current minimum spanning tree(MST), we can use a UnionFind.
 To sort the edges, we can use a PriorityQueue.
+
+        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->a[2]-b[2]);
+        for(int i=0; i<l; i++){
+            for(int j=0; j<=i; j++){
+                if(i!=j){
+                    pq.offer(new int[]{i, j, dist[i][j]});
+                }
+            }
+        }
+        int result=0, foundCount=0;
+        UnionFind uf=new UnionFind(l);
+        while(!pq.isEmpty()){
+            int[] cur=pq.poll();
+            int x=cur[0], y=cur[1], d=cur[2];
+            if(uf.find(x)!=uf.find(y)){
+                uf.union(x, y);
+                if(++foundCount==l-1){
+                    break;
+                }
+            }
+        }
 
 The difference between Kruskal's algorithm and Prim's algorithm is that Kruskal's algo expands the MST by adding edges.
 Whereas Prim’s algorithm expands the MST by adding vertices.

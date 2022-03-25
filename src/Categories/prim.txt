@@ -8,6 +8,32 @@ The general idea is:
    the Set
 4. Repeat 3 until the Set contains all the vertices in the graph
 
+        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->a[2]-b[2]);
+        Set<Integer> visited=new HashSet<>();
+        visited.add(0);
+        for(int j=1; j<l; j++){
+            pq.offer(new int[]{0, j, dist[0][j]});
+        }
+        int result=0;
+        while(!pq.isEmpty() && visited.size()<l){
+            int[] cur=pq.poll();
+            int x=cur[0], y=cur[1], d=cur[2];
+            if(!visited.contains(y)){
+                visited.add(y);
+                for(int i=0; i<y; i++){
+                    if(!visited.contains(i)){
+                        pq.offer(new int[]{y, i, dist[i][y]});
+                    }
+                }
+                for(int j=y+1; j<l; j++){
+                    if(!visited.contains(j)){
+                        pq.offer(new int[]{y, j, dist[y][j]});
+                    }
+                }
+            }
+        }
+
+
 The difference between Kruskal's algorithm and Prim's algorithm is that Kruskal's algo expands the MST by adding edges.
 Whereas Prim’s algorithm expands the MST by adding vertices.
 

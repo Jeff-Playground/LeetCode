@@ -57,6 +57,8 @@ public class LQOptimizeWaterDistributionInAVillage {
         for(int[] p: pipes){
             pq.offer(p);
         }
+        // Create a virtual node 0, where every real node is connected to with an edge of wells[i], so including this
+        // point ensures there's at least 1 well supply included in the MST
         for(int i=0; i<n; i++){
             pq.offer(new int[]{0, i+1, wells[i]});
         }
@@ -120,6 +122,8 @@ public class LQOptimizeWaterDistributionInAVillage {
 //            graph.get(x).put(y, Math.min(graph.get(x).getOrDefault(y, Integer.MAX_VALUE), c));
 //            graph.get(y).put(x, Math.min(graph.get(y).getOrDefault(x, Integer.MAX_VALUE), c));
 //        }
+//        // Create a virtual node 0, where every real node is connected to with an edge of wells[i], so including this
+//        // point ensures there's at least 1 well supply included in the MST
 //        for(int i=0; i<n; i++){
 //            graph.putIfAbsent(0, new HashMap<>());
 //            graph.putIfAbsent(i+1, new HashMap<>());

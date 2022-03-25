@@ -13,10 +13,40 @@ Note for normal Bellman-Ford algorithm, we need to maintain 2 copies of the dist
 for current relaxing round, this actually can be used to ensure for the i-th iteration, the current round array will store
 results that have been relaxed at most i times. This is useful in certain cases, for example in "Cheapest Flights Within K
 Stops".
+        int[] cost=new int[n];
+        Arrays.fill(cost, Integer.MAX_VALUE);
+        cost[src]=0;
+        for(int i=0; i<=K; i++){
+            int[] last=Arrays.copyOf(cost, n);
+            for(int[] edge: flights){
+                if(last[edge[0]]<Integer.MAX_VALUE && last[edge[0]]+edge[2]<cost[edge[1]]){
+                    cost[edge[1]]=last[edge[0]]+edge[2];
+                }
+            }
+        }
+
 But on the other hand, if how many times it's been relaxed is not a concern, then Bellman-Ford algorithm is possible to
 be optimized by maintaining on 1 copy for the dist array, and we use this array for every relaxing round. Doing this is
 possible to reduce the round number we need to reach the optimal result. One example is the implementation in "Network
 Delay Time", note we added an exit condition for the (N-1) relaxing loop.
+        int[] cost=new int[N+1];
+        Arrays.fill(cost, Integer.MAX_VALUE);
+        cost[K]=0;
+        boolean changed=false;
+        for(int i=1; i<=N-1; i++) {
+            changed=false;
+            for(int[] time: times) {
+                if(cost[time[0]]<Integer.MAX_VALUE && cost[time[0]]+time[2]<cost[time[1]]) {
+                    cost[time[1]]=cost[time[0]]+time[2];
+                    changed=true;
+                }
+            }
+            // Note how we have this exit condition and are only maintaining one array cost in this solution, as here
+            // number of relaxing times doesn't matter
+            if(!changed){
+                break;
+            }
+        }
 
 - 300 -
 - 350 -
