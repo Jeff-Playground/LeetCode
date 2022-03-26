@@ -26,7 +26,6 @@ import java.util.PriorityQueue;
 public class LQMinimumCostToConnectSticks {
     // Min heap and greedy
     public int connectSticks(int[] sticks) {
-        int l=sticks.length;
         PriorityQueue<Integer> pq=new PriorityQueue<>();
         int result=0;
         for(int stick: sticks){

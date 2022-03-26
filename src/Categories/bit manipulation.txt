@@ -4,6 +4,7 @@
 // >> signed right shift(shift 1 for negative and 0 for positive numbers in)
 // >>> unsigned right shift(always shift 0 in)
 // << left shift
+// num&(-num) low bit of num
 
 *Divide Two Integers
 Single Number

@@ -1,5 +1,5 @@
-When sampling x items in (x+y) items, if got anything in y, discard and redo sampling, the result for sampling the x items
-still have same probability.
+When sampling k items in (x+y) items, where we want to exclude everything from y, if got anything in y, discard and redo
+sampling, the result for sampling the k items still have same probability.
 
 - 300 -
 - 350 -

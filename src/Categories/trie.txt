@@ -1,6 +1,60 @@
 Use an array of Trie to store the children nodes, and a boolean isEnd to store word ends. For auto-complete, can add a
 Map of word and corresponding count to store history.
 
+        class TrieNode{
+            TrieNode[] nodes;
+            boolean isEnd;
+
+            public TrieNode(){
+                nodes=new TrieNode[26];
+                isEnd=false;
+            }
+
+            public void addWord(String word){
+                TrieNode cur=this;
+                for(char c: word.toCharArray()){
+                    if(cur.nodes[c-'a']==null){
+                        cur.nodes[c-'a']=new TrieNode();
+                    }
+                    cur=cur.nodes[c-'a'];
+                }
+                cur.isEnd=true;
+            }
+
+            public boolean search(String word){
+                int l=word.length();
+                TrieNode cur=this;
+                for(int i=0; i<l; i++){
+                    char c=word.charAt(i);
+                    if(c<'a'){
+                        boolean found=false;
+                        for(int j=0; j<26; j++){
+                            if(j!=c-'A' && cur.nodes[j]!=null){
+                                if(i==l-1){
+                                    if(cur.nodes[j].isEnd){
+                                        found=true;
+                                        break;
+                                    }
+                                } else{
+                                    if(cur.nodes[j].search(word.substring(i+1))){
+                                        found=true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        return found;
+                    } else{
+                        cur=cur.nodes[c-'a'];
+                        if(cur==null){
+                            return false;
+                        }
+                    }
+                }
+                return cur.isEnd;
+            }
+        }
+
 *Implement Trie (Prefix Tree)
 *Add and Search Word - Data structure design
 *Word Search II

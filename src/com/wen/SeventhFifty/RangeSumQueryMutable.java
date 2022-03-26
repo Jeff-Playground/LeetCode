@@ -47,7 +47,7 @@ public class RangeSumQueryMutable {
 //        }
 //    }
 
-//    // Segment Tree
+//    // Segment Tree, implemented with array
 //    class NumArray {
 //        int[]  segTree=null;
 //        int length=-1;
@@ -117,43 +117,121 @@ public class RangeSumQueryMutable {
 //        }
 //    }
 
-    // Binary indexed tree
-    class NumArray {
-        int[] nums=null;
-        int[] biTree=null;
+//    // Binary indexed tree
+//    class NumArray {
+//        int[] nums=null;
+//        int[] biTree=null;
+//
+//        public NumArray(int[] nums) {
+//            this.nums=new int[nums.length];
+//            this.biTree=new int[nums.length+1];
+//            for(int i=0; i<nums.length; i++){
+//                update(i, nums[i]);
+//            }
+//        }
+//
+//        public void update(int i, int val) {
+//            if(i<0 || i>nums.length-1){
+//                return;
+//            }
+//            int diff=val-nums[i];
+//            nums[i]=val;
+//            for(int j=i+1; j<biTree.length; j+=(j&(-j))){
+//                biTree[j]+=diff;
+//            }
+//        }
+//
+//        public int getSum(int i){
+//            if(i+1>biTree.length-1){
+//                i=biTree.length-2;
+//            }
+//            int result=0;
+//            for(int j=i+1; j>0; j-=(j&(-j))){
+//                result+=biTree[j];
+//            }
+//            return result;
+//        }
+//
+//        public int sumRange(int i, int j) {
+//            return getSum(j)-getSum(i-1);
+//        }
+//    }
+
+    // Segment Tree, implemented with Tree
+    public static class NumArray {
+        private class SegmentTreeNode{
+            int sum, min, max;
+            SegmentTreeNode left, right;
+
+            public SegmentTreeNode(int min, int max){
+                this.sum=0;
+                this.min=min;
+                this.max=max;
+
+                if(min<max){
+                    int mid=min+(max-min)/2;
+                    this.left=new SegmentTreeNode(min, mid);
+                    this.right=new SegmentTreeNode(mid+1, max);
+                }
+            }
+
+            public void update(int idx, int diff){
+                if(idx==min && idx==max){
+                    sum+=diff;
+                } else{
+                    int mid=min+(max-min)/2;
+                    if(idx<=mid){
+                        left.update(idx, diff);
+                    } else{
+                        right.update(idx, diff);
+                    }
+                    sum=left.sum+right.sum;
+                }
+            }
+
+            public int sumRange(int l, int r) {
+                if(l>max || r<min){
+                    return 0;
+                } else if(l<min){
+                    return this.sumRange(min, r);
+                } else if(r>max){
+                    return this.sumRange(l, max);
+                } else{
+                    if(l==min && r==max){
+                        return sum;
+                    } else{
+                        int mid=min+(max-min)/2;
+                        if(mid>=r){
+                            return left.sumRange(l, r);
+                        } else if(mid<l){
+                            return right.sumRange(l, r);
+                        } else{
+                            return left.sumRange(l, mid)+right.sumRange(mid+1, r);
+                        }
+                    }
+                }
+            }
+        }
+
+        int[] nums;
+        SegmentTreeNode root;
 
         public NumArray(int[] nums) {
-            this.nums=new int[nums.length];
-            this.biTree=new int[nums.length+1];
-            for(int i=0; i<nums.length; i++){
-                update(i, nums[i]);
+            this.nums=nums;
+            int l=nums.length;
+            root=new SegmentTreeNode(0, l-1);
+            for(int i=0; i<l; i++){
+                root.update(i, nums[i]);
             }
         }
 
-        public void update(int i, int val) {
-            if(i<0 || i>nums.length-1){
-                return;
-            }
-            int diff=val-nums[i];
-            nums[i]=val;
-            for(int j=i+1; j<biTree.length; j+=(j&(-j))){
-                biTree[j]+=diff;
-            }
+        public void update(int index, int val) {
+            root.update(index, val-nums[index]);
+            nums[index]=val;
         }
 
-        public int getSum(int i){
-            if(i+1>biTree.length-1){
-                i=biTree.length-2;
-            }
-            int result=0;
-            for(int j=i+1; j>0; j-=(j&(-j))){
-                result+=biTree[j];
-            }
-            return result;
-        }
-
-        public int sumRange(int i, int j) {
-            return getSum(j)-getSum(i-1);
+        public int sumRange(int left, int right) {
+            return root.sumRange(left, right);
         }
     }
 }

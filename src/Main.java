@@ -1208,5 +1208,17 @@ public class Main {
 //        PaintHouseIII.minCost(new int[]{0,2,1,2,0}, new int[][]{{1,10},{10,1},{10,1},{1,10},{5,1}}, 5, 2, 3);
 
 //        MinimumCostForTickets.mincostTickets(new int[]{1,4,6,7,8,20}, new int[]{7,2,15});
+
+//        RangeSumQueryMutable.NumArray t=new RangeSumQueryMutable.NumArray(new int[]{7,2,7,2,0});
+//        t.update(4,6);
+//        t.update(0,2);
+//        t.update(0,9);
+//        t.sumRange(4,4);
+//        t.update(3,8);
+//        t.sumRange(0,4);
+//        t.update(4,1);
+//        t.sumRange(0,3);
+//        t.sumRange(0,4);
+//        t.update(0,4);
     }
 }

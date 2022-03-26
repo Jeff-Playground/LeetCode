@@ -12,6 +12,40 @@ Note when the above 2 optimizations are combined, the time complexity for Find, 
 where α refers to the Inverse Ackermann function. In practice, we assume it's a constant. In other words, O(α(N)) is
 regarded as O(1) on average.
 
+    private class UnionFind{
+        int[] root, rank;
+
+        public UnionFind(int l){
+            root=new int[l];
+            rank=new int[l];
+            for(int i=0; i<l; i++){
+                root[i]=i;
+                rank[i]=1;
+            }
+        }
+
+        public int find(int x){
+            if(root[x]!=x){
+                root[x]=find(root[x]);
+            }
+            return root[x];
+        }
+
+        public void union(int x, int y){
+            int rx=find(x), ry=find(y);
+            if(rx!=ry){
+                if(rank[rx]>rank[ry]){
+                    root[ry]=rx;
+                } else if(rank[rx]<rank[ry]){
+                    root[rx]=ry;
+                } else{
+                    root[rx]=ry;
+                    rank[ry]++;
+                }
+            }
+        }
+    }
+
 
 Note Kruskal's algorithm use UnionFind to determine whether a new edge creates a cycle in the connected graph.
 

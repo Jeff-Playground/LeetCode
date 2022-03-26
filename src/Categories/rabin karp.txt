@@ -4,6 +4,8 @@ hash=((hash-highestPower*s.charAt(i-1)%mod+mod)%mod*base%mod+s.charAt(i+9))%mod;
 
 NOTE hash, highestPower and target need to be long to avoid overflow during *base
 
+Integer.MAX_VALUE/mod=2.x
+
 *Implement strStr()
 *Repeated DNA Sequences
 - 300 -
