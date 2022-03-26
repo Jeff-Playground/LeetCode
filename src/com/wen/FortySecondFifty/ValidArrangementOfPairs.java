@@ -3,91 +3,84 @@ package com.wen.FortySecondFifty;
 import java.util.*;
 
 public class ValidArrangementOfPairs {
-    // DFS to find eulerian path with a Stack
-    public int[][] validArrangement(int[][] pairs) {
-        int l=pairs.length;
-        Map<Integer, Queue<int[]>> graph=new HashMap<>();
-        Map<Integer, Integer> inDegree=new HashMap<>();
-        for(int i=0; i<l; i++){
-            int[] p=pairs[i];
-            graph.putIfAbsent(p[0], new LinkedList<>());
-            graph.get(p[0]).offer(new int[]{p[1], i});
-            inDegree.put(p[0], inDegree.getOrDefault(p[0],0)-1);
-            inDegree.put(p[1], inDegree.getOrDefault(p[1],0)+1);
-        }
-        int start=-1;
-        for(int node: inDegree.keySet()){
-            if(inDegree.get(node)%2!=0 && inDegree.get(node)<0){
-                start=node;
-                break;
-            }
-        }
-        if(start==-1){
-            start=pairs[0][0];
-        }
-        int[][] result=new int[l][2];
-        int idx=l-1;
-        Stack<int[]> stack=new Stack<>();
-        stack.push(new int[]{start, -1});
-        while(!stack.isEmpty()){
-            int[] cur=stack.peek();
-            int node=cur[0], edgeIdx=cur[1];
-            if(graph.containsKey(node) && !graph.get(node).isEmpty()){
-                int[] next=graph.get(node).poll();
-                stack.push(next);
-            } else{
-                if(edgeIdx!=-1){
-                    result[idx--]=pairs[edgeIdx];
-                }
-                stack.pop();
-            }
-        }
-        return result;
-    }
-
-//    // Eulerian path, note how the graph is built using Queue, if there's a requirement on the ordering of the path, then
-//    // it should use PriorityQueue, but the point is using such a data structure rather than Map or Set brings the flexibility
-//    // of removing visited edges
-//    public static int[][] validArrangement(int[][] pairs) {
-//        int l=pairs.length;
-//        Map<Integer, Integer> inDegree=new HashMap<>();
-//        Map<Integer, Queue<int[]>> graph=new HashMap<>();
-//        for(int i=0; i<l; i++){
-//            int[] p=pairs[i];
-//            inDegree.put(p[0], inDegree.getOrDefault(p[0], 0)-1);
-//            inDegree.put(p[1], inDegree.getOrDefault(p[1], 0)+1);
-//            graph.putIfAbsent(p[0], new LinkedList<>());
-//            graph.get(p[0]).offer(new int[]{p[1], i});
+//    // DFS to find eulerian path with a Stack
+//    public int[][] validArrangement(int[][] pairs) {
+//        Map<Integer, Queue<Integer>> graph=new HashMap<>();
+//        Map<Integer, Integer> outMinusInDegree=new HashMap<>();
+//        for(int[] p: pairs){
+//            int x=p[0], y=p[1];
+//            graph.putIfAbsent(x, new LinkedList<>());
+//            graph.get(x).offer(y);
+//            outMinusInDegree.put(x, outMinusInDegree.getOrDefault(x, 0)+1);
+//            outMinusInDegree.put(y, outMinusInDegree.getOrDefault(y, 0)-1);
 //        }
 //        int start=-1;
-//        for(int node: inDegree.keySet()){
-//            if(inDegree.get(node)%2!=0 && inDegree.get(node)<0){
-//                start=node;
+//        for(int k: outMinusInDegree.keySet()){
+//            if(outMinusInDegree.get(k)>0){
+//                start=k;
 //                break;
 //            }
 //        }
-//        if(start==-1){
-//            start=pairs[0][0];
-//        }
-//        List<Integer> idx=new ArrayList<>();
-//        vaHelper(start, -1, graph, idx);
-//        int[][] result=new int[l][2];
-//        for(int i=l-1; i>=0; i--){
-//            int index=idx.get(i);
-//            result[l-1-i]=pairs[index];
+//        start=start==-1?outMinusInDegree.keySet().iterator().next():start;
+//        int[][] result=new int[pairs.length][2];
+//        int i=pairs.length-1, last=-1;;
+//        Stack<Integer> stack=new Stack<>();
+//        stack.push(start);
+//        while(!stack.isEmpty()){
+//            int cur=stack.peek();
+//            Queue<Integer> nb=graph.get(cur);
+//            if(nb!=null && !nb.isEmpty()){
+//                stack.push(nb.poll());
+//            } else{
+//                if(last!=-1){
+//                    result[i--]=new int[]{cur, last};
+//                }
+//                last=stack.pop();
+//            }
 //        }
 //        return result;
 //    }
-//
-//    private static void vaHelper(int start, int edge, Map<Integer, Queue<int[]>> graph, List<Integer> idx){
-//        if(graph.containsKey(start) && !graph.get(start).isEmpty()){
-//            while(!graph.get(start).isEmpty()){
-//                int[] next=graph.get(start).poll();
-//                vaHelper(next[0], next[1], graph, idx);
-//            }
-//        }
-//        if(edge!=-1){
-//            idx.add(edge);
-//        }
-//    }
+
+    // Eulerian path, note how the graph is built using Queue, if there's a requirement on the ordering of the path, then
+    // it should use PriorityQueue, but the point is using such a data structure rather than Map or Set brings the flexibility
+    // of removing visited edges
+    public int[][] validArrangement(int[][] pairs) {
+        Map<Integer, Queue<Integer>> graph=new HashMap<>();
+        Map<Integer, Integer> outMinusInDegree=new HashMap<>();
+        for(int[] p: pairs){
+            int x=p[0], y=p[1];
+            graph.putIfAbsent(x, new LinkedList<>());
+            graph.get(x).offer(y);
+            outMinusInDegree.put(x, outMinusInDegree.getOrDefault(x, 0)+1);
+            outMinusInDegree.put(y, outMinusInDegree.getOrDefault(y, 0)-1);
+        }
+        int start=-1;
+        for(int k: outMinusInDegree.keySet()){
+            if(outMinusInDegree.get(k)>0){
+                start=k;
+                break;
+            }
+        }
+        start=start==-1?outMinusInDegree.keySet().iterator().next():start;
+        int[][] result=new int[pairs.length][2];
+        int[] cache=new int[]{pairs.length-1, -1};
+        vaHelper(graph, start, result, cache);
+        return result;
+    }
+
+    private void vaHelper(Map<Integer, Queue<Integer>> graph, int cur, int[][] result, int[] cache){
+        if(graph.containsKey(cur)){
+            Queue<Integer> nb=graph.get(cur);
+            while(!nb.isEmpty()){
+                vaHelper(graph, nb.poll(), result, cache);
+            }
+        }
+        if(cache[1]==-1){
+            cache[1]=cur;
+        } else{
+            result[cache[0]][0]=cur;
+            result[cache[0]--][1]=cache[1];
+            cache[1]=cur;
+        }
+    }
 }

@@ -11,7 +11,7 @@ public class ReconstructItinerary {
         for(List<String> ticket: tickets) {
             String orig=ticket.get(0);
             String dest=ticket.get(1);
-            PriorityQueue<String> dests=map.getOrDefault(orig, new PriorityQueue<>((a, b)->(a.compareTo(b))));
+            PriorityQueue<String> dests=map.getOrDefault(orig, new PriorityQueue<>());
             dests.add(dest);
             map.putIfAbsent(orig, dests);
         }

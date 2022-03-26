@@ -1220,5 +1220,7 @@ public class Main {
 //        t.sumRange(0,3);
 //        t.sumRange(0,4);
 //        t.update(0,4);
+
+//        CrackingTheSafe.crackSafe(3,2);
     }
 }

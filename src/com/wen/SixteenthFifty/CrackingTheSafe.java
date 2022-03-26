@@ -2,6 +2,7 @@ package com.wen.SixteenthFifty;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Stack;
 
 public class CrackingTheSafe {
 //    public String crackSafe(int n, int k) {
@@ -50,31 +51,67 @@ public class CrackingTheSafe {
 //        return result.toString();
 //    }
 
-    // Convert the problem to finding eulerian path in a graph
-    public String crackSafe(int n, int k) {
-        if(n==1 && k==1){
-            return "0";
-        }
-        Set<String> seen=new HashSet<>();
-        StringBuilder sb=new StringBuilder();
-        StringBuilder result=new StringBuilder();
-        for(int i=0; i<n-1; i++){
-            sb.append("0");
-        }
-        String start=sb.toString();
-        crackSafeDFS(start, k, seen, result);
-        result.append(start);
-        return result.toString();
-    }
+//    // Convert the problem to finding Eulerian path in a graph
+//    // The idea is each possible combination of length n is an edge in the graph, and each vertex in the graph would be
+//    // of length n-1, for example, 0010->0101 will produce edge 00101, so this becomes to find the Eulerian path/circuit
+//    // of the graph
+//    public String crackSafe(int n, int k) {
+//        StringBuilder start=new StringBuilder();
+//        for(int i=0; i<n-1; i++){
+//            start.append('0');
+//        }
+//        StringBuilder sb=new StringBuilder();
+//        Set<String> visitedEdges=new HashSet<>();
+//        csHelper(k, start.toString(), visitedEdges, sb);
+//        sb.append(start);
+//        return sb.toString();
+//    }
+//
+//    private void csHelper(int k, String cur, Set<String> visitedEdges, StringBuilder sb){
+//        for(int i=0; i<k; i++){
+//            String edge=cur+i;
+//            if(!visitedEdges.contains(edge)){
+//                visitedEdges.add(edge);
+//                csHelper(k, edge.substring(1), visitedEdges, sb);
+//                sb.append(i);
+//            }
+//        }
+//    }
 
-    public void crackSafeDFS(String node, int k, Set<String> seen, StringBuilder result){
-        for(int i=0; i<k; i++){
-            String next=node+i;
-            if(!seen.contains(next)){
-                seen.add(next);
-                crackSafeDFS(next.substring(1), k, seen, result);
-                result.append(i);
+    // Eulerian path with a Stack
+    public String crackSafe(int n, int k) {
+        StringBuilder sb=new StringBuilder();
+        if(n==1){
+            for(int i=0; i<k; i++){
+                sb.append(i);
             }
+        } else{
+            StringBuilder start=new StringBuilder();
+            for(int i=0; i<n-1; i++){
+                start.append('0');
+            }
+            Set<String> visitedEdges=new HashSet<>();
+            Stack<String> stack=new Stack<>();
+            stack.push(start.toString());
+            while(!stack.isEmpty()){
+                String cur=stack.peek();
+                boolean found=false;
+                for(int i=0; i<k; i++){
+                    String edge=cur+i;
+                    if(!visitedEdges.contains(edge)){
+                        stack.push(edge.substring(1));
+                        visitedEdges.add(edge);
+                        found=true;
+                        break;
+                    }
+                }
+                if(!found){
+                    stack.pop();
+                    sb.append(cur.charAt(cur.length()-1));
+                }
+            }
+            sb.append(start.substring(0, start.length()-1));
         }
+        return sb.toString();
     }
 }
