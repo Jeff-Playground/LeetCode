@@ -1,3 +1,5 @@
+Can be implemented either top down or bottom up, in many cases top down is easier.
+
 *Longest Palindromic Substring
 *Regular Expression Matching
 *Longest Valid Parentheses

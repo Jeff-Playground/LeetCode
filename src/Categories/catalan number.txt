@@ -20,7 +20,7 @@ any time should be no less than the number of operation b. For example, the numb
 a stack.
 
 For below problems:
-Generate parentheses:
+Generate parentheses: (Note this can be extended to the number of operation a done at any time should be no less than the number of operation b problem)
     For first representation, it basically is get a parentheses, then make a valid string by adding i parentheses inside and (n-1-i) parentheses on the right
     For second representation, it basically is for all n parentheses, make sure the left part "(" is not less than the right part ")"
 UniqueBinary Search Trees:

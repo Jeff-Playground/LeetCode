@@ -1,4 +1,4 @@
-*Single Number II
+s*Single Number II
 - 300 -
 - 350 -
 - 400 -
