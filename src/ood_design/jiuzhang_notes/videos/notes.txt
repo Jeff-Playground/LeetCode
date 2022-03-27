@@ -1,0 +1,28 @@
+Strategy pattern:
+Used when there are different strategies for handling input.
+Create an interface with generalized properties/methods, then have concrete strategy classes to implement the interface.
+Have a field and a corresponding setter for the strategy in the core class, the setter can be called by main program.
+Example in Elevator.
+
+Singleton pattern:
+The core class for OOD can be singleton, this can be implemented by create a class with getInstance method, where it returns a private static instance(creates a new one if null).
+To make getInstance thread safe, we can add the synchronized key word, for example:
+    public static synchronized ParkingLot getInstance()
+For example, the ParkingLot core class can be singleton.
+
+State pattern:
+Used when handling logic depends on the state of the current system.
+Create an interface with generalized properties/methods, then have concrete state classes to implement the interface.
+Have a field and a corresponding setter for the state in the core class, the setter can be called within the state classes for certain methods that would transform the state.
+Example in VendingMachine.
+
+Decorator pattern:
+Used when there are multiple logic to process an instance in the same way.
+Create a generalized decorator class to extend the class to be decorated, which would take the class as input type in the constructor and return a NEW instance of the class type that's decorated. Then create multiple concrete decorator class to extend the generalized decorator.
+Example in CoffeeMaker.
+
+Factory pattern:
+Used when there are multiple ways to process an instance.
+Create a handler interface, then create multiple concrete handler class to implement it. Each handler class should have its customized logic to process the input. Also create a handler factory class for creating the handler based on input.
+Have a field for the handler factory in the core class, the setting logic can be called in the input processing method, with the input instance as its input.
+Example in Kindle.
