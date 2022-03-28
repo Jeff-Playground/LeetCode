@@ -65,3 +65,14 @@ LQMinimumCostToConnectSticks
 - 1600 -
 Furthest Building You Can Reach
 - 1650 -
+- 1700 -
+- 1750 -
+- 1800 -
+- 1850 -
+- 1900 -
+- 1950 -
+- 2000 -
+- 2050 -
+- 2100 -
+Check if a Parentheses String Can Be Valid
+- 2150 -
