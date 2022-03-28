@@ -4,7 +4,6 @@ Merge k Sorted Lists
 *Scramble String
 *Unique Binary Search Trees II
 Unique Binary Search Trees
-*The Skyline Problem
 Basic Calculator
 Basic Calculator II
 *LQVerifyPreorderSequenceInBinarySearchTree
