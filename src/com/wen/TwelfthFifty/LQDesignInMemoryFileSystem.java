@@ -41,48 +41,49 @@ import java.util.*;
 
 public class LQDesignInMemoryFileSystem {
     public class FileSystem {
-        Map<String, Set<String>> dirs;
-        Map<String, String> files;
+        Map<String, TreeSet<String>> dirs;
+        Map<String, String> contents;
 
-        public FileSystem(){
+        public FileSystem() {
             dirs=new HashMap<>();
-            files=new HashMap<>();
+            contents=new HashMap<>();
         }
 
-        public List<String> ls(String path){
-            if(files.containsKey(path)){
+        public List<String> ls(String path) {
+            if(contents.containsKey(path)){
                 int idx=path.lastIndexOf("/");
                 return Arrays.asList(path.substring(idx+1));
+            }
+            return new ArrayList<>(dirs.getOrDefault(path, new TreeSet<>()));
+        }
+
+        public void mkdir(String path) {
+            String[] ds=path.split("/");
+            String parent="/";
+            for(int i=1; i<ds.length; i++){
+                String d=ds[i];
+                dirs.putIfAbsent(parent, new TreeSet<>());
+                dirs.get(parent).add(d);
+                parent+=parent.endsWith("/")?d:("/"+d);
+            }
+            dirs.putIfAbsent(parent, new TreeSet<>());
+        }
+
+        public void addContentToFile(String filePath, String content) {
+            if(contents.containsKey(filePath)){
+                content=contents.get(filePath)+content;
             } else{
-                Set<String> curDir=dirs.get(path);
-                return new ArrayList<>(curDir);
+                int idx=filePath.lastIndexOf("/");
+                String dir=idx>0?filePath.substring(0, idx):"/";
+                String file=filePath.substring(idx+1);
+                mkdir(dir);
+                dirs.get(dir).add(file);
             }
+            contents.put(filePath, content);
         }
 
-        public void mkdir(String path){
-            if(!dirs.containsKey(path)) {
-                String[] dir = path.split("/");
-                String key = "/";
-                for (String d : dir) {
-                    dirs.putIfAbsent(key, new TreeSet<>());
-                    Set<String> curDir = dirs.get(key);
-                    curDir.add(d);
-                    key += d;
-                }
-            }
-        }
-
-        public void addContentToFile(String filePath, String content){
-            int idx=filePath.lastIndexOf("/");
-            String dir=filePath.substring(0,idx);
-            String file=filePath.substring(idx+1);
-            mkdir(dir);
-            dirs.get(dir).add(file);
-            files.put(filePath, content);
-        }
-
-        public String readContentFromFile(String filePath){
-            return files.get(filePath);
+        public String readContentFromFile(String filePath) {
+            return contents.get(filePath);
         }
     }
 }
