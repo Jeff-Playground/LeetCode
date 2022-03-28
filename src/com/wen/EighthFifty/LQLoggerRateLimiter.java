@@ -37,18 +37,15 @@ import java.util.Map;
 
 public class LQLoggerRateLimiter {
     class Logger{
-        Map<String, Integer> map;
+        Map<String, Integer> time;
 
-        public Logger(){
-            map=new HashMap<>();
+        public Logger() {
+            time=new HashMap<>();
         }
 
-        public boolean shoudPrintMessage(int timestamp, String message){
-            if(!map.containsKey(message)){
-                map.put(message, timestamp);
-                return true;
-            } else if(timestamp-map.get(message)>=10){
-                map.put(message, timestamp);
+        public boolean shouldPrintMessage(int timestamp, String message) {
+            if(!time.containsKey(message) || (time.containsKey(message) && timestamp-time.get(message)>=10)){
+                time.put(message, timestamp);
                 return true;
             } else{
                 return false;
