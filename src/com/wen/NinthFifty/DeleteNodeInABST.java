@@ -28,10 +28,12 @@ public class DeleteNodeInABST {
                     }
                     root.val=cur.val;
                     cur.val=key;
+                    root.right=deleteNode(root.right, key);
                 }
+            } else{
+                root.left=deleteNode(root.left, key);
+                root.right=deleteNode(root.right, key);
             }
-            root.left=deleteNode(root.left, key);
-            root.right=deleteNode(root.right, key);
             return root;
         }
     }
@@ -54,7 +56,7 @@ public class DeleteNodeInABST {
 //                }
 //            }
 //            if(pre==null){
-//                return delete(cur);
+//                return delete(root);
 //            } else{
 //                if(pre.left!=null && pre.left.val==key){
 //                    pre.left=delete(cur);

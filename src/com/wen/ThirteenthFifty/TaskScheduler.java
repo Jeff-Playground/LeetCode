@@ -11,7 +11,7 @@ public class TaskScheduler {
         for(char task: tasks){
             count[task-'A']++;
         }
-        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->(b[1]==a[1]?a[0]-b[1]:b[1]-a[1]));
+        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->(b[1]==a[1]?a[0]-b[0]:b[1]-a[1]));
         for(int i=0; i<26; i++){
             if(count[i]>0){
                 pq.offer(new int[]{i, count[i]});
@@ -21,7 +21,7 @@ public class TaskScheduler {
         while(!pq.isEmpty()){
             List<int[]> cur=new ArrayList<>();
             int curCount=0;
-            for(int i=0; i<n+1; i++){
+            for(int i=1; i<=n+1; i++){
                 cur.add(pq.poll());
                 curCount++;
                 if(pq.isEmpty()){
@@ -45,19 +45,19 @@ public class TaskScheduler {
 //            count[task-'A']++;
 //        }
 //        Arrays.sort(count);
-//        int max=count[25];
-//        int maxCount=0;
+//        int maxCount=count[25];
+//        int maxNum=0;
 //        for(int i=25; i>=0; i--){
-//            if(count[i]==max){
-//                maxCount++;
+//            if(count[i]==maxCount){
+//                maxNum++;
 //            } else{
 //                break;
 //            }
 //        }
-//        if(maxCount>=n+1){
-//            return total;
+//        if(maxNum<=n+1){
+//            return Math.max(total, (n+1)*(maxCount-1)+maxNum);
 //        } else{
-//            return Math.max(total, (max-1)*(n+1)+maxCount);
+//            return total;
 //        }
 //    }
 }
