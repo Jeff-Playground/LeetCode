@@ -109,6 +109,7 @@ Number of Dice Rolls With Target Sum
 - 1200 -
 LQValidPalindromeIII
 Count Vowels Permutation
+Maximum Profit in Job Scheduling
 - 1250 -
 Minimum Falling Path Sum II
 - 1300 -

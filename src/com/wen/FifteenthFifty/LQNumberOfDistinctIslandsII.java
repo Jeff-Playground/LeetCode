@@ -14,7 +14,7 @@ public class LQNumberOfDistinctIslandsII {
                 if(grid[i][j]==1){
                     List<Integer> island=new ArrayList();
                     numberofDistinctIslandsDFS(grid, i, j, island);
-                    result.add(normalize(island, Math.max(m,n)));
+                    result.add(normalize(island, n));
                 }
             }
         }

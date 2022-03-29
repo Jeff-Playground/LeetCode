@@ -4,7 +4,7 @@ import java.util.*;
 
 public class LQNumberOfDistinctIslands {
 //    // DFS
-//    public int numberofDistinctIslands(int[][] grid) {
+//    public int numDistinctIslands(int[][] grid) {
 //        if(grid==null || grid.length==0 || grid[0].length==0){
 //            throw new IllegalArgumentException("Input grid can't be null or empty!");
 //        }
@@ -36,7 +36,7 @@ public class LQNumberOfDistinctIslands {
 //    }
 
     // BFS
-    public int numberofDistinctIslands(int[][] grid) {
+    public int numDistinctIslands(int[][] grid) {
         if(grid==null || grid.length==0 || grid[0].length==0){
             throw new IllegalArgumentException("Input grid can't be null or empty!");
         }

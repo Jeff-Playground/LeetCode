@@ -292,6 +292,7 @@ Remove All Adjacent Duplicates in String
 LQAnalyzeUserWebsiteVisitPattern
 - 1200 -
 Remove All Adjacent Duplicates in String II
+Minimum Remove to Make Valid Parentheses
 - 1250 -
 Find Winner on a Tic Tac Toe Game
 - 1300 -
