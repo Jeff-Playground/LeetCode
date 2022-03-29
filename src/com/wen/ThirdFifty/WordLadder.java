@@ -4,34 +4,33 @@ import java.util.*;
 
 public class WordLadder {
     // BFS
-    public static int ladderLength(String beginWord, String endWord, List<String> wordList) {
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Set<String> dict=new HashSet<>(wordList);
-        if(!dict.contains(endWord) || beginWord.equals(endWord)){
+        if(beginWord.equals(endWord) || !dict.contains(endWord)){
             return 0;
         }
-        Queue<String> reachedWords=new LinkedList<>();
-        reachedWords.offer(beginWord);
-        int level=1;
-        while(!reachedWords.isEmpty()){
-            Set<String> visitedInLevel=new HashSet<>();
-            for(int i=reachedWords.size(); i>0; i--){
-                String word=reachedWords.poll();
-                for(int j=0; j<word.length(); j++){
+        Queue<String> q=new LinkedList<>();
+        q.offer(beginWord);
+        Set<String> visited=new HashSet<>();
+        int step=1;
+        while(!q.isEmpty()){
+            int size=q.size();
+            step++;
+            while(size-->0){
+                String cur=q.poll();
+                for(int i=0; i<cur.length(); i++){
                     for(char c='a'; c<='z'; c++){
-                        String newWord=word.substring(0,j)+c+word.substring(j+1);
-                        if(dict.contains(newWord)){
+                        String newWord=cur.substring(0, i)+c+cur.substring(i+1);
+                        if(dict.contains(newWord) && !visited.contains(newWord)){
                             if(newWord.equals(endWord)){
-                                return level+1;
-                            } else{
-                                reachedWords.offer(newWord);
-                                visitedInLevel.add(newWord);
+                                return step;
                             }
+                            visited.add(newWord);
+                            q.offer(newWord);
                         }
                     }
                 }
             }
-            level++;
-            dict.removeAll(visitedInLevel);
         }
         return 0;
     }
