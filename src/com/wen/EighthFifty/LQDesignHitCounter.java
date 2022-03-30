@@ -33,6 +33,8 @@ counter.getHits(300);
 
 // get hits at timestamp 301, should return 3.
 counter.getHits(301);
+
+
 Follow up:
 What if the number of hits per second could be very large? Does your design scale?
  */
@@ -45,52 +47,52 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class LQDesignHitCounter {
-    // With ReadWriteLock
-    class HitCounter{
-        ReentrantReadWriteLock lock;
-        Lock rLock;
-        Lock wLock;
-
-        int[] times, hits;
-
-        public HitCounter(){
-            times=new int[300];
-            hits=new int[300];
-            lock=new ReentrantReadWriteLock();
-            rLock=lock.readLock();
-            wLock=lock.writeLock();
-        }
-
-        public void hit(int timestamp){
-            wLock.lock();
-            try {
-                int idx = timestamp % 300;
-                if (times[idx] == timestamp) {
-                    hits[idx]++;
-                } else {
-                    times[idx] = timestamp;
-                    hits[idx] = 1;
-                }
-            } finally {
-                wLock.unlock();
-            }
-        }
-
-        public int getHits(int timestamp){
-            rLock.lock();
-            try{
-                int result=0;
-                for(int i=0; i<300; i++){
-                    if(timestamp-times[i]<300) {
-                        result += hits[i];
-                    }
-                }
-                return result;
-            } finally{
-                rLock.unlock();
-            }
-        }
-    }
+//    // With ReadWriteLock
+//    class HitCounter{
+//        ReentrantReadWriteLock lock;
+//        Lock rLock;
+//        Lock wLock;
+//
+//        int[] times, hits;
+//
+//        public HitCounter(){
+//            times=new int[300];
+//            hits=new int[300];
+//            lock=new ReentrantReadWriteLock();
+//            rLock=lock.readLock();
+//            wLock=lock.writeLock();
+//        }
+//
+//        public void hit(int timestamp){
+//            wLock.lock();
+//            try {
+//                int idx = timestamp % 300;
+//                if (times[idx] == timestamp) {
+//                    hits[idx]++;
+//                } else {
+//                    times[idx] = timestamp;
+//                    hits[idx] = 1;
+//                }
+//            } finally {
+//                wLock.unlock();
+//            }
+//        }
+//
+//        public int getHits(int timestamp){
+//            rLock.lock();
+//            try{
+//                int result=0;
+//                for(int i=0; i<300; i++){
+//                    if(timestamp-times[i]<300) {
+//                        result += hits[i];
+//                    }
+//                }
+//                return result;
+//            } finally{
+//                rLock.unlock();
+//            }
+//        }
+//    }
 
 //    class HitCounter{
 //        int[] times, hits;
@@ -121,22 +123,22 @@ public class LQDesignHitCounter {
 //        }
 //    }
 
-//    class HitCounter{
-//        Queue<Integer> q;
-//
-//        public HitCounter(){
-//            q=new LinkedList<>();
-//        }
-//
-//        public void hit(int timestamp){
-//            q.offer(timestamp);
-//        }
-//
-//        public int getHits(int timestamp){
-//            while(!q.isEmpty() && timestamp-q.peek()>=300){
-//                q.poll();
-//            }
-//            return q.size();
-//        }
-//    }
+    class HitCounter{
+        Queue<Integer> q;
+
+        public HitCounter(){
+            q=new LinkedList<>();
+        }
+
+        public void hit(int timestamp){
+            q.offer(timestamp);
+        }
+
+        public int getHits(int timestamp){
+            while(!q.isEmpty() && timestamp-q.peek()>=300){
+                q.poll();
+            }
+            return q.size();
+        }
+    }
 }

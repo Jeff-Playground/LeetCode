@@ -22,6 +22,7 @@ Find Bottom Left Tree Value
 Find Largest Value in Each Tree Row
 - 550 -
 - 600 -
+Print Binary Tree
 Add One Row to Tree
 Average of Levels in Binary Tree
 - 650 -

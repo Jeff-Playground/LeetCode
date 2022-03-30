@@ -47,7 +47,8 @@ public class RemoveInvalidParentheses {
 //        Queue<String> queue=new LinkedList<>();
 //        queue.offer(s);
 //        // When found is first set to true, it means the first valid string is found, and for remaining strings just
-//        // need to check if it's valid, for invalid ones no need to further remove characters
+//        // need to check if it's valid, for invalid ones no need to further remove characters because all the result
+//        // strings should be appearing in the same level(at this level removed a certain number of parentheses)
 //        boolean found=false;
 //        while(!queue.isEmpty()) {
 //            String t=queue.poll();
