@@ -34,6 +34,7 @@ Number Complement
 - 600 -
 - 650 -
 Bulb Switcher II
+*Stickers to Spell Word
 - 700 -
 - 750 -
 LQIPToCIDR
