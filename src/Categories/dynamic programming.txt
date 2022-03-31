@@ -49,7 +49,6 @@ LQBombEnemy
 *Elimination Game
 Is Subsequence
 - 400 -
-Frog Jump
 Split Array Largest Sum
 Arithmetic Slices
 *Arithmetic Slices II - Subsequence

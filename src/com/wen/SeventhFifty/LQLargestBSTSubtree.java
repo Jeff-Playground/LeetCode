@@ -1,27 +1,31 @@
 package com.wen.SeventhFifty;
 
 /*
-Given a binary tree, find the largest subtree which is a Binary Search Tree (BST), where largest means subtree with largest number of nodes in it.
+Given the root of a binary tree, find the largest subtree, which is also a Binary Search Tree (BST), where the largest
+means subtree has the largest number of nodes.
 
-Note:
-A subtree must include all of its descendants.
+A Binary Search Tree (BST) is a tree in which all the nodes follow the below-mentioned properties:
+The left subtree values are less than the value of their parent (root) node's value.
+The right subtree values are greater than the value of their parent (root) node's value.
 
-Example:
-Input: [10,5,15,1,8,null,7]
-10
-/ \
-5  15
-/ \   \
-1   8   7
+
+Note: A subtree must include all of its descendants.
+
+
+Example 1:
+Input: root = [10,5,15,1,8,null,7]
 Output: 3
-Explanation: The Largest BST Subtree in this case is the highlighted one.
-The return value is the subtree's size, which is 3.
 
-Follow up:
-Can you figure out ways to solve it with O(n) time complexity?
 
-Hint:
-You can recursively use algorithm similar to 98. Validate Binary Search Tree at each node of the tree, which will result in O(nlogn) time complexity.
+
+Example 2:
+Input: root = [4,2,7,2,3,5,null,2,null,null,null,null,null,1]
+Output: 2
+
+
+Constraints:
+The number of nodes in the tree is in the range [0, 104].
+-104 <= Node.val <= 104
 */
 
 public class LQLargestBSTSubtree {
@@ -32,7 +36,7 @@ public class LQLargestBSTSubtree {
         public TreeNode(int x) { val = x; }
     }
 
-    public static int largestBSTSubtree(TreeNode root) {
+    public int largestBSTSubtree(TreeNode root) {
         if(root==null){
             return 0;
         } else{
@@ -42,7 +46,7 @@ public class LQLargestBSTSubtree {
         }
     }
 
-    private static int[] lbsHelper(TreeNode cur, int[] result){
+    private int[] lbsHelper(TreeNode cur, int[] result){
         int[] leftResult=null, rightResult=null;
         if(cur.left!=null){
             leftResult=lbsHelper(cur.left, result);
