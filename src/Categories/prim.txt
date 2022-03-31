@@ -58,6 +58,7 @@ In Dijkstra's algorithm, the PriorityQueue sort edges by distance to the source 
 - 1000 -
 - 1050 -
 - 1100 -
+LQConnectingCitiesWithMinimumCost
 - 1150 -
 *LQOptimizeWaterDistributionInAVillage
 - 1200 -

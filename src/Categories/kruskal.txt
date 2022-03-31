@@ -50,6 +50,7 @@ Whereas Prim’s algorithm expands the MST by adding vertices.
 - 1000 -
 - 1050 -
 - 1100 -
+LQConnectingCitiesWithMinimumCost
 - 1150 -
 *LQOptimizeWaterDistributionInAVillage
 - 1200 -
