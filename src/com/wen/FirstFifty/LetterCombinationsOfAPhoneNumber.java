@@ -1,39 +1,68 @@
 package com.wen.FirstFifty;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LetterCombinationsOfAPhoneNumber {
+    // DFS
     public List<String> letterCombinations(String digits) {
-        List<String> result = new ArrayList<String>();
-        if (digits == null || digits.length() == 0) {
+        List<String> result=new ArrayList<>();
+        if(digits.length()==0){
             return result;
         }
-        Map<Integer, String> map=new HashMap<Integer, String>();
-        map.put(2, "abc");
-        map.put(3, "def");
-        map.put(4, "ghi");
-        map.put(5, "jkl");
-        map.put(6, "mno");
-        map.put(7, "pqrs");
-        map.put(8, "tuv");
-        map.put(9, "wxyz");
-
-        findLetterCombinations(digits, map, 0, "", result);
+        Map<Character, String> dict=new HashMap<>();
+        dict.put('2', "abc");
+        dict.put('3', "def");
+        dict.put('4', "ghi");
+        dict.put('5', "jkl");
+        dict.put('6', "mno");
+        dict.put('7', "pqrs");
+        dict.put('8', "tuv");
+        dict.put('9', "wxyz");
+        dfs(digits, 0, dict, "", result);
         return result;
     }
 
-    private static void findLetterCombinations(String digits, Map<Integer, String> map, int level, String out, List<String> result) {
-        if(level==digits.length()) {
-            result.add(out);
-        }else {
-            int n=Integer.parseInt(String.valueOf(digits.charAt(level)));
-            String value=map.get(n);
-            for(int i=0; i<value.length(); i++) {
-                findLetterCombinations(digits, map, level+1, out+value.charAt(i), result);
+    private void dfs(String digits, int idx, Map<Character, String> dict, String cur, List<String> result){
+        if(idx==digits.length()){
+            result.add(cur);
+        } else{
+            String v=dict.get(digits.charAt(idx));
+            for(char c: v.toCharArray()){
+                dfs(digits, idx+1, dict, cur+c, result);
             }
         }
     }
+
+//    // BFS
+//    public List<String> letterCombinations(String digits) {
+//        List<String> result=new ArrayList<>();
+//        if(digits.length()==0){
+//            return result;
+//        }
+//        Map<Character, String> dict=new HashMap<>();
+//        dict.put('2', "abc");
+//        dict.put('3', "def");
+//        dict.put('4', "ghi");
+//        dict.put('5', "jkl");
+//        dict.put('6', "mno");
+//        dict.put('7', "pqrs");
+//        dict.put('8', "tuv");
+//        dict.put('9', "wxyz");
+//        Queue<String> q=new LinkedList<>();
+//        q.offer("");
+//        for(char c: digits.toCharArray()){
+//            String v=dict.get(c);
+//            int size=q.size();
+//            while(size-->0){
+//                String cur=q.poll();
+//                for(char x: v.toCharArray()){
+//                    q.offer(cur+x);
+//                }
+//            }
+//        }
+//        while(!q.isEmpty()){
+//            result.add(q.poll());
+//        }
+//        return result;
+//    }
 }

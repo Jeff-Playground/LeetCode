@@ -2,29 +2,18 @@ package com.wen.FirstFifty;
 
 public class LongestCommonPrefix {
     public String longestCommonPrefix(String[] strs) {
-        if(strs.length==0 || strs==null){
-            return "";
-        }
-        if(strs.length==1){
-            return strs[0];
-        }
-        String result="";
-        for(int index=0; index<strs[0].length(); index++){
-            char c=strs[0].charAt(index);
-            for(int i=0; i< strs.length; i++){
-                if(index==strs[i].length()){
-                    return result;
+        int l=strs.length, result=0;
+        for(int i=0; i<strs[0].length(); i++){
+            char c=strs[0].charAt(i);
+            for(int j=1; j<l; j++){
+                if(strs[j].length()>i && strs[j].charAt(i)==c){
+                    continue;
                 } else{
-                    if(strs[i].charAt(index)!=c){
-                        return result;
-                    } else{
-                        if(i==strs.length-1){
-                            result+=c;
-                        }
-                    }
+                    return strs[0].substring(0, result);
                 }
             }
+            result++;
         }
-        return result;
+        return strs[0].substring(0, result);
     }
 }

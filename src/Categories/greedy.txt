@@ -31,6 +31,7 @@ LQMaximumDistanceInArrays
 *Course Schedule III
 *Maximum Length of Pair Chain
 - 650 -
+*Maximum Swap
 *Split Array into Consecutive Subsequences
 - 700 -
 *LQMinimumWindowSubsequence
