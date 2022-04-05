@@ -70,6 +70,7 @@ Peak Index in a Mountain Array
 - 1750 -
 - 1800 -
 - 1850 -
+*LQCuttingRibbons
 - 1900 -
 - 1950 -
 - 2000 -

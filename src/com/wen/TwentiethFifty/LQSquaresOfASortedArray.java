@@ -22,17 +22,17 @@ nums is sorted in non-decreasing order.
 
 public class LQSquaresOfASortedArray {
     // Two pointers
-    public int[] SquareArray(int[] A) {
-        int l=A.length;
-        int left=0, right=l-1, idx=l-1;
+    public int[] sortedSquares(int[] nums) {
+        int l=nums.length;
         int[] result=new int[l];
+        int left=0, right=l-1, idx=l-1;
         while(left<=right){
-            int leftSquare=A[left]*A[left], rightSquare=A[right]*A[right];
-            if(leftSquare<rightSquare){
-                result[idx--]=rightSquare;
+            int lResult=nums[left]*nums[left], rResult=nums[right]*nums[right];
+            if(lResult<rResult){
+                result[idx--]=rResult;
                 right--;
             } else{
-                result[idx--]=leftSquare;
+                result[idx--]=lResult;
                 left++;
             }
         }
