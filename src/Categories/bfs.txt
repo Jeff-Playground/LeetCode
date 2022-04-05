@@ -65,6 +65,7 @@ Shortest Path in Binary Matrix
 - 1100 -
 - 1150 -
 As Far from Land as Possible
+LQMinimumKnightMoves
 - 1200 -
 - 1250 -
 - 1300 -

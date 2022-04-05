@@ -6,17 +6,25 @@ import java.util.Stack;
 
 public class SimplifyPath {
     public String simplifyPath(String path) {
-        // Stack
-        Stack<String> simplifiedComponents=new Stack<String>();
-        String[] components=path.split("/");
-        for(String component: components){
-            if(!simplifiedComponents.isEmpty() && component.equals("..")){
-                simplifiedComponents.pop();
-            } else if(!component.equals(".") && !component.equals("") && !component.equals("..")){
-                simplifiedComponents.push(component);
+        String[] splited=path.split("/");
+        Stack<String> stack=new Stack<>();
+        for(String s: splited){
+            if(!s.isEmpty()){
+                if(s.equals("..")){
+                    if(!stack.isEmpty()){
+                        stack.pop();
+                    }
+                } else if(s.equals(".")){
+                    continue;
+                } else{
+                    stack.push(s);
+                }
             }
         }
-        List<String> list=new ArrayList<String>(simplifiedComponents);
-        return "/"+String.join("/", list);
+        String result="";
+        while(!stack.isEmpty()){
+            result="/"+stack.pop()+result;
+        }
+        return result.isEmpty()?"/":result;
     }
 }
