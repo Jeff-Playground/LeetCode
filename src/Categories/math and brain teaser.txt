@@ -258,7 +258,6 @@ Prime Number of Set Bits in Binary Representation
 Toeplitz Matrix
 Max Chunks To Make Sorted
 *Max Chunks To Make Sorted II
-*Custom Sort String
 *LQBasicCalculatorIII
 *Swap Adjacent in LR String
 Custom Sort String
@@ -305,7 +304,13 @@ Destination City
 Check If a Word Occurs As a Prefix of Any Word in a Sentence
 Path Crossing
 - 1500 -
+Kth Missing Positive Number
 - 1550 -
 Special Positions in a Binary Matrix
 Count Unhappy Friends
 - 1600 -
+- 1650 -
+- 1700 -
+- 1750 -
+LQBuildingsWithAnOceanView
+- 1800 -

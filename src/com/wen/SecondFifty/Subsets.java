@@ -27,15 +27,15 @@ public class Subsets {
         return out;
     }
 
-//    // Non-recursive
+//    // BFS
 //    public static List<List<Integer>> subsets(int[] nums) {
 //        List<List<Integer>> result=new ArrayList<>();
 //        result.add(new ArrayList<>());
 //        for(int i=0; i<nums.length; i++){
 //            int size=result.size();
 //            for(int j=0; j<size; j++){
-//                List<Integer> temp=new ArrayList<>(result.get(j));
-//                result.add(temp);
+//                List<Integer> copy=new ArrayList<>(result.get(j));
+//                result.add(copy);
 //                result.get(j).add(nums[i]);
 //            }
 //        }
@@ -54,11 +54,11 @@ public class Subsets {
 //        return result;
 //    }
 //
-//    private static void subsetsDFS(int[] nums, int startIdx, List<Integer> out, List<List<Integer>> result) {
-//        if(startIdx==nums.length){
+//    private static void subsetsDFS(int[] nums, int idx, List<Integer> out, List<List<Integer>> result) {
+//        if(idx==nums.length){
 //            return;
 //        } else{
-//            for(int i=startIdx; i<nums.length; i++){
+//            for(int i=idx; i<nums.length; i++){
 //                out.add(nums[i]);
 //                List<Integer> outCopy=new ArrayList<>(out);
 //                result.add(outCopy);

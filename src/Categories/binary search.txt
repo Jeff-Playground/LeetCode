@@ -61,6 +61,7 @@ Peak Index in a Mountain Array
 - 1400 -
 - 1450 -
 - 1500 -
+*Kth Missing Positive Number
 - 1550 -
 - 1600 -
 *Path With Minimum Effort
