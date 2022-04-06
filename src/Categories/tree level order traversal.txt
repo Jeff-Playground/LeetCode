@@ -33,3 +33,6 @@ Maximum Width of Binary Tree
 - 800 -
 - 850 -
 - 900 -
+*Complete Binary Tree Inserter
+- 950 -
+- 1000 -
