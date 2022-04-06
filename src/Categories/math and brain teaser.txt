@@ -269,6 +269,7 @@ Max Increase to Keep City Skyline
 Expressive Words
 *Chalkboard XOR Game
 Card Flipping Game
+Goat Latin
 Find And Replace in String
 *Image Overlap
 Maximize Distance to Closest Person
