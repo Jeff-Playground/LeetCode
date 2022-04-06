@@ -12,15 +12,19 @@ public class KDiffPairsInAnArray {
         }
         Arrays.sort(nums);
         int result=0;
-        int i=0, j=1;
-        while(i<nums.length && j<nums.length){
-            if(j<=i || nums[j]<nums[i]+k){
-                j++;
-            } else if(i-1>=0 && nums[i-1]==nums[i] || nums[i]+k<nums[j]){
-                i++;
+        int left=0, right=1;
+        while(left<nums.length && right<nums.length){
+            // When left reaches right or right number is not big enough
+            if(left==right || nums[right]-nums[left]<k){
+                right++;
+            // When current left number is equal to previous left number(will introduce duplicates), or left number is
+            // to small
+            } else if((left-1>=0 && nums[left-1]==nums[left]) || nums[right]-nums[left]>k){
+                left++;
+            // When the right number minus left number equals to k
             } else{
                 result++;
-                i++;
+                left++;
             }
         }
         return result;

@@ -3,7 +3,7 @@ package com.wen.EighthFifty;
 import java.util.PriorityQueue;
 
 public class KthSmallestElementInASortedMatrix {
-//    // Using heap
+//    // Max heap
 //    public int kthSmallest(int[][] matrix, int k) {
 //        PriorityQueue<Integer> pq=new PriorityQueue<>((a, b)->b-a);
 //        for(int i=0; i<matrix.length; i++){

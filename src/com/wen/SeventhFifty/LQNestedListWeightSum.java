@@ -42,7 +42,7 @@ public class LQNestedListWeightSum {
 
     // BFS
     public int depthSum(List<NestedInteger> nestedList) {
-        int result=0, lvl=1;
+        int result=0, level=1;
         Queue<NestedInteger> q=new LinkedList<>();
         nestedList.forEach(e->q.offer(e));
         while(!q.isEmpty()){
@@ -50,12 +50,12 @@ public class LQNestedListWeightSum {
             for(int i=0; i<size; i++){
                 NestedInteger cur=q.poll();
                 if(cur.isInteger()){
-                    result+=cur.getInteger()*lvl;
+                    result+=cur.getInteger()*level;
                 } else{
                     cur.getList().forEach(e->q.offer(e));
                 }
             }
-            lvl++;
+            level++;
         }
         return result;
     }
@@ -65,13 +65,13 @@ public class LQNestedListWeightSum {
 //        return dsHelper(nestedList, 1);
 //    }
 //
-//    private int dsHelper(List<NestedInteger> nestedList, int lvl){
+//    private int dsHelper(List<NestedInteger> nestedList, int level){
 //        int result=0;
 //        for(NestedInteger e: nestedList){
 //            if(e.isInteger()){
-//                result+=lvl*e.getInteger();
+//                result+=level*e.getInteger();
 //            } else{
-//                result+=dsHelper(e.getList(), lvl+1);
+//                result+=dsHelper(e.getList(), level+1);
 //            }
 //        }
 //        return result;

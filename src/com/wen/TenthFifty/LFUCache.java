@@ -43,17 +43,7 @@ public class LFUCache {
                 return;
             }
             if(cache.containsKey(key)){
-                int curFreq=freq.get(key);
-                freq.put(key, curFreq+1);
-                count.get(curFreq).remove(key);
-                if(count.get(curFreq).size()==0){
-                    count.remove(curFreq);
-                    if(curFreq==minFreq){
-                        minFreq++;
-                    }
-                }
-                count.putIfAbsent(curFreq+1, new LinkedHashSet<>());
-                count.get(curFreq+1).add(key);
+                get(key);
             } else{
                 if(cache.size()==capacity){
                     int delete=count.get(minFreq).iterator().next();
