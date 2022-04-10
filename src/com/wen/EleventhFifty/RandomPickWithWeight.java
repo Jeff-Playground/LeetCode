@@ -3,7 +3,7 @@ package com.wen.EleventhFifty;
 import java.util.Random;
 
 public class RandomPickWithWeight {
-    // Binary indexed tree
+    // Binary indexed tree(This is more for practice as no frequent updates involved here)
     public static class Solution {
 
         private Random r;

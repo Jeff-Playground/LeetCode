@@ -9,15 +9,16 @@ public class ToeplitzMatrix {
         if(m==1){
             return true;
         }
-        int last=0, cur=1;
-        while(cur<m){
-            for(int i=0; i<n-1; i++){
-                if(matrix[last][i]!=matrix[cur][i+1]){
+        // This is basically only comparing 2 rows for each while iteration, and ensure matrix[lastRow][jIdx]==matrix[curRow][jIdx+1]
+        int lastRow=0, curRow=1;
+        while(curRow<m){
+            for(int j=0; j<n-1; j++){
+                if(matrix[lastRow][j]!=matrix[curRow][j+1]){
                     return false;
                 }
             }
-            last++;
-            cur++;
+            lastRow++;
+            curRow++;
         }
         return true;
     }

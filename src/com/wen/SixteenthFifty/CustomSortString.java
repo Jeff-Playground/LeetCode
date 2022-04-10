@@ -6,19 +6,19 @@ import java.util.PriorityQueue;
 
 public class CustomSortString {
     // Count sort
-    public String customSortString(String S, String T) {
-        int[] tCount=new int[26];
-        for(char c: T.toCharArray()){
-            tCount[c-'a']++;
+    public String customSortString(String order, String s) {
+        int[] sCount=new int[26];
+        for(char c: s.toCharArray()){
+            sCount[c-'a']++;
         }
         StringBuilder sb=new StringBuilder();
-        for(char c: S.toCharArray()){
-            while(tCount[c-'a']-->0){
+        for(char c: order.toCharArray()){
+            while(sCount[c-'a']-->0){
                 sb.append(c);
             }
         }
         for(int i=0; i<26; i++){
-            while(tCount[i]-->0){
+            while(sCount[i]-->0){
                 sb.append((char)('a'+i));
             }
         }
