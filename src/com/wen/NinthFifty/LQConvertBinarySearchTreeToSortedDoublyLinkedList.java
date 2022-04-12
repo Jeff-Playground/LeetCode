@@ -116,7 +116,10 @@ public class LQConvertBinarySearchTreeToSortedDoublyLinkedList {
 //    }
 
 //    // In-order traversal iteratively
-//    public static Node treeToDoublyList(Node root) {
+//    public Node treeToDoublyList(Node root) {
+//        if(root==null){
+//            return null;
+//        }
 //        Node cur=root, head=new Node(-1), last=head;
 //        Stack<Node> stack=new Stack<>();
 //        while(cur!=null || !stack.isEmpty()){
@@ -136,35 +139,38 @@ public class LQConvertBinarySearchTreeToSortedDoublyLinkedList {
 //        return head.right;
 //    }
 
-//    // Morris traversal for in-order traversal, in-place
-//    public static Node treeToDoublyList(Node root) {
-//        Node head=new Node(-1), last=head;
-//        Node cur=root, pre=null;
-//        while(cur!=null){
-//            if(cur.left!=null){
-//                pre=cur.left;
-//                while(pre.right!=null && pre.right!=cur){
-//                    pre=pre.right;
-//                }
-//                if(pre.right==null){
-//                    pre.right=cur;
-//                    cur=cur.left;
-//                } else{
-//                    pre.right=null;
-//                    last.right=cur;
-//                    cur.left=last;
-//                    last=last.right;
-//                    cur=cur.right;
-//                }
-//            } else{
-//                last.right=cur;
-//                cur.left=last;
-//                last=last.right;
-//                cur=cur.right;
-//            }
-//        }
-//        last.right=head.right;
-//        head.right.left=last;
-//        return head.right;
-//    }
+    // Morris traversal for in-order traversal, in-place
+    public Node treeToDoublyList(Node root) {
+        if(root==null){
+            return null;
+        }
+        Node head=new Node(-1), last=head;
+        Node cur=root, temp=null;
+        while(cur!=null){
+            if(cur.left!=null){
+                temp=cur.left;
+                while(temp.right!=null && temp.right!=cur){
+                    temp=temp.right;
+                }
+                if(temp.right==null){
+                    temp.right=cur;
+                    cur=cur.left;
+                } else{
+                    temp.right=null;
+                    last.right=cur;
+                    cur.left=last;
+                    last=last.right;
+                    cur=cur.right;
+                }
+            } else{
+                last.right=cur;
+                cur.left=last;
+                last=last.right;
+                cur=cur.right;
+            }
+        }
+        last.right=head.right;
+        head.right.left=last;
+        return head.right;
+    }
 }
