@@ -1,7 +1,7 @@
 package com.wen.FifthFifty;
 
 public class ShortestPalindrome {
-    // KMP
+    // Similar to KMP, but only construct the next array
     public static String shortestPalindrome(String s) {
         String temp=s+"$"+new StringBuilder(s).reverse().toString();
         int l=temp.length();

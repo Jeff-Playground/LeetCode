@@ -33,7 +33,7 @@ public class KthSmallestElementInASortedMatrix {
 //        return left;
 //    }
 //
-//    // The idea here is do search column by column, and add all non-greater ones
+//    // The idea here is to do search column by column, and add all non-greater ones
 //    private int countOfLessOrEqual(int[][] matrix, int target){
 //        int n=matrix.length, i=n-1, j=0, count=0;
 //        while(i>=0 && j<n){
