@@ -277,6 +277,7 @@ Maximize Distance to Closest Person
 - 850 -
 - 900 -
 - 950 -
+Verifying an Alien Dictionary
 Prison Cells After N Days
 *Subarray Sums Divisible by K
 Longest Turbulent Subarray

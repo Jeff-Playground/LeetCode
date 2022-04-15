@@ -3,27 +3,38 @@ package com.wen.TenthFifty;
 import java.util.Arrays;
 
 public class MinimumNumberOfArrowsToBurstBalloons {
+//    public int findMinArrowShots(int[][] points) {
+//        int result=0;
+//        // In comparison didn't use a[1]-b[1] as Integer.MIN_VALUE-Integer.MAX_VALUE will overflow from the tests
+//        Arrays.sort(points, (a, b)->a[1]<b[1]?-1:1);
+//        int p=points[0][1];
+//        result++;
+//        for(int i=1; i<points.length; i++){
+//            int[] cur=points[i];
+//            if(cur[0]>p){
+//                p=cur[1];
+//                result++;
+//            }
+//        }
+//        return result;
+//    }
+
     public int findMinArrowShots(int[][] points) {
         if(points==null || points.length==0){
             return 0;
         }
-        int result=0, l=points.length;
-        Arrays.sort(points, (a, b)->a[0]!=b[0]?a[0]-b[0]:a[1]-b[1]);
-        int[] range=new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE};
-        int i=0;
-        while(i<l){
+        int result=1, l=points.length;
+        Arrays.sort(points, (a, b)->a[0]<b[0]?-1:1);
+        int[] shootingRange=new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE};
+        for(int i=0; i<l; i++){
             int[] cur=points[i];
-            while(!(cur[1]<range[0] || cur[0]>range[1])){
-                range[0]=Math.max(range[0], cur[0]);
-                range[1]=Math.min(range[1], cur[1]);
-                if(++i<l){
-                    cur=points[i];
-                } else{
-                    break;
-                }
+            if(cur[0]>shootingRange[1]){
+                shootingRange=cur;
+                result++;
+            } else{
+                shootingRange[0]=Math.max(shootingRange[0], cur[0]);
+                shootingRange[1]=Math.min(shootingRange[1], cur[1]);
             }
-            range=cur;
-            result++;
         }
         return result;
     }
