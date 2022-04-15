@@ -29,16 +29,14 @@ public class LQValidPalindromeIII {
         int l=s.length();
         int[][] dp=new int[l][l];
         for(int t=1; t<=l; t++){
-            for(int i=0; i<=l-t; i++){
-                for(int j=i; j<=l-1; j++){
-                    if(i==j){
-                        dp[i][j]=1;
+            for(int i=0; i+t-1<l; i++){
+                if(i+t-1==i){
+                    dp[i][i+t-1]=1;
+                } else{
+                    if(s.charAt(i)==s.charAt(i+t-1)){
+                        dp[i][i+t-1]=(i+1<=i+t-2?dp[i+1][i+t-2]:0)+2;
                     } else{
-                        if(s.charAt(i)==s.charAt(j)){
-                            dp[i][j]=dp[i+1][j-1]+2;
-                        } else{
-                            dp[i][j]=Math.max(dp[i+1][j], dp[i][j-1]);
-                        }
+                        dp[i][i+t-1]=Math.max(dp[i+1][i+t-1], dp[i][i+t-2]);
                     }
                 }
             }
