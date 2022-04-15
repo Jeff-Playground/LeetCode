@@ -41,6 +41,7 @@ public class VerticalOrderTraversalOfABinaryTree {
         }
     }
 
+    // Introduce a new class Node because the result need sorting on y or if y is same on val
     class Node{
         int y;
         int val;

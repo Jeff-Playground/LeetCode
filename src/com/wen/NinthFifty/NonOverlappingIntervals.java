@@ -10,12 +10,13 @@ public class NonOverlappingIntervals {
         }
         int l=intervals.length;
         Arrays.sort(intervals, (a, b)->a[0]!=b[0]?a[0]-b[0]:a[1]-b[1]);
+        // last stores the end of the last interval added to non-overlapping set
         int total=1, last=intervals[0][1];
         for(int i=1; i<l; i++){
-            if(intervals[i][0]>=last){
+            if(intervals[i][0]>=last){  // not overlapping with previous last interval, add to set
                 total++;
                 last=intervals[i][1];
-            } else{
+            } else{     // overlapping with previous last interval, keep only the one ends earlier
                 last=Math.min(last, intervals[i][1]);
             }
         }
@@ -31,6 +32,7 @@ public class NonOverlappingIntervals {
 //        Arrays.sort(intervals, (a, b)->a[1]!=b[1]?a[1]-b[1]:a[0]-b[0]);
 //        int total=1, last=intervals[0][1];
 //        for(int i=1; i<l; i++){
+//            // only keep the ones ends earlier when overlapping
 //            if(intervals[i][0]>=last){
 //                total++;
 //                last=intervals[i][1];
