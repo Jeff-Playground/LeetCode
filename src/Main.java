@@ -839,7 +839,8 @@ public class Main {
 //        -1,
 //        0);
 
-//        ReversePairs.reversePairs(new int[]{2147483647,2147483647,-2147483647,-2147483647,-2147483647,2147483647});
+//        ReversePairs test=new ReversePairs();
+//        test.reversePairs(new int[]{-1,-3,-2,-3,-1});
 
 //        LQAndroidUnlockPatterns.numberOfPatterns(1,3);
 
