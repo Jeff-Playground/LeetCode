@@ -40,40 +40,40 @@ public class LQNestedListWeightSum {
         public List<NestedInteger> getList();
     }
 
-    // BFS
-    public int depthSum(List<NestedInteger> nestedList) {
-        int result=0, level=1;
-        Queue<NestedInteger> q=new LinkedList<>();
-        nestedList.forEach(e->q.offer(e));
-        while(!q.isEmpty()){
-            int size=q.size();
-            for(int i=0; i<size; i++){
-                NestedInteger cur=q.poll();
-                if(cur.isInteger()){
-                    result+=cur.getInteger()*level;
-                } else{
-                    cur.getList().forEach(e->q.offer(e));
-                }
-            }
-            level++;
-        }
-        return result;
-    }
-
-//    // DFS
+//    // BFS
 //    public int depthSum(List<NestedInteger> nestedList) {
-//        return dsHelper(nestedList, 1);
-//    }
-//
-//    private int dsHelper(List<NestedInteger> nestedList, int level){
-//        int result=0;
-//        for(NestedInteger e: nestedList){
-//            if(e.isInteger()){
-//                result+=level*e.getInteger();
-//            } else{
-//                result+=dsHelper(e.getList(), level+1);
+//        int result=0, level=1;
+//        Queue<NestedInteger> q=new LinkedList<>();
+//        nestedList.forEach(e->q.offer(e));
+//        while(!q.isEmpty()){
+//            int size=q.size();
+//            for(int i=0; i<size; i++){
+//                NestedInteger cur=q.poll();
+//                if(cur.isInteger()){
+//                    result+=cur.getInteger()*level;
+//                } else{
+//                    cur.getList().forEach(e->q.offer(e));
+//                }
 //            }
+//            level++;
 //        }
 //        return result;
 //    }
+
+    // DFS
+    public int depthSum(List<NestedInteger> nestedList) {
+        return dsHelper(nestedList, 1);
+    }
+
+    private int dsHelper(List<NestedInteger> nestedList, int level){
+        int result=0;
+        for(NestedInteger e: nestedList){
+            if(e.isInteger()){
+                result+=level*e.getInteger();
+            } else{
+                result+=dsHelper(e.getList(), level+1);
+            }
+        }
+        return result;
+    }
 }

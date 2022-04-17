@@ -10,9 +10,10 @@ public class BinarySearchTreeIterator {
     }
 
     class BSTIterator {
-        private Stack<TreeNode> stack=new Stack<>();
+        private Stack<TreeNode> stack;
 
         public BSTIterator(TreeNode root) {
+            stack=new Stack<>();
             TreeNode cur=root;
             while(cur!=null){
                 stack.push(cur);

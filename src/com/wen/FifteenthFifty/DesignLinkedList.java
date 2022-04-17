@@ -2,14 +2,15 @@ package com.wen.FifteenthFifty;
 
 public class DesignLinkedList {
     // Doubly linked list
-    public static class MyLinkedList {    class DoublyLinkedNode{
-        int val;
-        DoublyLinkedNode prev, next;
+    public static class MyLinkedList {
+        class DoublyLinkedNode{
+            int val;
+            DoublyLinkedNode prev, next;
 
-        public DoublyLinkedNode(int val){
-            this.val=val;
+            public DoublyLinkedNode(int val){
+                this.val=val;
+            }
         }
-    }
 
 
         DoublyLinkedNode head, tail;

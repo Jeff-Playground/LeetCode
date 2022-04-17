@@ -23,13 +23,14 @@ import java.util.PriorityQueue;
 
 public class FindMedianFromDataStream {
     class MedianFinder {
-        int length=0;
-        PriorityQueue<Integer> left=new PriorityQueue<>((a,b)->b-a);
-        PriorityQueue<Integer> right=new PriorityQueue<>((a, b)->a-b);
+        int length;
+        PriorityQueue<Integer> left, right;
 
         /** initialize your data structure here. */
         public MedianFinder() {
-
+            length=0;
+            left=new PriorityQueue<>((a,b)->b-a);
+            right=new PriorityQueue<>((a,b)->a-b);
         }
 
         public void addNum(int num) {

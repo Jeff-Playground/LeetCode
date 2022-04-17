@@ -45,11 +45,9 @@ public class MakingALargeIsland {
         int[][] dirs=new int[][]{{-1,0},{1,0},{0,-1},{0,1}};
         Map<Integer, Integer> root=new HashMap<>();
         Map<Integer, Integer> count=new HashMap<>();
-        int islandCount=0, max=0;
         for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
                 if(grid[i][j]==1){
-                    islandCount++;
                     int r=i*n+j;
                     int total=0;
                     Queue<Integer> q=new LinkedList<>();
@@ -71,15 +69,16 @@ public class MakingALargeIsland {
                         }
                     }
                     count.put(r, total);
-                    max=Math.max(max, total);
                 }
             }
         }
-        if(islandCount==0){
+        if(count.isEmpty()){
             return 1;
-        } else if(islandCount==1){
-            return max<m*n?max+1:max;
+        } else if(count.size()==1){
+            int area=count.values().iterator().next();
+            return area<m*n?area+1:area;
         } else{
+            int max=0;
             Set<String> combined=new HashSet<>();
             for(int i=0; i<m; i++){
                 for(int j=0; j<n; j++){
