@@ -15,7 +15,7 @@ public class MergeIntervals {
 
     // Find intervals based on sorted start and end
     public List<Interval> merge(List<Interval> intervals) {
-        List<Interval> result=new ArrayList<Interval>();
+        List<Interval> result=new ArrayList<>();
         if(intervals==null || intervals.size()==0){
             return result;
         }
@@ -39,7 +39,7 @@ public class MergeIntervals {
 
 //    // Sort and merge
 //    public List<Interval> merge(List<Interval> intervals) {
-//        List<Interval> result=new ArrayList<Interval>();
+//        List<Interval> result=new ArrayList<>();
 //        if(intervals==null || intervals.size()==0){
 //            return result;
 //        }

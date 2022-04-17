@@ -2,51 +2,34 @@ package com.wen.SecondFifty;
 
 public class ValidNumber {
     // Normal way
-    public static boolean isNumber(String s) {
-        if(s==null) {
-            return false;
-        }
-        s=s.trim();
-        if(s.length()==0) {
-            return false;
-        }
-        boolean onlyDot=false, dotFlag=false, expFlag=false, signFlag=false, digitFlag=false;
-        for(char c: s.toCharArray()) {
-            if(c=='+' || c=='-') {
-                if(dotFlag || signFlag || digitFlag) {
+    public boolean isNumber(String s) {
+        boolean seenExp=false, seenDot=false, seenDigit=false;
+        for(int i=0; i<s.length(); i++){
+            char c=s.charAt(i);
+            if(c=='+' || c=='-'){   // Sign can only appear at the start or after e/E
+                if(i!=0 && !(s.charAt(i-1)=='e' || s.charAt(i-1)=='E')){
                     return false;
-                } else {
-                    signFlag=true;
                 }
-            } else if(c>='0' && c<='9') {
-                digitFlag=true;
-                onlyDot=false;
-            } else if(c=='.') {
-                if(dotFlag || expFlag) {
+            } else if(c>='0' && c<='9'){
+                seenDigit=true;
+            } else if(c=='e' || c=='E'){    // e/E can only appear once and has to be after digit, also note setting seenDigit to false when continuing
+                if(!seenDigit || seenExp){
                     return false;
-                } else {
-                    if(digitFlag==false) {
-                        onlyDot=true;
-                    }
-                    dotFlag=true;
+                } else{
+                    seenDigit=false;
+                    seenExp=true;
                 }
-            } else if(c=='e' || c=='E') {
-                if(expFlag || !digitFlag) {
+            } else if(c=='.'){      // . can only appear once and has to be before e/E
+                if(seenDot || seenExp){
                     return false;
-                } else {
-                    dotFlag=false;
-                    signFlag=false;
-                    digitFlag=false;
-                    expFlag=true;
+                } else{
+                    seenDot=true;
                 }
-            } else {
+            } else{
                 return false;
             }
         }
-        if(onlyDot) {
-            return false;
-        }
-        return digitFlag;
+        return seenDigit;   // A valid number will have digits for sure
     }
 
 //    // Regular Expression

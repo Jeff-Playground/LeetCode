@@ -52,8 +52,8 @@ public class AccountsMerge {
         Map<String, String> owner=new HashMap<>();
         for(List<String> account: accounts){
             String name=account.get(0);
+            owner.put(account.get(1), name);
             for(int i=1; i<account.size(); i++){
-                owner.put(account.get(i), name);
                 if(root.containsKey(account.get(i))){
                     // union
                     root.put(findRoot(root, account.get(1)), findRoot(root, account.get(i)));
@@ -71,9 +71,10 @@ public class AccountsMerge {
             }
         }
         List<List<String>> result=new ArrayList<>();
-        for(TreeSet<String> emails: sortedGroup.values()){
+        for(String r: sortedGroup.keySet()){
+            TreeSet<String> emails=sortedGroup.get(r);
             List<String> sorted=new ArrayList<>(emails);
-            sorted.add(0, owner.get(sorted.get(0)));
+            sorted.add(0, owner.get(r));
             result.add(sorted);
         }
         return result;
