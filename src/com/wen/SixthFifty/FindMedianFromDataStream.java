@@ -12,10 +12,10 @@ Time and space complexity would be O(100) = O(1).
 
 
 2. If 99% of all integer numbers from the stream are between 0 and 100, how would you optimize it?
-As 99% is between 0-100. So can keep a counter for less_than_hundred and greater_than_hundred.
+As 99% is between 0-100, we can keep 2 counters for less_than_zero and greater_than_hundred, the rest is similar to
+follow-up 1.
 As we know solution will be definitely in 0-100 we don't need to know those number which are >100 or <0, only knowing the
 count of them will be enough.
-
 
  */
 

@@ -8,7 +8,9 @@ public class MedianOfTwoSortedArrays {
         }
         int left=0, right=2*m;
         while(left<=right){
-            // Cut is based on converting original array to something like #1#2#3#
+            // Cut is based on converting both original arrays to something like #1#2#3#, so the length of nums1 becomes
+            // 2*m+1, nums2 becomes 2*n+1
+            // The new indices of numbers can be converted to the old indices by newIdx/2
             int cut1=(left+right)/2;
             int cut2=m+n-cut1;
             double l1=cut1==0?Double.MIN_VALUE:nums1[(cut1-1)/2];
