@@ -3,7 +3,7 @@ package com.wen.EleventhFifty;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class FriendCircles {
+public class NumberOfProvinces {
     // BFS
     public int findCircleNum(int[][] M) {
         int N=M.length;

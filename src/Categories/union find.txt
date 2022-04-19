@@ -59,7 +59,7 @@ LQNumberOfConnectedComponentsInAnUndirectedGraph
 - 400 -
 - 450 -
 - 500 -
-Friend Circles
+Number of Provinces
 - 550 -
 - 600 -
 - 650 -

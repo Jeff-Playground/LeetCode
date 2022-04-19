@@ -4,49 +4,64 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class PopulatingNextRightPointersInEachNodeII {
-    public class TreeLinkNode {
-        int val;
-        TreeLinkNode left, right, next;
-        TreeLinkNode(int x) { val = x; }
+    class Node {
+        public int val;
+        public Node left;
+        public Node right;
+        public Node next;
+
+        public Node() {}
+
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val, Node _left, Node _right, Node _next) {
+            val = _val;
+            left = _left;
+            right = _right;
+            next = _next;
+        }
     }
 
     // Iterative, use pre to point at the previous node of the same level
-    public void connect(TreeLinkNode root) {
+    public Node connect(Node root) {
         if(root==null) {
-            return;
+            return root;
         }
-        TreeLinkNode start=root, cur=null, pre=null;
-        while(start!=null) {
-            cur=start;
-            while(cur!=null) {
-                if(cur.left!=null && cur.right!=null) {
-                    cur.left.next=cur.right;
+        Node levelStart=root, curParent=null, preChild=null;
+        while(levelStart!=null) {
+            curParent=levelStart;
+            while(curParent!=null) {
+                if(curParent.left!=null && curParent.right!=null) {
+                    curParent.left.next=curParent.right;
                 }
-                if(cur.left!=null || cur.right!=null) {
-                    if(pre!=null) {
-                        pre.next=cur.left!=null?cur.left:cur.right;
+                if(curParent.left!=null || curParent.right!=null) {
+                    if(preChild!=null) {
+                        preChild.next=curParent.left!=null?curParent.left:curParent.right;
                     }
-                    pre=cur.right!=null?cur.right:cur.left;
+                    preChild=curParent.right!=null?curParent.right:curParent.left;
                 }
-                cur=cur.next;
+                curParent=curParent.next;
             }
-            while(start.left==null && start.right==null) {
-                start=start.next;
-                if(start==null) {
-                    return;
+            while(levelStart.left==null && levelStart.right==null) {
+                levelStart=levelStart.next;
+                if(levelStart==null) {
+                    return root;
                 }
             }
-            start=start.left!=null?start.left:start.right;
-            pre=null;
+            levelStart=levelStart.left!=null?levelStart.left:levelStart.right;
+            preChild=null;
         }
+        return root;
     }
 
 //    // Recursive, take care of right part first, then do left
-//    public void connect(TreeLinkNode root) {
+//    public Node connect(Node root) {
 //        if(root==null) {
-//            return;
+//            return root;
 //        }
-//        TreeLinkNode cur=root.next;
+//        Node cur=root.next;
 //        while(cur!=null) {
 //            if(cur.left!=null) {
 //                cur=cur.left;
@@ -69,31 +84,33 @@ public class PopulatingNextRightPointersInEachNodeII {
 //        }
 //        connect(root.right);
 //        connect(root.left);
+//        return root;
 //    }
 
 //    // Level order traversal
-//    public void connect(TreeLinkNode root) {
-//       if(root==null){
-//        return;
+//    public Node connect(Node root) {
+//        if(root==null){
+//            return null;
 //        }
-//        Queue<TreeLinkNode> queue=new LinkedList<>();
-//           queue.offer(root);
-//           while(!queue.isEmpty()){
-//            int size=queue.size();
-//            TreeLinkNode cur=null;
-//            for(int i=0; i<size; i++){
-//                cur=queue.poll();
+//        Queue<Node> q=new LinkedList<>();
+//        q.offer(root);
+//        while(!q.isEmpty()){
+//            int size=q.size();
+//            Node pre=null;
+//            while(size-->0){
+//                Node cur=q.poll();
+//                if(pre!=null){
+//                    pre.next=cur;
+//                }
 //                if(cur.left!=null){
-//                    queue.offer(cur.left);
+//                    q.offer(cur.left);
 //                }
 //                if(cur.right!=null){
-//                    queue.offer(cur.right);
+//                    q.offer(cur.right);
 //                }
-//                if(i<size-1){
-//                    cur.next=queue.peek();
-//                }
+//                pre=cur;
 //            }
-//            cur.next=null;
 //        }
+//        return root;
 //    }
 }

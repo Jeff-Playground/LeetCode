@@ -15,7 +15,8 @@ Design Tiny URL:
     To generate short_url based on long_url:
         hash function like MD5
         randomly generate string and check against DB short_url key
-        Base62 on DB sequential ID
+        Base62 on DB sequential ID(with multiple DB servers after a LB)
+        Distributed id generator like Twitter snowflake
     To reduce response time:
         For reads, add cache, and set up distributed services based on user geographic locations(note only cache and related services need to be distributed)
         For writes, add more DB nodes and do consistent sharding

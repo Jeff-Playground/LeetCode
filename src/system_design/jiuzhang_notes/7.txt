@@ -60,6 +60,9 @@ Design Uber:
             No, otherwise it would become a single point of failure
             Best practice would be data sharding:
                 Geo fence:
-                    Sharding on city/polygon
+                    Sharding on city/polygon:
+                        two level storage:
+                            1. city/polygon
+                            2. geo fences within
         Replica:
             Master-slave

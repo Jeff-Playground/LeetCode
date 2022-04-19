@@ -46,8 +46,9 @@ Design Tiny URL:
             Random generation then check against DB short_url key:
                 simple
                 generation becomes slower as time goes by(regenerations more often due to collisions)
-            Base62 on DB sequential ID: 6 bits short_url has 62^6=57B of capacity
+            Base62 on DB sequential ID(with multiple DB servers after a LB): 6 bits short_url has 62^6=57B of capacity
                 depends on a global sequential ID
+            Use a distributed id generator like Twitter snowflake
     Storage:
         SQL vs. NoSQL
             NoSQL doesn't support transaction
