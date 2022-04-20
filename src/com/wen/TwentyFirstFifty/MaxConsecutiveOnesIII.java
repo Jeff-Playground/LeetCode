@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class MaxConsecutiveOnesIII {
-    // Sliding window, handles when input array can be a data stream
+    // Sliding window, use a Queue which only stores the index of 0 nodes, handles when input array can be a data stream
     public int longestOnes(int[] A, int K) {
         int result=0, idx=0, start=0, l=A.length;
         Queue<Integer> q=new LinkedList<>();
