@@ -140,7 +140,8 @@ public class LQDesignTicTacToe {
             cols[col]+=diff;
             if(row==col){
                 diag +=diff;
-            } else if(row+col==N-1){
+            }
+            if(row+col==N-1){
                 revDiag+=diff;
             }
             return (Math.abs(rows[row])==N || Math.abs(cols[col])==N || Math.abs(diag)==N ||
