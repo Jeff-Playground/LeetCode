@@ -55,6 +55,12 @@ public class CombinationSumII {
                 cur.add(candidates[i]);
                 combinationSum2Helper(candidates, target-candidates[i], i+1, cur, result);
                 cur.remove(cur.size()-1);
+                // Here basically skip all coming nums with same value when current value is not included:
+                // Take 1 1 1 as an example:
+                // 1 1 1
+                // 1 1 0
+                // 1 0 0
+                // 0 0 0
                 combinationSum2Helper(candidates, target, next, cur, result);
             }
         }
