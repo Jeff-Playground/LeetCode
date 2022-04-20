@@ -52,7 +52,7 @@ public class LQInsertintoASortedCircularLinkedList {
         }
     }
 
-    //
+    // Insert while iterating through the linked list
     public Node insert(Node head, int insertVal) {
         Node node=new Node(insertVal);
         if(head==null){
@@ -61,11 +61,11 @@ public class LQInsertintoASortedCircularLinkedList {
         } else{
             Node pre=head, next=pre.next;
             while(next!=head){
-                // Insert in the middle
+                // Insert in the middle of the list
                 if(pre.val<=insertVal && next.val>=insertVal){
                     break;
                 }
-                // Found the place of min and max and insert between them
+                // Found the place of min and max and insert at the edge of the list
                 if(pre.val>next.val && (pre.val<=insertVal || next.val>=insertVal)){
                     break;
                 }
