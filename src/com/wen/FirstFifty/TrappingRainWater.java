@@ -1,5 +1,7 @@
 package com.wen.FirstFifty;
 
+import java.util.Stack;
+
 public class TrappingRainWater {
 //    // Two pointers
 //    public int trap(int[] height) {
@@ -41,9 +43,9 @@ public class TrappingRainWater {
 
 //    // Stack
 //    public int trap(int[] height) {
-//        Stack<Integer> s=new Stack<Integer>();
-//        int i=0, n=height.length, result=0;
-//        while(i<n){
+//        Stack<Integer> s=new Stack<>();
+//        int i=0, l=height.length, result=0;
+//        while(i<l){
 //            if(s.isEmpty() || height[i]<=height[s.peek()]){
 //                s.push(i++);
 //            }else{

@@ -1,34 +1,52 @@
 package com.wen.FifthFifty;
 
+/*
+We can shift a string by shifting each of its letters to its successive letter.
+
+For example, "abc" can be shifted to be "bcd".
+We can keep shifting the string to form a sequence.
+
+For example, we can keep shifting "abc" to form the sequence: "abc" -> "bcd" -> ... -> "xyz".
+
+Given an array of strings "strings", group all strings[i] that belong to the same shifting sequence. You may return the
+answer in any order.
+
+
+
+Example 1:
+Input: strings = ["abc","bcd","acef","xyz","az","ba","a","z"]
+Output: [["acef"],["a","z"],["abc","bcd","xyz"],["az","ba"]]
+
+Example 2:
+Input: strings = ["a"]
+Output: [["a"]]
+
+
+Constraints:
+1 <= strings.length <= 200
+1 <= strings[i].length <= 50
+strings[i] consists of lowercase English letters.
+ */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class LQGroupShiftedStrings {
-    public static List<List<String>> groupStrings(String[] strings) {
-        Map<String, List<String>> map=new HashMap<>();
-        for(String s: strings){
-            String key="";
-            if(s.length()>0){
-                char c=s.charAt(0);
-                for(int i=0; i<s.length(); i++){
-                    int v=s.charAt(i)-c;
-                    key+=v<0?v+26:v;
-                }
-                List<String> l=map.getOrDefault(key, new ArrayList<String>());
-                l.add(s);
-                map.put(key, l);
-            } else{
-                List<String> l=map.getOrDefault(key, new ArrayList<String>());
-                l.add(s);
-                map.put(key, l);
-            }
-        }
+    public List<List<String>> groupStrings(String[] strings) {
         List<List<String>> result=new ArrayList<>();
-        for(List<String> l: map.values()){
-            result.add(l);
+        Map<String, List<String>> group=new HashMap<>();
+        for(String s: strings){
+            char first=s.charAt(0);
+            StringBuilder key=new StringBuilder();
+            for(char c: s.toCharArray()){
+                key.append((char)('a'+(c-first+26)%26));
+            }
+            group.putIfAbsent(key.toString(), new ArrayList<>());
+            group.get(key.toString()).add(s);
         }
+        group.values().forEach(e->result.add(e));
         return result;
     }
 }
