@@ -2,46 +2,20 @@ package com.wen.SecondFifty;
 
 public class AddBinary {
     public String addBinary(String a, String b) {
-        if(a==null || a.length()==0 || a.length()<b.length()) {
-            return addBinary(b, a);
+        int al=a.length(), bl=b.length();
+        int i=al-1, j=bl-1;
+        int carry=0;
+        StringBuilder sb=new StringBuilder();
+        while(i>=0 || j>=0){
+            int ac=i>=0?a.charAt(i--)-'0':0, bc=j>=0?b.charAt(j--)-'0':0;
+            int add=ac+bc+carry;
+            carry=add>1?1:0;
+            add%=2;
+            sb.append((char)(add+'0'));
         }
-        if(b==null || b.length()==0) {
-            return a;
+        if(carry==1){
+            sb.append('1');
         }
-        String result="";
-        int m=a.length(), n=b.length();
-        int i=n-1, carry=0;
-        while(i>=0) {
-            int aInt=Integer.parseInt(a.substring(i+m-n, i+m-n+1));
-            int bInt=Integer.parseInt(b.substring(i, i+1));
-            int sum=aInt+bInt+carry;
-            if(sum>=2) {
-                carry=1;
-                sum-=2;
-            } else {
-                carry=0;
-            }
-            result=sum+result;
-            i--;
-        }
-        i=m-n-1;
-        while(carry==1 && i>=0) {
-            int aInt=Integer.parseInt(a.substring(i, i+1));
-            int sum=aInt+carry;
-            if(sum>=2) {
-                carry=1;
-                sum-=2;
-            } else {
-                carry=0;
-            }
-            result=sum+result;
-            i--;
-        }
-        if(carry==0) {
-            result=a.substring(0, i+1)+result;
-        } else {
-            result=1+result;
-        }
-        return result;
+        return sb.reverse().toString();
     }
 }

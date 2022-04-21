@@ -277,6 +277,7 @@ Maximize Distance to Closest Person
 - 850 -
 Monotonic Array
 - 900 -
+*Minimum Area Rectangle
 - 950 -
 Verifying an Alien Dictionary
 Prison Cells After N Days
