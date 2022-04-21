@@ -59,6 +59,7 @@ Peak Index in a Mountain Array
 - 1300 -
 - 1350 -
 - 1400 -
+LQLeftmostColumnWithAtLeastAOne
 - 1450 -
 - 1500 -
 *Kth Missing Positive Number
