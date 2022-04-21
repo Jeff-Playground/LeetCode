@@ -3,18 +3,26 @@ package com.wen.EighthFifty;
 import java.util.PriorityQueue;
 
 public class KthSmallestElementInASortedMatrix {
-//    // Max heap
+//    // Min heap, similar to merge k sorted list
 //    public int kthSmallest(int[][] matrix, int k) {
-//        PriorityQueue<Integer> pq=new PriorityQueue<>((a, b)->b-a);
-//        for(int i=0; i<matrix.length; i++){
-//            for(int j=0; j<matrix[0].length; j++){
-//                pq.offer(matrix[i][j]);
-//                if(pq.size()>k){
-//                    pq.poll();
-//                }
+//        PriorityQueue<int[]> pq=new PriorityQueue<>((a, b)->a[0]-b[0]);
+//        int m=matrix.length, n=matrix[0].length;
+//        for(int i=0; i<m && i<k; i++){
+//            pq.offer(new int[]{matrix[i][0], i, 0});
+//        }
+//        int result=0;
+//        while(k-->0){
+//            int[] cur=pq.poll();
+//            int v=cur[0], x=cur[1], y=cur[2];
+//            if(k==0){
+//                result=v;
+//                break;
+//            }
+//            if(y+1<n){
+//                pq.offer(new int[]{matrix[x][y+1], x, y+1});
 //            }
 //        }
-//        return pq.peek();
+//        return result;
 //    }
 
 //    // Binary search2, optimized the algorithm to find less or equal to count

@@ -46,6 +46,7 @@ public class SubtreeOfAnotherTree {
         return sb.indexOf(tb.toString())!=-1;
     }
 
+    // Each "#" stands for a null node in the serialization
     private void serialize(TreeNode root, StringBuilder s){
         if(root==null){
             s.append(",#");

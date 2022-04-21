@@ -35,5 +35,6 @@ Maximum Width of Binary Tree
 - 900 -
 *Complete Binary Tree Inserter
 - 950 -
+Check Completeness of a Binary Tree
 Vertical Order Traversal of a Binary Tree
 - 1000 -
