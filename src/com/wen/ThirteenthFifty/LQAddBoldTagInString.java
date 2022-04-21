@@ -34,60 +34,61 @@ All the strings in input have length in range [1, 1000].
 import java.util.*;
 
 public class LQAddBoldTagInString {
-//    public static String addBoldTag(String s, String[] dict) {
-//        int l=s.length();
-//        boolean[] exist=new boolean[l];
-//        int end=-1;
-//        for(int i=0; i<l; i++){
-//            for(String word: dict){
-//                int len=word.length();
-//                if(i+len<=l && s.substring(i, i+len).equals(word)){
-//                    end=Math.max(end, i+len);
-//                }
-//            }
-//            exist[i]=end>i;
-//        }
-//        StringBuilder sb=new StringBuilder();
-//        int size=0;
-//        for(int i=0; i<=l; i++){
-//            if(i<l && exist[i]){
-//                size++;
-//            } else{
-//                if(size>0){
-//                    sb.append("<b>"+s.substring(i-size, i)+"</b>");
-//                    size=0;
-//                }
-//                if(i<l){
-//                    sb.append(s.charAt(i));
-//                }
-//            }
-//        }
-//        return sb.toString();
-//    }
-
-    public String addBoldTag(String s, String[] dict) {
+    public static String addBoldTag(String s, String[] dict) {
         int l=s.length();
-        Set<Integer> matchedIdx=new HashSet<>();
-        for(String word: dict){
-            int len=word.length();
-            for(int i=0; i<=l-len; i++){
-                if(s.substring(i, i+len).equals(word)){
-                    for(int j=i; j<i+len; j++){
-                        matchedIdx.add(j);
-                    }
+        boolean[] exist=new boolean[l];
+        int end=-1;
+        for(int i=0; i<l; i++){
+            for(String word: dict){
+                int len=word.length();
+                if(i+len<=l && s.substring(i, i+len).equals(word)){
+                    end=Math.max(end, i+len);
                 }
             }
+            // Note here end is the maximum right reach, and could be from previous match
+            exist[i]=end>i;
         }
         StringBuilder sb=new StringBuilder();
-        for(int i=0; i<l; i++){
-            if(matchedIdx.contains(i) && !matchedIdx.contains(i-1)){
-                sb.append("<b>");
-            }
-            sb.append(s.charAt(i));
-            if(matchedIdx.contains(i) && !matchedIdx.contains(i+1)){
-                sb.append("</b>");
+        int size=0;
+        for(int i=0; i<=l; i++){
+            if(i<l && exist[i]){
+                size++;
+            } else{
+                if(size>0){
+                    sb.append("<b>"+s.substring(i-size, i)+"</b>");
+                    size=0;
+                }
+                if(i<l){
+                    sb.append(s.charAt(i));
+                }
             }
         }
         return sb.toString();
     }
+
+//    public String addBoldTag(String s, String[] dict) {
+//        int l=s.length();
+//        Set<Integer> matchedIdx=new HashSet<>();
+//        for(String word: dict){
+//            int len=word.length();
+//            for(int i=0; i<=l-len; i++){
+//                if(s.substring(i, i+len).equals(word)){
+//                    for(int j=i; j<i+len; j++){
+//                        matchedIdx.add(j);
+//                    }
+//                }
+//            }
+//        }
+//        StringBuilder sb=new StringBuilder();
+//        for(int i=0; i<l; i++){
+//            if(matchedIdx.contains(i) && !matchedIdx.contains(i-1)){
+//                sb.append("<b>");
+//            }
+//            sb.append(s.charAt(i));
+//            if(matchedIdx.contains(i) && !matchedIdx.contains(i+1)){
+//                sb.append("</b>");
+//            }
+//        }
+//        return sb.toString();
+//    }
 }
