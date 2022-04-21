@@ -52,6 +52,7 @@ Peak Index in a Mountain Array
 - 950 -
 - 1000 -
 - 1050 -
+*Missing Element in Sorted Array
 - 1100 -
 - 1150 -
 - 1200 -
