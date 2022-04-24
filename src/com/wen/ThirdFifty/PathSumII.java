@@ -15,33 +15,38 @@ public class PathSumII {
     // Iterative
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> result=new ArrayList<>();
-        if(root==null){
-            return result;
-        }
         Stack<TreeNode> stack=new Stack<>();
+        List<Integer> route=new ArrayList<>();
         TreeNode cur=root, pre=null;
-        int val=0;
+        int curSum=0;
         while(cur!=null || !stack.isEmpty()){
-            while(cur!=null){
+            if(cur!=null){
+                curSum+=cur.val;
+                route.add(cur.val);
                 stack.push(cur);
-                val+=cur.val;
                 cur=cur.left;
-            }
-            cur=stack.peek();
-            if(cur.left==null && cur.right==null && val==sum){
-                List<Integer> temp=new ArrayList<>();
-                stack.stream().forEach(node ->{
-                    temp.add(node.val);
-                });
-                result.add(temp);
-            }
-            if(cur.right!=null && cur.right!=pre){
-                cur=cur.right;
             } else{
-                pre=cur;
-                val-=cur.val;
-                stack.pop();
-                cur=null;
+                cur=stack.peek();
+                if(cur.right==null){
+                    if(cur.left==null && curSum==sum){
+                        result.add(new ArrayList<>(route));
+                    }
+                    curSum-=cur.val;
+                    pre=cur;
+                    stack.pop();
+                    route.remove(route.size()-1);
+                    cur=null;
+                } else{
+                    if(cur.right==pre){
+                        curSum-=cur.val;
+                        pre=cur;
+                        stack.pop();
+                        route.remove(route.size()-1);
+                        cur=null;
+                    } else{
+                        cur=cur.right;
+                    }
+                }
             }
         }
         return result;

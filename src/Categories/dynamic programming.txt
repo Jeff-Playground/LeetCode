@@ -78,6 +78,7 @@ Maximum Length of Pair Chain
 *2 Keys Keyboard
 - 650 -
 Number of Longest Increasing Subsequence
+*Maximum Sum of 3 Non-Overlapping Subarrays
 *Stickers to Spell Word
 - 700 -
 Best Time to Buy and Sell Stock with Transaction Fee
