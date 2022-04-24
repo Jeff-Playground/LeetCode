@@ -1,4 +1,5 @@
 Same Tree
+Minimum Depth of Binary Tree
 Binary Tree Postorder Traversal
 *LQCountUnivalueSubtrees
 *LQBinaryTreeLongestConsecutiveSequence
