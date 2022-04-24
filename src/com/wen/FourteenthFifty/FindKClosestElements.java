@@ -59,7 +59,7 @@ public class FindKClosestElements {
 //        return result;
 //    }
 
-    // Binary search, use the two ends arr[i] and arr[i+k] to decide which direction should the range move to
+    // Binary search, note the search is looking for the start of the range
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         List<Integer> result=new ArrayList<>();
         if(arr.length<=k){
