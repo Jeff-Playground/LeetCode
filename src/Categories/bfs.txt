@@ -64,6 +64,7 @@ Flower Planting With No Adjacent
 - 1050 -
 Shortest Path in Binary Matrix
 - 1100 -
+LQPathWithMaximumMinimumValue
 - 1150 -
 As Far from Land as Possible
 LQMinimumKnightMoves

@@ -81,7 +81,6 @@ public class LQBoundaryOfBinaryTree {
 
     private void bobtHelper(TreeNode cur, boolean isLeft, boolean isRight, List<Integer> result){
         if(cur!=null){
-            System.out.println(cur.val);
             if(cur.left==null && cur.right==null){
                 result.add(cur.val);
             } else{
@@ -135,15 +134,15 @@ public class LQBoundaryOfBinaryTree {
 //        }
 //    }
 //
-//    private void rightHelper(TreeNode cur, List<Integer> result, int idx){
+//    private void rightHelper(TreeNode cur, List<Integer> result, int startIdx){
 //        if(cur==null || (cur.left==null && cur.right==null)){
 //            return;
 //        } else{
-//            result.add(idx, cur.val);
+//            result.add(startIdx, cur.val);
 //            if(cur.right!=null){
-//                rightHelper(cur.right, result, idx);
+//                rightHelper(cur.right, result, startIdx);
 //            } else{
-//                rightHelper(cur.left, result, idx);
+//                rightHelper(cur.left, result, startIdx);
 //            }
 //        }
 //    }
