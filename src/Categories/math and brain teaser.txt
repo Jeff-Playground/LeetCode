@@ -300,6 +300,7 @@ Minimum Remove to Make Valid Parentheses
 Find Winner on a Tic Tac Toe Game
 - 1300 -
 Filter Restaurants by Vegan-Friendly, Price and Distance
+Angle Between Hands of a Clock
 - 1350 -
 - 1400 -
 *Diagonal Traverse II

@@ -15,6 +15,7 @@ public class LQShortestDistanceFromAllBuildings {
                 }
             }
         }
+        // Note here target is the value we're looking for each round, so it starts as 0, and eventually becomes (-count+1)
         int count=buildings.size(), target=0, result=Integer.MAX_VALUE;
         int[][] dirs=new int[][]{{-1,0},{1,0},{0,-1},{0,1}};
         int[][] dist=new int[m][n];
@@ -24,7 +25,7 @@ public class LQShortestDistanceFromAllBuildings {
             int curDist=0;
             while(!q.isEmpty()){
                 int size=q.size();
-                for(int j=0; j<size; j++){
+                while(size-->0){
                     List<Integer> cur=q.poll();
                     int x=cur.get(0), y=cur.get(1);
                     for(int[] dir: dirs){
@@ -43,6 +44,6 @@ public class LQShortestDistanceFromAllBuildings {
             }
             target--;
         }
-        return result;
+        return result==Integer.MAX_VALUE?-1:result;
     }
 }
