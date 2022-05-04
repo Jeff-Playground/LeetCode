@@ -7,83 +7,67 @@ public class SlidingWindowMedian {
     // while for two values with different signs, do (num1+num2)/2
 
     public static double[] medianSlidingWindow(int[] nums, int k) {
-        if(nums==null || nums.length==0){
-            return new double[]{};
-        }
         int l=nums.length;
         double[] result=new double[l-k+1];
-        // Note here for comparotor can't use nums[a]-nums[b] because this will overflow for Integer.MAX_VALUE and Integer.MIN_VALUE
-        TreeSet<Integer> left=new TreeSet<>((a, b)->(nums[a]==nums[b]?a-b:Integer.compare(nums[a],nums[b])));
-        TreeSet<Integer> right=new TreeSet<>((a, b)->(nums[a]==nums[b]?a-b:Integer.compare(nums[a],nums[b])));
+        // Note here for comparator can't use nums[a]-nums[b] because this will overflow for Integer.MAX_VALUE and Integer.MIN_VALUE
+        // Also note the comparator also does (a-b) when nums[a]==nums[b], otherwise same num in different idx don't get added properly
+        TreeSet<Integer> left=new TreeSet<>((a, b)->nums[a]!=nums[b]?Integer.compare(nums[a], nums[b]):a-b), right=new TreeSet<>((a, b)->nums[a]!=nums[b]?Integer.compare(nums[a], nums[b]):a-b);
         for(int i=0; i<l; i++){
-            if(i<k-1){
-                addNum(nums, left, right, i);
-            } else if(i==k-1){
-                addNum(nums, left, right, i);
-                result[i-k+1]=getMedian(nums, left, right);
+            if(i>=k){
+                int ri=i-k;
+                if(left.size()>right.size()){
+                    if(left.contains(ri)){
+                        left.remove(ri);
+                    } else{
+                        right.remove(ri);
+                        right.add(left.last());
+                        left.remove(left.last());
+                    }
+                } else{
+                    if(left.contains(ri)){
+                        left.remove(ri);
+                        left.add(right.first());
+                        right.remove(right.first());
+                    } else{
+                        right.remove(ri);
+                    }
+                }
+            }
+            if(left.size()>right.size()){
+                if(nums[left.last()]>nums[i]){
+                    right.add(left.last());
+                    left.remove(left.last());
+                    left.add(i);
+                } else{
+                    right.add(i);
+                }
             } else{
-                addNum(nums, left, right, i);
-                removeNum(nums, left, right, i-k);
-                result[i-k+1]=getMedian(nums, left, right);
+                if(!right.isEmpty() && nums[right.first()]<nums[i]){
+                    left.add(right.first());
+                    right.remove(right.first());
+                    right.add(i);
+                } else{
+                    left.add(i);
+                }
+            }
+            if(i>=k-1){
+                System.out.println(left.size());
+                System.out.println(right.size());
+                if(left.size()>right.size()){
+                    result[i-k+1]=(double)nums[left.last()];
+                    System.out.println("h");
+                } else{
+                    int n1=nums[left.last()], n2=nums[right.first()];
+                    if((n1>0 && n2>0) || (n1<0 && n2<0)){
+                        result[i-k+1]=(double)n1+((double)(n2-n1))/2;
+                    } else{
+                        result[i-k+1]=((double)(n1+n2))/2;
+                    }
+                    System.out.println("h2");
+                }
             }
         }
         return result;
-    }
-
-    public static double getMedian(int[] nums, TreeSet<Integer> left, TreeSet<Integer> right){
-        if(left.size()>right.size()){
-            return (double)nums[left.last()];
-        } else{
-            int l=nums[left.last()];
-            int r=nums[right.first()];
-            if(l>=0){
-                return r>=0?(r-l)/2.0+l:(l+r)/2.0;
-            } else{
-                return r<0?(r-l)/2.0+l:(l+r)/2.0;
-            }
-        }
-    }
-
-    public static void addNum(int[] nums, TreeSet<Integer> left, TreeSet<Integer> right, int index){
-        if(left.size()>right.size()){
-            int leftMaxIndex=left.last();
-            if(nums[index]<nums[leftMaxIndex]){
-                left.add(index);
-                left.remove(leftMaxIndex);
-                index=leftMaxIndex;
-            }
-            right.add(index);
-        } else{
-            if(right.size()>0){
-                int rightMinIndex=right.first();
-                if(nums[index]>nums[rightMinIndex]){
-                    right.add(index);
-                    right.remove(rightMinIndex);
-                    index=rightMinIndex;
-                }
-            }
-            left.add(index);
-        }
-    }
-
-    public static void removeNum(int[] nums, TreeSet<Integer> left, TreeSet<Integer> right, int index){
-        if(left.size()>right.size()){
-            if(right.contains(index)){
-                int leftMaxIndex=left.last();
-                right.remove(index);
-                right.add(leftMaxIndex);
-                index=leftMaxIndex;
-            }
-            left.remove(index);
-        } else {
-            if(left.contains(index)){
-                int rightMinIndex=right.first();
-                left.remove(index);
-                left.add(rightMinIndex);
-                index=rightMinIndex;
-            }
-            right.remove(index);
-        }
     }
 
 //    // Insertion sort
