@@ -42,7 +42,9 @@ p and q exist in the tree.
  */
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class LQLowestCommonAncestorOfABinaryTreeIII {
     class Node {
@@ -52,36 +54,53 @@ public class LQLowestCommonAncestorOfABinaryTreeIII {
         public Node parent;
     }
 
+    // Use a Set to store visited
     public Node lowestCommonAncestor(Node p, Node q) {
-        Map<Integer, Node> visited=new HashMap<>();
-        visited.put(p.val, p);
-        visited.put(q.val, q);
-        while(p.parent!=null && q.parent!=null){
-            p=p.parent;
-            q=q.parent;
-            if(visited.containsKey(p.val)){
-                return visited.get(p.val);
-            } else{
-                visited.put(p.val, p);
+        Set<Node> visited=new HashSet<>();
+        visited.add(p);
+        visited.add(q);
+        while(p.parent!=null || q.parent!=null){
+            if(p.parent!=null){
+                if(visited.contains(p.parent)){
+                    return p.parent;
+                } else{
+                    p=p.parent;
+                    visited.add(p);
+                }
             }
-            if(visited.containsKey(q.val)){
-                return visited.get(q.val);
-            } else{
-                visited.put(q.val, q);
-            }
-        }
-        while(p.parent!=null){
-            p=p.parent;
-            if(visited.containsKey(p.val)){
-                return visited.get(p.val);
-            }
-        }
-        while(q.parent!=null){
-            q=q.parent;
-            if(visited.containsKey(q.val)){
-                return visited.get(q.val);
+            if(q.parent!=null){
+                if(visited.contains(q.parent)){
+                    return q.parent;
+                } else{
+                    q=q.parent;
+                    visited.add(q);
+                }
             }
         }
         return null;
     }
+
+//    // Use a Map to store visited
+//    public Node lowestCommonAncestor(Node p, Node q) {
+//        Map<Integer, Node> visited=new HashMap<>();
+//        visited.put(p.val, p);
+//        visited.put(q.val, q);
+//        while(p.parent!=null || q.parent!=null){
+//            if(p.parent!=null){
+//                p=p.parent;
+//                if(visited.containsKey(p.val)){
+//                    return visited.get(p.val);
+//                }
+//                visited.put(p.val, p);
+//            }
+//            if(q.parent!=null){
+//                q=q.parent;
+//                if(visited.containsKey(q.val)){
+//                    return visited.get(q.val);
+//                }
+//                visited.put(q.val, q);
+//            }
+//        }
+//        return null;
+//    }
 }
