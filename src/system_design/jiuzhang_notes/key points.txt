@@ -38,6 +38,7 @@ Single point of failure:
         Master-slave: master for writes and reads, slave for reads only
 
 Consistent hashing(https://kefeng.wang/2018/08/10/consistent-hashing/)
+    Use a configuration service(like zookeeper to store mapping info)
     Adding a node wouldn't change much of the original nodes, so it's consistent
     Hashing ring range: 0 ~ 2^64-1(Java Long.MAX_VALUE)
     Micro shards/Virtual nodes:
@@ -143,4 +144,33 @@ Socket:
     heartbeat is not enforced for socket, but here heartbeat should be used for ensuring user active
     socket on server side can use single listening port and distinguish connections by client side ip/port
     socket on client side will occupy one port and can't share it
+    another way to keep connection live is long polling, which has more connection overhead but easier to handle server rollover
 
+Consensus algorithm:
+    raft
+    can be used to pick a leader
+
+DB data structure:
+    read heavy: b-tree
+    write heavy: lsmt
+
+Distributed unique id generator:
+    snowflake: timestamp+instance_id+thread_id
+
+Distributed data storage index:
+    global secondary index in case need to search across multiple partitions
+
+DB locks:
+    write heavy(conflicts happen a lot): pessimistic lock
+    read heavy(less likely to conflict): optimistic lock
+
+Lambda architecture and Kappa architecture:
+    Lambda architecture:
+        contains 2 paths, fast streaming path and slow batch path
+        fast path is likely inaccurate
+        slow path is likely implemented with Mad Reduce and HDFS
+        needs to maintain 2 versions of code for the 2 paths
+    Kappa architecture:
+        only has the fast path
+        only needs to maintain 1 version of code
+        needs support from streaming data stores like Kafka
