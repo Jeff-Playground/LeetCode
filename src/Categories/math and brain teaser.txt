@@ -246,6 +246,7 @@ Baseball Game
 Top K Frequent Words
 Degree of an Array
 - 700 -
+Design HashSet
 Remove Comments
 Find Pivot Index
 My Calendar I
