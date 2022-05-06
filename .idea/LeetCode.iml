@@ -8,6 +8,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/ood_design/jiuzhang_notes" />
       <excludeFolder url="file://$MODULE_DIR$/src/system_design" />
       <excludeFolder url="file://$MODULE_DIR$/src/system_design/jiuzhang_notes/vidoes" />
+      <excludeFolder url="file://$MODULE_DIR$/src/behavioural" />
     </content>
     <content url="file://$MODULE_DIR$/src/system_design/jiuzhang_notes" />
     <orderEntry type="inheritedJdk" />
