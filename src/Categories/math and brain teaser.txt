@@ -237,6 +237,7 @@ Maximum Average Subarray I
 - 650 -
 Robot Return to Origin
 *Split Array into Consecutive Subsequences
+*LQRemoveNine
 Image Smoother
 Non-decreasing Array
 Implement Magic Dictionary

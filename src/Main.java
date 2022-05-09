@@ -1223,5 +1223,8 @@ public class Main {
 //        t.update(0,4);
 
 //        CrackingTheSafe.crackSafe(3,2);
+
+        LQRemoveNine t=new LQRemoveNine();
+        t.newInteger(10000000);
     }
 }
