@@ -1224,7 +1224,7 @@ public class Main {
 
 //        CrackingTheSafe.crackSafe(3,2);
 
-        LQRemoveNine t=new LQRemoveNine();
-        t.newInteger(10000000);
+//        LQRemoveNine t=new LQRemoveNine();
+//        t.newInteger(10000000);
     }
 }
