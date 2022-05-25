@@ -79,6 +79,7 @@ Maximum Length of Pair Chain
 - 650 -
 LQFourKeysKeyboard
 LQCoinPath
+Strange Printer
 Number of Longest Increasing Subsequence
 *Maximum Sum of 3 Non-Overlapping Subarrays
 *Stickers to Spell Word
