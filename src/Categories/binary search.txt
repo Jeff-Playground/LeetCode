@@ -58,6 +58,7 @@ Peak Index in a Mountain Array
 - 1150 -
 - 1200 -
 - 1250 -
+Find the Smallest Divisor Given a Threshold
 - 1300 -
 - 1350 -
 - 1400 -
