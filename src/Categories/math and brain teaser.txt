@@ -301,6 +301,7 @@ Minimum Remove to Make Valid Parentheses
 - 1250 -
 Find Winner on a Tic Tac Toe Game
 - 1300 -
+Print Words Vertically
 Filter Restaurants by Vegan-Friendly, Price and Distance
 Angle Between Hands of a Clock
 - 1350 -
