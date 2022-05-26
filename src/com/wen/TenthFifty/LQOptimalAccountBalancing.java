@@ -10,31 +10,26 @@ Given a list of transactions between a group of people, return the minimum numbe
 debt.
 
 Note:
-
 A transaction will be given as a tuple (x, y, z). Note that x ≠ y and z > 0.
 Person's IDs may not be linear, e.g. we could have the persons 0, 1, 2 or we could also have the persons 0, 2, 6.
 
 
 Example 1:
-
 Input:
 [[0,1,10], [2,0,5]]
-
 Output:
 2
 
 Explanation:
 Person #0 gave person #1 $10.
 Person #2 gave person #0 $5.
-
 Two transactions are needed. One way to settle the debt is person #1 pays person #0 and #2 $5 each.
 
 
-Example 2:
 
+Example 2:
 Input:
 [[0,1,10], [1,0,1], [1,2,5], [2,0,5]]
-
 Output:
 1
 
@@ -43,90 +38,86 @@ Person #0 gave person #1 $10.
 Person #1 gave person #0 $1.
 Person #1 gave person #2 $5.
 Person #2 gave person #0 $5.
-
 Therefore, person #1 only need to give person #0 $4, and all debt is settled.
  */
 
 import java.util.*;
 
 public class LQOptimalAccountBalancing {
-    // DFS with backtrackinng, will TLE in lintcode
-    public static int balanceGraph(int[][] edges) {
-        int result=0;
-        Map<Integer, Integer> graph=new HashMap<>();
-        for(int[] edge: edges){
-            int x=edge[0], y=edge[1], v=edge[2];
-            graph.put(x, graph.getOrDefault(x, 0)+v);
-            graph.put(y, graph.getOrDefault(y, 0)-v);
-        }
-        List<Integer> balance=new ArrayList<>();
-        for(int key: graph.keySet()){
-            if(graph.get(key)!=0){
-                balance.add(graph.get(key));
-            }
-        }
-        int[] cache=new int[]{Integer.MAX_VALUE};
-        bgHelper(balance, 0, 0, cache);
-        return result+cache[0];
-    }
-
-    private static void bgHelper(List<Integer> bal, int idx, int cur, int[] cache){
-        int l=bal.size();
-        while(idx<l && bal.get(idx)==0){
-            idx++;
-        }
-        if(idx==l){
-            cache[0]=Math.min(cache[0], cur);
-        } else{
-            for(int i=idx+1; i<l; i++){
-                if((bal.get(i)<0 && bal.get(idx)>0) || (bal.get(i)>0 && bal.get(idx)<0)){
-                    bal.set(i, bal.get(i)+bal.get(idx));
-                    bgHelper(bal, idx+1, cur+1, cache);
-                    bal.set(i, bal.get(i)-bal.get(idx));
-                }
-            }
-        }
-    }
-
-//    // Shuffle 100000 times to make result closer to optimal solution
-//    public int balanceGraph(int[][] edges) {
-//        Map<Integer, Integer> graph = new HashMap<>();
-//        for(int[] tran: edges) {
-//            graph.put(tran[0], graph.getOrDefault(tran[0], 0) - tran[2]);
-//            graph.put(tran[1], graph.getOrDefault(tran[1], 0) + tran[2]);
+//    // DFS with back trackinng
+//    public int minTransfers(int[][] transactions) {
+//        Map<Integer,Integer> accounts=new HashMap<>();
+//        for(int[] t: transactions){
+//            accounts.put(t[0], accounts.getOrDefault(t[0],0)-t[2]);
+//            accounts.put(t[1], accounts.getOrDefault(t[1],0)+t[2]);
 //        }
-//        List<Integer> poss = new ArrayList<>();
-//        List<Integer> negs = new ArrayList<>();
-//        for(Map.Entry<Integer, Integer> balance : graph.entrySet()) {
-//            int val = balance.getValue();
-//            if (val > 0) poss.add(val);
-//            else if (val < 0) negs.add(-val);
+//        List<Integer> balance=new ArrayList<>();
+//        for(int k: accounts.keySet()){
+//            if(accounts.get(k)!=0){
+//                balance.add(accounts.get(k));
+//            }
 //        }
-//        int min = Integer.MAX_VALUE;
-//        Stack<Integer> ps = new Stack<>();
-//        Stack<Integer> ns = new Stack<>();
-//        for(int i = 0; i < 100000; i++) {
-//            for(int pos: poss) {
-//                ps.push(pos);
-//            }
-//            for(int neg: negs) {
-//                ns.push(neg);
-//            }
-//            int count = 0;
-//            while (!ps.isEmpty()) {
-//                int p = ps.pop();
-//                int n = ns.pop();
-//                if (p > n) {
-//                    ps.push(p - n);
-//                } else if (p < n) {
-//                    ns.push(n - p);
-//                }
-//                count++;
-//            }
-//            min = Math.min(min, count);
-//            Collections.shuffle(poss);
-//            Collections.shuffle(negs);
-//        }
-//        return min;
+//        int[] result=new int[]{Integer.MAX_VALUE};
+//        mtHelper(balance, 0, 0, result);
+//        return result[0];
 //    }
+//
+//    private void mtHelper(List<Integer> balance, int idx, int count, int[] result){
+//        int l=balance.size();
+//        while(idx<l && balance.get(idx)==0){
+//            idx++;
+//        }
+//        if(idx==l){
+//            result[0]=Math.min(count, result[0]);
+//        } else{
+//            for(int i=idx+1; i<l; i++){
+//                if((balance.get(idx)>0 && balance.get(i)<0) || (balance.get(idx)<0) && balance.get(i)>0){
+//                    balance.set(i, balance.get(i)+balance.get(idx));
+//                    mtHelper(balance, idx+1, count+1, result);
+//                    balance.set(i, balance.get(i)-balance.get(idx));
+//                }
+//            }
+//        }
+//    }
+
+    // Shuffle 100000 times to make result closer to optimal solution
+    public int minTransfers(int[][] transactions) {
+        Map<Integer, Integer> accounts=new HashMap<>();
+        for(int[] t: transactions){
+            accounts.put(t[0], accounts.getOrDefault(t[0], 0)-t[2]);
+            accounts.put(t[1], accounts.getOrDefault(t[1], 0)+t[2]);
+        }
+        List<Integer> pos=new ArrayList<>(), neg=new ArrayList<>();
+        for(int k: accounts.keySet()){
+            if(accounts.get(k)<0){
+                neg.add(-accounts.get(k));
+            } else if(accounts.get(k)>0){
+                pos.add(accounts.get(k));
+            }
+        }
+        int result=Integer.MAX_VALUE;
+        Stack<Integer> p=new Stack<>(), n=new Stack<>();
+        for(int i=1; i<=1000; i++){
+            for(int e: pos){
+                p.push(e);
+            }
+            for(int e: neg){
+                n.push(e);
+            }
+            int count=0;
+            while(!p.isEmpty()){
+                int pv=p.pop(), nv=n.pop();
+                if(pv<nv){
+                    n.push(nv-pv);
+                } else if(pv>nv){
+                    p.push(pv-nv);
+                }
+                count++;
+            }
+            result=Math.min(result, count);
+            Collections.shuffle(pos);
+            Collections.shuffle(neg);
+        }
+        return result;
+    }
 }
