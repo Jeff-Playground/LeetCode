@@ -18,6 +18,8 @@ Some examples:
 Note: Do not use the eval built-in library function.
  */
 
+import java.util.Stack;
+
 public class LQBasicCalculatorIII {
     public int calculate(String s) {
         int l=s.length();
@@ -61,4 +63,46 @@ public class LQBasicCalculatorIII {
         }
         return result;
     }
+
+//    // With Stack
+//    public int calculate(String s) {
+//        int l=s.length();
+//        Stack<Integer> stack=new Stack<>();
+//        char sign='+';
+//        int cur=0;
+//        for(int i=0; i<=l; i++){
+//            char c=i<l?s.charAt(i):'$';
+//            if(c>='0' && c<='9'){
+//                cur=cur*10+c-'0';
+//            } else if(c=='('){
+//                int count=1, end=i;
+//                for(int j=i+1; j<l; j++){
+//                    if(s.charAt(j)=='('){
+//                        count++;
+//                    } else if(s.charAt(j)==')'){
+//                        if(--count==0){
+//                            end=j;
+//                            break;
+//                        }
+//                    }
+//                }
+//                cur=calculate(s.substring(i+1, end));
+//                i=end;
+//            } else{
+//                if(sign=='+' || sign=='-'){
+//                    stack.push(sign=='+'?cur:-cur);
+//                } else if(sign=='*' || sign=='/'){
+//                    int last=stack.pop();
+//                    stack.push(sign=='*'?last*cur:last/cur);
+//                }
+//                sign=c;
+//                cur=0;
+//            }
+//        }
+//        int result=0;
+//        while(!stack.isEmpty()){
+//            result+=stack.pop();
+//        }
+//        return result;
+//    }
 }
