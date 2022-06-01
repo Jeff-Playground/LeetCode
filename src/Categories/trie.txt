@@ -71,6 +71,7 @@ Map of word and corresponding count to store history.
 Replace Words
 - 650 -
 Implement Magic Dictionary
+Map Sum Pairs
 - 700 -
 *Longest Word in Dictionary(Trie without actual implementation)
 - 750 -
