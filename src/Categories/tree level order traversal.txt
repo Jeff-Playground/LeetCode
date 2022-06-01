@@ -29,6 +29,7 @@ Average of Levels in Binary Tree
 - 650 -
 Two Sum IV - Input is a BST
 Maximum Width of Binary Tree
+LQPathSumIV
 - 700 -
 - 750 -
 - 800 -
