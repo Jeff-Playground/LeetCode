@@ -240,6 +240,7 @@ Robot Return to Origin
 *LQRemoveNine
 Image Smoother
 Non-decreasing Array
+*Beautiful Arrangement II
 Implement Magic Dictionary
 LQNextClosestTime
 Baseball Game
