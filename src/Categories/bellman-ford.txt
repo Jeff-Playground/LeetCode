@@ -26,7 +26,7 @@ Stops".
         }
 
 But on the other hand, if how many times it's been relaxed is not a concern, then Bellman-Ford algorithm is possible to
-be optimized by maintaining on 1 copy for the dist array, and we use this array for every relaxing round. Doing this is
+be optimized by maintaining only 1 copy for the dist array, and we use this array for every relaxing round. Doing this is
 possible to reduce the round number we need to reach the optimal result. One example is the implementation in "Network
 Delay Time", note we added an exit condition for the (N-1) relaxing loop.
         int[] cost=new int[N+1];
@@ -63,3 +63,18 @@ Delay Time", note we added an exit condition for the (N-1) relaxing loop.
 - 800 -
 - 850 -
 - 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+- 1250 -
+- 1300 -
+- 1350 -
+- 1400 -
+- 1450 -
+- 1500 -
+Path with Maximum Probability
+- 1550 -
+- 1600 -

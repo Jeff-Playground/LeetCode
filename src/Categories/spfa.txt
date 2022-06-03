@@ -19,6 +19,7 @@ once, so there is a negative loop. Also note use N instead of (N-1) to handle th
         Queue<Integer> q=new LinkedList<>();
         q.offer(src);
         // count[src]++;
+        // cnt is an extra arg required in CheapestFlightsWithinKStops to ensure not more than K stops
         int cnt=0;
         while(!q.isEmpty() && cnt<=K){
             int size=q.size();
@@ -70,6 +71,7 @@ once, so there is a negative loop. Also note use N instead of (N-1) to handle th
 - 1400 -
 - 1450 -
 - 1500 -
+Path with Maximum Probability
 - 1550 -
 - 1600 -
 *Path With Minimum Effort

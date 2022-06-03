@@ -74,6 +74,7 @@ LQTheMazeII
 - 1400 -
 - 1450 -
 - 1500 -
+Path with Maximum Probability
 - 1550 -
 - 1600 -
 *Path With Minimum Effort
