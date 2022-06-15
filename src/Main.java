@@ -1226,5 +1226,8 @@ public class Main {
 
 //        LQRemoveNine t=new LQRemoveNine();
 //        t.newInteger(10000000);
+
+//        TwentyFourGame t=new TwentyFourGame();
+//        t.judgePoint24(new int[]{4,1,8,7});
     }
 }

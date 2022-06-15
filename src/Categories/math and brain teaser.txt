@@ -242,6 +242,8 @@ Image Smoother
 Non-decreasing Array
 *Beautiful Arrangement II
 Implement Magic Dictionary
+*Valid Parenthesis String
+*24 Game
 LQNextClosestTime
 Baseball Game
 *LQKEmptySlots
