@@ -106,7 +106,8 @@ Find Duplicate Subtrees
 Second Minimum Node In a Binary Tree
 *24 Game
 *Redundant Connection
-*Number of Distinct Islands
+Employee Importance
+*LQNumberOfDistinctIslands
 Max Area of Island
 Partition to K Equal Sum Subsets
 - 700 -
