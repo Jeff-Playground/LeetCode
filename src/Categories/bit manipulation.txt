@@ -36,6 +36,7 @@ Number Complement
 - 650 -
 Bulb Switcher II
 *Stickers to Spell Word
+*Binary Number with Alternating Bits
 - 700 -
 - 750 -
 LQIPToCIDR
