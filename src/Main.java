@@ -1229,5 +1229,19 @@ public class Main {
 
 //        TwentyFourGame t=new TwentyFourGame();
 //        t.judgePoint24(new int[]{4,1,8,7});
+
+//        LQMaxStack.MaxStack t=new LQMaxStack.MaxStack();
+//        t.push(15);
+//        t.pop();
+//        t.push(1);
+//        t.push(-52);
+//        t.push(80);
+//        t.push(-39);
+//        t.popMax();
+//        t.push(91);
+//        t.pop();
+//        t.pop();
+//        t.top();
+//        t.push(36);
     }
 }

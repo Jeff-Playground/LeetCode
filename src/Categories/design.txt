@@ -44,6 +44,7 @@ Design Circular Deque
 - 700 -
 *Design HashMap
 Design Linked List
+*LQMaxStack
 - 750 -
 - 800 -
 - 850 -

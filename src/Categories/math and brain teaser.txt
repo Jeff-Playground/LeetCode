@@ -252,6 +252,7 @@ Degree of an Array
 - 700 -
 Design HashSet
 To Lower Case
+*1-bit and 2-bit Characters
 Remove Comments
 Find Pivot Index
 My Calendar I
