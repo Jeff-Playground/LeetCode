@@ -40,6 +40,7 @@ import com.wen.TwentySecondFifty.LQCampusBikes;
 import com.wen.TwentySecondFifty.CriticalConnectionsInANetwork;
 import com.wen.TwentySecondFifty.LQAllPathsFromSourceLeadToDestination;
 import com.wen.TwentySecondFifty.LQDigitCountInRange;
+import com.wen.TwentySeventhFifty.MaximumStudentsTakingExam;
 import com.wen.TwentySixthFifty.MinimumFallingPathSumII;
 import com.wen.TwentyThirdFifty.LongestChunkedPalindromeDecomposition;
 
@@ -1243,5 +1244,8 @@ public class Main {
 //        t.pop();
 //        t.top();
 //        t.push(36);
+
+//        MaximumStudentsTakingExam t=new MaximumStudentsTakingExam();
+//        t.maxStudents(new char[][]{{'#','.','.','.','#'},{'.','#','.','#','.'},{'.','.','#','.','.'},{'.','#','.','#','.'},{'#','.','.','.','#'}});
     }
 }

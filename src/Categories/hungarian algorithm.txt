@@ -1,0 +1,126 @@
+Used for finding the maximum match in a Bipartite graph.
+
+There are 2 ways of implementing it, DFS and BFS, although the idea is similar:
+
+Start with a node from Set A that is not matched, then try to find a node in Set B to match with it:
+-   If the node from Set B is not matched with another node in Set A(basically if it's never used for matching), then a
+    match is formed.
+-   If the node from Set B is already matched with another node in Set A, try to see if the matched node in Set A can find
+    a new match in Set B:
+        If yes, then break them up and rematch
+        If no, don't do anything
+Repeat above for all nodes in Set A, and each time when a match can be found, the number of matches should plus 1
+
+For both the DFS and BFS implementations, the time complexity is O(V*E), where V is the number of vertices and E is the
+number of edges. However, when it's a sparse graph, BFS is more efficient than DFS. While if it's a dense graph, then
+the performance for the two are similar.
+
+For the DFS implementation:
+    public int maximumInvitations(int[][] grid) {
+        int m=grid.length, n=grid[0].length, result=0;
+        int[] gMatch=new int[n];
+        Arrays.fill(gMatch,-1);
+        for(int i=0; i<m; i++){
+            int[] gVisited=new int[n];
+            if(match(i, grid, gMatch, gVisited)){
+                result++;
+            }
+        }
+        return result;
+    }
+
+    private boolean match(int b, int[][] grid, int[] gMatch, int[] gVisited){
+        int n=grid[0].length;
+        for(int g=0; g<n; g++){
+            if(grid[b][g]==1 && gVisited[g]==0){
+                gVisited[g]=1;
+                if(gMatch[g]==-1 || match(gMatch[g], grid, gMatch, gVisited)){
+                    gMatch[g]=b;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+For the BFS implementation:
+    public int maximumInvitations(int[][] grid) {
+        int m=grid.length, n=grid[0].length, result=0;
+        int[] bMatch=new int[m], gMatch=new int[n];
+        Arrays.fill(bMatch,-1);
+        Arrays.fill(gMatch,-1);
+        for(int i=0; i<m; i++){
+            Queue<Integer> q=new LinkedList<>();
+            int[] bPrev=new int[m];
+            int[] gVisited=new int[n];
+            bPrev[i]=-1;
+            q.offer(i);
+            boolean foundPath=false;
+            while(!q.isEmpty() && !foundPath){
+                int cur=q.poll();
+                for(int j=0; j<n; j++){
+                    if(grid[cur][j]==1 && gVisited[j]==0){
+                        gVisited[j]=1;
+                        if(gMatch[j]==-1){
+                            int b=cur, g=j;
+                            while(b!=-1){
+                                int pg=bMatch[b];
+                                bMatch[b]=g;
+                                gMatch[g]=b;
+                                b=bPrev[b];
+                                g=pg;
+                            }
+                            foundPath=true;
+                            break;
+                        } else{
+                            q.offer(gMatch[j]);
+                            bPrev[gMatch[j]]=cur;
+                        }
+                    }
+                }
+            }
+            if(bMatch[i]!=-1){
+                result++;
+            }
+        }
+        return result;
+    }
+
+Note how the DFS implementation doesn't need to store bMatch info, because it updates the last match in the path, then
+recursively update the path from end to start. In other words, DFS implementation has info for the path from the execution
+stack, while for BFS, this info has to be stored in bMatch and bPrev.
+
+- 300 -
+- 350 -
+- 400 -
+- 450 -
+- 500 -
+- 550 -
+- 600 -
+- 650 -
+- 700 -
+- 750 -
+- 800 -
+- 850 -
+- 900 -
+- 950 -
+- 1000 -
+- 1050 -
+- 1100 -
+- 1150 -
+- 1200 -
+- 1250 -
+- 1300 -
+*Maximum Students Taking Exam
+- 1350 -
+- 1400 -
+- 1450 -
+- 1500 -
+- 1550 -
+- 1600 -
+- 1650 -
+- 1700 -
+- 1750 -
+- 1800 -
+*LQMaximumNumberOfAcceptedInvitations
+- 1850 -
