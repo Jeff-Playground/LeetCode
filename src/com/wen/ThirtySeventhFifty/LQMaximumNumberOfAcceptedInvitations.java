@@ -164,23 +164,19 @@ public class LQMaximumNumberOfAcceptedInvitations {
                 for(int j=0; j<n; j++){
                     if(grid[cur][j]==1 && gVisited[j]==0){
                         gVisited[j]=1;
+                        gPrev[j]=cur;
                         if(gMatch[j]==-1){
-                            int b=cur, g=j;
-                            while(true) {
-                                int pg=bMatch[b];
-                                bMatch[b]=g;
-                                gMatch[g]=b;
-                                if(pg==-1){
-                                    break;
-                                }
-                                b=gPrev[pg];
+                            int g=j;
+                            while(g!=-1) {
+                                int pg=bMatch[gPrev[g]];
+                                bMatch[gPrev[g]]=g;
+                                gMatch[g]=gPrev[g];
                                 g=pg;
                             }
                             foundPath=true;
                             break;
                         } else{
                             q.offer(gMatch[j]);
-                            gPrev[j]=cur;
                         }
                     }
                 }

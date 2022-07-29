@@ -31,6 +31,7 @@ import com.wen.ThirdFifty.SurroundedRegions;
 import com.wen.ThirdFifty.WordBreakII;
 import com.wen.ThirteenthFifty.*;
 import com.wen.ThirtySecondFifty.CountUnhappyFriends;
+import com.wen.ThirtySeventhFifty.LQMaximumNumberOfAcceptedInvitations;
 import com.wen.ThirtythFifty.PaintHouseIII;
 import com.wen.TwelfthFifty.*;
 import com.wen.TwentiethFifty.*;
@@ -1244,6 +1245,9 @@ public class Main {
 //        t.pop();
 //        t.top();
 //        t.push(36);
+
+        LQMaximumNumberOfAcceptedInvitations t=new LQMaximumNumberOfAcceptedInvitations();
+        t.maximumInvitations(new int[][]{{1,0,1,0},{1,0,0,0},{0,0,1,0},{1,1,1,0}});
 
 //        MaximumStudentsTakingExam t=new MaximumStudentsTakingExam();
 //        t.maxStudents(new char[][]{{'#','.','.','.','#'},{'.','#','.','#','.'},{'.','.','#','.','.'},{'.','#','.','#','.'},{'#','.','.','.','#'}});
