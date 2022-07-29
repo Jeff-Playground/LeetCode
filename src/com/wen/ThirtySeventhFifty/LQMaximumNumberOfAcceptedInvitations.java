@@ -104,7 +104,50 @@ public class LQMaximumNumberOfAcceptedInvitations {
 //        return false;
 //    }
 
-    // Hungarian algorithm, BFS
+//    // Hungarian algorithm, BFS1, with bPrev to store the previous boy node when traversing back
+//    public int maximumInvitations(int[][] grid) {
+//        int m=grid.length, n=grid[0].length, result=0;
+//        int[] bMatch=new int[m], gMatch=new int[n];
+//        Arrays.fill(bMatch,-1);
+//        Arrays.fill(gMatch,-1);
+//        for(int i=0; i<m; i++){
+//            Queue<Integer> q=new LinkedList<>();
+//            int[] bPrev=new int[m];
+//            int[] gVisited=new int[n];
+//            bPrev[i]=-1;
+//            q.offer(i);
+//            boolean foundPath=false;
+//            while(!q.isEmpty() && !foundPath){
+//                int cur=q.poll();
+//                for(int j=0; j<n; j++){
+//                    if(grid[cur][j]==1 && gVisited[j]==0){
+//                        gVisited[j]=1;
+//                        if(gMatch[j]==-1){
+//                            int b=cur, g=j;
+//                            while(b!=-1){
+//                                int pg=bMatch[b];
+//                                bMatch[b]=g;
+//                                gMatch[g]=b;
+//                                b=bPrev[b];
+//                                g=pg;
+//                            }
+//                            foundPath=true;
+//                            break;
+//                        } else{
+//                            q.offer(gMatch[j]);
+//                            bPrev[gMatch[j]]=cur;
+//                        }
+//                    }
+//                }
+//            }
+//            if(bMatch[i]!=-1){
+//                result++;
+//            }
+//        }
+//        return result;
+//    }
+
+    // Hungarian algorithm, BFS2, with gPrev to store the previous boy node when traversing back
     public int maximumInvitations(int[][] grid) {
         int m=grid.length, n=grid[0].length, result=0;
         int[] bMatch=new int[m], gMatch=new int[n];
@@ -112,9 +155,8 @@ public class LQMaximumNumberOfAcceptedInvitations {
         Arrays.fill(gMatch,-1);
         for(int i=0; i<m; i++){
             Queue<Integer> q=new LinkedList<>();
-            int[] bPrev=new int[m];
+            int[] gPrev=new int[n];
             int[] gVisited=new int[n];
-            bPrev[i]=-1;
             q.offer(i);
             boolean foundPath=false;
             while(!q.isEmpty() && !foundPath){
@@ -124,18 +166,21 @@ public class LQMaximumNumberOfAcceptedInvitations {
                         gVisited[j]=1;
                         if(gMatch[j]==-1){
                             int b=cur, g=j;
-                            while(b!=-1){
+                            while(true) {
                                 int pg=bMatch[b];
                                 bMatch[b]=g;
                                 gMatch[g]=b;
-                                b=bPrev[b];
+                                if(pg==-1){
+                                    break;
+                                }
+                                b=gPrev[pg];
                                 g=pg;
                             }
                             foundPath=true;
                             break;
                         } else{
                             q.offer(gMatch[j]);
-                            bPrev[gMatch[j]]=cur;
+                            gPrev[j]=cur;
                         }
                     }
                 }
