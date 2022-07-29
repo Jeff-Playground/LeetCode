@@ -1246,8 +1246,8 @@ public class Main {
 //        t.top();
 //        t.push(36);
 
-        LQMaximumNumberOfAcceptedInvitations t=new LQMaximumNumberOfAcceptedInvitations();
-        t.maximumInvitations(new int[][]{{1,0,1,0},{1,0,0,0},{0,0,1,0},{1,1,1,0}});
+//        LQMaximumNumberOfAcceptedInvitations t=new LQMaximumNumberOfAcceptedInvitations();
+//        t.maximumInvitations(new int[][]{{1,0,1,0},{1,0,0,0},{0,0,1,0},{1,1,1,0}});
 
 //        MaximumStudentsTakingExam t=new MaximumStudentsTakingExam();
 //        t.maxStudents(new char[][]{{'#','.','.','.','#'},{'.','#','.','#','.'},{'.','.','#','.','.'},{'.','#','.','#','.'},{'#','.','.','.','#'}});
