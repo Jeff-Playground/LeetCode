@@ -1,0 +1,162 @@
+Used to identify the maximum matching in a graph.
+
+This idea is built on Hungarian algorithm, where Hungarian algorithm is only good for bipartite graph, while this one
+can handle general graphs.
+
+A good blog on this: https://juejin.cn/post/6857692291625648136
+
+
+    public static int blossom(int[] banana_list) {
+        //Your code here
+        int l=banana_list.length;
+        Map<Integer, Set<Integer>> graph=new HashMap<>();
+        for(int i=0; i<l; i++){
+            for(int j=i+1; j<l; j++){
+                if(canPair(banana_list[i], banana_list[j])){
+                    graph.putIfAbsent(i, new HashSet<>());
+                    graph.putIfAbsent(j, new HashSet<>());
+                    graph.get(i).add(j);
+                    graph.get(j).add(i);
+                }
+            }
+        }
+
+        int[] match=new int[l];
+        Arrays.fill(match, -1);
+        for(int i=0; i<l; i++){
+            if(match[i]==-1){
+                aug(graph, match, i);
+            }
+        }
+
+        int result=0;
+        for(int i=0; i<l; i++){
+            if(match[i]==-1){
+                result++;
+            }
+        }
+        return result;
+    }
+
+    private static void aug(Map<Integer, Set<Integer>> graph, int[] match, int s){
+        int l=match.length;
+        Queue<Integer> q=new LinkedList<>();
+        int[] color=new int[l];
+        int[] prev=new int[l];
+        Arrays.fill(prev, -1);
+        int[] uf=new int[l];
+        for(int i=0; i<l; i++){
+            uf[i]=i;
+        }
+
+        color[s]=1;
+        q.offer(s);
+        while(!q.isEmpty() && match[s]==-1){
+            int cur=q.poll();
+            for(int next: graph.getOrDefault(cur, new HashSet<>())){
+                if(match[cur]==next){
+                    continue;
+                }
+                if(find(uf, cur)==find(uf, next)){
+                    continue;
+                }
+                if(color[next]==-1){
+                    continue;
+                } else if(color[next]==1){
+                    int lca=findLCA(cur, next, match, prev, uf);
+                    if(find(uf, cur)!=lca){
+                        prev[cur]=next;
+                    }
+                    if(find(uf, next)!=lca){
+                        prev[next]=cur;
+                    }
+                    group(cur, lca, match, prev, color, uf, q);
+                    group(next, lca, match, prev, color, uf, q);
+                } else{
+                    prev[next]=cur;
+                    if(match[next]==-1){
+                        int g=next;
+                        while(g!=-1){
+                            int pg=match[prev[g]];
+                            match[prev[g]]=g;
+                            match[g]=prev[g];
+                            g=pg;
+                        }
+                        break;
+                    } else{
+                        q.offer(match[next]);
+                        color[match[next]]=1;
+                        color[next]=-1;
+                    }
+                }
+            }
+        }
+    }
+
+    private static void group(int a, int r, int[] match, int[] prev, int[] color, int[] uf, Queue<Integer> q){
+        while(a!=r){
+            int b=match[a], p=prev[b];
+            if(find(uf, p)!=r){
+                prev[p]=b;
+            }
+            q.offer(b);
+            color[b]=1;
+            union(a, b, uf);
+            union(b, p, uf);
+            a=p;
+        }
+    }
+
+    private static int findLCA(int a, int b, int[] match, int[] prev, int[] uf){
+        int[] visit=new int[match.length];
+        while(true){
+            if(a!=-1){
+                a=find(uf, a);
+                if(visit[a]==1){
+                    return a;
+                } else{
+                    visit[a]=1;
+                    if(match[a]!=-1){
+                        a=prev[match[a]];
+                    } else{
+                        a=-1;
+                    }
+                }
+            }
+            int t=a;
+            a=b;
+            b=t;
+        }
+    }
+
+    private static void union(int a, int b, int[] uf){
+        int ar=find(uf, a), br=find(uf, b);
+        if(ar!=br){
+            uf[ar]=br;
+        }
+    }
+
+    private static int find(int[] uf, int a){
+        return uf[a] == a ? a : (uf[a] = find(uf, uf[a]));
+    }
+
+    private static boolean canPair(int a, int b){
+        if((a+b)%2!=0){
+            return true;
+        } else{
+            if(a==b){
+                return false;
+            } else{
+                if(a<b){
+                    int t=a;
+                    a=b;
+                    b=t;
+                }
+                while(a%2==0 && b%2==0){
+                    a/=2;
+                    b/=2;
+                }
+                return canPair(a-b,2*b);
+            }
+        }
+    }
