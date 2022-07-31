@@ -55,8 +55,7 @@ For the BFS implementation:
             int[] gVisited=new int[n];
             bPrev[i]=-1;
             q.offer(i);
-            boolean foundPath=false;
-            while(!q.isEmpty() && !foundPath){
+            while(!q.isEmpty() && bMatch[i]==-1){
                 int cur=q.poll();
                 for(int j=0; j<n; j++){
                     if(grid[cur][j]==1 && gVisited[j]==0){
@@ -70,11 +69,48 @@ For the BFS implementation:
                                 b=bPrev[b];
                                 g=pg;
                             }
-                            foundPath=true;
                             break;
                         } else{
                             q.offer(gMatch[j]);
                             bPrev[gMatch[j]]=cur;
+                        }
+                    }
+                }
+            }
+            if(bMatch[i]!=-1){
+                result++;
+            }
+        }
+        return result;
+    }
+
+    public int maximumInvitations(int[][] grid) {
+        int m=grid.length, n=grid[0].length, result=0;
+        int[] bMatch=new int[m], gMatch=new int[n];
+        Arrays.fill(bMatch,-1);
+        Arrays.fill(gMatch,-1);
+        for(int i=0; i<m; i++){
+            Queue<Integer> q=new LinkedList<>();
+            int[] gPrev=new int[n];
+            int[] gVisited=new int[n];
+            q.offer(i);
+            while(!q.isEmpty() && bMatch[i]==-1){
+                int cur=q.poll();
+                for(int j=0; j<n; j++){
+                    if(grid[cur][j]==1 && gVisited[j]==0){
+                        gVisited[j]=1;
+                        gPrev[j]=cur;
+                        if(gMatch[j]==-1){
+                            int g=j;
+                            while(g!=-1) {
+                                int pg=bMatch[gPrev[g]];
+                                bMatch[gPrev[g]]=g;
+                                gMatch[g]=gPrev[g];
+                                g=pg;
+                            }
+                            break;
+                        } else{
+                            q.offer(gMatch[j]);
                         }
                     }
                 }
