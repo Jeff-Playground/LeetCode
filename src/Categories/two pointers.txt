@@ -30,6 +30,7 @@ K-diff Pairs in an Array
 Valid Palindrome II
 Count Binary Substrings
 - 700 -
+LQCandyCrush
 - 750 -
 - 800 -
 - 850 -
