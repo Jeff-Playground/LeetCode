@@ -1251,5 +1251,8 @@ public class Main {
 
 //        MaximumStudentsTakingExam t=new MaximumStudentsTakingExam();
 //        t.maxStudents(new char[][]{{'#','.','.','.','#'},{'.','#','.','#','.'},{'.','.','#','.','.'},{'.','#','.','#','.'},{'#','.','.','.','#'}});
+
+//        CountDifferentPalindromicSubsequences test=new CountDifferentPalindromicSubsequences();
+//        test.countPalindromicSubsequences("bbadcb");
     }
 }
