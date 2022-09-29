@@ -1254,5 +1254,8 @@ public class Main {
 
 //        CountDifferentPalindromicSubsequences test=new CountDifferentPalindromicSubsequences();
 //        test.countPalindromicSubsequences("bbadcb");
+
+//        ParseLispExpression t=new ParseLispExpression();
+//        t.evaluate("(let x 2 (mult x (let x 3 y 4 (add x y))))");
     }
 }
