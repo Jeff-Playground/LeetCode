@@ -1257,5 +1257,7 @@ public class Main {
 
 //        ParseLispExpression t=new ParseLispExpression();
 //        t.evaluate("(let x 2 (mult x (let x 3 y 4 (add x y))))");
+
+//        CherryPickup.cherryPickup(new int[][]{{0,1,-1},{1,0,-1},{1,1,1}});
     }
 }

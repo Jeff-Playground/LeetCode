@@ -43,6 +43,7 @@ LQSearchInASortedArrayOfUnknownSize
 Binary Search
 *Maximum Length of Repeated Subarray
 *Find K-th Smallest Pair Distance
+Find Smallest Letter Greater Than Target
 - 750 -
 *LQMinimizeMaxDistanceToGasStation
 *Swim in Rising Water
