@@ -265,6 +265,7 @@ LQSentenceSimilarity
 *Parse Lisp Expression
 *LQClosestLeafInABinaryTree
 Prefix and Suffix Search
+Shortest Completing Word
 - 750 -
 Prime Number of Set Bits in Binary Representation
 Toeplitz Matrix

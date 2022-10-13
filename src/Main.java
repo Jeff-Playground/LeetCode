@@ -1262,5 +1262,8 @@ public class Main {
 //        t.evaluate("(let x 2 (mult x (let x 3 y 4 (add x y))))");
 
 //        CherryPickup.cherryPickup(new int[][]{{0,1,-1},{1,0,-1},{1,1,1}});
+
+//        ContainVirus t=new ContainVirus();
+//        t.containVirus(new int[][]{{0,1,0,0,0,0,0,1},{0,1,0,1,0,0,0,1},{0,0,0,0,0,0,0,1}});
     }
 }

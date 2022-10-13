@@ -68,6 +68,7 @@ Number of Provinces
 Max Area of Island
 - 700 -
 *Accounts Merge
+*Contain Virus
 - 750 -
 *Couples Holding Hands
 *Is Graph Bipartite?

@@ -31,6 +31,7 @@ Valid Palindrome II
 Count Binary Substrings
 - 700 -
 LQCandyCrush
+Largest Number At Least Twice of Others
 - 750 -
 - 800 -
 - 850 -
