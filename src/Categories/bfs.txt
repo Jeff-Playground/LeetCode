@@ -46,6 +46,7 @@ Max Area of Island
 *Accounts Merge
 Flood Fill
 - 750 -
+Open the Lock
 *Sliding Puzzle
 *Is Graph Bipartite?
 All Paths From Source to Target
