@@ -6,6 +6,7 @@ Binary Tree Postorder Traversal
 - 300 -
 - 350 -
 - 400 -
+*LQEncodeNaryTreeToBinaryTree
 - 450 -
 - 500 -
 - 550 -
