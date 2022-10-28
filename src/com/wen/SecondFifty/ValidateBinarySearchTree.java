@@ -12,104 +12,78 @@ public class ValidateBinarySearchTree {
         public TreeNode(int x) { val = x; }
     }
 
-//    // Morris Traversal
+//    // Morris Traversal, space complexity is O(1) since it doesn't require a Stack
 //    public boolean isValidBST(TreeNode root) {
 //        if(root==null){
 //            return true;
 //        }
-//        TreeNode cur=root, pre=null, last=null;
-//        boolean result=true;
+//        TreeNode cur=root, pre=null;
 //        while(cur!=null){
 //            if(cur.left!=null){
-//                pre=cur.left;
-//                while(pre.right!=null && pre.right!=cur){
-//                    pre=pre.right;
+//                TreeNode tmp=cur.left;
+//                while(tmp.right!=null && tmp.right!=cur){
+//                    tmp=tmp.right;
 //                }
-//                if(pre.right==null){
-//                    pre.right=cur;
+//                if(tmp.right==null){
+//                    tmp.right=cur;
 //                    cur=cur.left;
 //                } else{
-//                    pre.right=null;
-//                    if(last.val>=cur.val){
-//                        result=false;
+//                    tmp.right=null;
+//                    if(pre.val>=cur.val){
+//                        return false;
+//                    } else{
+//                        pre=cur;
+//                        cur=cur.right;
 //                    }
-//                    last=cur;
-//                    cur=cur.right;
 //                }
 //            } else{
-//                if(last!=null && last.val>=cur.val){
-//                    result=false;
+//                if(pre!=null && pre.val>=cur.val){
+//                    return false;
+//                } else{
+//                    pre=cur;
+//                    cur=cur.right;
 //                }
-//                last=cur;
-//                cur=cur.right;
-//            }
-//        }
-//        return result;
-//    }
-
-    // Stack
-    public boolean isValidBST(TreeNode root) {
-        Stack<TreeNode> stack=new Stack<>();
-        TreeNode cur=root, last=null;
-        while(cur!=null || !stack.isEmpty()){
-            if(cur!=null){
-                stack.push(cur);
-                cur=cur.left;
-            } else{
-                cur=stack.pop();
-                if(last!=null && cur.val<=last.val){
-                    return false;
-                }
-                last=cur;
-                cur=cur.right;
-            }
-        }
-        return true;
-    }
-
-//    // Put tree nodes in a list in order and check, this only works with left<root<right instead of left<=root<right,
-//    // for example, it can't distinguish
-//    //       20       against     20
-//    //      /                       \
-//    //    20                         20
-//    public boolean isValidBST(TreeNode root) {
-//        if(root==null){
-//            return true;
-//        }
-//        List<Integer> list=new ArrayList<>();
-//        inorder(root, list);
-//        for(int i=0; i<list.size()-1; i++){
-//            if(list.get(i)>=list.get(i+1)){
-//                return false;
 //            }
 //        }
 //        return true;
 //    }
-//
-//    private void inorder(TreeNode root, List<Integer> list) {
-//        if(root==null){
-//            return;
+
+//    // Inorder traversal with Stack
+//    public boolean isValidBST(TreeNode root) {
+//        Stack<TreeNode> stack=new Stack<>();
+//        TreeNode cur=root, pre=null;
+//        while(cur!=null || !stack.isEmpty()){
+//            if(cur!=null){
+//                stack.push(cur);
+//                cur=cur.left;
+//            } else{
+//                cur=stack.pop();
+//                if(pre!=null && pre.val>=cur.val){
+//                    return false;
+//                }
+//                pre=cur;
+//                cur=cur.right;
+//            }
 //        }
-//        inorder(root.left, list);
-//        list.add(root.val);
-//        inorder(root.right, list);
+//        return true;
 //    }
 
-//    // DFS, this can be used to solve case left<=root<right
-//    public boolean isValidBST(TreeNode root) {
-//        if(root==null){
-//            return true;
-//        }
-//        return isValidBSTHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
-//    }
-//
-//    private boolean isValidBSTHelper(TreeNode root, long low, long high) {
-//        if(root==null){
-//            return true;
-//        }
-//        if(root.val<=low || root.val>=high){
-//            return false;
-//        }
-//        return isValidBSTHelper(root.left, low, root.val) && isValidBSTHelper(root.right, root.val, high);
-//    }
+    // Inorder traversal recursively, note the passed down value is using long to cover the case for a tree with single
+    // node of value Integer.MIN_VALUE or Integer.MAX_VALUE
+    public boolean isValidBST(TreeNode root) {
+        if(root==null){
+            return true;
+        }
+        return isValidBSTHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    private boolean isValidBSTHelper(TreeNode root, long low, long high) {
+        if(root==null){
+            return true;
+        }
+        if(root.val<=low || root.val>=high){
+            return false;
+        }
+        return isValidBSTHelper(root.left, low, root.val) && isValidBSTHelper(root.right, root.val, high);
+    }
 }
