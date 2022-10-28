@@ -14,7 +14,6 @@ Gray Code
 Subsets II
 Restore IP Addresses
 *Interleaving String
-*Validate Binary Search Tree
 Same Tree
 Maximum Depth of Binary Tree
 Construct Binary Tree from Preorder and Inorder Traversal
