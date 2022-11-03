@@ -27,6 +27,7 @@ Trim a Binary Search Tree
 Search in a Binary Search Tree
 - 700 -
 Insert into a Binary Search Tree
+*Kth Largest Element in a Stream
 - 750 -
 *LQSplitBST
 - 800 -
