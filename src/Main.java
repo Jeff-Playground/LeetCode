@@ -22,10 +22,7 @@ import com.wen.SixteenthFifty.*;
 import com.wen.SixthFifty.LQAlienDictionary;
 import com.wen.SixthFifty.LQVerifyPreorderSequenceInBinarySearchTree;
 import com.wen.TenthFifty.*;
-import com.wen.ThirdFifty.LRUCache;
-import com.wen.ThirdFifty.SumRootToLeafNumbers;
-import com.wen.ThirdFifty.SurroundedRegions;
-import com.wen.ThirdFifty.WordBreakII;
+import com.wen.ThirdFifty.*;
 import com.wen.ThirteenthFifty.*;
 import com.wen.ThirtySecondFifty.CountUnhappyFriends;
 import com.wen.ThirtySeventhFifty.LQMaximumNumberOfAcceptedInvitations;
@@ -1265,5 +1262,31 @@ public class Main {
 
 //        ContainsDuplicateIII t=new ContainsDuplicateIII();
 //        t.containsNearbyAlmostDuplicate(new int[]{1,5,9,1,5,9}, 2,3);
+
+        BalancedBinaryTree t=new BalancedBinaryTree();
+        BalancedBinaryTree.TreeNode t1=new BalancedBinaryTree.TreeNode(5);
+        BalancedBinaryTree.TreeNode t2=new BalancedBinaryTree.TreeNode(3);
+        BalancedBinaryTree.TreeNode t3=new BalancedBinaryTree.TreeNode(4);
+        BalancedBinaryTree.TreeNode t4=new BalancedBinaryTree.TreeNode(1);
+        BalancedBinaryTree.TreeNode t5=new BalancedBinaryTree.TreeNode(2);
+        BalancedBinaryTree.TreeNode t6=new BalancedBinaryTree.TreeNode(2);
+        BalancedBinaryTree.TreeNode t7=new BalancedBinaryTree.TreeNode(3);
+        BalancedBinaryTree.TreeNode t8=new BalancedBinaryTree.TreeNode(1);
+        BalancedBinaryTree.TreeNode t9=new BalancedBinaryTree.TreeNode(1);
+        BalancedBinaryTree.TreeNode t10=new BalancedBinaryTree.TreeNode(1);
+        BalancedBinaryTree.TreeNode t11=new BalancedBinaryTree.TreeNode(2);
+        BalancedBinaryTree.TreeNode t12=new BalancedBinaryTree.TreeNode(1);
+        t1.left=t2;
+        t1.right=t3;
+        t2.left=t4;
+        t2.right=t5;
+        t5.left=t8;
+        t3.left=t6;
+        t3.right=t7;
+        t6.left=t9;
+        t7.left=t10;
+        t7.right=t11;
+        t11.left=t12;
+        t.isBalanced(t1);
     }
 }
