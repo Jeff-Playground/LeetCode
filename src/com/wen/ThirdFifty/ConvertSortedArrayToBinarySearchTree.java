@@ -8,18 +8,21 @@ public class ConvertSortedArrayToBinarySearchTree {
         public TreeNode(int x) { val = x; }
     }
 
-    public static TreeNode sortedArrayToBST(int[] nums) {
-        return sortedArrayToBST(nums, 0, nums.length-1);
+    public TreeNode sortedArrayToBST(int[] nums) {
+        return satbHelper(nums, 0, nums.length-1);
     }
 
-    private static TreeNode sortedArrayToBST(int[] nums, int left, int right) {
-        if(left>right){
+    private TreeNode satbHelper(int[] nums, int min, int max){
+        if(min==max){
+            return new TreeNode(nums[min]);
+        } else if(min>max){
             return null;
+        } else{
+            int mid=min+(max-min)/2;
+            TreeNode root=new TreeNode(nums[mid]);
+            root.left=satbHelper(nums, min, mid-1);
+            root.right=satbHelper(nums, mid+1, max);
+            return root;
         }
-        int mid=left+(right-left)/2;
-        TreeNode cur=new TreeNode(nums[mid]);
-        cur.left=sortedArrayToBST(nums, left, mid-1);
-        cur.right=sortedArrayToBST(nums, mid+1, right);
-        return cur;
     }
 }
