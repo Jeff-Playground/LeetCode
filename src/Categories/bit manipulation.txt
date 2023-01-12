@@ -1,10 +1,51 @@
-// ^ xor
-// & and
-// | or
-// >> signed right shift(shift 1 for negative and 0 for positive numbers in)
-// >>> unsigned right shift(always shift 0 in)
-// << left shift
-// num&(-num) low bit of num
+Conversion between decimal and non-decimal bases:
+From Decimal to non-decimal(X-base):
+- To convert the integer part, we will integer divide it by X until it reaches 0, and record the remainder each time.
+  Traversing the remainder in reverse order will give us the representation in base-X system.
+- To convert the fractional part, we will multiply the fractional part of the decimal number by X until it becomes 0
+  and record the integer part each time. Traversing the integer part in order will give us the representation in base-X
+  system. (Note that a finite fraction in one base may become an infinite recurring fraction in another base, for
+  example 0.2 in decimal is infinite in binary 0.001100110011...)
+From non-decimal to decimal:
+Simply add all digits by digit*X^n, note n>0 for integer part and n<0 for fractional part.
+
+Conversion between non-decimal bases:
+ - In general, convert non-decimal numbers to decimal first and then convert to the target base.
+ - For special cases where bases have X1=X2^n relation, it means a base-X1 digit and be represented by n digits in base
+   X2, so the conversion can take advantage of this.
+
+
+Original code: the sign bit of the machine number plus the absolute value of the truth value of the machine number.
+Inverse code:
+ - Non-negative numbers: the same as the original code
+ - Negative numbers: to flip every bit of the original code except the sign bit
+Complement code(what computer uses):
+ - Non-negative numbers: the same as the original code and the inverse code
+ - Negative numbers: obtained by adding 1 to the inverse code
+   (note the negative minimum value is a special case, for example -128 in 8-bit binary, it doesn't have an original
+   code or an inverse code as its absolute value exceedes the maximum positive limit of 127)
+
+
+^ xor
+& and
+| or
+~ not(inverse every bit)
+>> signed right shift/arithmetic right shift(shift 1 for negative and 0 for positive numbers in)
+>>> unsigned right shift/logical right shift(always shift 0 in)
+<< left shift
+num&(-num) low bit of num
+
+<<
+For any integer, multiplication can be implemented by the left shift operation, but need to be careful with the overflow
+situation.
+>>
+For non-negative numbers, the arithmetic right shift of a number by k digit is equivalent to performing integer division.
+But for negative numbers, this is NOT true.
+The reason is for non-negative numbers, division is rounded to 0, and right shift operation is rounded down, which is
+also rounded to 0. But for negative numbers, division is rounded to 0(which is rounded up) while the right shift is
+rounded down.
+
+
 
 *Divide Two Integers
 Single Number
