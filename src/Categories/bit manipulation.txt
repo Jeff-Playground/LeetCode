@@ -1,6 +1,6 @@
 Conversion between decimal and non-decimal bases:
 From Decimal to non-decimal(X-base):
-- To convert the integer part, we will integer divide it by X until it reaches 0, and record the remainder each time.
+- To convert the integer part, we will integer-divide it by X until it reaches 0, and record the remainder each time.
   Traversing the remainder in reverse order will give us the representation in base-X system.
 - To convert the fractional part, we will multiply the fractional part of the decimal number by X until it becomes 0
   and record the integer part each time. Traversing the integer part in order will give us the representation in base-X
@@ -22,8 +22,8 @@ Inverse code:
 Complement code(what computer uses):
  - Non-negative numbers: the same as the original code and the inverse code
  - Negative numbers: obtained by adding 1 to the inverse code
-   (note the negative minimum value is a special case, for example -128 in 8-bit binary, it doesn't have an original
-   code or an inverse code as its absolute value exceedes the maximum positive limit of 127)
+   (note the negative minimum value is a special case, for example -128 in 8-bit binary(1000000, which is basically -0),
+   it doesn't have an original code or an inverse code as its absolute value exceeds the maximum positive limit of 127)
 
 
 ^ xor

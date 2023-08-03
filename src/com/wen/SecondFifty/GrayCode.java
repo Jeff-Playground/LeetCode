@@ -4,7 +4,8 @@ import java.util.*;
 
 public class GrayCode {
     // Gray code is a series of code which the consecutive codes only have one digit that differs
-    public List<Integer> grayCode(int n) {
+    // Brute force iterative, basically just try to alter every bit from the lowest until worked
+    public static List<Integer> grayCode(int n) {
         List<Integer> result=new ArrayList<>();
         Set<Integer> set=new HashSet<>();
         int priorValue=0;
@@ -35,6 +36,7 @@ public class GrayCode {
         return result;
     }
 
+//    // Brute force recursive
 //    public List<Integer> grayCode(int n) {
 //        List<Integer> result=new ArrayList<>();
 //        Set<Integer> set=new HashSet<>();
@@ -66,10 +68,11 @@ public class GrayCode {
 //    public List<Integer> grayCode(int n) {
 //        List<Integer> result=new ArrayList<>();
 //        result.add(0);
-//        for(int i=0; i<n; i++){
-//            int size=result.size();
-//            for(int j=size-1; j>=0; j--){
-//                result.add(result.get(j) | 1<<i);
+//        result.add(1);
+//        for(int i=1; i<n; i++){
+//            int highBit=1<<i;
+//            for(int j=result.size()-1; j>=0; j--){
+//                result.add(result.get(j)|highBit);
 //            }
 //        }
 //        return result;

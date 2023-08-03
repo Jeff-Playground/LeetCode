@@ -1,7 +1,8 @@
 package com.wen.FifthFifty;
 
 public class BitwiseANDOfNumbersRange {
-    // When n>m, the bitwise AND of the lowest bit will always be 0, so the problem becomes to find a point when n>>k==m>>k, and the result should be n>>k<<k
+    // When n>m, the bitwise AND of the lowest bit will always be 0, so the problem becomes to find a point when
+    // n>>k==m>>k, and the result should be n>>k<<k
     public int rangeBitwiseAnd(int m, int n) {
         while(m<n) {
             n&=n-1;

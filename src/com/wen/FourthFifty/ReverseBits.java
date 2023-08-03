@@ -7,15 +7,14 @@ import java.util.List;
 
 public class ReverseBits {
     public static int reverseBits(int n) {
-        int mask = 1;
-        int s = n, c, res = 0;
-        for (int i = 0; i < 32; i++) {
-            c = s & mask;
-            res <<= 1;
-            res += c;
-            s >>= 1;
+        int result=0;
+        for(int i=0; i<32; i++){
+            int cur=n&1;
+            result<<=1;
+            result+=cur;
+            n>>=1;
         }
-        return res;
+        return result;
     }
 
 //    public static int reverseBits(int n) {

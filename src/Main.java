@@ -14,6 +14,7 @@ import com.wen.FourthFifty.MinStack;
 import com.wen.NineteenthFifty.SnakesAndLadders;
 import com.wen.NineteenthFifty.SortAnArray;
 import com.wen.NinthFifty.*;
+import com.wen.SecondFifty.GrayCode;
 import com.wen.SecondFifty.MinimumWindowSubstring;
 import com.wen.SecondFifty.TextJustification;
 import com.wen.SeventeenthFifty.*;
