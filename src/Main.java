@@ -1263,5 +1263,8 @@ public class Main {
 
 //        ContainsDuplicateIII t=new ContainsDuplicateIII();
 //        t.containsNearbyAlmostDuplicate(new int[]{1,5,9,1,5,9}, 2,3);
+
+//        SetIntersectionSizeAtLeastTwo t=new SetIntersectionSizeAtLeastTwo();
+//        t.intersectionSizeTwo(new int[][]{{3,14},{4,14},{3,9},{5,13},{10,17},{8,20},{7,12},{15,19},{11,17},{6,18},{16,20},{2,18},{3,5},{15,18},{9,12},{3,14},{10,15},{1,13},{8,10},{0,20}});
     }
 }

@@ -38,6 +38,7 @@ LQMaximumDistanceInArrays
 Monotone Increasing Digits
 *LQNumberOfCornerRectangles
 - 750 -
+*Set Intersection Size At Least Two
 *Couples Holding Hands
 *Reorganize String
 - 800 -
