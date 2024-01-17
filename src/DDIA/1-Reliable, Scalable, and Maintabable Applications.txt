@@ -1,0 +1,31 @@
+Reliability:
+    Fault-tolerant:
+        Hardware faults:
+            Add redundancy
+        Software errors:
+            Carefully thinking about assumptions and interactions in the systems
+            Thorough testing
+            Process isolation
+            Allowing processes to crash and restart
+            Measuring, monitoring and analyzing system behaviour in production
+        Human errors:
+            Design systems in a way that minimizes opportunities for error
+            Decouple the places where people make the most mistakes from the places where they can cause failures
+            Test thoroughly at all levels, from unit tests to whole-system integration tests and manual tests
+            Allow quick and easy recovery from human errors, to minimize the impact in the case of a failure
+            Set up detailed and clear monitoring, such as performance metrics and error rates(telemetry)
+            Implement good management practices and training
+Scalability:
+    Load
+    Performance:
+        median - p50
+        p95
+        p99
+        p999
+    Scale:
+        scale vertically
+        scale horizontally
+Maintainability:
+    Operability
+    Simplicity
+    Evolvability
