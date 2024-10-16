@@ -1,0 +1,17 @@
+Formats for Encoding Data
+    In memory, data is kept in objects, structs, lists, arrays, hash tables, trees and so on, which are optimized for efficient processing by CPU(typically using pointers)
+    In disk, data need to be encoded as some kind of self-contained sequence of bytes, for example JSON
+    Mostly, forward and backward compatibility plus ability to do rolling upgrades are important
+    Language-Specific Formats
+        Language built-in encoding is generally a bad idea because:
+            The encoding is tied to the language and is not compatible with other languages
+            Decoding process being able to create arbitrary classes can be a source of security problems
+            Forward and backward compatibility might be a problem since these methods mostly focus on quick and easy encoding instead of data versioning capabilities
+            Efficiency might be bad
+    JSON, XML, and Binary Variants
+Modes of Dataflow
+    Dataflow Through Databases
+    Dataflow Through Services: REST and RPC
+        RPC protocols with a binary encoding format can achieve better performance, but it's also less convenient comparing to REST
+    Message-Passing Dataflow
+        This decouples client and service, and it's normally one-way

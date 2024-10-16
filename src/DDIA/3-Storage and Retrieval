@@ -1,0 +1,89 @@
+Data Structures That Power Your Database
+    Hash Indexes
+        Store data as files on disk, and index as hashmaps in memory
+        The data files are divided into segments and each segment will have its own index
+        Key points:
+            File format:
+                binary which first encodes the length of a string in bytes, followed by the raw string(without need for escaping since there's no special characters like "" in JSON)
+            Deleting records:
+                use tombstones to store the keys need to be deleted, which can be referenced when merging
+            Crash recovery:
+                index rebuild can take time, so one way is to store a snapshot of each segment's index on disk, which can be loaded into memory more quickly
+            Partially written records:
+                files can include checksums, so if the database crash while appending a record to the log, such corrupted parts of the log can be detected and ignored
+            Concurrency control:
+                as writes are sequential, a common implementation choice is to have only one writer thread, but read can happen concurrently by multiple threads since data file segments are append-only and otherwise immutable
+        Limitations:
+            the index hashmaps must fit in memory
+            range queries are inefficient
+    SSTables and LSM-Trees(Log-Structured Merge-Tree)
+        SSTable: Sorted String Table, basically segments with one additional requirement of key-value pair sequence sorted by key. It serves the underlying storage format to store data in LSM-Trees.
+        SSTable advantages over log segments with hash indexes:
+            Merging segments is simple and efficient, even if the files are bigger than the available memory(use mergesort and produce a new merged segment file)
+            In order to find a particular key in the file, it's no longer needed to keep an index of all the keys in memory. Basically the index of the keys which tells offsets can be sparse
+            Records can be compressed before written to disk as long as we maintain the index so each key-value pair points to the start of a compressed block. This will save disk space and reduce I/O bandwidth use
+        Constructing and maintaining SSTables
+            When a write comes in, add it to an in-memory balanced tree data structure(for example a red-black tree). This tree is sometimes called a memtable
+            When the memtable gets bigger than some threshold, write it out to disk as an SSTable file. While this is in progress, writes can continue to a new memtable instance
+            In order to serve a read request, first try the in-memory memtable, then in the most recent on-disk segment, then in the next-older segment, etc
+            From time to time, run a merging and compaction process in the background to combine segment files and to discard overwritten or deleted values
+        Disaster recovery:
+            since the most recent writes in the memtable will be lost, keep a separate log on disk to which every write is immediately appended
+            the log won't be sorted, and will only be used for restoring the memtable after a crash
+            corresponding log can be discarded every time the memtable is written out to an SSTable
+        Performance optimizations:
+            add bloom filter to avoid unnecessary disk reads
+            compaction and merging strategies:
+                size tiered compaction: newer and smaller SSTables are successively merged into older and larger SSTables
+                leveled compaction: older data is moved into separate levels to allow the compaction to proceed more incrementally and use less disk space
+    B-Trees
+        breaks the database down into fixed-size blocks or pages where each block or page would hold a fixed number of indexes
+        each page can be identified using an address or location, and a page can refer to another in disk
+        all page references will construct a balanced tree of pages, where each page will be responsible for a continuous rage of keys
+        the number of references to child pages in one page of the B-tree is called the branching factor
+        references only change when a page is becoming full and need to be split into two
+        Making B-trees reliable:
+            WAL(Write-Ahead-Log) to restore B-Tree to a consistent state for disaster recovery
+            Latches(lightweight locks) to avoid inconsistency when multiple threads accessing the B-tree at the same time
+        B-tree optimizations
+            copy-on-write scheme instead of overwriting pages
+            not storing the entire key but abbreviating it to save space, so a page can have a higher branching factor(so fewer levels)
+            save leaf pages in sequential order on disk
+            additional pointers in the tree to allow more efficient traversal
+    Comparing B-Trees and LSM-Trees
+        Typically, B-Trees are faster for reads and LSM-Trees are faster for writes
+        LSM-Trees advantages:
+            relatively low write amplification
+            can be compressed better and lower storage overhead
+        LSM-Trees downsides:
+            compaction process might interfere with the performance of ongoing reads and writes
+    Other Indexing Structures
+        Secondary index can easily be constructed from a key-value index, the main difference is the key is not unique comparing to primary index
+        Clustered index(storing all row data within the index) vs nonclustered index(storing only reference of the data within the index) vs covering index(storing some of the columns within the index)
+        Multi-column indexes could be implemented with B-Trees or LSM-Trees
+        Multi-dimentional indexes can't be implemented with B-Trees or LSM-Trees, and typically can take advantage of things such as space filling or R-Trees
+        Full-text search and fuzzy indexes
+        Keeping everything in memory
+            the performance advantage of in-memory databases is because they can avoid the overheads of encoding in-memory data structures in a form that can be written to disk
+Transaction Processing or Analytics?
+    OLTP(Online Transaction Processing): realtime data
+    OLAP(Online Analytics Processing): readonly copy of OLTP data, built into data warehouses
+    Star vs Snowflake schema: Star is one fact table referencing N dimension tables, while Snowflake is similar except demension tables can further reference sub-dimension tables.
+Column-Oriented Storage
+    Helpful for serving queries which need only a few columns from a table which holds much more columns, Parquet is a typical file type for column based storage
+    Column Compression:
+        Bitmap encoding: encode based on distinct values, n distinct values can be turned into n separate bitmaps, which can be used in efficient bitwise calculations(vectorized processing)
+        Bitmaps can additionally be run-length encoded, which can further make the encoding of a column remarkably compact, especially with sorted columns
+        Memory bandwidth and vectorized processing:
+            For data warehouses, bandwidth for loading data from disk into memory is a bottleneck, but also the bandwidth for memory to CPU cache
+            Column-oriented data is compact enough, and supports vectorized processing, which is ideal for handling these bottlenecks
+    Sort Order in Column Storage
+        Choosing a primary column to sort, and a few secondary columns too, can help with speed up range queries, as well as compression of columns
+        As the same data is often replicated through different machines, they can have different sort orders to support different queries
+    Writing to Column-Oriented Storage
+        An update-in-place approach, like B-trees use, is not possible with compressed columns
+        LSM-trees is a good solution here
+    Aggregation: Data Cubes and Materialized Views
+        Materialized view is basically a cache built upon a snapshot of the data with aggregation functions, to speed up certain expensive queries
+        Materialized views need to be updated when data changes, hence is expensive for writes and are not commonly used in OLTP databases
+        Data cube is a special type of materialized view which is a grid of aggregates too, but grouped by different dimensions, which can make certain queries even faster

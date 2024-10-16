@@ -1,0 +1,110 @@
+Leaders and Followers
+    Writes only go to leader(read could also go to leader), and followers serve reads only
+    Synchronous Versus Asynchronous Replication: asynchronous replication is most common
+    Setting Up New Followers
+        1. Taking a consistent snapshot of the leader's DB
+        2. Copy the snapshot to the new follower
+        3. The follower connects to the leader and requests all the data changes since the snapshot was taken
+        4. Follower caught up after processing all the new changes
+    Handling Node Outrages
+        Follower failure: Catch-up recovery
+        Leader failure: Failover
+            1. Determining the leader has failed, usually by heartbeat
+            2. Choosing a new leader
+            3. Reconfiguring the system to use the new leader
+            Things could go wrong:
+                For asynchronous replication systems, the new leader may not have all the writes, most common solution is to discard those writes
+                Discarding writes is especially dangerous when it needs to coordinate with other systems with the DB contents(inconsistency could lead to other issues)
+                Split brain, where two nodes could both believe they are the leader. A mechanism needs to be carefully designed to shut down one of them
+                Determining the right timeout to declare a leader is dead can be tricky, since sometimes leader could become unresponsive temporarily due to high load, where failover in such cases could make the situation worse
+    Implementation of Replication Logs
+        Statement based replication: leader logs every statement(in relational DB it means INSERT, UPDATE and DELETE) and sends the statement log to followers, where follower executes the statement as if it's from a normal client write
+            Problems:
+                Any statement tht calls a nondeterministic function(for example NOW() or RAND()) is likely to generate a different value on each follower
+                If statements depend on the existing data in the DB, then they must be executed in the exact same order everywhere, which is limiting when multiple concurrently existing transactions
+                Statement having side effects(e.g. triggers, stored procedures, user-defined functions) may result in different side effects occurring on each replica if they are nondeterministic
+            To solve the problems, leader could replace and nondeterministic function calls with a fixed return value at logging, but there are many edge cases, so other replication methods are generally more preferred
+        Write-ahead log(WAL) shipping: the log is an append-only sequence of bytes containing all writes to the DB
+            Problem: The WAL describes the data on a very low level, which contains details of which bytes were changed in which disk blocks, and makes the replication closely coupled with the storage engine. It's typically not possible to run different versions of the DB software on leader and followers, so no zero-downtime upgrades.
+        Logical(row-based) log replication: the logical log is decoupled from the storage engine, and is usually a sequence of records describing writes at the granularity of a row
+            INSERT: contains all new values of the row
+            DELETE: contains info to uniquely identify the row(primary key or all old values of the row if no primary key)
+            UPDATE: contains info to uniquely identify the row, and new values
+            This make backward compatibility easier, allows leader and followers to run different versions of the DB software, and make the log easier for external applications to parse(for example a data warehouse)
+        Trigger-based replication: move replication up to the application layer
+            It typically has greater overheads and more prone to bugs and limitations than the DB's built-in replication, but more flexible
+Problems with Replication Lag
+    Reading Your Own Writes
+        When reading something that MAY have been modified by the user(or basically editable by the user), read it from the leader
+        The server can track the time of the last update, and for a certain period of time after, serve all reads from the leader(or any follower that has a smaller replication lag than the defined time period)
+        The client can remember the time of the last update, and the server ensures the replica serving any reads from the user reflects updates at least until the timestamp. Otherwise, handle by another replica/leader or make the query wait
+            The timestamp should be a logical one(for example the log sequence number)
+        Additional issues:
+            If the replicas are distributed across multiple datacenters, routing reads to the datacenter that contains the leader introduces additional complexity
+            For cross-device read-after-write consistency:
+                The metadata of last update timestamp needs to be centralized for all devices to have access to it
+                May need to have a way to direct all requests from the same user across different devices to a same datacenter
+    Monotonic Reads
+        Means if a user makes several reads in sequence, they will not see time go backward on the data(old data came after new data)
+        A lesser guarantee than strong consistency, and a stronger guarantee than eventual consistency
+        Can be achieved by directing all reads from a user to the same replica, for example by hashing the user ID
+    Consistent Prefix Reads
+        Means if a sequence of writes happens in a certain order, anyone reading these writes will see them in the same order
+        This is a particular problem in partitioned DBs, since different partitions operate independently and there's no global ordering of writes, so followers in different partitions could have different replication lags
+        One solution could be to ensure any writes that are causally related are written to the same partition
+Multi-Leader Replication
+    Use Cases for Multi-Leader Replication
+        Multi-datacenter operation: one leader in each datacenter
+            Performance: Inter-datacenter network delay is hidden from users, so the perceived performance may be better
+            Tolerance of datacenter outages: At the failure of a datacenter, remaining datacenter can operate as is, and replication catches up when the failed datacenter is back online
+            Tolerance of datacenter problems: The multi-leader configuration with asynchronous replication can tolerate network problems better since temporary network interruption doesn't prevent writes being processed.
+        Clients with offline operation: Every device has a local DB and acts as a leader(accepts write requests), the replication lag may be hours or even days depends on when internet is available.
+            Calendar app is an example
+            This is similar to multi-datacenter operation but take to extreme: each device is a datacenter and the network connection among them is extremely unreliable
+        Collaborative editing: Allows several people to edit a document simultaneously.
+            Google doc is an example
+    Handling Write Conflicts
+        Synchronous versus asynchronous conflict detection: Enable synchronous conflict detection would lose the main advantage of multi-leader replication(allowing each replica to accept writes independently)
+        Conflict avoidance: Ensure all writes for a particular record would go through the same replica, which could break down when a datacenter fails and writes has to be redirected to a new leader
+        Converging toward a consistent state:
+            Give each write a unique ID and pick the write with the highest ID as the winner. If using timestamp, this is called LWW(last write wins)
+            Give each replica a unique ID and let writes that originated from a higher numbered replica always take precedence
+            Somehow merge all the values together instead of only keeping one value
+            Record the conflict in an explicit data structure that preserves all info, and write application code that resolves the conflict at some later time
+        Custom conflict resolution logic:
+            On write: As soon as DB detects a conflict int he log of replicated changes, it calls the conflict handler
+            On read: All the conflicting writes are stored, the next time the data is read, all versions of the data is returned to the application, and the application can prompt the user or automatically resolve the conflict then write data back
+    Multi-Leader Replication Topologies
+        Circular
+        Star
+        All-to-all
+        To prevent infinite replication loops:
+            each node is given a unique identifier, and in the replication log, each write is tagged with the identifiers of all the nodes it has passed through
+            when a node receives a data change that is tagged with its own identifier, the node knows it has been processed and will ignore it
+        All-to-all fault tolerance is better than Circular and Star since lost of some nodes is normally fine
+        All-to-all is particularly vulnerable to some network links faster than others, so some replication messages may overtake others
+Leaderless Replication
+    Writing to the Database when a Node Is Down
+        Read repair:
+            When a client makes a read form several nodes in parallel, it can detect stale responses, and can write newer value to staled replicas.
+            Works well when values are frequently read, but for rarely read data can have durability issues.
+        Anti-entropy process:
+            A process on DB side to detect differences in data and copy data across replicas.
+        Quorums for reading and writing:
+            w+r>n can ensure the read will always contain a up-to-date value
+            with w<n and r<n the system can also tolerate unavailable nodes
+    Sloppy Quorums and Hinted Handoff
+        Sloppy quorums:
+            Reads and writes still require w and r successful responses, but may include nodes not among the designated n home nodes for a value.
+            Useful for increasing write availability
+        Hinted handoff: after network interruption is fixed, any writes that one node temporarily accepted on behalf of another node are sent to the appropriate home nodes.
+    Detecting Concurrent Writes
+        Last write wins(discarding concurrent writes):
+            There will be data loss, and the only safe way if to ensure that a key is only written once and thereafter treated as immutable(for example like in Cassandra using a UUID as they key to give each write operation a unique key)
+        The "happens-before" relationship and concurrency:
+            To determine whether writes are concurrent or not:
+                server maintains a version number for each key, and increments the version number at every write on the key
+                client must read a key before write, and server returns all values that have not been overwritten along with the version number for the read
+                client must include the version number and merge together all values from the prior read at a write
+                when server receives a write with a particular version number, server overwrite all values with the version number or below(because they should have already been merged by client into the new value), but it must keep all values with the higher version number
+            Version vector is for when the writes are going to multiple replicas, and each replica maintains its own version number, so the client would receive a version vector like [x, y, z, ...] with all values from all replicas

@@ -1,0 +1,41 @@
+Relational Model Versus Document Model
+    Which data model leads to simpler application code?
+        Relational model is better for:
+            deeply nested data structure
+            when joins are needed
+            highly interconnected data
+        Document model is better for:
+            document-like data structure(i.e. a tree of one-to-many relationships, where typically the entire tree is loaded at once)
+            non-deeply nested data structure
+    Schema flexibility in the document model
+        Relational model has static schema: schema-on-write
+        Document model has dynamic schema: schemaless or schema-on-read
+    Data locality(storage locality - store related data together to avoid join overheads) for queries
+        This is more natural for document model, but doable for relational model
+        The locality advantage only applies if you need large parts of the document at the same time
+    Convergence of document and relational databases
+Query Languages for Data
+    Declarative vs Imperative
+        With declarative querying language, implementation details are hidden from querying, and query can be executed in a distributed and parallel manner
+        An example with Declarative Queries on the Web is setting styles from CSS, while the opposite(imperative) is setting styles through JS logic
+            With the CSS approach, identifying the components need styling is controlled and can be optimized by browser
+            With the JS approach, identifying the components need styling is controlled by the logic itself
+    MapReduce Querying
+        Map and reduce are pure functions, which only use the data passed to them as input to compute the output, and can't have any side effects
+        Map and reduce functions should be able to run anywhere, in any order, and can be rerun on failures
+Graph-Like Data Models
+    Good for data that has complex many-to-many relationships
+    Property Graph
+        Consisted of vertices and edges, where both could be structured as an object with a few properties
+    The Cypher Query Language
+        A declarative query language for property graphs, created for Neo4j
+    Graph Queries in SQL
+        Possible but hard, plus beware of the limitation where relational DB normally assumes knowing in advance of the required number of joins of the data, while3 in reality, traversing a graph might need to go through an unknown number of edges to reach a vertex.
+    Triple-Stores and SPARQL
+        Consisted of subject, predicate and object(subject, predicate, object)
+            subject equal to vertex
+            predicate can be either edge or property
+            object can either be another subject or a value of a property on the subject
+                another subject: (lucy, marriedTo, alain)
+                a value of a property on the subject: (lucy, age, 33)
+    The Foundation: Datalog
